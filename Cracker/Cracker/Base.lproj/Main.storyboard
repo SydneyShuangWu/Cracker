@@ -1,24 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EHO-z8-vXP">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Lobby View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LobbyViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ii2-Us-qjG">
+                                <rect key="frame" x="344" y="60" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="hPL-G5-cai"/>
+                                    <constraint firstAttribute="width" secondItem="ii2-Us-qjG" secondAttribute="height" multiplier="1:1" id="zb5-nP-uBh"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="Icon_Menu"/>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ba3-ao-7yb">
+                                <rect key="frame" x="40" y="563" width="334" height="170"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQP-Uf-eDS">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="70"/>
+                                        <color key="backgroundColor" name="CrackerOrange"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="okr-td-OXY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="25"/>
+                                        <state key="normal" title="CRACK A CASE">
+                                            <color key="titleColor" name="CrackerWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLL-O4-kzI">
+                                        <rect key="frame" x="0.0" y="100" width="334" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="Edc-Zv-L2y"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="25"/>
+                                        <state key="normal" title="CREATE A CASE">
+                                            <color key="titleColor" name="CrackerOrange"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.98431372549019602" green="0.96470588235294119" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ba3-ao-7yb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="161-yN-ScB"/>
+                            <constraint firstItem="ii2-Us-qjG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="60" id="523-7M-hZ5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ba3-ao-7yb" secondAttribute="bottom" constant="80" id="Adi-VG-elN"/>
+                            <constraint firstAttribute="trailing" secondItem="ii2-Us-qjG" secondAttribute="trailing" constant="20" id="F7x-hZ-hTY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ba3-ao-7yb" secondAttribute="trailing" constant="40" id="Mu5-TK-uk0"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="DWI-0I-m1L"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="crackCaseBtn" destination="FQP-Uf-eDS" id="eAk-hC-qVY"/>
+                        <outlet property="createCaseBtn" destination="FLL-O4-kzI" id="4OF-AW-5zg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="62.946428571428569"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="lqZ-g1-Ck0">
+            <objects>
+                <viewController id="EHO-z8-vXP" customClass="MapViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XuN-Rq-ThM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Q61-Qg-03n">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="h6O-Gl-6w5"/>
+                        <color key="backgroundColor" name="CrackerWhite"/>
+                        <constraints>
+                            <constraint firstItem="h6O-Gl-6w5" firstAttribute="trailing" secondItem="Q61-Qg-03n" secondAttribute="trailing" id="0kB-TN-p1J"/>
+                            <constraint firstItem="Q61-Qg-03n" firstAttribute="top" secondItem="h6O-Gl-6w5" secondAttribute="top" id="N1u-lb-KE4"/>
+                            <constraint firstItem="h6O-Gl-6w5" firstAttribute="bottom" secondItem="Q61-Qg-03n" secondAttribute="bottom" id="Zfe-LK-wuQ"/>
+                            <constraint firstItem="Q61-Qg-03n" firstAttribute="leading" secondItem="h6O-Gl-6w5" secondAttribute="leading" id="pO5-t6-PLQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Q61-Qg-03n" id="D9L-cs-6Hm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x34-P0-mhb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2016" y="71"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hiN-db-X7l">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PW7-4d-SoQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iKv-hf-Wrw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="oJz-IH-YTQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l0y-CA-hSA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="62.946428571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon_Menu" width="512" height="512"/>
+        <namedColor name="CrackerOrange">
+            <color red="1" green="0.64300000667572021" blue="0.35699999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CrackerWhite">
+            <color red="0.98400002717971802" green="0.9649999737739563" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
