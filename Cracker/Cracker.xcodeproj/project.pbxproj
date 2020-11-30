@@ -12,6 +12,7 @@
 		C1A7C02A257497160022674B /* MockMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C029257497160022674B /* MockMarker.swift */; };
 		C1A7C0302574ACA80022674B /* MarkerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C02F2574ACA80022674B /* MarkerViews.swift */; };
 		C1A7C0382574DB410022674B /* MockGeotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C0372574DB410022674B /* MockGeotification.swift */; };
+		C1A7C03C2574EF170022674B /* Helper Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C03B2574EF170022674B /* Helper Extensions.swift */; };
 		C1D421332570A82A00FF0641 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D421322570A82A00FF0641 /* AppDelegate.swift */; };
 		C1D421352570A82A00FF0641 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D421342570A82A00FF0641 /* SceneDelegate.swift */; };
 		C1D421372570A82A00FF0641 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D421362570A82A00FF0641 /* LobbyViewController.swift */; };
@@ -30,6 +31,7 @@
 		C1A7C029257497160022674B /* MockMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMarker.swift; sourceTree = "<group>"; };
 		C1A7C02F2574ACA80022674B /* MarkerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerViews.swift; sourceTree = "<group>"; };
 		C1A7C0372574DB410022674B /* MockGeotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGeotification.swift; sourceTree = "<group>"; };
+		C1A7C03B2574EF170022674B /* Helper Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helper Extensions.swift"; sourceTree = "<group>"; };
 		C1D4212F2570A82A00FF0641 /* Cracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D421322570A82A00FF0641 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1D421342570A82A00FF0641 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				C1D421612570D9C000FF0641 /* UIColor+Extension.swift */,
 				C1D4216C25710CBC00FF0641 /* UIView+Extension.swift */,
+				C1A7C03B2574EF170022674B /* Helper Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1A7C03C2574EF170022674B /* Helper Extensions.swift in Sources */,
 				C1D4216D25710CBC00FF0641 /* UIView+Extension.swift in Sources */,
 				C1A7C0382574DB410022674B /* MockGeotification.swift in Sources */,
 				C1A7C0272574869F0022674B /* MapViewController.swift in Sources */,

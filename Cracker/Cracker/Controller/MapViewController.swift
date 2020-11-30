@@ -15,14 +15,14 @@ class MapViewController: UIViewController {
     let locationManager = CLLocationManager()
     
     // MARK: - Mock Data
-    private var mockCharacters: [MockMarker] = [
+    private var mockMarkers: [MockMarker] = [
         
         MockMarker(
             name: "Sponge Bob",
             brief: "A citizen in Bikini Bottom",
             category: "Character",
             coordinate: CLLocationCoordinate2D(
-                latitude: 25.040079, longitude: 121.560352)
+                latitude: 25.037876, longitude: 121.568167)
         ),
         MockMarker(
             name: "Krusty Krab",
@@ -32,7 +32,13 @@ class MapViewController: UIViewController {
                 latitude: 25.038284, longitude: 121.560330)
         )
     ]
+    
+    let geotification = MockGeotification(
+        coordinate: CLLocationCoordinate2D(latitude: 25.037876, longitude: 121.568167),
+        radius: 150,
+        identifier: "Hi my friend!")
 
+    // MARK: - ViewDidLoad
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -42,10 +48,14 @@ class MapViewController: UIViewController {
         locationManager.requestAlwaysAuthorization()
 
         setupMap()
+
+        configGeotification(for: geotification)
     }
     
     // MARK: - Configure Map
     func setupMap() {
+        
+        mapView.delegate = self
         
         // Set initial location for the game
         let initialLocation = CLLocation(latitude: 25.042409, longitude: 121.564887)
@@ -56,12 +66,12 @@ class MapViewController: UIViewController {
         // Constrain the user to pan and zoom the map over a specified area
         constrainMapView()
         
-        // Register CharacterMarkerView as a reusable annotation view
+        // Register MarkerView as a reusable annotation view
         mapView.register(
             MarkerView.self,
             forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         
-        // Plot the character on the map
+        // Plot markers on the map
         renderAnnotation()
     }
     
@@ -85,7 +95,7 @@ class MapViewController: UIViewController {
     
     func renderAnnotation() {
         
-        mapView.addAnnotations(mockCharacters)
+        mapView.addAnnotations(mockMarkers)
     }
 }
 
@@ -102,9 +112,9 @@ private extension MKMapView {
     }
 }
 
-// MARK: - Location Manager Delegate: Current Location
 extension MapViewController: CLLocationManagerDelegate {
     
+    // MARK: - Current Location
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         
         if #available(iOS 14.0, *) {
@@ -118,16 +128,75 @@ extension MapViewController: CLLocationManagerDelegate {
             }
         }
     }
+    
+    // MARK: - Geofence
+
+    // Turn Geotification into CLCircularRegion in order to implement Geofence
+    func region(with geotification: MockGeotification) -> CLCircularRegion {
+        
+        let region = CLCircularRegion(center: geotification.coordinate, radius: geotification.radius, identifier: geotification.identifier)
+        
+        region.notifyOnEntry = true
+        
+        return region
+    }
+
+    func startMonitoring(geotification: MockGeotification) {
+        
+        // Check if the device has the required hardware to support geofence monitoring
+        if !CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+            showAlert(withTitle: "Error", message: "Geofencing is not supported on this device!")
+            
+            return
+        }
+        
+//        if locationManager.authorizationStatus != .authorizedAlways || locationManager.authorizationStatus != .authorizedWhenInUse {
+//            
+//            let message = """
+//                Geofence will only be activated once you grant Cracker permission to access the device location
+//            """
+//            
+//            showAlert(withTitle: "Warning", message: message)
+//        }
+        
+        // Create a CLCircularRegion instance
+        let fenceRegion = region(with: geotification)
+        
+        locationManager.startMonitoring(for: fenceRegion)
+    }
+    
+    // Facilitate error handling for Geofence events
+    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
+        
+        print("Monitoring failed for region with identifier: \(region!.identifier)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Location Manager failed with the following error: \(error)")
+    }
 }
 
-// MARK: - Geofence
+// MARK: - Overlay
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        if overlay is MKCircle {
+          let circleRenderer = MKCircleRenderer(overlay: overlay)
+          circleRenderer.lineWidth = 1.0
+          circleRenderer.strokeColor = .purple
+          circleRenderer.fillColor = UIColor.purple.withAlphaComponent(0.4)
+          return circleRenderer
+        }
 
-// Turn Geotification into CLCircularRegion in order to implement Geofence
-func region(with geotification: MockGeotification) -> CLCircularRegion {
+        return MKOverlayRenderer(overlay: overlay)
+    }
     
-    let region = CLCircularRegion(center: geotification.coordinate, radius: geotification.radius, identifier: geotification.identifier)
-    
-    region.notifyOnEntry = true
-    
-    return region
+    func configGeotification(for geotification: MockGeotification) {
+        
+        startMonitoring(geotification: geotification)
+        
+        mapView?.addOverlay(MKCircle(center: geotification.coordinate, radius: geotification.radius))
+    }
 }
+
