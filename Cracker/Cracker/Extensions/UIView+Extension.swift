@@ -2,7 +2,7 @@
 //  UIView.swift
 //  Cracker
 //
-//  Created by Jovan ho on 2020/11/27.
+//  Created by Sydney Wu on 2020/11/27.
 //
 
 import UIKit

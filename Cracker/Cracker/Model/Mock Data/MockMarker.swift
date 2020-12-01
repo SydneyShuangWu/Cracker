@@ -54,16 +54,16 @@ class MockMarker: NSObject, MKAnnotation {
     var image: UIImage {
         
         guard let name = name else {
-            return #imageLiteral(resourceName: "Icon_Menu")
+            return #imageLiteral(resourceName: "Character")
         }
         
         switch name {
         case "Sponge Bob":
-            return #imageLiteral(resourceName: "Image-1")
+            return #imageLiteral(resourceName: "Character")
         case "Krusty Krab":
-            return #imageLiteral(resourceName: "Image")
+            return #imageLiteral(resourceName: "Stage")
         default:
-            return #imageLiteral(resourceName: "Icon_Menu")
+            return #imageLiteral(resourceName: "Character")
         }
     }
     

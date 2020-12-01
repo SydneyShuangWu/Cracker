@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EHO-z8-vXP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PW7-4d-SoQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -17,12 +17,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ii2-Us-qjG">
-                                <rect key="frame" x="344" y="60" width="50" height="50"/>
+                                <rect key="frame" x="20" y="60" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="hPL-G5-cai"/>
                                     <constraint firstAttribute="width" secondItem="ii2-Us-qjG" secondAttribute="height" multiplier="1:1" id="zb5-nP-uBh"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="Icon_Menu"/>
+                                <state key="normal" backgroundImage="Hamburger"/>
+                                <connections>
+                                    <segue destination="Cx8-uc-MgZ" kind="presentation" id="rXN-tB-JvM"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ba3-ao-7yb">
                                 <rect key="frame" x="40" y="563" width="334" height="170"/>
@@ -57,7 +60,7 @@
                             <constraint firstItem="Ba3-ao-7yb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="161-yN-ScB"/>
                             <constraint firstItem="ii2-Us-qjG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="60" id="523-7M-hZ5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ba3-ao-7yb" secondAttribute="bottom" constant="80" id="Adi-VG-elN"/>
-                            <constraint firstAttribute="trailing" secondItem="ii2-Us-qjG" secondAttribute="trailing" constant="20" id="F7x-hZ-hTY"/>
+                            <constraint firstAttribute="leading" secondItem="ii2-Us-qjG" secondAttribute="leading" constant="-20" id="F7x-hZ-hTY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ba3-ao-7yb" secondAttribute="trailing" constant="40" id="Mu5-TK-uk0"/>
                         </constraints>
                     </view>
@@ -71,7 +74,114 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="62.946428571428569"/>
+            <point key="canvasLocation" x="1048" y="-43"/>
+        </scene>
+        <!--Side Menu Navigation Controller-->
+        <scene sceneID="Wec-ZR-84h">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="Cx8-uc-MgZ" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WOf-NM-ImO">
+                        <rect key="frame" x="0.0" y="-54" width="0.0" height="0.0"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="TJM-hA-4iO" kind="relationship" relationship="rootViewController" id="HHO-8U-UL4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q9Z-Ll-p8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1943" y="-44"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Odo-Kg-yps">
+            <objects>
+                <viewController id="TJM-hA-4iO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zlk-jt-7MO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eez-j6-KPO">
+                                <rect key="frame" x="0.0" y="100" width="414" height="60"/>
+                                <color key="backgroundColor" name="CrackerOrange"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="GQm-Xq-gmm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="25"/>
+                                <inset key="contentEdgeInsets" minX="90" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="ABOUT">
+                                    <color key="titleColor" name="CrackerWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usb-If-GXS">
+                                <rect key="frame" x="0.0" y="170" width="414" height="60"/>
+                                <color key="backgroundColor" name="CrackerOrange"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HZH-mR-paQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="25"/>
+                                <inset key="contentEdgeInsets" minX="90" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="PROFILE">
+                                    <color key="titleColor" name="CrackerWhite"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p4k-FB-b13">
+                                <rect key="frame" x="0.0" y="100" width="15" height="60"/>
+                                <color key="backgroundColor" name="CrackerBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="Be5-7s-RlQ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkw-OX-7Cu">
+                                <rect key="frame" x="0.0" y="170" width="15" height="60"/>
+                                <color key="backgroundColor" name="CrackerBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="0ST-HC-Q8V"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cookie" translatesAutoresizingMaskIntoConstraints="NO" id="2z2-W5-qNf">
+                                <rect key="frame" x="35" y="110" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2z2-W5-qNf" secondAttribute="height" multiplier="1:1" id="2Ch-au-gDr"/>
+                                    <constraint firstAttribute="width" constant="40" id="uBS-bh-exY"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ginger Bread Man" translatesAutoresizingMaskIntoConstraints="NO" id="7tq-Jm-Zos">
+                                <rect key="frame" x="35" y="180" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="KhV-h0-gzB"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Qen-R9-kgQ"/>
+                        <color key="backgroundColor" name="CrackerYellow"/>
+                        <constraints>
+                            <constraint firstItem="mkw-OX-7Cu" firstAttribute="leading" secondItem="Qen-R9-kgQ" secondAttribute="leading" id="1of-R2-ix0"/>
+                            <constraint firstItem="usb-If-GXS" firstAttribute="leading" secondItem="Qen-R9-kgQ" secondAttribute="leading" id="33C-7H-zkk"/>
+                            <constraint firstItem="mkw-OX-7Cu" firstAttribute="bottom" secondItem="usb-If-GXS" secondAttribute="bottom" id="8jz-KR-Lak"/>
+                            <constraint firstItem="2z2-W5-qNf" firstAttribute="centerY" secondItem="Eez-j6-KPO" secondAttribute="centerY" id="CUl-RF-99d"/>
+                            <constraint firstItem="Eez-j6-KPO" firstAttribute="leading" secondItem="Qen-R9-kgQ" secondAttribute="leading" id="DHb-ln-OFu"/>
+                            <constraint firstItem="7tq-Jm-Zos" firstAttribute="width" secondItem="7tq-Jm-Zos" secondAttribute="height" multiplier="1:1" id="DyW-WE-Wm9"/>
+                            <constraint firstItem="usb-If-GXS" firstAttribute="top" secondItem="Eez-j6-KPO" secondAttribute="bottom" constant="10" id="EtV-6C-iZ7"/>
+                            <constraint firstItem="7tq-Jm-Zos" firstAttribute="leading" secondItem="mkw-OX-7Cu" secondAttribute="trailing" constant="20" id="KMT-RP-zJs"/>
+                            <constraint firstItem="p4k-FB-b13" firstAttribute="top" secondItem="Eez-j6-KPO" secondAttribute="top" id="Mwv-d0-lqg"/>
+                            <constraint firstItem="p4k-FB-b13" firstAttribute="bottom" secondItem="Eez-j6-KPO" secondAttribute="bottom" id="OGE-3R-lNi"/>
+                            <constraint firstItem="mkw-OX-7Cu" firstAttribute="top" secondItem="usb-If-GXS" secondAttribute="top" id="Vfw-ys-XDK"/>
+                            <constraint firstItem="Qen-R9-kgQ" firstAttribute="trailing" secondItem="Eez-j6-KPO" secondAttribute="trailing" id="WvP-ST-IxH"/>
+                            <constraint firstItem="p4k-FB-b13" firstAttribute="leading" secondItem="zlk-jt-7MO" secondAttribute="leading" id="Xbl-zU-CEY"/>
+                            <constraint firstItem="usb-If-GXS" firstAttribute="trailing" secondItem="Qen-R9-kgQ" secondAttribute="trailing" id="eUw-9T-z7X"/>
+                            <constraint firstItem="2z2-W5-qNf" firstAttribute="leading" secondItem="p4k-FB-b13" secondAttribute="trailing" constant="20" id="kTV-pL-RAp"/>
+                            <constraint firstItem="7tq-Jm-Zos" firstAttribute="centerY" secondItem="usb-If-GXS" secondAttribute="centerY" id="lOI-qf-luR"/>
+                            <constraint firstItem="Eez-j6-KPO" firstAttribute="top" secondItem="Qen-R9-kgQ" secondAttribute="top" constant="100" id="oD7-FO-jD3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="07Z-KU-7ty"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dHf-j7-Kph" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2828" y="-44"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="lqZ-g1-Ck0">
@@ -94,13 +204,14 @@
                             <constraint firstItem="Q61-Qg-03n" firstAttribute="leading" secondItem="h6O-Gl-6w5" secondAttribute="leading" id="pO5-t6-PLQ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="XIg-Kg-YBL"/>
                     <connections>
                         <outlet property="mapView" destination="Q61-Qg-03n" id="D9L-cs-6Hm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x34-P0-mhb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2016" y="71"/>
+            <point key="canvasLocation" x="2877" y="1274"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hiN-db-X7l">
@@ -118,16 +229,24 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l0y-CA-hSA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="62.946428571428569"/>
+            <point key="canvasLocation" x="1048" y="-779"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Icon_Menu" width="512" height="512"/>
+        <image name="Cookie" width="512" height="512"/>
+        <image name="Ginger Bread Man" width="512" height="512"/>
+        <image name="Hamburger" width="512" height="512"/>
+        <namedColor name="CrackerBlue">
+            <color red="0.68199998140335083" green="0.90200001001358032" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="CrackerOrange">
             <color red="1" green="0.64300000667572021" blue="0.35699999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="CrackerWhite">
             <color red="0.98400002717971802" green="0.9649999737739563" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CrackerYellow">
+            <color red="1" green="0.85500001907348633" blue="0.46700000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

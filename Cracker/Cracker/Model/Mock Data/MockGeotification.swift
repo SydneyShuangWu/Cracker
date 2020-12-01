@@ -2,7 +2,7 @@
 //  MockGeofication.swift
 //  Cracker
 //
-//  Created by Jovan ho on 2020/11/30.
+//  Created by Sydney Wu on 2020/11/30.
 //
 
 import Foundation
