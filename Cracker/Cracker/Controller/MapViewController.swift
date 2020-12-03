@@ -13,30 +13,6 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
-    
-    // MARK: - Mock Data
-    private var mockMarkers: [MockMarker] = [
-        
-        MockMarker(
-            name: "Sponge Bob",
-            brief: "A citizen in Bikini Bottom",
-            category: "Character",
-            coordinate: CLLocationCoordinate2D(
-                latitude: 25.037876, longitude: 121.568167)
-        ),
-        MockMarker(
-            name: "Krusty Krab",
-            brief: "Famous for its signature burger, the Krabby Patty, the formula to which is a closely guarded trade secret",
-            category: "Location",
-            coordinate: CLLocationCoordinate2D(
-                latitude: 25.038284, longitude: 121.560330)
-        )
-    ]
-    
-    let geotification = MockGeotification(
-        coordinate: CLLocationCoordinate2D(latitude: 25.037876, longitude: 121.568167),
-        radius: 150,
-        identifier: "Hi my friend!")
 
     // MARK: - ViewDidLoad
     override func viewDidLoad() {

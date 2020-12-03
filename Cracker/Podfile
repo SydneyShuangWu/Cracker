@@ -8,5 +8,6 @@ target 'Cracker' do
   # Pods for Cracker
   pod 'SwiftLint'
   pod 'SideMenu', '~> 6.0'
+  pod 'Hero'
 
 end

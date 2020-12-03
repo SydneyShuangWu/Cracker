@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import Hero
+
 
 class LobbyViewController: UIViewController {
     
@@ -14,11 +16,22 @@ class LobbyViewController: UIViewController {
     
     @IBOutlet weak var createCaseBtn: UIButton!
     
+    let myStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         setupButton()
+    }
+    
+    func setupButton() {
+        
+        createCaseBtn.setupBorder()
+        crackCaseBtn.setupBorder()
+        
+        createCaseBtn.setupCornerRadius()
+        crackCaseBtn.setupCornerRadius()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,13 +41,24 @@ class LobbyViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    func setupButton() {
+    override func viewWillDisappear(_ animated: Bool) {
         
-        crackCaseBtn.setupCornerRadius()
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
+    @IBAction func navigateToSearchCaseVc() {
         
-        createCaseBtn.setupCornerRadius()
+        let vc = myStoryboard.instantiateViewController(withIdentifier: "SearchCaseVc")
         
-        createCaseBtn.setupBorder()
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .fullScreen
+
+        nav.hero.isEnabled = true
+
+        nav.hero.modalAnimationType = .autoReverse(presenting: .zoom)
+
+        present(nav, animated: true, completion: nil)
     }
     
 }

@@ -21,3 +21,9 @@ class MockGeotification: NSObject {
         self.identifier = identifier
     }
 }
+
+// MARK: - Mock Data
+let geotification = MockGeotification(
+    coordinate: CLLocationCoordinate2D(latitude: 25.037876, longitude: 121.568167),
+    radius: 150,
+    identifier: "Hi my friend!")

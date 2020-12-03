@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PW7-4d-SoQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PW7-4d-SoQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,6 +41,9 @@
                                         <state key="normal" title="CRACK A CASE">
                                             <color key="titleColor" name="CrackerWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="navigateToSearchCaseVc" destination="BYZ-38-t0r" eventType="touchUpInside" id="VKo-JQ-hLt"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLL-O4-kzI">
                                         <rect key="frame" x="0.0" y="100" width="334" height="70"/>
@@ -76,6 +80,167 @@
             </objects>
             <point key="canvasLocation" x="1048" y="-43"/>
         </scene>
+        <!--Search Case View Controller-->
+        <scene sceneID="OhH-Rm-ipr">
+            <objects>
+                <viewController storyboardIdentifier="SearchCaseVc" id="ciJ-ab-iwL" customClass="SearchCaseViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JPV-Fe-rx0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LcK-Ql-cS1">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <color key="backgroundColor" name="CrackerOrange"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="xYo-sA-DhQ"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iow-I4-Qpq">
+                                <rect key="frame" x="16" y="54" width="382" height="40"/>
+                                <color key="backgroundColor" name="CrackerYellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="iIm-KQ-E5J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <inset key="contentEdgeInsets" minX="45" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal">
+                                    <color key="titleColor" name="CrackerWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="findCase:" destination="ciJ-ab-iwL" eventType="touchUpInside" id="aXU-6Q-T5c"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search" translatesAutoresizingMaskIntoConstraints="NO" id="oY8-Fu-VfA">
+                                <rect key="frame" x="26" y="61.5" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oY8-Fu-VfA" secondAttribute="height" multiplier="1:1" id="4uy-31-deL"/>
+                                    <constraint firstAttribute="width" constant="25" id="9EE-fK-Dtj"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fZj-Ss-iLI">
+                                <rect key="frame" x="16" y="149" width="382" height="713"/>
+                                <color key="backgroundColor" name="CrackerWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCaseTBCell" rowHeight="111" id="dX5-Wz-LWW" customClass="SearchCaseTBCell" customModule="Cracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="382" height="111"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dX5-Wz-LWW" id="dmk-ju-NoH">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="111"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZi-q6-4d5" customClass="CardView" customModule="Cracker" customModuleProvider="target">
+                                                    <rect key="frame" x="5" y="16" width="372" height="79"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rma-ih-xC2">
+                                                            <rect key="frame" x="10" y="9.5" width="60" height="60"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="Rma-ih-xC2" secondAttribute="height" multiplier="1:1" id="LVx-CO-gk6"/>
+                                                                <constraint firstAttribute="width" constant="60" id="lBL-yy-opH"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hT8-g4-3G6">
+                                                            <rect key="frame" x="85" y="14.5" width="207" height="21"/>
+                                                            <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="18"/>
+                                                            <color key="textColor" systemColor="systemGrayColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqz-lX-gSA">
+                                                            <rect key="frame" x="85" y="40.5" width="207" height="20"/>
+                                                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="nbe-7V-aKM">
+                                                            <rect key="frame" x="307" y="24.5" width="30" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="30" id="4Z1-my-qrY"/>
+                                                                <constraint firstAttribute="width" secondItem="nbe-7V-aKM" secondAttribute="height" multiplier="1:1" id="Mw7-Py-VrD"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcK-yO-v9V">
+                                                            <rect key="frame" x="342" y="29.5" width="9.5" height="20"/>
+                                                            <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="17"/>
+                                                            <color key="textColor" name="CrackerOrange"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="CrackerWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="TcK-yO-v9V" firstAttribute="leading" secondItem="nbe-7V-aKM" secondAttribute="trailing" constant="5" id="5Ix-I8-3ph"/>
+                                                        <constraint firstItem="pqz-lX-gSA" firstAttribute="top" secondItem="hT8-g4-3G6" secondAttribute="bottom" constant="5" id="BcI-qf-OwC"/>
+                                                        <constraint firstItem="hT8-g4-3G6" firstAttribute="trailing" secondItem="nbe-7V-aKM" secondAttribute="leading" constant="-15" id="Bn7-Jg-ktP"/>
+                                                        <constraint firstItem="pqz-lX-gSA" firstAttribute="leading" secondItem="hT8-g4-3G6" secondAttribute="leading" id="WxA-oG-cUR"/>
+                                                        <constraint firstItem="nbe-7V-aKM" firstAttribute="centerY" secondItem="RZi-q6-4d5" secondAttribute="centerY" id="a92-St-LyV"/>
+                                                        <constraint firstItem="pqz-lX-gSA" firstAttribute="trailing" secondItem="hT8-g4-3G6" secondAttribute="trailing" id="jcD-SR-fbE"/>
+                                                        <constraint firstItem="Rma-ih-xC2" firstAttribute="leading" secondItem="RZi-q6-4d5" secondAttribute="leading" constant="10" id="lR5-01-BMe"/>
+                                                        <constraint firstItem="TcK-yO-v9V" firstAttribute="centerY" secondItem="nbe-7V-aKM" secondAttribute="centerY" id="nay-HE-jqi"/>
+                                                        <constraint firstAttribute="trailing" secondItem="nbe-7V-aKM" secondAttribute="trailing" constant="35" id="oVA-eC-lwH"/>
+                                                        <constraint firstItem="hT8-g4-3G6" firstAttribute="top" secondItem="Rma-ih-xC2" secondAttribute="top" constant="5" id="sHX-Cg-EIy"/>
+                                                        <constraint firstItem="hT8-g4-3G6" firstAttribute="leading" secondItem="Rma-ih-xC2" secondAttribute="trailing" constant="15" id="yB5-Wf-5i5"/>
+                                                        <constraint firstItem="Rma-ih-xC2" firstAttribute="centerY" secondItem="RZi-q6-4d5" secondAttribute="centerY" id="zIh-g3-LSy"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" name="CrackerWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="RZi-q6-4d5" secondAttribute="trailing" constant="5" id="S2M-Z0-FJR"/>
+                                                <constraint firstItem="RZi-q6-4d5" firstAttribute="top" secondItem="dmk-ju-NoH" secondAttribute="top" constant="16" id="Yhf-zC-7TO"/>
+                                                <constraint firstItem="RZi-q6-4d5" firstAttribute="leading" secondItem="dmk-ju-NoH" secondAttribute="leading" constant="5" id="lgn-CT-8Wc"/>
+                                                <constraint firstAttribute="bottom" secondItem="RZi-q6-4d5" secondAttribute="bottom" constant="16" id="q6w-rK-XE2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="caseCreator" destination="pqz-lX-gSA" id="bhF-Jo-PDJ"/>
+                                            <outlet property="caseImage" destination="Rma-ih-xC2" id="QSE-iB-zm9"/>
+                                            <outlet property="caseName" destination="hT8-g4-3G6" id="Mad-Q8-7Ni"/>
+                                            <outlet property="caseScore" destination="TcK-yO-v9V" id="wEZ-eo-CVt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AJo-mC-sCN"/>
+                        <color key="backgroundColor" name="CrackerWhite"/>
+                        <constraints>
+                            <constraint firstItem="AJo-mC-sCN" firstAttribute="trailing" secondItem="fZj-Ss-iLI" secondAttribute="trailing" constant="16" id="82D-75-2TI"/>
+                            <constraint firstItem="LcK-Ql-cS1" firstAttribute="leading" secondItem="AJo-mC-sCN" secondAttribute="leading" id="ADI-NF-gJM"/>
+                            <constraint firstItem="iow-I4-Qpq" firstAttribute="top" secondItem="AJo-mC-sCN" secondAttribute="top" constant="10" id="G3E-UY-4dW"/>
+                            <constraint firstItem="AJo-mC-sCN" firstAttribute="trailing" secondItem="LcK-Ql-cS1" secondAttribute="trailing" id="Gdg-3m-QQi"/>
+                            <constraint firstItem="AJo-mC-sCN" firstAttribute="bottom" secondItem="fZj-Ss-iLI" secondAttribute="bottom" id="JSl-B8-nyG"/>
+                            <constraint firstItem="fZj-Ss-iLI" firstAttribute="top" secondItem="LcK-Ql-cS1" secondAttribute="bottom" constant="45" id="deI-jY-EZJ"/>
+                            <constraint firstItem="AJo-mC-sCN" firstAttribute="trailing" secondItem="iow-I4-Qpq" secondAttribute="trailing" constant="16" id="eMv-p4-5om"/>
+                            <constraint firstItem="fZj-Ss-iLI" firstAttribute="leading" secondItem="AJo-mC-sCN" secondAttribute="leading" constant="16" id="hbj-At-lBs"/>
+                            <constraint firstItem="iow-I4-Qpq" firstAttribute="leading" secondItem="AJo-mC-sCN" secondAttribute="leading" constant="16" id="lSt-Ra-P3e"/>
+                            <constraint firstItem="LcK-Ql-cS1" firstAttribute="top" secondItem="AJo-mC-sCN" secondAttribute="top" id="yGn-Gz-iqq"/>
+                            <constraint firstItem="oY8-Fu-VfA" firstAttribute="leading" secondItem="iow-I4-Qpq" secondAttribute="leading" constant="10" id="ywu-qU-JYM"/>
+                            <constraint firstItem="oY8-Fu-VfA" firstAttribute="centerY" secondItem="iow-I4-Qpq" secondAttribute="centerY" id="zcZ-Fw-JBN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="nMK-Ut-eqW"/>
+                    <connections>
+                        <outlet property="findCaseBtn" destination="iow-I4-Qpq" id="Bxa-yy-eb8"/>
+                        <outlet property="searchCaseTableView" destination="fZj-Ss-iLI" id="NNN-ba-FxZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Uf-yy-g8R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="463.768115942029" y="646.875"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PaG-mj-n41">
+            <objects>
+                <viewController id="SvO-1h-pq8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zfv-q4-XCt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="L8L-zv-sJ1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zJ8-GF-eb9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="464" y="1343"/>
+        </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="Wec-ZR-84h">
             <objects>
@@ -95,10 +260,10 @@
             </objects>
             <point key="canvasLocation" x="1943" y="-44"/>
         </scene>
-        <!--View Controller-->
+        <!--Sidebar View Controller-->
         <scene sceneID="Odo-Kg-yps">
             <objects>
-                <viewController id="TJM-hA-4iO" sceneMemberID="viewController">
+                <viewController id="TJM-hA-4iO" customClass="SidebarViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zlk-jt-7MO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x34-P0-mhb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2877" y="1274"/>
+            <point key="canvasLocation" x="2849" y="717"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hiN-db-X7l">
@@ -236,6 +401,8 @@
         <image name="Cookie" width="512" height="512"/>
         <image name="Ginger Bread Man" width="512" height="512"/>
         <image name="Hamburger" width="512" height="512"/>
+        <image name="Search" width="512" height="512"/>
+        <image name="Star" width="512" height="512"/>
         <namedColor name="CrackerBlue">
             <color red="0.68199998140335083" green="0.90200001001358032" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -248,5 +415,11 @@
         <namedColor name="CrackerYellow">
             <color red="1" green="0.85500001907348633" blue="0.46700000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

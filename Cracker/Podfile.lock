@@ -1,20 +1,24 @@
 PODS:
+  - Hero (1.5.0)
   - SideMenu (6.5.0)
   - SwiftLint (0.41.0)
 
 DEPENDENCIES:
+  - Hero
   - SideMenu (~> 6.0)
   - SwiftLint
 
 SPEC REPOS:
   trunk:
+    - Hero
     - SideMenu
     - SwiftLint
 
 SPEC CHECKSUMS:
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: 5b9c82616e95483847535e2d54d61df47bed6fde
+PODFILE CHECKSUM: 5dbaf86d96e4d25838fe1495ad1332f9c2a70997
 
 COCOAPODS: 1.9.3
