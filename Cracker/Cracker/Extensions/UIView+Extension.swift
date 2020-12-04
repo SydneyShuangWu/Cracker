@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIButton {
+extension UIView {
     
     func setupBorder() {
         

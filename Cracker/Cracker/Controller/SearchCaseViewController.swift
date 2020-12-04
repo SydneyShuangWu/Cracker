@@ -13,9 +13,13 @@ class SearchCaseViewController: UIViewController {
     
     @IBOutlet weak var searchCaseTableView: UITableView!
     
-    let selectionView = SelectionView(frame: CGRect(x: 0, y: 150, width: UIScreen.main.bounds.width, height: 40))
+    let selectionView = SelectionView()
+    
+    @IBOutlet weak var orangeView: UIView!
     
     private var cases = [CaseDetail]()
+    
+    var selectedCase: CaseDetail?
     
     override func viewDidLoad() {
         
@@ -37,14 +41,38 @@ class SearchCaseViewController: UIViewController {
         
         view.addSubview(selectionView)
         
+        setupSelectionViewConstraints()
+        
         selectionView.delegate = self
         selectionView.dataSource = self
+    }
+    
+    func setupSelectionViewConstraints() {
+        
+        selectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            selectionView.topAnchor.constraint(equalTo: orangeView.bottomAnchor),
+            selectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            selectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            selectionView.heightAnchor.constraint(equalToConstant: 45)
+        ])
     }
     
     func setupTableView() {
         
         searchCaseTableView.delegate = self
         searchCaseTableView.dataSource = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toCaseDetailVc" {
+            
+            let nextVc = segue.destination as? CaseDetailViewController
+            
+            nextVc?.selectedCase = selectedCase
+        }
     }
 }
 
@@ -100,5 +128,14 @@ extension SearchCaseViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 130
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        selectedCase = cases[indexPath.row]
+        
+        performSegue(withIdentifier: "toCaseDetailVc", sender: self)
+
+        searchCaseTableView.deselectRow(at: indexPath, animated: true)
     }
 }

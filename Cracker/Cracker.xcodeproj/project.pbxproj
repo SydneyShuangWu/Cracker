@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		82D4932F3B4B75BAB59B8915 /* Pods_Cracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0598674B7CC531CF8ACF95 /* Pods_Cracker.framework */; };
+		C161C8A325796E73000697C1 /* CaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161C8A225796E73000697C1 /* CaseDetailViewController.swift */; };
+		C161C8A82579E7BC000697C1 /* CaseImageTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161C8A72579E7BC000697C1 /* CaseImageTBCell.swift */; };
+		C161C8AB2579E852000697C1 /* CaseIntroTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161C8AA2579E852000697C1 /* CaseIntroTBCell.swift */; };
+		C161C8AE2579E893000697C1 /* CaseScoreTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161C8AD2579E893000697C1 /* CaseScoreTBCell.swift */; };
+		C161C8B12579E8B6000697C1 /* CaseDescriptionTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161C8B02579E8B6000697C1 /* CaseDescriptionTBCell.swift */; };
 		C175D97A257640B2009167E5 /* SearchCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C175D979257640B2009167E5 /* SearchCaseViewController.swift */; };
 		C19148C9257784E40098619B /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19148C8257784E40098619B /* UISearchBar+Extension.swift */; };
 		C19148CD2577902E0098619B /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19148CC2577902E0098619B /* SelectionView.swift */; };
@@ -24,7 +29,7 @@
 		C1D4213C2570A82C00FF0641 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1D4213B2570A82C00FF0641 /* Assets.xcassets */; };
 		C1D4213F2570A82C00FF0641 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1D4213D2570A82C00FF0641 /* LaunchScreen.storyboard */; };
 		C1D421622570D9C000FF0641 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D421612570D9C000FF0641 /* UIColor+Extension.swift */; };
-		C1D4216D25710CBC00FF0641 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D4216C25710CBC00FF0641 /* UIButton+Extension.swift */; };
+		C1D4216D25710CBC00FF0641 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D4216C25710CBC00FF0641 /* UIView+Extension.swift */; };
 		C1DE4EE125793A1A005440F6 /* SelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE4EE025793A1A005440F6 /* SelectionModel.swift */; };
 		C1DE4EE4257940A5005440F6 /* MockCaseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE4EE3257940A5005440F6 /* MockCaseDetail.swift */; };
 		C1DE4EE725794705005440F6 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE4EE625794705005440F6 /* CardView.swift */; };
@@ -35,6 +40,11 @@
 		0C0598674B7CC531CF8ACF95 /* Pods_Cracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A250CFA09B32F9C2BB433563 /* Pods-Cracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cracker.debug.xcconfig"; path = "Target Support Files/Pods-Cracker/Pods-Cracker.debug.xcconfig"; sourceTree = "<group>"; };
 		AFD6E98DB1E00DCB392FF7D7 /* Pods-Cracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cracker.release.xcconfig"; path = "Target Support Files/Pods-Cracker/Pods-Cracker.release.xcconfig"; sourceTree = "<group>"; };
+		C161C8A225796E73000697C1 /* CaseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDetailViewController.swift; sourceTree = "<group>"; };
+		C161C8A72579E7BC000697C1 /* CaseImageTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseImageTBCell.swift; sourceTree = "<group>"; };
+		C161C8AA2579E852000697C1 /* CaseIntroTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseIntroTBCell.swift; sourceTree = "<group>"; };
+		C161C8AD2579E893000697C1 /* CaseScoreTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseScoreTBCell.swift; sourceTree = "<group>"; };
+		C161C8B02579E8B6000697C1 /* CaseDescriptionTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDescriptionTBCell.swift; sourceTree = "<group>"; };
 		C175D979257640B2009167E5 /* SearchCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCaseViewController.swift; sourceTree = "<group>"; };
 		C19148C8257784E40098619B /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
 		C19148CC2577902E0098619B /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
@@ -53,7 +63,7 @@
 		C1D4213E2570A82C00FF0641 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1D421402570A82C00FF0641 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1D421612570D9C000FF0641 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		C1D4216C25710CBC00FF0641 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		C1D4216C25710CBC00FF0641 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		C1DE4EE025793A1A005440F6 /* SelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionModel.swift; sourceTree = "<group>"; };
 		C1DE4EE3257940A5005440F6 /* MockCaseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCaseDetail.swift; sourceTree = "<group>"; };
 		C1DE4EE625794705005440F6 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -87,6 +97,17 @@
 				AFD6E98DB1E00DCB392FF7D7 /* Pods-Cracker.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C161C8A52579E688000697C1 /* Case Detail Page */ = {
+			isa = PBXGroup;
+			children = (
+				C161C8A72579E7BC000697C1 /* CaseImageTBCell.swift */,
+				C161C8AA2579E852000697C1 /* CaseIntroTBCell.swift */,
+				C161C8AD2579E893000697C1 /* CaseScoreTBCell.swift */,
+				C161C8B02579E8B6000697C1 /* CaseDescriptionTBCell.swift */,
+			);
+			path = "Case Detail Page";
 			sourceTree = "<group>";
 		};
 		C1A7C02C2574986F0022674B /* Mock Data */ = {
@@ -138,7 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				C1D421612570D9C000FF0641 /* UIColor+Extension.swift */,
-				C1D4216C25710CBC00FF0641 /* UIButton+Extension.swift */,
+				C1D4216C25710CBC00FF0641 /* UIView+Extension.swift */,
 				C1A7C03B2574EF170022674B /* UIViewController+Extensions.swift */,
 				C19148C8257784E40098619B /* UISearchBar+Extension.swift */,
 			);
@@ -157,6 +178,7 @@
 		C1D421682570EE0A00FF0641 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C161C8A52579E688000697C1 /* Case Detail Page */,
 				C1A7C02F2574ACA80022674B /* MarkerViews.swift */,
 				C19148CC2577902E0098619B /* SelectionView.swift */,
 				C1DE4EE625794705005440F6 /* CardView.swift */,
@@ -172,6 +194,7 @@
 				C1A7C0262574869F0022674B /* MapViewController.swift */,
 				C1A7C0462575EDDB0022674B /* SidebarViewController.swift */,
 				C175D979257640B2009167E5 /* SearchCaseViewController.swift */,
+				C161C8A225796E73000697C1 /* CaseDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -310,10 +333,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1DE4EE4257940A5005440F6 /* MockCaseDetail.swift in Sources */,
+				C161C8B12579E8B6000697C1 /* CaseDescriptionTBCell.swift in Sources */,
 				C1A7C03C2574EF170022674B /* UIViewController+Extensions.swift in Sources */,
 				C1DE4EE125793A1A005440F6 /* SelectionModel.swift in Sources */,
-				C1D4216D25710CBC00FF0641 /* UIButton+Extension.swift in Sources */,
+				C1D4216D25710CBC00FF0641 /* UIView+Extension.swift in Sources */,
 				C175D97A257640B2009167E5 /* SearchCaseViewController.swift in Sources */,
+				C161C8A325796E73000697C1 /* CaseDetailViewController.swift in Sources */,
 				C1A7C0382574DB410022674B /* MockGeotification.swift in Sources */,
 				C1A7C0272574869F0022674B /* MapViewController.swift in Sources */,
 				C19148CD2577902E0098619B /* SelectionView.swift in Sources */,
@@ -321,10 +346,13 @@
 				C1A7C0302574ACA80022674B /* MarkerViews.swift in Sources */,
 				C1D421622570D9C000FF0641 /* UIColor+Extension.swift in Sources */,
 				C19148C9257784E40098619B /* UISearchBar+Extension.swift in Sources */,
+				C161C8AB2579E852000697C1 /* CaseIntroTBCell.swift in Sources */,
 				C1D421332570A82A00FF0641 /* AppDelegate.swift in Sources */,
 				C1DE4EEA257956D8005440F6 /* SearchCaseTBCell.swift in Sources */,
+				C161C8AE2579E893000697C1 /* CaseScoreTBCell.swift in Sources */,
 				C1D421352570A82A00FF0641 /* SceneDelegate.swift in Sources */,
 				C1A7C0472575EDDB0022674B /* SidebarViewController.swift in Sources */,
+				C161C8A82579E7BC000697C1 /* CaseImageTBCell.swift in Sources */,
 				C1DE4EE725794705005440F6 /* CardView.swift in Sources */,
 				C1A7C02A257497160022674B /* MockMarker.swift in Sources */,
 			);

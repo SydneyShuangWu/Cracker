@@ -219,27 +219,224 @@
                     <navigationItem key="navigationItem" id="nMK-Ut-eqW"/>
                     <connections>
                         <outlet property="findCaseBtn" destination="iow-I4-Qpq" id="Bxa-yy-eb8"/>
+                        <outlet property="orangeView" destination="LcK-Ql-cS1" id="Yvr-74-b51"/>
                         <outlet property="searchCaseTableView" destination="fZj-Ss-iLI" id="NNN-ba-FxZ"/>
+                        <segue destination="SvO-1h-pq8" kind="show" identifier="toCaseDetailVc" id="UQC-Cv-y4h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Uf-yy-g8R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="463.768115942029" y="646.875"/>
         </scene>
-        <!--View Controller-->
+        <!--Case Detail View Controller-->
         <scene sceneID="PaG-mj-n41">
             <objects>
-                <viewController id="SvO-1h-pq8" sceneMemberID="viewController">
+                <viewController id="SvO-1h-pq8" customClass="CaseDetailViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zfv-q4-XCt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BXE-1l-iUf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="708"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CaseImageTBCell" rowHeight="196" id="oIX-DX-znf" customClass="CaseImageTBCell" customModule="Cracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="196"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oIX-DX-znf" id="cw7-dq-dUT">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="196"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Pz-6c-x88">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="186"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFT-rM-D47">
+                                                    <rect key="frame" x="329" y="151" width="70" height="30"/>
+                                                    <color key="backgroundColor" name="CrackerBlue"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="GdY-o2-QEB"/>
+                                                        <constraint firstAttribute="width" constant="70" id="RFy-Gg-N1x"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
+                                                    <color key="textColor" systemColor="systemGrayColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="6Pz-6c-x88" secondAttribute="trailing" id="3NM-Ek-NAj"/>
+                                                <constraint firstAttribute="bottom" secondItem="6Pz-6c-x88" secondAttribute="bottom" constant="10" id="8qy-bY-oQu"/>
+                                                <constraint firstItem="6Pz-6c-x88" firstAttribute="leading" secondItem="cw7-dq-dUT" secondAttribute="leading" id="Pgd-ZR-CJn"/>
+                                                <constraint firstItem="6Pz-6c-x88" firstAttribute="top" secondItem="cw7-dq-dUT" secondAttribute="top" id="WIY-tD-tzk"/>
+                                                <constraint firstAttribute="bottom" secondItem="wFT-rM-D47" secondAttribute="bottom" constant="15" id="bjs-oH-bBf"/>
+                                                <constraint firstAttribute="trailing" secondItem="wFT-rM-D47" secondAttribute="trailing" constant="15" id="zXs-kr-eXG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="caseCategory" destination="wFT-rM-D47" id="33k-Es-GRy"/>
+                                            <outlet property="caseImage" destination="6Pz-6c-x88" id="pi5-L9-h9P"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CaseIntroTBCell" rowHeight="75" id="puj-bQ-L4U" customClass="CaseIntroTBCell" customModule="Cracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="224" width="414" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="puj-bQ-L4U" id="o4S-Fh-gWB">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2b2-Ng-Sxw">
+                                                    <rect key="frame" x="16" y="27" width="38.5" height="21"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                                    <color key="textColor" systemColor="systemGrayColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0UP-mv-EJ4">
+                                                    <rect key="frame" x="69.5" y="30" width="2" height="15"/>
+                                                    <color key="backgroundColor" name="CrackerOrange"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="2" id="2zv-2o-c6P"/>
+                                                        <constraint firstAttribute="height" constant="15" id="5Xw-Oq-jva"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ri5-I7-jKs">
+                                                    <rect key="frame" x="86.5" y="27" width="38.5" height="21"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                                    <color key="textColor" systemColor="systemGrayColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2b2-Ng-Sxw" firstAttribute="leading" secondItem="o4S-Fh-gWB" secondAttribute="leading" constant="16" id="1aD-s8-YCk"/>
+                                                <constraint firstItem="2b2-Ng-Sxw" firstAttribute="centerY" secondItem="o4S-Fh-gWB" secondAttribute="centerY" id="7Ka-DJ-dXz"/>
+                                                <constraint firstItem="ri5-I7-jKs" firstAttribute="leading" secondItem="0UP-mv-EJ4" secondAttribute="trailing" constant="15" id="Ljf-A9-9Ke"/>
+                                                <constraint firstItem="0UP-mv-EJ4" firstAttribute="leading" secondItem="2b2-Ng-Sxw" secondAttribute="trailing" constant="15" id="LqT-wR-x06"/>
+                                                <constraint firstItem="0UP-mv-EJ4" firstAttribute="centerY" secondItem="2b2-Ng-Sxw" secondAttribute="centerY" id="Uxr-nq-1t7"/>
+                                                <constraint firstItem="ri5-I7-jKs" firstAttribute="centerY" secondItem="2b2-Ng-Sxw" secondAttribute="centerY" id="pg0-av-thp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="caseIntroDetail" destination="ri5-I7-jKs" id="8mP-GC-5x0"/>
+                                            <outlet property="caseIntroTitle" destination="2b2-Ng-Sxw" id="hpP-ib-KCa"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CaseScoreTBCell" rowHeight="75" id="BCJ-ff-f8I" customClass="CaseScoreTBCell" customModule="Cracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="299" width="414" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BCJ-ff-f8I" id="MeK-Ka-6ex">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5D-ax-J82">
+                                                    <rect key="frame" x="69.5" y="30" width="2" height="15"/>
+                                                    <color key="backgroundColor" name="CrackerOrange"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="2" id="clv-TX-wuS"/>
+                                                        <constraint firstAttribute="height" constant="15" id="uXV-Lb-dIU"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWx-cs-Qed">
+                                                    <rect key="frame" x="16" y="27" width="38.5" height="21"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                                    <color key="textColor" systemColor="systemGrayColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="e5D-ax-J82" firstAttribute="leading" secondItem="WWx-cs-Qed" secondAttribute="trailing" constant="15" id="2D2-fg-AYL"/>
+                                                <constraint firstItem="WWx-cs-Qed" firstAttribute="leading" secondItem="MeK-Ka-6ex" secondAttribute="leading" constant="16" id="cKx-vA-218"/>
+                                                <constraint firstItem="WWx-cs-Qed" firstAttribute="centerY" secondItem="MeK-Ka-6ex" secondAttribute="centerY" id="nMh-Se-tsG"/>
+                                                <constraint firstItem="e5D-ax-J82" firstAttribute="centerY" secondItem="WWx-cs-Qed" secondAttribute="centerY" id="vJp-ki-NBf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="caseScore" destination="WWx-cs-Qed" id="BQv-6m-g2P"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CaseDescriptionTBCell" id="urn-xP-ObF" customClass="CaseDescriptionTBCell" customModule="Cracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="374" width="414" height="86.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="urn-xP-ObF" id="CoD-Oh-DHK">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="86.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9J-AO-PBX">
+                                                    <rect key="frame" x="16" y="20" width="38.5" height="21"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                                    <color key="textColor" systemColor="systemGrayColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghU-Nd-obY">
+                                                    <rect key="frame" x="16" y="56" width="382" height="18.5"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <color key="NSColor" systemColor="systemGrayColor"/>
+                                                                <font key="NSFont" size="16" name="GillSans-Light"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2UK-JM-aPR">
+                                                    <rect key="frame" x="69.5" y="23" width="2" height="15"/>
+                                                    <color key="backgroundColor" name="CrackerOrange"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="2" id="hAf-yV-dO3"/>
+                                                        <constraint firstAttribute="height" constant="15" id="yww-Xn-D3G"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ghU-Nd-obY" firstAttribute="top" secondItem="g9J-AO-PBX" secondAttribute="bottom" constant="15" id="7xx-Hy-5am"/>
+                                                <constraint firstAttribute="trailing" secondItem="ghU-Nd-obY" secondAttribute="trailing" constant="16" id="8hq-CS-Xy7"/>
+                                                <constraint firstItem="g9J-AO-PBX" firstAttribute="top" secondItem="CoD-Oh-DHK" secondAttribute="top" constant="20" id="9ch-nN-f1S"/>
+                                                <constraint firstItem="2UK-JM-aPR" firstAttribute="centerY" secondItem="g9J-AO-PBX" secondAttribute="centerY" id="Eh5-mM-H4z"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ghU-Nd-obY" secondAttribute="bottom" constant="12" id="HyU-vD-0eB"/>
+                                                <constraint firstItem="g9J-AO-PBX" firstAttribute="leading" secondItem="CoD-Oh-DHK" secondAttribute="leading" constant="16" id="Mee-O9-1sv"/>
+                                                <constraint firstItem="ghU-Nd-obY" firstAttribute="leading" secondItem="g9J-AO-PBX" secondAttribute="leading" id="TPW-Gw-bH2"/>
+                                                <constraint firstItem="2UK-JM-aPR" firstAttribute="leading" secondItem="g9J-AO-PBX" secondAttribute="trailing" constant="15" id="yVb-du-cwr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="caseDescriptionDetail" destination="ghU-Nd-obY" id="aOF-Ur-IOS"/>
+                                            <outlet property="caseDescriptionTitle" destination="g9J-AO-PBX" id="DQr-6F-4Mb"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e31-yU-U3g">
+                                <rect key="frame" x="40" y="733" width="334" height="50"/>
+                                <color key="backgroundColor" name="CrackerYellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="coS-EG-vDA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="25"/>
+                                <state key="normal" title="CRACK THIS CASE">
+                                    <color key="titleColor" name="CrackerWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="L8L-zv-sJ1"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="CrackerWhite"/>
+                        <constraints>
+                            <constraint firstItem="e31-yU-U3g" firstAttribute="leading" secondItem="L8L-zv-sJ1" secondAttribute="leading" constant="40" id="55d-ix-cZG"/>
+                            <constraint firstItem="L8L-zv-sJ1" firstAttribute="bottom" secondItem="e31-yU-U3g" secondAttribute="bottom" constant="25" id="F41-2f-IhC"/>
+                            <constraint firstItem="L8L-zv-sJ1" firstAttribute="trailing" secondItem="e31-yU-U3g" secondAttribute="trailing" constant="40" id="G7k-kt-ddf"/>
+                            <constraint firstItem="BXE-1l-iUf" firstAttribute="top" secondItem="L8L-zv-sJ1" secondAttribute="top" id="WVq-wM-Gh3"/>
+                            <constraint firstItem="BXE-1l-iUf" firstAttribute="bottom" secondItem="e31-yU-U3g" secondAttribute="top" constant="-25" id="fCz-h1-fS5"/>
+                            <constraint firstItem="L8L-zv-sJ1" firstAttribute="trailing" secondItem="BXE-1l-iUf" secondAttribute="trailing" id="pb3-BY-c5W"/>
+                            <constraint firstItem="BXE-1l-iUf" firstAttribute="leading" secondItem="L8L-zv-sJ1" secondAttribute="leading" id="qNX-do-w7u"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="0EB-Lp-O9x"/>
+                    <connections>
+                        <outlet property="caseDetailTableView" destination="BXE-1l-iUf" id="u1P-zB-lXw"/>
+                        <outlet property="crackCaseBtn" destination="e31-yU-U3g" id="9rF-ov-vj2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zJ8-GF-eb9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="464" y="1343"/>
+            <point key="canvasLocation" x="463.768115942029" y="1391.5178571428571"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="Wec-ZR-84h">

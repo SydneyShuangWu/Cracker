@@ -31,7 +31,7 @@ extension UIViewController {
         
         barAppearance.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.W!,
-            NSAttributedString.Key.font: UIFont(name: "Gill Sans Bold", size: 25)!
+            NSAttributedString.Key.font: UIFont(name: "Gill Sans Bold", size: 20)!
         ]
         
         navigationItem.standardAppearance = barAppearance
@@ -55,7 +55,7 @@ extension UIViewController {
     
     @objc func closeButtonTap(sender: UIButton) {
         
-        self.dismiss(animated: true, completion: nil)
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
 }
 
