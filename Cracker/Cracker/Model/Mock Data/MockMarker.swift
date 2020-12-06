@@ -1,5 +1,5 @@
 //
-//  MockCharacter.swift
+//  MockMarker.swift
 //  Cracker
 //
 //  Created by Sydney Wu on 2020/11/28.

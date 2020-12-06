@@ -16,8 +16,6 @@ class LobbyViewController: UIViewController {
     
     @IBOutlet weak var createCaseBtn: UIButton!
     
-    let myStoryboard = UIStoryboard(name: "Main", bundle: nil)
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -45,8 +43,8 @@ class LobbyViewController: UIViewController {
         
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-
-    @IBAction func navigateToSearchCaseVc() {
+    
+    @IBAction func navigateToSearchCaseVc(_ sender: Any) {
         
         let vc = myStoryboard.instantiateViewController(withIdentifier: "SearchCaseVc")
         

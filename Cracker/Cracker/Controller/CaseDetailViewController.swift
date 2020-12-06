@@ -14,7 +14,7 @@ class CaseDetailViewController: UIViewController {
     @IBOutlet weak var crackCaseBtn: UIButton!
     
     // Data holder for cases from SearchCaseVC
-    var selectedCase: CaseDetail?
+    var selectedCase: MockCase?
 
     override func viewDidLoad() {
         

@@ -7,6 +7,9 @@
 
 import Foundation
 import UIKit
+import Hero
+
+let myStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
 extension UIViewController {
     
@@ -41,21 +44,50 @@ extension UIViewController {
         
         self.navigationItem.hidesBackButton = true
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Back")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(backButtonTap))
+        let backBtn = UIButton(type: .custom)
+        
+        backBtn.setImage(UIImage(named: "Back"), for: .normal)
+        
+        backBtn.addTarget(self, action: #selector(backButtonTap), for: .touchUpInside)
+        
+        let leftBarButtonItem = UIBarButtonItem(customView: backBtn)
+        
+        NSLayoutConstraint.activate([leftBarButtonItem.customView!.widthAnchor.constraint(equalToConstant: 35), leftBarButtonItem.customView!.heightAnchor.constraint(equalToConstant: 35)])
+        
+        navigationItem.leftBarButtonItem = leftBarButtonItem
     }
     
     @objc func backButtonTap(sender: UIButton) {
+        
         _ = navigationController?.popViewController(animated: true)
     }
     
     func setupCloseButton() {
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Close")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(closeButtonTap))
+        let closeBtn = UIButton(type: .custom)
+        
+        closeBtn.setImage(UIImage(named: "Close"), for: .normal)
+        
+        closeBtn.addTarget(self, action: #selector(closeButtonTap), for: .touchUpInside)
+        
+        let rightBarButtonItem = UIBarButtonItem(customView: closeBtn)
+        
+        NSLayoutConstraint.activate([rightBarButtonItem.customView!.widthAnchor.constraint(equalToConstant: 35), rightBarButtonItem.customView!.heightAnchor.constraint(equalToConstant: 35)])
+        
+        navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
     @objc func closeButtonTap(sender: UIButton) {
         
-        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+        let vc = myStoryboard.instantiateViewController(withIdentifier: "LobbyVc")
+        
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .fullScreen
+        
+        nav.hero.isEnabled = true
+        
+        dismiss(animated: true, completion: nil)
     }
 }
 

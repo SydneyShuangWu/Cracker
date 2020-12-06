@@ -12,7 +12,7 @@
         <!--Lobby View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LobbyViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LobbyVc" id="BYZ-38-t0r" customClass="LobbyViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +42,7 @@
                                             <color key="titleColor" name="CrackerWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="navigateToSearchCaseVc" destination="BYZ-38-t0r" eventType="touchUpInside" id="VKo-JQ-hLt"/>
+                                            <action selector="navigateToSearchCaseVc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BSa-cy-4Gq"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLL-O4-kzI">
@@ -488,6 +488,9 @@
                                 <state key="normal" title="PROFILE">
                                     <color key="titleColor" name="CrackerWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="navigateToProfilePage:" destination="TJM-hA-4iO" eventType="touchUpInside" id="12X-2E-cpx"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p4k-FB-b13">
                                 <rect key="frame" x="0.0" y="100" width="15" height="60"/>
@@ -545,6 +548,238 @@
             </objects>
             <point key="canvasLocation" x="2828" y="-44"/>
         </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="Hbb-Pv-9yR">
+            <objects>
+                <viewController storyboardIdentifier="ProfileVc" id="eQo-UL-iff" customClass="ProfileViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xAb-BH-Ttk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bMd-zf-wQx">
+                                <rect key="frame" x="40" y="84" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bMd-zf-wQx" secondAttribute="height" multiplier="1:1" id="UjA-fQ-hx1"/>
+                                    <constraint firstAttribute="width" constant="100" id="u0u-GG-Qiz"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnw-zP-CrI">
+                                <rect key="frame" x="196.5" y="93.5" width="2" height="15"/>
+                                <viewLayoutGuide key="safeArea" id="eA8-ZD-o8s"/>
+                                <color key="backgroundColor" name="CrackerOrange"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="ac7-4d-iSG"/>
+                                    <constraint firstAttribute="width" constant="2" id="cC4-kh-zSM"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIS-5a-3xr">
+                                <rect key="frame" x="213.5" y="89" width="47" height="24"/>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="20"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Trophy" translatesAutoresizingMaskIntoConstraints="NO" id="A8L-Sa-Y9H">
+                                <rect key="frame" x="160" y="123" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="MPi-0b-gr2"/>
+                                    <constraint firstAttribute="width" secondItem="A8L-Sa-Y9H" secondAttribute="height" multiplier="1:1" id="Sos-Lx-bvC"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOH-I7-dVl">
+                                <rect key="frame" x="16" y="369" width="382" height="35"/>
+                                <color key="backgroundColor" name="CrackerYellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="4bZ-Ul-LpI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <inset key="contentEdgeInsets" minX="45" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal">
+                                    <color key="titleColor" name="CrackerWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="findCase:" destination="ciJ-ab-iwL" eventType="touchUpInside" id="0OP-6T-6nh"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search" translatesAutoresizingMaskIntoConstraints="NO" id="dls-jK-UWO">
+                                <rect key="frame" x="26" y="374" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="8OY-Ju-9Ij"/>
+                                    <constraint firstAttribute="width" secondItem="dls-jK-UWO" secondAttribute="height" multiplier="1:1" id="cMV-2Q-61y"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAr-5h-QKE">
+                                <rect key="frame" x="180" y="148" width="20" height="20"/>
+                                <color key="backgroundColor" name="CrackerYellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nAr-5h-QKE" secondAttribute="height" multiplier="1:1" id="Dx1-A3-fls"/>
+                                    <constraint firstAttribute="width" constant="20" id="KAT-BF-t63"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="15"/>
+                                <color key="textColor" name="CrackerWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cTX-yy-Wv8">
+                                <rect key="frame" x="30" y="214" width="354" height="85"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfe-6e-vPb">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="35"/>
+                                        <color key="backgroundColor" name="CrackerWhite"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                        <state key="normal" title="My Friends">
+                                            <color key="titleColor" name="CrackerOrange"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BH9-AS-z0g">
+                                        <rect key="frame" x="0.0" y="50" width="354" height="35"/>
+                                        <color key="backgroundColor" name="CrackerWhite"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                        <state key="normal" title="Edit Profile">
+                                            <color key="titleColor" name="CrackerOrange"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YVP-bA-aXP">
+                                <rect key="frame" x="16" y="404" width="382" height="458"/>
+                                <color key="backgroundColor" name="CrackerWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCaseTBCell" rowHeight="148" id="HpN-Ii-9Rz" customClass="ProfileCaseTBCell" customModule="Cracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="382" height="148"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HpN-Ii-9Rz" id="CHC-qT-MmJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="148"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9m3-cA-bT5" customClass="CardView" customModule="Cracker" customModuleProvider="target">
+                                                    <rect key="frame" x="5" y="16" width="372" height="116"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gq1-EG-dhG">
+                                                            <rect key="frame" x="10" y="28" width="60" height="60"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="60" id="EkA-cA-MQC"/>
+                                                                <constraint firstAttribute="width" secondItem="gq1-EG-dhG" secondAttribute="height" multiplier="1:1" id="pvl-lZ-CyY"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vi7-0G-acM">
+                                                            <rect key="frame" x="85" y="33" width="50" height="21"/>
+                                                            <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="18"/>
+                                                            <color key="textColor" systemColor="systemGrayColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4W5-OT-z7s">
+                                                            <rect key="frame" x="85" y="59" width="50" height="20"/>
+                                                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="D8C-1e-XWI">
+                                                            <rect key="frame" x="282.5" y="43" width="30" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="30" id="KZH-C7-jeW"/>
+                                                                <constraint firstAttribute="width" secondItem="D8C-1e-XWI" secondAttribute="height" multiplier="1:1" id="hRm-M5-os6"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njQ-ev-Xu4">
+                                                            <rect key="frame" x="337" y="43" width="30" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="njQ-ev-Xu4" secondAttribute="height" multiplier="1:1" id="9nE-lz-qEP"/>
+                                                                <constraint firstAttribute="width" constant="30" id="ziE-1b-7Ok"/>
+                                                            </constraints>
+                                                            <state key="normal" image="Bin"/>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIW-e8-Xcy">
+                                                            <rect key="frame" x="317.5" y="48" width="9.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="17"/>
+                                                            <color key="textColor" name="CrackerOrange"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="CrackerWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="4W5-OT-z7s" firstAttribute="leading" secondItem="vi7-0G-acM" secondAttribute="leading" id="4Uj-gB-aVz"/>
+                                                        <constraint firstItem="4W5-OT-z7s" firstAttribute="trailing" secondItem="vi7-0G-acM" secondAttribute="trailing" id="7wF-eB-EHD"/>
+                                                        <constraint firstItem="IIW-e8-Xcy" firstAttribute="trailing" secondItem="njQ-ev-Xu4" secondAttribute="leading" constant="-10" id="BiU-38-BlO"/>
+                                                        <constraint firstAttribute="trailing" secondItem="njQ-ev-Xu4" secondAttribute="trailing" constant="5" id="EQY-7m-Mez"/>
+                                                        <constraint firstItem="D8C-1e-XWI" firstAttribute="trailing" secondItem="IIW-e8-Xcy" secondAttribute="leading" constant="-5" id="HZ0-AN-SS0"/>
+                                                        <constraint firstItem="IIW-e8-Xcy" firstAttribute="centerY" secondItem="njQ-ev-Xu4" secondAttribute="centerY" id="JUI-kA-9Dg"/>
+                                                        <constraint firstItem="gq1-EG-dhG" firstAttribute="leading" secondItem="9m3-cA-bT5" secondAttribute="leading" constant="10" id="Qgn-VN-oaX"/>
+                                                        <constraint firstItem="gq1-EG-dhG" firstAttribute="centerY" secondItem="9m3-cA-bT5" secondAttribute="centerY" id="VOR-uA-Lgf"/>
+                                                        <constraint firstItem="D8C-1e-XWI" firstAttribute="centerY" secondItem="9m3-cA-bT5" secondAttribute="centerY" id="WnF-tw-nTd"/>
+                                                        <constraint firstItem="4W5-OT-z7s" firstAttribute="top" secondItem="vi7-0G-acM" secondAttribute="bottom" constant="5" id="awt-Ov-7kw"/>
+                                                        <constraint firstItem="vi7-0G-acM" firstAttribute="leading" secondItem="gq1-EG-dhG" secondAttribute="trailing" constant="15" id="emb-bP-3cN"/>
+                                                        <constraint firstItem="njQ-ev-Xu4" firstAttribute="centerY" secondItem="9m3-cA-bT5" secondAttribute="centerY" id="uu2-jn-wmb"/>
+                                                        <constraint firstItem="vi7-0G-acM" firstAttribute="top" secondItem="gq1-EG-dhG" secondAttribute="top" constant="5" id="xMF-V9-yXB"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="9m3-cA-bT5" secondAttribute="trailing" constant="5" id="9P2-KP-UzA"/>
+                                                <constraint firstItem="9m3-cA-bT5" firstAttribute="leading" secondItem="CHC-qT-MmJ" secondAttribute="leading" constant="5" id="Nm5-VF-25T"/>
+                                                <constraint firstItem="9m3-cA-bT5" firstAttribute="top" secondItem="CHC-qT-MmJ" secondAttribute="top" constant="16" id="VQv-bf-wxT"/>
+                                                <constraint firstAttribute="bottom" secondItem="9m3-cA-bT5" secondAttribute="bottom" constant="16" id="ZgB-eO-M6F"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CrackerWhite"/>
+                                        <connections>
+                                            <outlet property="binBtn" destination="njQ-ev-Xu4" id="YUi-AA-5ZK"/>
+                                            <outlet property="caseCreator" destination="4W5-OT-z7s" id="dub-kT-zmg"/>
+                                            <outlet property="caseImage" destination="gq1-EG-dhG" id="ltc-vC-ZSG"/>
+                                            <outlet property="caseName" destination="vi7-0G-acM" id="slz-W6-mg4"/>
+                                            <outlet property="caseScore" destination="IIW-e8-Xcy" id="wRt-69-SY3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nu7-LV-R3L">
+                                <rect key="frame" x="160" y="89" width="21.5" height="24"/>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="20"/>
+                                <color key="textColor" name="CrackerOrange"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="itB-pj-Qxv"/>
+                        <color key="backgroundColor" name="CrackerWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nu7-LV-R3L" firstAttribute="leading" secondItem="bMd-zf-wQx" secondAttribute="trailing" constant="20" id="0hn-7x-zSH"/>
+                            <constraint firstItem="aIS-5a-3xr" firstAttribute="leading" secondItem="xnw-zP-CrI" secondAttribute="trailing" constant="15" id="1js-c2-aze"/>
+                            <constraint firstItem="Nu7-LV-R3L" firstAttribute="top" secondItem="bMd-zf-wQx" secondAttribute="top" constant="5" id="5vZ-C9-Y5p"/>
+                            <constraint firstItem="cTX-yy-Wv8" firstAttribute="top" secondItem="bMd-zf-wQx" secondAttribute="bottom" constant="30" id="61M-o1-ige"/>
+                            <constraint firstItem="itB-pj-Qxv" firstAttribute="trailing" secondItem="vOH-I7-dVl" secondAttribute="trailing" constant="16" id="81k-yA-Wtj"/>
+                            <constraint firstItem="cTX-yy-Wv8" firstAttribute="leading" secondItem="itB-pj-Qxv" secondAttribute="leading" constant="30" id="Gis-1n-Qsq"/>
+                            <constraint firstItem="YVP-bA-aXP" firstAttribute="leading" secondItem="itB-pj-Qxv" secondAttribute="leading" constant="16" id="KFL-gw-Clf"/>
+                            <constraint firstItem="A8L-Sa-Y9H" firstAttribute="top" secondItem="Nu7-LV-R3L" secondAttribute="bottom" constant="10" id="L9c-N8-1Iv"/>
+                            <constraint firstItem="itB-pj-Qxv" firstAttribute="bottom" secondItem="YVP-bA-aXP" secondAttribute="bottom" id="P4n-tw-FJl"/>
+                            <constraint firstItem="aIS-5a-3xr" firstAttribute="centerY" secondItem="Nu7-LV-R3L" secondAttribute="centerY" id="QIY-ac-zdB"/>
+                            <constraint firstItem="YVP-bA-aXP" firstAttribute="top" secondItem="vOH-I7-dVl" secondAttribute="bottom" id="SF3-JP-FCB"/>
+                            <constraint firstItem="vOH-I7-dVl" firstAttribute="top" secondItem="BH9-AS-z0g" secondAttribute="bottom" constant="70" id="THP-qT-FaW"/>
+                            <constraint firstItem="vOH-I7-dVl" firstAttribute="leading" secondItem="itB-pj-Qxv" secondAttribute="leading" constant="16" id="UsF-zE-XDy"/>
+                            <constraint firstItem="nAr-5h-QKE" firstAttribute="centerX" secondItem="A8L-Sa-Y9H" secondAttribute="centerX" id="WbT-Ts-ixW"/>
+                            <constraint firstItem="itB-pj-Qxv" firstAttribute="trailing" secondItem="cTX-yy-Wv8" secondAttribute="trailing" constant="30" id="geF-gz-LML"/>
+                            <constraint firstItem="xnw-zP-CrI" firstAttribute="centerY" secondItem="Nu7-LV-R3L" secondAttribute="centerY" id="gqH-qT-OZz"/>
+                            <constraint firstItem="A8L-Sa-Y9H" firstAttribute="leading" secondItem="Nu7-LV-R3L" secondAttribute="leading" id="hnt-NW-Pqf"/>
+                            <constraint firstItem="dls-jK-UWO" firstAttribute="leading" secondItem="vOH-I7-dVl" secondAttribute="leading" constant="10" id="jvT-hb-dAC"/>
+                            <constraint firstItem="xnw-zP-CrI" firstAttribute="leading" secondItem="Nu7-LV-R3L" secondAttribute="trailing" constant="15" id="kXR-Vh-lcl"/>
+                            <constraint firstItem="bMd-zf-wQx" firstAttribute="leading" secondItem="itB-pj-Qxv" secondAttribute="leading" constant="40" id="oo5-xa-NZc"/>
+                            <constraint firstItem="itB-pj-Qxv" firstAttribute="trailing" secondItem="YVP-bA-aXP" secondAttribute="trailing" constant="16" id="pTV-a6-cWG"/>
+                            <constraint firstItem="nAr-5h-QKE" firstAttribute="centerY" secondItem="A8L-Sa-Y9H" secondAttribute="centerY" constant="5" id="pTe-jc-mvp"/>
+                            <constraint firstItem="dls-jK-UWO" firstAttribute="centerY" secondItem="vOH-I7-dVl" secondAttribute="centerY" id="v0n-qp-qd1"/>
+                            <constraint firstItem="bMd-zf-wQx" firstAttribute="top" secondItem="itB-pj-Qxv" secondAttribute="top" constant="40" id="zQL-Et-7cx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="editProfileBtn" destination="BH9-AS-z0g" id="nfU-78-UpW"/>
+                        <outlet property="myFriendsBtn" destination="qfe-6e-vPb" id="7Kk-es-Ewg"/>
+                        <outlet property="profileId" destination="aIS-5a-3xr" id="Qh3-Rc-UaJ"/>
+                        <outlet property="profileImage" destination="bMd-zf-wQx" id="9h1-Fp-Zl4"/>
+                        <outlet property="profileRank" destination="nAr-5h-QKE" id="Df2-3a-Emb"/>
+                        <outlet property="searchBtn" destination="vOH-I7-dVl" id="zRW-YB-rji"/>
+                        <outlet property="searchCaseTableView" destination="YVP-bA-aXP" id="Qlf-1a-Gup"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KgG-Ye-rB7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2826.0869565217395" y="646.875"/>
+        </scene>
         <!--Map View Controller-->
         <scene sceneID="lqZ-g1-Ck0">
             <objects>
@@ -573,7 +808,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x34-P0-mhb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2849" y="717"/>
+            <point key="canvasLocation" x="5283" y="925"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hiN-db-X7l">
@@ -595,11 +830,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Bin" width="512" height="512"/>
         <image name="Cookie" width="512" height="512"/>
         <image name="Ginger Bread Man" width="512" height="512"/>
         <image name="Hamburger" width="512" height="512"/>
         <image name="Search" width="512" height="512"/>
         <image name="Star" width="512" height="512"/>
+        <image name="Trophy" width="512" height="512"/>
         <namedColor name="CrackerBlue">
             <color red="0.68199998140335083" green="0.90200001001358032" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

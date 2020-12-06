@@ -17,9 +17,9 @@ class SearchCaseViewController: UIViewController {
     
     @IBOutlet weak var orangeView: UIView!
     
-    private var cases = [CaseDetail]()
+    private var cases = [MockCase]()
     
-    var selectedCase: CaseDetail?
+    var selectedCase: MockCase?
     
     override func viewDidLoad() {
         

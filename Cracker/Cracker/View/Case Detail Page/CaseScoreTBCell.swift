@@ -12,7 +12,7 @@ class CaseScoreTBCell: UITableViewCell {
     
     @IBOutlet weak var caseScore: UILabel!
     
-    func setupCaseScoreWith(cases: CaseDetail) {
+    func setupCaseScoreWith(cases: MockCase) {
         
         caseScore.text = "案件評分"
         
