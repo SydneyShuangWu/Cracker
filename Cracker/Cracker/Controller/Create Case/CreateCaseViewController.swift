@@ -10,6 +10,8 @@ import UIKit
 class CreateCaseViewController: UIViewController {
     
     var caseCategory: CaseCategory?
+
+    var imagePickerController: UIImagePickerController?
     
     @IBOutlet weak var caseImage: UIImageView!
     @IBOutlet weak var caseNameTF: UITextField!
@@ -53,6 +55,58 @@ class CreateCaseViewController: UIViewController {
         }
     }
     
+    @IBAction func uploadCaseImage(_ sender: Any) {
+        
+        imagePickerController = UIImagePickerController()
+        
+        imagePickerController?.delegate = self
+        
+        imagePickerController?.allowsEditing = true
+        
+        let imagePickerAlert = UIAlertController(title: "Select Photo", message: "", preferredStyle: .actionSheet)
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                
+                self.imagePickerController?.sourceType = .camera
+                
+                self.present(self.imagePickerController!, animated: true, completion: nil)
+            }
+        }
+        
+        let photosAction = UIAlertAction(title: "Photos", style: .default) { _ in
+            
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                
+                self.imagePickerController?.sourceType = .photoLibrary
+                
+                self.present(self.imagePickerController!, animated: true, completion: nil)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            
+            self.imagePickerController?.dismiss(animated: true, completion: nil)
+        }
+        
+        imagePickerAlert.addAction(cameraAction)
+        imagePickerAlert.addAction(photosAction)
+        imagePickerAlert.addAction(cancelAction)
+        
+        present(imagePickerAlert, animated: true, completion: nil)
+    }
+}
 
-
+extension CreateCaseViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let selectedImage = info[.editedImage] as? UIImage {
+            
+            caseImage.image = selectedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
 }
