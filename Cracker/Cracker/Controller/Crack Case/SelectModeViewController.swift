@@ -16,7 +16,7 @@ enum GameMode: String {
 
 class SelectModeViewController: UIViewController {
     
-    var gameMode: GameMode?
+    var selectedGameMode: GameMode?
     var challengePageIsShown = true
     var battlePageIsShown = false
     
@@ -35,7 +35,7 @@ class SelectModeViewController: UIViewController {
 
     @IBAction func selectChallenge(_ sender: Any) {
 
-        gameMode = GameMode.challenge
+        selectedGameMode = GameMode.challenge
         challengePageIsShown = true
         battlePageIsShown = false
         navigateToModeVc()
@@ -43,7 +43,7 @@ class SelectModeViewController: UIViewController {
     
     @IBAction func selectBattle(_ sender: Any) {
 
-        gameMode = GameMode.battle
+        selectedGameMode = GameMode.battle
         challengePageIsShown = false
         battlePageIsShown = true
         navigateToModeVc()
@@ -53,7 +53,7 @@ class SelectModeViewController: UIViewController {
 
         let vc = myStoryboard.instantiateViewController(withIdentifier: "ModeVc") as! ModeViewController
         
-        vc.gameMode = gameMode
+        vc.gameMode = selectedGameMode
         
         if challengePageIsShown == true {
             vc.challengePageIsShown = true

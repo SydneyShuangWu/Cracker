@@ -59,5 +59,20 @@ class LobbyViewController: UIViewController {
         present(nav, animated: true, completion: nil)
     }
     
+    @IBAction func navigateToSelectCategoryVc(_ sender: Any) {
+        
+        let vc = myStoryboard.instantiateViewController(withIdentifier: "SelectCategoryVc")
+        
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .fullScreen
+
+        nav.hero.isEnabled = true
+
+        nav.hero.modalAnimationType = .autoReverse(presenting: .zoom)
+
+        present(nav, animated: true, completion: nil)
+    }
+    
 }
 

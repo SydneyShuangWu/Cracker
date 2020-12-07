@@ -54,6 +54,9 @@
                                         <state key="normal" title="CREATE A CASE">
                                             <color key="titleColor" name="CrackerOrange"/>
                                         </state>
+                                        <connections>
+                                            <action selector="navigateToSelectCategoryVc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6LH-GC-KQo"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -226,7 +229,65 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Uf-yy-g8R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="317" y="647"/>
+            <point key="canvasLocation" x="438" y="671"/>
+        </scene>
+        <!--Select Category View Controller-->
+        <scene sceneID="TPv-tS-Zs2">
+            <objects>
+                <viewController storyboardIdentifier="SelectCategoryVc" id="dY6-9u-HU8" customClass="SelectCategoryViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mem-xH-Jwz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RmK-gv-QAD">
+                                <rect key="frame" x="80" y="298" width="254" height="120"/>
+                                <color key="backgroundColor" name="CrackerOrange"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="wWO-HP-y7k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="25"/>
+                                <state key="normal" title="LINEAR">
+                                    <color key="titleColor" name="CrackerWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectLinear:" destination="dY6-9u-HU8" eventType="touchUpInside" id="PmA-QO-Fpj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgJ-QP-aBA">
+                                <rect key="frame" x="80" y="478" width="254" height="120"/>
+                                <color key="backgroundColor" name="CrackerOrange"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="IOe-RE-9TC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="25"/>
+                                <state key="normal" title="RPG">
+                                    <color key="titleColor" name="CrackerWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectRpg:" destination="dY6-9u-HU8" eventType="touchUpInside" id="9g6-YS-R4M"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IzY-Fa-fgU"/>
+                        <color key="backgroundColor" name="CrackerWhite"/>
+                        <constraints>
+                            <constraint firstItem="IzY-Fa-fgU" firstAttribute="trailing" secondItem="RmK-gv-QAD" secondAttribute="trailing" constant="80" id="DGG-SG-M7e"/>
+                            <constraint firstItem="xgJ-QP-aBA" firstAttribute="centerY" secondItem="Mem-xH-Jwz" secondAttribute="centerY" constant="90" id="PbY-gi-NVt"/>
+                            <constraint firstItem="RmK-gv-QAD" firstAttribute="centerY" secondItem="Mem-xH-Jwz" secondAttribute="centerY" constant="-90" id="Zsh-ZW-dB0"/>
+                            <constraint firstItem="RmK-gv-QAD" firstAttribute="centerX" secondItem="Mem-xH-Jwz" secondAttribute="centerX" id="rCt-Ah-odH"/>
+                            <constraint firstItem="xgJ-QP-aBA" firstAttribute="trailing" secondItem="RmK-gv-QAD" secondAttribute="trailing" id="sBd-c2-vBv"/>
+                            <constraint firstItem="RmK-gv-QAD" firstAttribute="leading" secondItem="IzY-Fa-fgU" secondAttribute="leading" constant="80" id="t9s-uo-Yjr"/>
+                            <constraint firstItem="xgJ-QP-aBA" firstAttribute="leading" secondItem="RmK-gv-QAD" secondAttribute="leading" id="tYb-Yj-ZOo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="linearBtn" destination="RmK-gv-QAD" id="Lxf-Gf-CLB"/>
+                        <outlet property="rpgBtn" destination="xgJ-QP-aBA" id="DlA-zh-JHh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FHL-4t-Frl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1668" y="671"/>
         </scene>
         <!--Case Detail View Controller-->
         <scene sceneID="PaG-mj-n41">
@@ -238,7 +299,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BXE-1l-iUf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="708"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="CrackerWhite"/>
+                                <color key="sectionIndexBackgroundColor" name="CrackerWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CaseImageTBCell" rowHeight="196" id="oIX-DX-znf" customClass="CaseImageTBCell" customModule="Cracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="196"/>
@@ -271,6 +333,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="wFT-rM-D47" secondAttribute="trailing" constant="15" id="zXs-kr-eXG"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CrackerWhite"/>
                                         <connections>
                                             <outlet property="caseCategory" destination="wFT-rM-D47" id="33k-Es-GRy"/>
                                             <outlet property="caseImage" destination="6Pz-6c-x88" id="pi5-L9-h9P"/>
@@ -313,6 +376,7 @@
                                                 <constraint firstItem="ri5-I7-jKs" firstAttribute="centerY" secondItem="2b2-Ng-Sxw" secondAttribute="centerY" id="pg0-av-thp"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CrackerWhite"/>
                                         <connections>
                                             <outlet property="caseIntroDetail" destination="ri5-I7-jKs" id="8mP-GC-5x0"/>
                                             <outlet property="caseIntroTitle" destination="2b2-Ng-Sxw" id="hpP-ib-KCa"/>
@@ -347,15 +411,16 @@
                                                 <constraint firstItem="e5D-ax-J82" firstAttribute="centerY" secondItem="WWx-cs-Qed" secondAttribute="centerY" id="vJp-ki-NBf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CrackerWhite"/>
                                         <connections>
                                             <outlet property="caseScore" destination="WWx-cs-Qed" id="BQv-6m-g2P"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CaseDescriptionTBCell" id="urn-xP-ObF" customClass="CaseDescriptionTBCell" customModule="Cracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="374" width="414" height="86.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CaseDescriptionTBCell" rowHeight="149" id="urn-xP-ObF" customClass="CaseDescriptionTBCell" customModule="Cracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="374" width="414" height="149"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="urn-xP-ObF" id="CoD-Oh-DHK">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="86.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9J-AO-PBX">
@@ -397,6 +462,7 @@
                                                 <constraint firstItem="2UK-JM-aPR" firstAttribute="leading" secondItem="g9J-AO-PBX" secondAttribute="trailing" constant="15" id="yVb-du-cwr"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CrackerWhite"/>
                                         <connections>
                                             <outlet property="caseDescriptionDetail" destination="ghU-Nd-obY" id="aOF-Ur-IOS"/>
                                             <outlet property="caseDescriptionTitle" destination="g9J-AO-PBX" id="DQr-6F-4Mb"/>
@@ -439,7 +505,250 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zJ8-GF-eb9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="1391"/>
+            <point key="canvasLocation" x="437.68115942028987" y="1415.625"/>
+        </scene>
+        <!--Create Case View Controller-->
+        <scene sceneID="1JR-cI-X9Y">
+            <objects>
+                <viewController storyboardIdentifier="CreateCaseVc" id="eWL-Dt-tNB" customClass="CreateCaseViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wYh-mK-bMv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5cV-sA-end">
+                                <rect key="frame" x="0.0" y="44" width="414" height="185"/>
+                                <color key="backgroundColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="185" id="Ert-3g-agB"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="DsI-NY-jMd">
+                                <rect key="frame" x="16" y="254" width="72" height="309"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="案件名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9L-zq-hx7">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="21"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="案發地點" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50S-Aa-j4r">
+                                        <rect key="frame" x="0.0" y="48" width="72" height="21"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="破案時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55X-V3-qR4">
+                                        <rect key="frame" x="0.0" y="96" width="72" height="21"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開放時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1A-aV-ldn">
+                                        <rect key="frame" x="0.0" y="144" width="72" height="21"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="破案人數" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JwP-69-sLj">
+                                        <rect key="frame" x="0.0" y="192" width="72" height="21"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vm5-Q2-cry">
+                                        <rect key="frame" x="0.0" y="240" width="38.5" height="21"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="案件說明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tld-va-ABm">
+                                        <rect key="frame" x="0.0" y="288" width="72" height="21"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fU4-gJ-L14">
+                                <rect key="frame" x="358" y="179" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="UuL-hb-Jgc"/>
+                                    <constraint firstAttribute="width" secondItem="fU4-gJ-L14" secondAttribute="height" multiplier="1:1" id="djs-oL-7NP"/>
+                                </constraints>
+                                <state key="normal" image="Upload"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lsO-dn-fXG">
+                                <rect key="frame" x="104" y="247.5" width="294" height="34"/>
+                                <color key="backgroundColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" name="CrackerWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9w4-Vs-eBD">
+                                <rect key="frame" x="104" y="391.5" width="80" height="34"/>
+                                <color key="backgroundColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="XJb-S2-jri"/>
+                                </constraints>
+                                <color key="textColor" name="CrackerWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dtK-gz-bdG">
+                                <rect key="frame" x="229" y="391.5" width="80" height="34"/>
+                                <color key="backgroundColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="DvC-uS-ofO"/>
+                                </constraints>
+                                <color key="textColor" name="CrackerWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O5S-7e-dZ4">
+                                <rect key="frame" x="104" y="295.5" width="294" height="34"/>
+                                <color key="backgroundColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" name="CrackerWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WDB-yS-PQD">
+                                <rect key="frame" x="104" y="343.5" width="294" height="34"/>
+                                <color key="backgroundColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" name="CrackerWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="68z-50-oU3">
+                                <rect key="frame" x="104" y="439.5" width="40" height="34"/>
+                                <color key="backgroundColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="APv-qt-LCw"/>
+                                </constraints>
+                                <color key="textColor" name="CrackerWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BhO-pE-DlK">
+                                <rect key="frame" x="104" y="487.5" width="40" height="34"/>
+                                <color key="backgroundColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Kca-gF-aUV"/>
+                                </constraints>
+                                <color key="textColor" name="CrackerWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Gg-Tr-AVp">
+                                <rect key="frame" x="16" y="573" width="382" height="213"/>
+                                <color key="backgroundColor" name="CrackerWhite"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTe-Kl-QYL">
+                                <rect key="frame" x="40" y="796" width="334" height="50"/>
+                                <color key="backgroundColor" name="CrackerYellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="QAI-qF-yMm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="23"/>
+                                <state key="normal" title="CONTINUE">
+                                    <color key="titleColor" name="CrackerWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="～" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDe-JF-7wc">
+                                <rect key="frame" x="194" y="396" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YDe-JF-7wc" secondAttribute="height" multiplier="1:1" id="6yS-xb-wa0"/>
+                                    <constraint firstAttribute="width" constant="25" id="rUZ-gp-pXL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="～" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3CB-KY-mv6">
+                                <rect key="frame" x="154" y="444" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3CB-KY-mv6" secondAttribute="height" multiplier="1:1" id="Ih7-z4-KPX"/>
+                                    <constraint firstAttribute="width" constant="25" id="nto-6e-am6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hEm-zC-hbB">
+                                <rect key="frame" x="189" y="439.5" width="40" height="34"/>
+                                <color key="backgroundColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="g86-mU-65w"/>
+                                </constraints>
+                                <color key="textColor" name="CrackerWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zTF-Ms-Mk8"/>
+                        <color key="backgroundColor" name="CrackerWhite"/>
+                        <constraints>
+                            <constraint firstItem="O5S-7e-dZ4" firstAttribute="centerY" secondItem="50S-Aa-j4r" secondAttribute="centerY" id="04s-IR-Jhz"/>
+                            <constraint firstItem="O5S-7e-dZ4" firstAttribute="trailing" secondItem="lsO-dn-fXG" secondAttribute="trailing" id="1Rm-Cb-9YY"/>
+                            <constraint firstItem="68z-50-oU3" firstAttribute="leading" secondItem="9w4-Vs-eBD" secondAttribute="leading" id="24v-N1-aL7"/>
+                            <constraint firstItem="zTF-Ms-Mk8" firstAttribute="trailing" secondItem="lsO-dn-fXG" secondAttribute="trailing" constant="16" id="4LT-fS-2Co"/>
+                            <constraint firstItem="zTF-Ms-Mk8" firstAttribute="trailing" secondItem="WTe-Kl-QYL" secondAttribute="trailing" constant="40" id="59E-nu-Cnt"/>
+                            <constraint firstItem="DsI-NY-jMd" firstAttribute="leading" secondItem="zTF-Ms-Mk8" secondAttribute="leading" constant="16" id="5ED-gE-Sf4"/>
+                            <constraint firstItem="DsI-NY-jMd" firstAttribute="top" secondItem="5cV-sA-end" secondAttribute="bottom" constant="25" id="7CO-JW-AuD"/>
+                            <constraint firstItem="WDB-yS-PQD" firstAttribute="trailing" secondItem="O5S-7e-dZ4" secondAttribute="trailing" id="7Qv-KW-kcZ"/>
+                            <constraint firstItem="WDB-yS-PQD" firstAttribute="centerY" secondItem="55X-V3-qR4" secondAttribute="centerY" id="7f2-Jr-s3m"/>
+                            <constraint firstItem="YDe-JF-7wc" firstAttribute="centerY" secondItem="9w4-Vs-eBD" secondAttribute="centerY" id="DHr-cd-Les"/>
+                            <constraint firstItem="2Gg-Tr-AVp" firstAttribute="bottom" secondItem="WTe-Kl-QYL" secondAttribute="top" constant="-10" id="DtR-hl-4b4"/>
+                            <constraint firstItem="dtK-gz-bdG" firstAttribute="centerY" secondItem="YDe-JF-7wc" secondAttribute="centerY" id="Gvs-7U-yF5"/>
+                            <constraint firstItem="5cV-sA-end" firstAttribute="top" secondItem="zTF-Ms-Mk8" secondAttribute="top" id="Hdv-0F-1Ut"/>
+                            <constraint firstItem="lsO-dn-fXG" firstAttribute="leading" secondItem="l9L-zq-hx7" secondAttribute="trailing" constant="16" id="IZQ-3u-IMq"/>
+                            <constraint firstItem="lsO-dn-fXG" firstAttribute="centerY" secondItem="l9L-zq-hx7" secondAttribute="centerY" id="KLc-Tq-drt"/>
+                            <constraint firstItem="3CB-KY-mv6" firstAttribute="leading" secondItem="68z-50-oU3" secondAttribute="trailing" constant="10" id="Kpy-e0-Wnr"/>
+                            <constraint firstItem="68z-50-oU3" firstAttribute="centerY" secondItem="JwP-69-sLj" secondAttribute="centerY" id="Llh-5M-AlO"/>
+                            <constraint firstItem="5cV-sA-end" firstAttribute="leading" secondItem="zTF-Ms-Mk8" secondAttribute="leading" id="O5W-EF-lF2"/>
+                            <constraint firstItem="hEm-zC-hbB" firstAttribute="centerY" secondItem="3CB-KY-mv6" secondAttribute="centerY" id="RCr-5c-g9V"/>
+                            <constraint firstItem="WTe-Kl-QYL" firstAttribute="leading" secondItem="zTF-Ms-Mk8" secondAttribute="leading" constant="40" id="RsR-Q7-EGN"/>
+                            <constraint firstItem="zTF-Ms-Mk8" firstAttribute="trailing" secondItem="2Gg-Tr-AVp" secondAttribute="trailing" constant="16" id="SS3-Rc-Gqc"/>
+                            <constraint firstItem="2Gg-Tr-AVp" firstAttribute="leading" secondItem="zTF-Ms-Mk8" secondAttribute="leading" constant="16" id="V4r-IY-utS"/>
+                            <constraint firstItem="2Gg-Tr-AVp" firstAttribute="top" secondItem="Tld-va-ABm" secondAttribute="bottom" constant="10" id="a1Z-OJ-jph"/>
+                            <constraint firstItem="O5S-7e-dZ4" firstAttribute="leading" secondItem="lsO-dn-fXG" secondAttribute="leading" id="d5l-4s-Nw8"/>
+                            <constraint firstItem="YDe-JF-7wc" firstAttribute="leading" secondItem="9w4-Vs-eBD" secondAttribute="trailing" constant="10" id="el6-yc-6av"/>
+                            <constraint firstItem="WDB-yS-PQD" firstAttribute="leading" secondItem="O5S-7e-dZ4" secondAttribute="leading" id="fR1-Zi-mDi"/>
+                            <constraint firstItem="BhO-pE-DlK" firstAttribute="leading" secondItem="68z-50-oU3" secondAttribute="leading" id="hcS-Xa-vvN"/>
+                            <constraint firstItem="zTF-Ms-Mk8" firstAttribute="trailing" secondItem="fU4-gJ-L14" secondAttribute="trailing" constant="16" id="jyZ-qb-cbN"/>
+                            <constraint firstItem="5cV-sA-end" firstAttribute="bottom" secondItem="fU4-gJ-L14" secondAttribute="bottom" constant="10" id="keC-YP-NrI"/>
+                            <constraint firstItem="3CB-KY-mv6" firstAttribute="centerY" secondItem="68z-50-oU3" secondAttribute="centerY" id="lgu-9X-TJv"/>
+                            <constraint firstItem="9w4-Vs-eBD" firstAttribute="leading" secondItem="WDB-yS-PQD" secondAttribute="leading" id="oMf-uc-vBB"/>
+                            <constraint firstItem="9w4-Vs-eBD" firstAttribute="centerY" secondItem="R1A-aV-ldn" secondAttribute="centerY" id="oqp-Ul-Px1"/>
+                            <constraint firstItem="dtK-gz-bdG" firstAttribute="leading" secondItem="YDe-JF-7wc" secondAttribute="trailing" constant="10" id="sUs-H4-SXU"/>
+                            <constraint firstItem="BhO-pE-DlK" firstAttribute="centerY" secondItem="Vm5-Q2-cry" secondAttribute="centerY" id="ucl-Wv-aIu"/>
+                            <constraint firstItem="zTF-Ms-Mk8" firstAttribute="trailing" secondItem="5cV-sA-end" secondAttribute="trailing" id="wNH-ea-agK"/>
+                            <constraint firstItem="3CB-KY-mv6" firstAttribute="width" secondItem="3CB-KY-mv6" secondAttribute="height" multiplier="1:1" id="wby-jD-J8x"/>
+                            <constraint firstItem="hEm-zC-hbB" firstAttribute="leading" secondItem="3CB-KY-mv6" secondAttribute="trailing" constant="10" id="yPD-a0-mqJ"/>
+                            <constraint firstItem="zTF-Ms-Mk8" firstAttribute="bottom" secondItem="WTe-Kl-QYL" secondAttribute="bottom" constant="16" id="zFR-GR-Q7m"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="caseDurationTF" destination="WDB-yS-PQD" id="ZjZ-yh-3Wg"/>
+                        <outlet property="caseImage" destination="5cV-sA-end" id="Gyd-Cu-Qro"/>
+                        <outlet property="caseLocationTF" destination="O5S-7e-dZ4" id="CU0-Cm-bxk"/>
+                        <outlet property="caseNameTF" destination="lsO-dn-fXG" id="DoM-uc-oGv"/>
+                        <outlet property="contentCountLabel" destination="Vm5-Q2-cry" id="Hp0-Yv-J2M"/>
+                        <outlet property="contentCountTF" destination="BhO-pE-DlK" id="qPI-Yi-WGD"/>
+                        <outlet property="continueBtn" destination="WTe-Kl-QYL" id="h0H-bL-jzp"/>
+                        <outlet property="endTimeTF" destination="dtK-gz-bdG" id="BQp-Z7-iSe"/>
+                        <outlet property="maxHeadCountTF" destination="hEm-zC-hbB" id="uPQ-AJ-qlo"/>
+                        <outlet property="minHeadCountTF" destination="68z-50-oU3" id="WAi-yx-8lV"/>
+                        <outlet property="openingTV" destination="2Gg-Tr-AVp" id="MbV-fe-Rub"/>
+                        <outlet property="startTimeTF" destination="9w4-Vs-eBD" id="g7v-rd-UKv"/>
+                        <outlet property="uploadBtn" destination="fU4-gJ-L14" id="TCh-9y-JWr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y7s-Od-qiH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1666.6666666666667" y="1415.625"/>
         </scene>
         <!--Select Mode View Controller-->
         <scene sceneID="Tly-vA-GGd">
@@ -498,7 +807,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yHq-zn-c73" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="2085"/>
+            <point key="canvasLocation" x="438" y="2156"/>
         </scene>
         <!--Mode View Controller-->
         <scene sceneID="ShQ-wy-Kqp">
@@ -518,6 +827,9 @@
                                 <state key="normal" title="START CRACKING">
                                     <color key="titleColor" name="CrackerWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="navigateToBoardVc" destination="ccB-fO-Eg6" eventType="touchUpInside" id="TSs-ip-8Xz"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="隊員請掃描以下 QR Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wx2-Fk-WLV">
                                 <rect key="frame" x="83.5" y="235" width="247.5" height="26"/>
@@ -590,7 +902,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GtU-Qo-jwo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="2800"/>
+            <point key="canvasLocation" x="438" y="2871"/>
         </scene>
         <!--Board View Controller-->
         <scene sceneID="G14-Of-AEk">
@@ -599,8 +911,20 @@
                     <view key="view" contentMode="scaleToFill" id="EGu-Qt-3jG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PINBOARD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWF-hJ-rbP">
+                                <rect key="frame" x="147.5" y="64" width="119" height="24"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="20"/>
+                                <color key="textColor" name="CrackerOrange"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="odS-yU-RhH"/>
                         <color key="backgroundColor" name="CrackerWhite"/>
+                        <constraints>
+                            <constraint firstItem="pWF-hJ-rbP" firstAttribute="top" secondItem="odS-yU-RhH" secondAttribute="top" constant="20" id="19F-LU-Wc1"/>
+                            <constraint firstItem="pWF-hJ-rbP" firstAttribute="centerX" secondItem="EGu-Qt-3jG" secondAttribute="centerX" id="o56-7K-100"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Board" id="qbC-BG-xoV" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <inset key="largeContentSizeImageInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -617,7 +941,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qia-fs-Z4p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="ILy-Yt-H2J" customClass="RAMFlipBottomTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
             </objects>
-            <point key="canvasLocation" x="-481" y="4494"/>
+            <point key="canvasLocation" x="-394" y="4359"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="Wec-ZR-84h">
@@ -995,7 +1319,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x34-P0-mhb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="F5y-3c-Ogn" customClass="RAMFlipBottomTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
             </objects>
-            <point key="canvasLocation" x="393" y="4494"/>
+            <point key="canvasLocation" x="438" y="4359"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="9YO-F9-5yz">
@@ -1004,8 +1328,20 @@
                     <view key="view" contentMode="scaleToFill" id="ySf-nT-y3U">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHATROOM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yek-eQ-jRC">
+                                <rect key="frame" x="141.5" y="64" width="131" height="23.5"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="20"/>
+                                <color key="textColor" name="CrackerOrange"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ooV-8X-AeS"/>
                         <color key="backgroundColor" name="CrackerWhite"/>
+                        <constraints>
+                            <constraint firstItem="yek-eQ-jRC" firstAttribute="centerX" secondItem="ySf-nT-y3U" secondAttribute="centerX" id="4oy-O7-cIm"/>
+                            <constraint firstItem="yek-eQ-jRC" firstAttribute="top" secondItem="ooV-8X-AeS" secondAttribute="top" constant="20" id="Yid-8P-du8"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Chatroom" id="UGK-zg-oGi" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <connections>
@@ -1016,7 +1352,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bm3-p9-pDs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="jpM-dW-TxX" customClass="RAMFlipBottomTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
             </objects>
-            <point key="canvasLocation" x="1274" y="4494"/>
+            <point key="canvasLocation" x="1272" y="4359"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hiN-db-X7l">
@@ -1039,7 +1375,7 @@
         <!--Animated Tab Bar Controller-->
         <scene sceneID="k7w-Gl-WZw">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="FmT-KQ-cbi" customClass="RAMAnimatedTabBarController" customModule="RAMAnimatedTabBarController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBar" automaticallyAdjustsScrollViewInsets="NO" id="FmT-KQ-cbi" customClass="RAMAnimatedTabBarController" customModule="RAMAnimatedTabBarController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="aXg-Pi-VNK"/>
                     <tabBar key="tabBar" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="fill" id="FtP-XM-NRD">
@@ -1055,7 +1391,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0e-di-eJc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="3763"/>
+            <point key="canvasLocation" x="438" y="3629"/>
         </scene>
     </scenes>
     <resources>
@@ -1070,6 +1406,7 @@
         <image name="Search" width="512" height="512"/>
         <image name="Star" width="512" height="512"/>
         <image name="Trophy" width="512" height="512"/>
+        <image name="Upload" width="512" height="512"/>
         <namedColor name="CrackerBlue">
             <color red="0.68199998140335083" green="0.90200001001358032" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -1082,9 +1419,6 @@
         <namedColor name="CrackerYellow">
             <color red="1" green="0.85500001907348633" blue="0.46700000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

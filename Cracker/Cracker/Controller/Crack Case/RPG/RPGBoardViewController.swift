@@ -10,17 +10,15 @@ import UIKit
 class RPGBoardViewController: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-        setupNavigationBar(with: "PINBOARD")
-        setupBackButton()
-        setupCloseButton()
+        super.viewDidLoad()
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    override func viewWillAppear(_ animated: Bool) {
 
+        super.viewWillAppear(animated)
+
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    
 
 }

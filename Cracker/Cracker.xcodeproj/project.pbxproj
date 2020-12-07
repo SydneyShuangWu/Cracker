@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		82D4932F3B4B75BAB59B8915 /* Pods_Cracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0598674B7CC531CF8ACF95 /* Pods_Cracker.framework */; };
+		C10A7E9D257ED0D900AC0AE6 /* UploadCaseImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A7E9C257ED0D900AC0AE6 /* UploadCaseImageViewController.swift */; };
 		C150A74D257A3E8F00C3402B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A74C257A3E8F00C3402B /* ProfileViewController.swift */; };
 		C150A756257CEEAE00C3402B /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A755257CEEAE00C3402B /* MockUser.swift */; };
 		C150A75B257D390000C3402B /* ProfileCaseTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A75A257D390000C3402B /* ProfileCaseTBCell.swift */; };
@@ -28,6 +29,8 @@
 		C1A7C03C2574EF170022674B /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C03B2574EF170022674B /* UIViewController+Extensions.swift */; };
 		C1A7C0472575EDDB0022674B /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C0462575EDDB0022674B /* SidebarViewController.swift */; };
 		C1B5CBAC257DBA890096BFB9 /* RPGBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B5CBAB257DBA890096BFB9 /* RPGBoardViewController.swift */; };
+		C1C2D0B2257E3F45003256C9 /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D0B1257E3F45003256C9 /* SelectCategoryViewController.swift */; };
+		C1C2D0B5257E454C003256C9 /* CreateCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D0B4257E454C003256C9 /* CreateCaseViewController.swift */; };
 		C1D421332570A82A00FF0641 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D421322570A82A00FF0641 /* AppDelegate.swift */; };
 		C1D421352570A82A00FF0641 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D421342570A82A00FF0641 /* SceneDelegate.swift */; };
 		C1D421372570A82A00FF0641 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D421362570A82A00FF0641 /* LobbyViewController.swift */; };
@@ -46,6 +49,7 @@
 		0C0598674B7CC531CF8ACF95 /* Pods_Cracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A250CFA09B32F9C2BB433563 /* Pods-Cracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cracker.debug.xcconfig"; path = "Target Support Files/Pods-Cracker/Pods-Cracker.debug.xcconfig"; sourceTree = "<group>"; };
 		AFD6E98DB1E00DCB392FF7D7 /* Pods-Cracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cracker.release.xcconfig"; path = "Target Support Files/Pods-Cracker/Pods-Cracker.release.xcconfig"; sourceTree = "<group>"; };
+		C10A7E9C257ED0D900AC0AE6 /* UploadCaseImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadCaseImageViewController.swift; sourceTree = "<group>"; };
 		C150A74C257A3E8F00C3402B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C150A755257CEEAE00C3402B /* MockUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
 		C150A75A257D390000C3402B /* ProfileCaseTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCaseTBCell.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 		C1A7C03B2574EF170022674B /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		C1A7C0462575EDDB0022674B /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
 		C1B5CBAB257DBA890096BFB9 /* RPGBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGBoardViewController.swift; sourceTree = "<group>"; };
+		C1C2D0B1257E3F45003256C9 /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewController.swift; sourceTree = "<group>"; };
+		C1C2D0B4257E454C003256C9 /* CreateCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaseViewController.swift; sourceTree = "<group>"; };
 		C1D4212F2570A82A00FF0641 /* Cracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D421322570A82A00FF0641 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1D421342570A82A00FF0641 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,15 +137,6 @@
 			path = RPG;
 			sourceTree = "<group>";
 		};
-		C179548E257DEC0100670EC2 /* Select Mode */ = {
-			isa = PBXGroup;
-			children = (
-				C179548B257DE49500670EC2 /* SelectModeViewController.swift */,
-				C1795490257DEC1C00670EC2 /* ModeViewController.swift */,
-			);
-			path = "Select Mode";
-			sourceTree = "<group>";
-		};
 		C1A7C02C2574986F0022674B /* Mock Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +146,27 @@
 				C150A755257CEEAE00C3402B /* MockUser.swift */,
 			);
 			path = "Mock Data";
+			sourceTree = "<group>";
+		};
+		C1C2D0B7257E4566003256C9 /* Create Case */ = {
+			isa = PBXGroup;
+			children = (
+				C1C2D0B1257E3F45003256C9 /* SelectCategoryViewController.swift */,
+				C1C2D0B4257E454C003256C9 /* CreateCaseViewController.swift */,
+				C10A7E9C257ED0D900AC0AE6 /* UploadCaseImageViewController.swift */,
+			);
+			path = "Create Case";
+			sourceTree = "<group>";
+		};
+		C1C2D0B8257E458A003256C9 /* Crack Case */ = {
+			isa = PBXGroup;
+			children = (
+				C175D979257640B2009167E5 /* SearchCaseViewController.swift */,
+				C179548B257DE49500670EC2 /* SelectModeViewController.swift */,
+				C1795490257DEC1C00670EC2 /* ModeViewController.swift */,
+				C1781692257DE38B0081556F /* RPG */,
+			);
+			path = "Crack Case";
 			sourceTree = "<group>";
 		};
 		C1D421262570A82A00FF0641 = {
@@ -222,11 +240,10 @@
 		C1D421692570EE1D00FF0641 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C179548E257DEC0100670EC2 /* Select Mode */,
-				C1781692257DE38B0081556F /* RPG */,
+				C1C2D0B8257E458A003256C9 /* Crack Case */,
+				C1C2D0B7257E4566003256C9 /* Create Case */,
 				C1D421362570A82A00FF0641 /* LobbyViewController.swift */,
 				C1A7C0462575EDDB0022674B /* SidebarViewController.swift */,
-				C175D979257640B2009167E5 /* SearchCaseViewController.swift */,
 				C161C8A225796E73000697C1 /* CaseDetailViewController.swift */,
 				C150A74C257A3E8F00C3402B /* ProfileViewController.swift */,
 			);
@@ -367,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C150A756257CEEAE00C3402B /* MockUser.swift in Sources */,
+				C1C2D0B5257E454C003256C9 /* CreateCaseViewController.swift in Sources */,
 				C1DE4EE4257940A5005440F6 /* MockCase.swift in Sources */,
 				C161C8B12579E8B6000697C1 /* CaseDescriptionTBCell.swift in Sources */,
 				C1A7C03C2574EF170022674B /* UIViewController+Extensions.swift in Sources */,
@@ -374,10 +392,12 @@
 				C179548C257DE49500670EC2 /* SelectModeViewController.swift in Sources */,
 				C1DE4EE125793A1A005440F6 /* SelectionModel.swift in Sources */,
 				C1D4216D25710CBC00FF0641 /* UIView+Extension.swift in Sources */,
+				C10A7E9D257ED0D900AC0AE6 /* UploadCaseImageViewController.swift in Sources */,
 				C175D97A257640B2009167E5 /* SearchCaseViewController.swift in Sources */,
 				C150A75B257D390000C3402B /* ProfileCaseTBCell.swift in Sources */,
 				C150A74D257A3E8F00C3402B /* ProfileViewController.swift in Sources */,
 				C161C8A325796E73000697C1 /* CaseDetailViewController.swift in Sources */,
+				C1C2D0B2257E3F45003256C9 /* SelectCategoryViewController.swift in Sources */,
 				C1A7C0382574DB410022674B /* MockGeotification.swift in Sources */,
 				C1A7C0272574869F0022674B /* MapViewController.swift in Sources */,
 				C19148CD2577902E0098619B /* SelectionView.swift in Sources */,

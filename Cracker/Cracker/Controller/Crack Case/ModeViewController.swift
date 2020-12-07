@@ -75,5 +75,20 @@ class ModeViewController: UIViewController {
         battleBottomTitle.isHidden = true
         battleBottomQr.isHidden = true
     }
+    
+    @IBAction func navigateToBoardVc() {
+        
+        let vc = myStoryboard.instantiateViewController(withIdentifier: "TabBar")
+        
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .fullScreen
+        
+        nav.hero.isEnabled = true
+        
+        nav.hero.modalAnimationType = .autoReverse(presenting: .cover(direction: .up))
+
+        present(nav, animated: true, completion: nil)
+    }
 }
 
