@@ -34,7 +34,6 @@ class CaseDetailViewController: UIViewController {
         caseDetailTableView.delegate = self
         caseDetailTableView.dataSource = self
     }
-
 }
 
 extension CaseDetailViewController: UITableViewDelegate, UITableViewDataSource {

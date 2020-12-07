@@ -9,5 +9,6 @@ target 'Cracker' do
   pod 'SwiftLint'
   pod 'SideMenu', '~> 6.0'
   pod 'Hero'
+  pod 'RAMAnimatedTabBarController'
 
 end

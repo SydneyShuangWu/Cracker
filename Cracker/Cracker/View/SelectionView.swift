@@ -90,7 +90,7 @@ class SelectionView: UIView {
         
         indicatorView.backgroundColor = indicatorColor
         
-        indicatorView.frame = CGRect(x: 0, y: maxY, width: CGFloat(indicatorWidth), height: 1.5)
+        indicatorView.frame = CGRect(x: 0, y: maxY, width: CGFloat(indicatorWidth), height: 2.5)
         
         delegate?.didSelectButton?(self, at: 0)
         
@@ -106,7 +106,7 @@ class SelectionView: UIView {
         let buttonWidth = screenWidth / CGFloat(numberOfButtons)
         
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.2, delay: 0, animations: {
-            self.indicatorView.frame = CGRect(x: sender.frame.minX, y: maxY, width: buttonWidth, height: 1.5)
+            self.indicatorView.frame = CGRect(x: sender.frame.minX, y: maxY, width: buttonWidth, height: 2.5)
         }, completion: nil)
         
         delegate?.didSelectButton?(self, at: sender.tag)
