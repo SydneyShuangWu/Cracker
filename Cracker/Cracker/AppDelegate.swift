@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
+        
+        IQKeyboardManager.shared.enable = true
         
         return true
     }

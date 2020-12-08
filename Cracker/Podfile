@@ -10,5 +10,6 @@ target 'Cracker' do
   pod 'SideMenu', '~> 6.0'
   pod 'Hero'
   pod 'RAMAnimatedTabBarController'
+  pod 'IQKeyboardManagerSwift'
 
 end

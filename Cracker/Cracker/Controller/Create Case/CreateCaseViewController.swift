@@ -9,7 +9,7 @@ import UIKit
 
 class CreateCaseViewController: UIViewController {
     
-    var caseCategory: CaseCategory?
+    var selectedCaseCategory: CaseCategory?
 
     var imagePickerController: UIImagePickerController?
     
@@ -26,6 +26,9 @@ class CreateCaseViewController: UIViewController {
     @IBOutlet weak var openingTV: UITextView!
     @IBOutlet weak var continueBtn: UIButton!
     @IBOutlet weak var uploadBtn: UIButton!
+    @IBOutlet weak var finalStageLabel: UILabel!
+    @IBOutlet weak var longitudeTF: UITextField!
+    @IBOutlet weak var latitudeTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,17 +45,37 @@ class CreateCaseViewController: UIViewController {
         
         continueBtn.setupCornerRadius()
         
-        openingTV.layer.borderWidth = 1.5
-        openingTV.layer.borderColor = UIColor.systemGray.cgColor
+        openingTV.setupCornerRadius()
+        openingTV.setupTextFieldBorder()
+        
+        if selectedCaseCategory == CaseCategory.linear {
+            showFinalStagePosition()
+        } else {
+            hideFinalStagePosition()
+        }
     }
     
     func setupLabel() {
         
-        if caseCategory == CaseCategory.linear {
+        if selectedCaseCategory == CaseCategory.linear {
             contentCountLabel.text = "關卡數量"
         } else {
             contentCountLabel.text = "NPC 數量"
         }
+    }
+    
+    func showFinalStagePosition() {
+        
+        finalStageLabel.isHidden = false
+        longitudeTF.isHidden = false
+        latitudeTF.isHidden = false
+    }
+    
+    func hideFinalStagePosition() {
+        
+        finalStageLabel.isHidden = true
+        longitudeTF.isHidden = true
+        latitudeTF.isHidden = true
     }
     
     @IBAction func uploadCaseImage(_ sender: Any) {
@@ -95,6 +118,15 @@ class CreateCaseViewController: UIViewController {
         imagePickerAlert.addAction(cancelAction)
         
         present(imagePickerAlert, animated: true, completion: nil)
+    }
+    
+    @IBAction func navigateToDesignCaseVc(_ sender: Any) {
+        
+        let vc = myStoryboard.instantiateViewController(withIdentifier: "DesignCaseVc") as! DesignCaseViewController
+        
+        vc.selectedCaseCategory = selectedCaseCategory
+
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

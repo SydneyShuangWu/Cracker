@@ -40,7 +40,7 @@ class SelectCategoryViewController: UIViewController {
 
         let vc = myStoryboard.instantiateViewController(withIdentifier: "CreateCaseVc") as! CreateCaseViewController
         
-        vc.caseCategory = selectedCategory
+        vc.selectedCaseCategory = selectedCategory
 
         navigationController?.pushViewController(vc, animated: true)
     }

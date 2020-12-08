@@ -23,5 +23,12 @@ extension UIView {
         layer.masksToBounds = true
     }
     
+    func setupTextFieldBorder() {
+        
+        layer.borderWidth = 1.5
+        
+        layer.borderColor = UIColor.systemGray.cgColor
+    }
+    
     
 }
