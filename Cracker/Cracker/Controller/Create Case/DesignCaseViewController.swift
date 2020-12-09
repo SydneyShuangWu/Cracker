@@ -15,11 +15,12 @@ class DesignCaseViewController: UIViewController {
     
     // MARK: - Mock Data
     let linearSectionCount = testLinearCase.stageContent?.count
-    let RpgSectionCount = testRpgCase.charContent?.count
+    let rpgSectionCount = testRpgCase.charContent?.count
     
     @IBOutlet weak var designCaseTableView: UITableView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         setupNavigationBar(with: "Design Your Case")
@@ -35,7 +36,7 @@ class DesignCaseViewController: UIViewController {
             isExpandList.append(false)
         }
         
-        for index in 1...RpgSectionCount! {
+        for index in 1...rpgSectionCount! {
             
             sectionDataList.append(index)
             isExpandList.append(false)
@@ -69,7 +70,7 @@ extension DesignCaseViewController: UITableViewDataSource {
             return linearSectionCount!
         }
         
-        return RpgSectionCount!
+        return rpgSectionCount!
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -72,6 +72,7 @@ class SearchCaseViewController: UIViewController {
             let nextVc = segue.destination as? CaseDetailViewController
             
             nextVc?.selectedCase = selectedCase
+            nextVc?.caseCategory = selectedCase?.category
         }
     }
 }

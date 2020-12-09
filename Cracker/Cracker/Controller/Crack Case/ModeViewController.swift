@@ -18,6 +18,8 @@ class ModeViewController: UIViewController {
 
     var gameMode: GameMode?
     
+    var selectedCase: MockCase?
+    
     var challengePageIsShown = true
     var battlePageIsShown = false
 
@@ -78,7 +80,16 @@ class ModeViewController: UIViewController {
     
     @IBAction func navigateToBoardVc() {
         
-        let vc = myStoryboard.instantiateViewController(withIdentifier: "TabBar")
+        var vc: UIViewController
+        
+        if selectedCase?.category == CaseCategory.linear {
+            
+            vc = myStoryboard.instantiateViewController(withIdentifier: "LinearTabBar")
+            
+        } else {
+            
+            vc = myStoryboard.instantiateViewController(withIdentifier: "RPGTabBar")
+        }
         
         let nav = UINavigationController(rootViewController: vc)
         

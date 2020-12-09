@@ -15,6 +15,7 @@ class CaseDetailViewController: UIViewController {
     
     // Data holder for cases from SearchCaseVC
     var selectedCase: MockCase?
+    var caseCategory: CaseCategory?
 
     override func viewDidLoad() {
         
@@ -33,6 +34,16 @@ class CaseDetailViewController: UIViewController {
         
         caseDetailTableView.delegate = self
         caseDetailTableView.dataSource = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toSelectModeVc" {
+            
+            let nextVc = segue.destination as? SelectModeViewController
+            
+            nextVc?.selectedCase = selectedCase
+        }
     }
 }
 

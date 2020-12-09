@@ -13,12 +13,14 @@ let myStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
 extension UIViewController {
     
-    // Check for alert when testing map!!!!!!!!
-    func showAlert(withTitle title: String?, message: String?) {
+    func showAlert(withTitle title: String?, withActionTitle actionTitle: String?, message: String?) {
         
       let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-      let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+      let action = UIAlertAction(title: actionTitle, style: .cancel, handler: nil)
+        
       alert.addAction(action)
+        
       present(alert, animated: true, completion: nil)
     }
     

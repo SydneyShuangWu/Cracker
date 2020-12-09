@@ -121,7 +121,8 @@ extension MapViewController: CLLocationManagerDelegate {
         
         // Check if the device has the required hardware to support geofence monitoring
         if !CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
-            showAlert(withTitle: "Error", message: "Geofencing is not supported on this device!")
+            
+            showAlert(withTitle: "Error", withActionTitle: nil, message: "Geofencing is not supported on this device!")
             
             return
         }

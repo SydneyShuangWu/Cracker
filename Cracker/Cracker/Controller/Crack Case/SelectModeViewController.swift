@@ -20,6 +20,8 @@ class SelectModeViewController: UIViewController {
     var challengePageIsShown = true
     var battlePageIsShown = false
     
+    var selectedCase: MockCase?
+    
     @IBOutlet weak var challengeBtn: UIButton!
     @IBOutlet weak var battleBtn: UIButton!
 
@@ -54,6 +56,8 @@ class SelectModeViewController: UIViewController {
         let vc = myStoryboard.instantiateViewController(withIdentifier: "ModeVc") as! ModeViewController
         
         vc.gameMode = selectedGameMode
+        
+        vc.selectedCase = selectedCase
         
         if challengePageIsShown == true {
             vc.challengePageIsShown = true
