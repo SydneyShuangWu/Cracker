@@ -11,11 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StageViewCell" rowHeight="698" id="KGk-i7-Jjw" customClass="StageViewCell" customModule="Cracker" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="612" height="698"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StageViewCell" rowHeight="787" id="KGk-i7-Jjw" customClass="StageViewCell" customModule="Cracker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="612" height="787"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="612" height="698"/>
+                <rect key="frame" x="0.0" y="0.0" width="612" height="787"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="關卡故事" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCX-hF-oZN">
@@ -50,6 +50,12 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="關卡座標" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRb-J3-IF8">
                         <rect key="frame" x="16" y="597" width="72" height="21"/>
+                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="關卡地點名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1z-vt-qcY">
+                        <rect key="frame" x="16" y="687" width="108" height="21"/>
                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -127,11 +133,19 @@
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="84y-YP-943">
+                        <rect key="frame" x="16" y="718" width="580" height="34"/>
+                        <color key="backgroundColor" name="CrackerWhite"/>
+                        <color key="textColor" systemColor="systemGrayColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                 </subviews>
                 <color key="backgroundColor" name="CrackerWhite"/>
                 <constraints>
                     <constraint firstItem="HZg-Tm-MtH" firstAttribute="centerY" secondItem="wto-To-nQN" secondAttribute="centerY" id="0Of-oF-FXf"/>
                     <constraint firstItem="81P-qK-6GK" firstAttribute="top" secondItem="Zc5-oe-wnI" secondAttribute="bottom" constant="10" id="34r-HO-lFw"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="84y-YP-943" secondAttribute="bottom" constant="10" id="3aj-o5-R8m"/>
                     <constraint firstItem="Blv-eh-0XZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="A1N-hB-irl"/>
                     <constraint firstItem="hRb-J3-IF8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="AAU-vK-JOY"/>
                     <constraint firstItem="Zc5-oe-wnI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Agf-RC-woo"/>
@@ -139,15 +153,16 @@
                     <constraint firstItem="wto-To-nQN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Bix-Jv-l8l"/>
                     <constraint firstItem="hCX-hF-oZN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Czd-8n-H9v"/>
                     <constraint firstItem="baU-re-LuF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Dkw-dh-jX9"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wto-To-nQN" secondAttribute="bottom" constant="10" id="EXV-q4-L1a"/>
                     <constraint firstItem="81P-qK-6GK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="FQz-kG-4XR"/>
                     <constraint firstItem="Blv-eh-0XZ" firstAttribute="top" secondItem="NjO-3e-85u" secondAttribute="bottom" constant="10" id="HVY-Cf-1WQ"/>
                     <constraint firstItem="Zc5-oe-wnI" firstAttribute="top" secondItem="wdx-tn-Lx6" secondAttribute="bottom" constant="10" id="JQd-cr-sKn"/>
                     <constraint firstItem="EKp-nf-GgQ" firstAttribute="top" secondItem="Pml-wD-0mu" secondAttribute="bottom" constant="10" id="Le2-eA-Awg"/>
                     <constraint firstItem="NjO-3e-85u" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="MYX-qC-2wV"/>
                     <constraint firstItem="zpa-9y-BP9" firstAttribute="leading" secondItem="HZg-Tm-MtH" secondAttribute="trailing" constant="20" id="PR6-Yv-NaG"/>
+                    <constraint firstItem="M1z-vt-qcY" firstAttribute="top" secondItem="wto-To-nQN" secondAttribute="bottom" constant="25" id="QNh-sY-6bq"/>
                     <constraint firstItem="wdx-tn-Lx6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="REM-2H-nQP"/>
                     <constraint firstItem="EKp-nf-GgQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="TaS-jV-K1l"/>
+                    <constraint firstItem="M1z-vt-qcY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="TnG-84-eOa"/>
                     <constraint firstAttribute="trailing" secondItem="Pml-wD-0mu" secondAttribute="trailing" constant="16" id="X58-IH-gdQ"/>
                     <constraint firstItem="NjO-3e-85u" firstAttribute="top" secondItem="81P-qK-6GK" secondAttribute="bottom" constant="10" id="Xah-lq-p85"/>
                     <constraint firstItem="wto-To-nQN" firstAttribute="top" secondItem="hRb-J3-IF8" secondAttribute="bottom" constant="25" id="YJm-Fs-Uq3"/>
@@ -158,12 +173,15 @@
                     <constraint firstItem="QRj-lT-336" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="fry-m3-1Ji"/>
                     <constraint firstItem="Pml-wD-0mu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="grT-dA-gsL"/>
                     <constraint firstItem="wdx-tn-Lx6" firstAttribute="top" secondItem="baU-re-LuF" secondAttribute="bottom" constant="10" id="iFD-cD-9dZ"/>
+                    <constraint firstAttribute="trailing" secondItem="84y-YP-943" secondAttribute="trailing" constant="16" id="iHs-9d-w5E"/>
                     <constraint firstItem="uhU-O9-aRC" firstAttribute="leading" secondItem="zpa-9y-BP9" secondAttribute="trailing" constant="10" id="iIJ-Dd-mfI"/>
                     <constraint firstAttribute="trailing" secondItem="NjO-3e-85u" secondAttribute="trailing" constant="16" id="mIL-V6-PLb"/>
                     <constraint firstItem="hCX-hF-oZN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="pLA-ll-kZp"/>
                     <constraint firstItem="HZg-Tm-MtH" firstAttribute="leading" secondItem="wto-To-nQN" secondAttribute="trailing" constant="10" id="rmD-ma-lQa"/>
                     <constraint firstAttribute="trailing" secondItem="QRj-lT-336" secondAttribute="trailing" constant="16" id="twg-LD-9Co"/>
+                    <constraint firstItem="84y-YP-943" firstAttribute="top" secondItem="M1z-vt-qcY" secondAttribute="bottom" constant="10" id="wKc-Mj-eZ5"/>
                     <constraint firstAttribute="trailing" secondItem="Zc5-oe-wnI" secondAttribute="trailing" constant="16" id="wwn-Fa-0rD"/>
+                    <constraint firstItem="84y-YP-943" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="xMh-jT-f0X"/>
                     <constraint firstItem="Pml-wD-0mu" firstAttribute="top" secondItem="hCX-hF-oZN" secondAttribute="bottom" constant="10" id="xra-vx-vcO"/>
                     <constraint firstItem="hRb-J3-IF8" firstAttribute="top" secondItem="QRj-lT-336" secondAttribute="bottom" constant="10" id="y5x-Cw-Ybp"/>
                 </constraints>
@@ -174,11 +192,12 @@
                 <outlet property="hintTF" destination="QRj-lT-336" id="1jI-4q-Y7D"/>
                 <outlet property="instructionTV" destination="baU-re-LuF" id="fMR-ep-oZ0"/>
                 <outlet property="latitudeTF" destination="uhU-O9-aRC" id="UPT-hp-euT"/>
+                <outlet property="locationNameTF" destination="84y-YP-943" id="beU-kI-d0r"/>
                 <outlet property="longitudeTF" destination="HZg-Tm-MtH" id="d7i-5z-8R3"/>
                 <outlet property="questionTF" destination="Zc5-oe-wnI" id="cwB-zd-QeI"/>
                 <outlet property="storyTV" destination="Pml-wD-0mu" id="x0D-mO-pnM"/>
             </connections>
-            <point key="canvasLocation" x="349.27536231884062" y="296.65178571428572"/>
+            <point key="canvasLocation" x="349.27536231884062" y="326.45089285714283"/>
         </tableViewCell>
     </objects>
     <resources>

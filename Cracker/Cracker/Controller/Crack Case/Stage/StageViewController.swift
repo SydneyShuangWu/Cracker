@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol PassStageIndexDelegate: AnyObject {
+    
+    func getStageIndex(with index: Int)
+}
+
 class StageViewController: UIViewController {
     
     @IBOutlet weak var stageTitle: UILabel!
@@ -29,6 +34,8 @@ class StageViewController: UIViewController {
     
     let stageCount = testLinearCase.stageContent?.count
     var currentStageIndex: Int!
+    
+    weak var delegate: PassStageIndexDelegate?
 
     override func viewDidLoad() {
         
@@ -73,6 +80,8 @@ class StageViewController: UIViewController {
     func displayFirstStage() {
         
         currentStageIndex = 1
+        
+        delegate?.getStageIndex(with: currentStageIndex)
         
         stageTitle.text = "Stage" + String(currentStageIndex)
         questionLabel.text = questions[currentStageIndex - 1]
@@ -125,6 +134,8 @@ class StageViewController: UIViewController {
         hideHint()
         
         currentStageIndex += 1
+        
+        delegate?.getStageIndex(with: currentStageIndex)
         
         if currentStageIndex <= stageCount! {
     

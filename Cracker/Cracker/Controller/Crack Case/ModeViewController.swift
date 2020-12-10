@@ -89,9 +89,19 @@ class ModeViewController: UIViewController {
             
             vc = myStoryboard.instantiateViewController(withIdentifier: "LinearTabBar")
             
+            // Set up delegate to pass stage index from stageVc to stageMapVc
+            if let stageVC = (vc as? UITabBarController)?.viewControllers?.first as?
+                StageViewController,
+               
+               let stageMapVC = (vc as? UITabBarController)?.viewControllers?[1] as? StageMapViewController {
+                
+                stageVC.delegate = stageMapVC
+            }
+            
         } else {
             
             vc = myStoryboard.instantiateViewController(withIdentifier: "RPGTabBar")
+            
         }
         
         let nav = UINavigationController(rootViewController: vc)

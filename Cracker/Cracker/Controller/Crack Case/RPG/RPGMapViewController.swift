@@ -54,7 +54,7 @@ class RPGMapViewController: UIViewController {
         
         // Register MarkerView as a reusable annotation view
         mapView.register(
-            MarkerView.self,
+            StageMarkerView.self,
             forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         
         // Plot markers on the map
@@ -81,7 +81,7 @@ class RPGMapViewController: UIViewController {
     
     func renderAnnotation() {
         
-        mapView.addAnnotations(mockMarkers)
+//        mapView.addAnnotations(mockMarkers)
     }
 }
 

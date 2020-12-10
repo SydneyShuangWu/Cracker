@@ -16,6 +16,7 @@ class StageViewCell: UITableViewCell {
     @IBOutlet weak var hintTF: UITextField!
     @IBOutlet weak var longitudeTF: UITextField!
     @IBOutlet weak var latitudeTF: UITextField!
+    @IBOutlet weak var locationNameTF: UITextField!
     
     override func awakeFromNib() {
         
@@ -50,7 +51,10 @@ class StageViewCell: UITableViewCell {
         longitudeTF.setupCornerRadius()
         
         latitudeTF.setupTextFieldBorder()
-        latitudeTF.setupCornerRadius()        
+        latitudeTF.setupCornerRadius()
+        
+        locationNameTF.setupTextFieldBorder()
+        locationNameTF.setupCornerRadius()
     }
     
 }

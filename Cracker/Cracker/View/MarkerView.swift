@@ -1,52 +1,48 @@
 //
-//  CharacterAnnotationView.swift
+//  StageMarkerView.swift
 //  Cracker
 //
-//  Created by Sydney Wu on 2020/11/28.
+//  Created by Sydney Wu on 2020/12/11.
 //
 
 import Foundation
 import MapKit
 
-class MarkerAnnotationView: MKMarkerAnnotationView {
+class StageMarkerView: MKAnnotationView {
     
     override var annotation: MKAnnotation? {
         
         willSet {
-            guard let marker = newValue as? MockMarker else { return }
             
-            canShowCallout = true
-            calloutOffset = CGPoint(x: -5, y: 5)
-            rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            guard let stageMarker = newValue as? StageMarker else { return }
             
-            markerTintColor = marker.markerTintColor
+            canShowCallout = false
             
-            glyphImage = marker.image
+            image = stageMarker.image
         }
     }
 }
 
-class MarkerView: MKAnnotationView {
+class RPGMarkerView: MKAnnotationView {
     
     override var annotation: MKAnnotation? {
         
         willSet {
-            guard let marker = newValue as? MockMarker else { return }
+            
+            guard let rpgMarker = newValue as? RPGMarker else { return }
             
             canShowCallout = true
             calloutOffset = CGPoint(x: -5, y: 5)
             rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             
-            image = marker.image
+//            image = rpgMarker.image
             
             // Multi-line subtitle
             let detailLabel = UILabel()
             detailLabel.numberOfLines = 0
             detailLabel.font = detailLabel.font.withSize(12)
-            detailLabel.text = marker.subtitle
+            detailLabel.text = rpgMarker.subtitle
             detailCalloutAccessoryView = detailLabel
         }
     }
 }
-
-
