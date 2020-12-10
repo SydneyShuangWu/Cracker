@@ -12,13 +12,7 @@ import IQKeyboardManagerSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    // Listen for and react to geofence events
-    let locationManager = CLLocationManager()
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
         
         IQKeyboardManager.shared.enable = true
         

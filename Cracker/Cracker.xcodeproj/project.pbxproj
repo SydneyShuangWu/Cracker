@@ -29,13 +29,15 @@
 		C19148CD2577902E0098619B /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19148CC2577902E0098619B /* SelectionView.swift */; };
 		C19D3B9B257F8BB7002E2E7C /* RPGViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D3B99257F8BB7002E2E7C /* RPGViewCell.swift */; };
 		C19D3B9C257F8BB7002E2E7C /* RPGViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C19D3B9A257F8BB7002E2E7C /* RPGViewCell.xib */; };
-		C1A7C0272574869F0022674B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C0262574869F0022674B /* MapViewController.swift */; };
+		C1A7C0272574869F0022674B /* RPGMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C0262574869F0022674B /* RPGMapViewController.swift */; };
 		C1A7C02A257497160022674B /* MockMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C029257497160022674B /* MockMarker.swift */; };
 		C1A7C0302574ACA80022674B /* MarkerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C02F2574ACA80022674B /* MarkerViews.swift */; };
 		C1A7C0382574DB410022674B /* MockGeotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C0372574DB410022674B /* MockGeotification.swift */; };
 		C1A7C03C2574EF170022674B /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C03B2574EF170022674B /* UIViewController+Extensions.swift */; };
 		C1A7C0472575EDDB0022674B /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C0462575EDDB0022674B /* SidebarViewController.swift */; };
 		C1B5CBAC257DBA890096BFB9 /* RPGBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B5CBAB257DBA890096BFB9 /* RPGBoardViewController.swift */; };
+		C1BD23D42580E39F00D7D090 /* StageMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BD23D32580E39F00D7D090 /* StageMapViewController.swift */; };
+		C1BD23D92580F40700D7D090 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1BD23D82580F40700D7D090 /* MapKit.framework */; };
 		C1C2D0B2257E3F45003256C9 /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D0B1257E3F45003256C9 /* SelectCategoryViewController.swift */; };
 		C1C2D0B5257E454C003256C9 /* CreateCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D0B4257E454C003256C9 /* CreateCaseViewController.swift */; };
 		C1D421332570A82A00FF0641 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D421322570A82A00FF0641 /* AppDelegate.swift */; };
@@ -77,13 +79,15 @@
 		C19148CC2577902E0098619B /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		C19D3B99257F8BB7002E2E7C /* RPGViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGViewCell.swift; sourceTree = "<group>"; };
 		C19D3B9A257F8BB7002E2E7C /* RPGViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPGViewCell.xib; sourceTree = "<group>"; };
-		C1A7C0262574869F0022674B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C1A7C0262574869F0022674B /* RPGMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGMapViewController.swift; sourceTree = "<group>"; };
 		C1A7C029257497160022674B /* MockMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMarker.swift; sourceTree = "<group>"; };
 		C1A7C02F2574ACA80022674B /* MarkerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerViews.swift; sourceTree = "<group>"; };
 		C1A7C0372574DB410022674B /* MockGeotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGeotification.swift; sourceTree = "<group>"; };
 		C1A7C03B2574EF170022674B /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		C1A7C0462575EDDB0022674B /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
 		C1B5CBAB257DBA890096BFB9 /* RPGBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGBoardViewController.swift; sourceTree = "<group>"; };
+		C1BD23D32580E39F00D7D090 /* StageMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageMapViewController.swift; sourceTree = "<group>"; };
+		C1BD23D82580F40700D7D090 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C1C2D0B1257E3F45003256C9 /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewController.swift; sourceTree = "<group>"; };
 		C1C2D0B4257E454C003256C9 /* CreateCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaseViewController.swift; sourceTree = "<group>"; };
 		C1D4212F2570A82A00FF0641 /* Cracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1BD23D92580F40700D7D090 /* MapKit.framework in Frameworks */,
 				82D4932F3B4B75BAB59B8915 /* Pods_Cracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,6 +122,7 @@
 		2E70CADB3D5C22A260F76F91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C1BD23D82580F40700D7D090 /* MapKit.framework */,
 				0C0598674B7CC531CF8ACF95 /* Pods_Cracker.framework */,
 			);
 			name = Frameworks;
@@ -142,19 +148,20 @@
 			path = "Case Detail Page";
 			sourceTree = "<group>";
 		};
-		C163E455258072DB00D1077D /* Linear */ = {
+		C163E455258072DB00D1077D /* Stage */ = {
 			isa = PBXGroup;
 			children = (
 				C163E45C2580751200D1077D /* StageViewController.swift */,
+				C1BD23D32580E39F00D7D090 /* StageMapViewController.swift */,
 			);
-			path = Linear;
+			path = Stage;
 			sourceTree = "<group>";
 		};
 		C1781692257DE38B0081556F /* RPG */ = {
 			isa = PBXGroup;
 			children = (
 				C1B5CBAB257DBA890096BFB9 /* RPGBoardViewController.swift */,
-				C1A7C0262574869F0022674B /* MapViewController.swift */,
+				C1A7C0262574869F0022674B /* RPGMapViewController.swift */,
 			);
 			path = RPG;
 			sourceTree = "<group>";
@@ -199,7 +206,7 @@
 				C175D979257640B2009167E5 /* SearchCaseViewController.swift */,
 				C179548B257DE49500670EC2 /* SelectModeViewController.swift */,
 				C1795490257DEC1C00670EC2 /* ModeViewController.swift */,
-				C163E455258072DB00D1077D /* Linear */,
+				C163E455258072DB00D1077D /* Stage */,
 				C1781692257DE38B0081556F /* RPG */,
 			);
 			path = "Crack Case";
@@ -442,7 +449,8 @@
 				C19D3B9B257F8BB7002E2E7C /* RPGViewCell.swift in Sources */,
 				C10A7EA8257ED90900AC0AE6 /* DesignCaseViewController.swift in Sources */,
 				C1A7C0382574DB410022674B /* MockGeotification.swift in Sources */,
-				C1A7C0272574869F0022674B /* MapViewController.swift in Sources */,
+				C1A7C0272574869F0022674B /* RPGMapViewController.swift in Sources */,
+				C1BD23D42580E39F00D7D090 /* StageMapViewController.swift in Sources */,
 				C19148CD2577902E0098619B /* SelectionView.swift in Sources */,
 				C1D421372570A82A00FF0641 /* LobbyViewController.swift in Sources */,
 				C1A7C0302574ACA80022674B /* MarkerViews.swift in Sources */,

@@ -15,6 +15,7 @@ class ModeViewController: UIViewController {
     @IBOutlet weak var battleBottomTitle: UILabel!
     @IBOutlet weak var battleTopQr: UIImageView!
     @IBOutlet weak var battleBottomQr: UIImageView!
+    @IBOutlet weak var startBtn: UIButton!
 
     var gameMode: GameMode?
     
@@ -28,6 +29,8 @@ class ModeViewController: UIViewController {
         super.viewDidLoad()
         
         setupNavBar()
+        
+        startBtn.setupCornerRadius()
         
         if challengePageIsShown == true {
             showChallengePage()

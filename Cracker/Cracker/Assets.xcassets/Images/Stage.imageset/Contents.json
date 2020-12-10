@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "banner.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Stage32.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

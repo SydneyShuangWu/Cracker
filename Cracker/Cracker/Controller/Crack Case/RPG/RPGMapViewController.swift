@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+class RPGMapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -19,13 +19,23 @@ class MapViewController: UIViewController {
         
         super.viewDidLoad()
         
-        // Setup core location
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
+        setupCoreLocation()
 
         setupMap()
 
         configGeotification(for: geotification)
+    }
+    
+    // MARK: - Core Location
+    func setupCoreLocation() {
+        
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        
+        locationManager.startUpdatingLocation()
+        
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.pausesLocationUpdatesAutomatically = false
     }
     
     // MARK: - Configure Map
@@ -88,25 +98,41 @@ private extension MKMapView {
     }
 }
 
-extension MapViewController: CLLocationManagerDelegate {
-    
+extension RPGMapViewController: CLLocationManagerDelegate {
     // MARK: - Current Location
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         
         if #available(iOS 14.0, *) {
+            
             switch manager.authorizationStatus {
+            
             case .authorizedAlways, .authorizedWhenInUse:
+                
                 mapView.showsUserLocation = true
+                
             case .notDetermined, .denied, .restricted:
                 break
+                
             default:
                 break
             }
         }
     }
     
-    // MARK: - Geofence
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        
+        locationManager.startUpdatingLocation()
+        
+        mapView.showsUserLocation = true
 
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        print(locations[0].coordinate.latitude)
+    }
+    
+    // MARK: - Geofence
     // Turn Geotification into CLCircularRegion in order to implement Geofence
     func region(with geotification: MockGeotification) -> CLCircularRegion {
         
@@ -153,8 +179,8 @@ extension MapViewController: CLLocationManagerDelegate {
     }
 }
 
-// MARK: - Overlay
-extension MapViewController: MKMapViewDelegate {
+// MARK: - Geofence Overlay
+extension RPGMapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         

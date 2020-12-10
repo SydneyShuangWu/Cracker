@@ -984,6 +984,7 @@
                         <outlet property="battleTopTitle" destination="ce2-RP-MhL" id="6Xc-RM-6aA"/>
                         <outlet property="challengeQr" destination="NCj-GQ-JRZ" id="mBw-Ow-u0v"/>
                         <outlet property="challengeTitle" destination="wx2-Fk-WLV" id="dhK-LF-GIm"/>
+                        <outlet property="startBtn" destination="Snc-Wc-WGj" id="rWx-ui-6nM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GtU-Qo-jwo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1163,21 +1164,35 @@
             </objects>
             <point key="canvasLocation" x="-2032" y="4263"/>
         </scene>
-        <!--View Controller-->
+        <!--Stage Map View Controller-->
         <scene sceneID="0JI-Zl-968">
             <objects>
-                <viewController id="FWC-lb-9z5" sceneMemberID="viewController">
+                <viewController id="FWC-lb-9z5" customClass="StageMapViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uxI-ZI-Nso">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PIu-dK-NlZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Ot7-gH-gjN"/>
                         <color key="backgroundColor" name="CrackerWhite"/>
+                        <constraints>
+                            <constraint firstItem="PIu-dK-NlZ" firstAttribute="leading" secondItem="Ot7-gH-gjN" secondAttribute="leading" id="3sj-XN-TPE"/>
+                            <constraint firstItem="Ot7-gH-gjN" firstAttribute="bottom" secondItem="PIu-dK-NlZ" secondAttribute="bottom" id="Skv-IT-KIB"/>
+                            <constraint firstItem="PIu-dK-NlZ" firstAttribute="top" secondItem="Ot7-gH-gjN" secondAttribute="top" id="bj0-7g-v5o"/>
+                            <constraint firstItem="Ot7-gH-gjN" firstAttribute="trailing" secondItem="PIu-dK-NlZ" secondAttribute="trailing" id="qen-ZQ-zps"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Map" id="ooW-uh-yuz" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <connections>
                             <outlet property="animation" destination="xYH-jZ-5yO" id="BMw-fp-bQJ"/>
                         </connections>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="stageMap" destination="PIu-dK-NlZ" id="RMv-rx-HGG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVc-GV-Dn3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="xYH-jZ-5yO" customClass="RAMFlipBottomTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
@@ -1589,7 +1604,7 @@
         <!--Map View Controller-->
         <scene sceneID="lqZ-g1-Ck0">
             <objects>
-                <viewController storyboardIdentifier="MapVc" id="EHO-z8-vXP" customClass="MapViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapVc" id="EHO-z8-vXP" customClass="RPGMapViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XuN-Rq-ThM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
