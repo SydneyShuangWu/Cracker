@@ -36,6 +36,27 @@ class StageMapViewController: UIViewController {
         setupCoreLocation()
         
         setupMapView()
+        
+        // Notify when user has opened Cracker from Settings
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    @objc func willEnterForeground() {
+        
+        registerForLocationUpdates()
+    }
+    
+    func registerForLocationUpdates() {
+        
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestLocation()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            
+            setupCoreLocation()
+            locationManager.startUpdatingLocation()
+            locationManager.startUpdatingHeading()
+        }
     }
     
     func getStageCoordinates() {
@@ -77,6 +98,7 @@ class StageMapViewController: UIViewController {
     }
 }
 
+// MARK: - Core Location
 extension StageMapViewController: CLLocationManagerDelegate {
     
     func setupCoreLocation() {
@@ -90,20 +112,43 @@ extension StageMapViewController: CLLocationManagerDelegate {
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         
-        switch manager.authorizationStatus {
-
-        case .authorizedAlways, .authorizedWhenInUse:
-
+        let authStatus = manager.authorizationStatus
+        
+        let accuracyStatus = manager.accuracyAuthorization
+        
+        if (authStatus == .authorizedAlways || authStatus == .authorizedWhenInUse)
+            && accuracyStatus == .fullAccuracy {
+            
             print("✅ Current location is authorized by the user")
 
             locationManager.startUpdatingLocation()
             locationManager.startUpdatingHeading()
-
-        default:
-
-            showAlert(withTitle: "請至設定開啟定位", withActionTitle: "OK", message: nil)
+            
+        } else if authStatus == .denied || accuracyStatus == .reducedAccuracy {
+            
+            let alertController = UIAlertController(title: "定位失敗", message: "無法取得使用者所在精確位置", preferredStyle: .alert)
+            
+            let settingsAction = UIAlertAction(title: "前往設定", style: .default) { _ -> Void in
+                
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    
+                    UIApplication.shared.open(settingsUrl, completionHandler: { success in
+                        
+                        print("Settings opened: \(success)")
+                    })
+                }
+            }
+            
+            alertController.addAction(settingsAction)
+            present(alertController, animated: true, completion: nil)
         }
     }
+    
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -119,6 +164,7 @@ extension StageMapViewController: CLLocationManagerDelegate {
     }
 }
 
+// MARK: - Map View
 extension StageMapViewController: MKMapViewDelegate {
     
     func setupMapView() {

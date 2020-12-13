@@ -10,6 +10,7 @@
 		82D4932F3B4B75BAB59B8915 /* Pods_Cracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0598674B7CC531CF8ACF95 /* Pods_Cracker.framework */; };
 		C10A7EA8257ED90900AC0AE6 /* DesignCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A7EA7257ED90900AC0AE6 /* DesignCaseViewController.swift */; };
 		C120B9D62582990400E99E9D /* RPGMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120B9D52582990400E99E9D /* RPGMarker.swift */; };
+		C120B9DA2583183700E99E9D /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120B9D92583183700E99E9D /* UIImage+Extension.swift */; };
 		C138AE17258284A90012D633 /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138AE16258284A90012D633 /* MarkerView.swift */; };
 		C150A74D257A3E8F00C3402B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A74C257A3E8F00C3402B /* ProfileViewController.swift */; };
 		C150A756257CEEAE00C3402B /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A755257CEEAE00C3402B /* MockUser.swift */; };
@@ -62,6 +63,7 @@
 		AFD6E98DB1E00DCB392FF7D7 /* Pods-Cracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cracker.release.xcconfig"; path = "Target Support Files/Pods-Cracker/Pods-Cracker.release.xcconfig"; sourceTree = "<group>"; };
 		C10A7EA7257ED90900AC0AE6 /* DesignCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCaseViewController.swift; sourceTree = "<group>"; };
 		C120B9D52582990400E99E9D /* RPGMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGMarker.swift; sourceTree = "<group>"; };
+		C120B9D92583183700E99E9D /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		C138AE16258284A90012D633 /* MarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
 		C150A74C257A3E8F00C3402B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C150A755257CEEAE00C3402B /* MockUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				C1A7C03B2574EF170022674B /* UIViewController+Extensions.swift */,
 				C19148C8257784E40098619B /* UISearchBar+Extension.swift */,
 				C1EFA7B325822EC0004C7D03 /* CLLocationCoordinate2D+Extension.swift */,
+				C120B9D92583183700E99E9D /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				C1D421372570A82A00FF0641 /* LobbyViewController.swift in Sources */,
 				C1D421622570D9C000FF0641 /* UIColor+Extension.swift in Sources */,
 				C19148C9257784E40098619B /* UISearchBar+Extension.swift in Sources */,
+				C120B9DA2583183700E99E9D /* UIImage+Extension.swift in Sources */,
 				C161C8AB2579E852000697C1 /* CaseIntroTBCell.swift in Sources */,
 				C120B9D62582990400E99E9D /* RPGMarker.swift in Sources */,
 				C1D421332570A82A00FF0641 /* AppDelegate.swift in Sources */,
