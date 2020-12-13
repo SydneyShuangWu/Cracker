@@ -22,7 +22,6 @@ class StageViewController: UIViewController {
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var stageHint: UILabel!
     @IBOutlet weak var hintLabel: UILabel!
-    @IBOutlet weak var finishBtn: UIButton!
     @IBOutlet weak var hintBtn: UIButton!
     
     var ids: [String] = []
@@ -36,6 +35,8 @@ class StageViewController: UIViewController {
     var currentStageIndex: Int!
     
     weak var delegate: PassStageIndexDelegate?
+    
+    var hintCount = 0
 
     override func viewDidLoad() {
         
@@ -59,7 +60,6 @@ class StageViewController: UIViewController {
         
         sendBtn.setupCornerRadius()
         answerTF.setupCornerRadius()
-        finishBtn.setupCornerRadius()
     }
     
     func getStageData() {
@@ -129,7 +129,7 @@ class StageViewController: UIViewController {
         }
     }
     
-    func runStageFlow() {
+    func updateCurrentStageIndex() {
         
         hideHint()
         
@@ -148,7 +148,6 @@ class StageViewController: UIViewController {
             
             sendBtn.isHidden = true
             answerTF.isHidden = true
-            finishBtn.isHidden = false
         }
     }
     
@@ -158,7 +157,9 @@ class StageViewController: UIViewController {
 
         let nextStageAction = UIAlertAction(title: "查看下一關位置", style: .cancel) { _ in
 
-            self.runStageFlow()
+            self.updateCurrentStageIndex()
+            
+            self.tabBarController?.selectedIndex = 1
         }
 
         alert.addAction(nextStageAction)
@@ -173,11 +174,13 @@ class StageViewController: UIViewController {
     
     func popupFinishAlert() {
         
-        let alert = UIAlertController(title: "Case successfully cracked!", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "成功破案😎", message: nil, preferredStyle: .alert)
 
-        let nextStageAction = UIAlertAction(title: "Yeah", style: .cancel) { _ in
-
-            let vc = myStoryboard.instantiateViewController(withIdentifier: "LobbyVc")
+        let nextStageAction = UIAlertAction(title: "查看破案成績", style: .cancel) { _ in
+            
+            let vc = myStoryboard.instantiateViewController(withIdentifier: "StageRecordVc") as! StageRecordViewController
+            
+            vc.hintCount = self.hintCount
             
             let nav = UINavigationController(rootViewController: vc)
             
@@ -185,6 +188,8 @@ class StageViewController: UIViewController {
             
             nav.hero.isEnabled = true
             
+            nav.hero.modalAnimationType = .cover(direction: .up)
+
             self.present(nav, animated: true, completion: nil)
         }
 
@@ -194,6 +199,8 @@ class StageViewController: UIViewController {
     }
     
     @IBAction func lookHint(_ sender: Any) {
+        
+        hintCount += 1
         
         showHint()
         

@@ -29,11 +29,8 @@ struct MockUser {
     let createdCases: [MockCase]?
 }
 
-let sydney = MockUser(id: "0120bvgiej49", name: "Sydney", rank: 5, image: UIImage(named: "Sydney")!, friendList: friendList, pendingList: pendingList, treasuredCases: treasuredCases, crackedCases: crackedCases, createdCases: createdCases)
+let sydney = MockUser(id: "0120bvgiej49", name: "Sydney", rank: 5, image: UIImage(named: "Sydney")!, friendList: friendList, pendingList: nil, treasuredCases: treasuredCases, crackedCases: crackedCases, createdCases: createdCases)
 
 let sugar = MockUser(id: "1234fjkejgej", name: "Sugar", rank: 10, image: UIImage(named: "Sugar")!, friendList: nil, pendingList: nil, treasuredCases: nil, crackedCases: nil, createdCases: nil)
 
-let luna = MockUser(id: "5678dbljqsov", name: "Luna", rank: 3, image: UIImage(named: "Luna")!, friendList: nil, pendingList: nil, treasuredCases: nil, crackedCases: nil, createdCases: nil)
-
 let friendList = [sugar]
-let pendingList = [luna]

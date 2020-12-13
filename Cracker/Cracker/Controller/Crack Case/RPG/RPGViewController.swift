@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RPGBoardViewController: UIViewController {
+class RPGViewController: UIViewController {
 
     override func viewDidLoad() {
         

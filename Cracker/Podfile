@@ -11,5 +11,6 @@ target 'Cracker' do
   pod 'Hero'
   pod 'RAMAnimatedTabBarController'
   pod 'IQKeyboardManagerSwift'
+  pod 'lottie-ios'
 
 end

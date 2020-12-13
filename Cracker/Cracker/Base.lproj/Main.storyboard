@@ -1089,20 +1089,6 @@
                                 <color key="textColor" name="CrackerOrange"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1A-iV-1vc">
-                                <rect key="frame" x="40" y="530" width="334" height="40"/>
-                                <color key="backgroundColor" name="CrackerYellow"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="81p-yO-g2P"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="20"/>
-                                <state key="normal" title="CASE CRACKED">
-                                    <color key="titleColor" name="CrackerWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendAnswer:" destination="01Q-Fc-BIz" eventType="touchUpInside" id="Kdp-4w-dMc"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NwS-dA-g1r"/>
                         <color key="backgroundColor" name="CrackerWhite"/>
@@ -1116,10 +1102,8 @@
                             <constraint firstItem="EBS-Ye-NgH" firstAttribute="top" secondItem="8N8-51-0yD" secondAttribute="bottom" constant="60" id="HvK-Ah-Xdk"/>
                             <constraint firstItem="0xJ-yH-dbC" firstAttribute="leading" secondItem="zxt-r7-4Im" secondAttribute="leading" id="LRy-5G-4qX"/>
                             <constraint firstItem="tuF-r4-lDI" firstAttribute="leading" secondItem="ta8-GB-88e" secondAttribute="leading" id="Mfk-hx-dRT"/>
-                            <constraint firstItem="i1A-iV-1vc" firstAttribute="top" secondItem="tuF-r4-lDI" secondAttribute="top" id="Qem-gO-2c2"/>
                             <constraint firstItem="zxt-r7-4Im" firstAttribute="top" secondItem="EBS-Ye-NgH" secondAttribute="bottom" constant="20" id="SU6-4z-Pdk"/>
                             <constraint firstItem="tuF-r4-lDI" firstAttribute="top" secondItem="0xJ-yH-dbC" secondAttribute="bottom" constant="100" id="TTx-so-jL2"/>
-                            <constraint firstItem="i1A-iV-1vc" firstAttribute="trailing" secondItem="tuF-r4-lDI" secondAttribute="trailing" id="Wbi-zu-ynF"/>
                             <constraint firstItem="zxt-r7-4Im" firstAttribute="leading" secondItem="ta8-GB-88e" secondAttribute="leading" id="an4-0f-xXY"/>
                             <constraint firstItem="iKD-Ee-yWe" firstAttribute="trailing" secondItem="qCm-uh-7bg" secondAttribute="trailing" id="bOb-PR-eCQ"/>
                             <constraint firstItem="8N8-51-0yD" firstAttribute="trailing" secondItem="ta8-GB-88e" secondAttribute="trailing" id="cRv-cU-fqY"/>
@@ -1132,7 +1116,6 @@
                             <constraint firstItem="iKD-Ee-yWe" firstAttribute="top" secondItem="qCm-uh-7bg" secondAttribute="bottom" constant="5" id="hba-jk-TsE"/>
                             <constraint firstItem="v97-GP-xsJ" firstAttribute="leading" secondItem="ta8-GB-88e" secondAttribute="leading" id="j71-Lh-9Jz"/>
                             <constraint firstItem="v97-GP-xsJ" firstAttribute="top" secondItem="iKD-Ee-yWe" secondAttribute="bottom" constant="15" id="mvC-lN-IJq"/>
-                            <constraint firstItem="i1A-iV-1vc" firstAttribute="leading" secondItem="tuF-r4-lDI" secondAttribute="leading" id="n5y-ZR-uEU"/>
                             <constraint firstItem="73x-9C-QLh" firstAttribute="trailing" secondItem="tuF-r4-lDI" secondAttribute="trailing" id="pE4-yh-iJB"/>
                             <constraint firstItem="8N8-51-0yD" firstAttribute="leading" secondItem="ta8-GB-88e" secondAttribute="leading" id="qoT-Hp-Chk"/>
                             <constraint firstItem="ta8-GB-88e" firstAttribute="top" secondItem="NwS-dA-g1r" secondAttribute="top" constant="20" id="tg8-Io-3DN"/>
@@ -1141,14 +1124,9 @@
                             <constraint firstItem="vuG-i8-DIG" firstAttribute="top" secondItem="ta8-GB-88e" secondAttribute="bottom" constant="15" id="zZt-WE-hXg"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="Board" id="nBC-4r-70f" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
-                        <connections>
-                            <outlet property="animation" destination="0bj-Kc-ZOh" id="oes-ie-SAa"/>
-                        </connections>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="" image="flag" catalog="system" selectedImage="flag.fill" id="nBC-4r-70f"/>
                     <connections>
                         <outlet property="answerTF" destination="tuF-r4-lDI" id="1gQ-45-c2b"/>
-                        <outlet property="finishBtn" destination="i1A-iV-1vc" id="cKK-tv-dPu"/>
                         <outlet property="hintBtn" destination="EBS-Ye-NgH" id="ReX-CX-tPZ"/>
                         <outlet property="hintLabel" destination="0xJ-yH-dbC" id="SeL-98-HQs"/>
                         <outlet property="instructionLabel" destination="8N8-51-0yD" id="VYt-FU-0tZ"/>
@@ -1160,7 +1138,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rdy-Bc-7hV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <customObject id="0bj-Kc-ZOh" customClass="RAMFlipBottomTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
             </objects>
             <point key="canvasLocation" x="-2032" y="4263"/>
         </scene>
@@ -1185,19 +1162,166 @@
                             <constraint firstItem="Ot7-gH-gjN" firstAttribute="trailing" secondItem="PIu-dK-NlZ" secondAttribute="trailing" id="qen-ZQ-zps"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="Map" id="ooW-uh-yuz" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
-                        <connections>
-                            <outlet property="animation" destination="xYH-jZ-5yO" id="BMw-fp-bQJ"/>
-                        </connections>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="" image="map" catalog="system" selectedImage="map.fill" id="ooW-uh-yuz"/>
                     <connections>
                         <outlet property="stageMap" destination="PIu-dK-NlZ" id="RMv-rx-HGG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVc-GV-Dn3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <customObject id="xYH-jZ-5yO" customClass="RAMFlipBottomTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
             </objects>
             <point key="canvasLocation" x="-1081" y="4263"/>
+        </scene>
+        <!--Stage Record View Controller-->
+        <scene sceneID="fmJ-HJ-cNC">
+            <objects>
+                <viewController storyboardIdentifier="StageRecordVc" id="UPo-Jq-JoV" customClass="StageRecordViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wpo-EJ-duh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XzJ-kH-dec" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="60" y="84" width="294" height="300"/>
+                                <color key="backgroundColor" name="CrackerWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="vYA-WV-tpV"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="Case Cracked"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="bER-cp-tJV">
+                                <rect key="frame" x="40" y="528" width="85" height="66"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="綜合成績" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Red-uU-RNL">
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="排名百分比" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vf3-Yt-X8w">
+                                        <rect key="frame" x="0.0" y="45.5" width="85" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYa-G7-boW">
+                                <rect key="frame" x="335.5" y="469.5" width="38.5" height="21"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="7kZ-8C-Wtz">
+                                <rect key="frame" x="40" y="424" width="68" height="66"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="破關時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jct-T4-6UO">
+                                        <rect key="frame" x="0.0" y="0.0" width="68" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提示次數" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKw-sM-whV">
+                                        <rect key="frame" x="0.0" y="45.5" width="68" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qCM-yK-S7L">
+                                <rect key="frame" x="30" y="505" width="354" height="3"/>
+                                <color key="backgroundColor" name="CrackerOrange"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="dSO-jb-0QE"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YcF-0C-9ik">
+                                <rect key="frame" x="40" y="722" width="334" height="50"/>
+                                <color key="backgroundColor" name="CrackerYellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="484-Zg-SAL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="20"/>
+                                <state key="normal" title="RATE">
+                                    <color key="titleColor" name="CrackerWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mc-C4-qdT">
+                                <rect key="frame" x="40" y="787" width="334" height="50"/>
+                                <color key="backgroundColor" name="CrackerYellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="VRH-6Z-tGW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="20"/>
+                                <state key="normal" title="BACK TO HOME">
+                                    <color key="titleColor" name="CrackerWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToHome:" destination="UPo-Jq-JoV" eventType="touchUpInside" id="qor-Ef-Rab"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05: 53' 20''" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7P6-Zp-GGc">
+                                <rect key="frame" x="297.5" y="424" width="76.5" height="21"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="be8-KN-IK2">
+                                <rect key="frame" x="325" y="528" width="49" height="21"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMG-VR-fqg">
+                                <rect key="frame" x="343.5" y="573.5" width="30.5" height="21"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ARu-0t-uIp"/>
+                        <color key="backgroundColor" name="CrackerWhite"/>
+                        <constraints>
+                            <constraint firstItem="ARu-0t-uIp" firstAttribute="trailing" secondItem="XzJ-kH-dec" secondAttribute="trailing" constant="60" id="4jq-q4-HIO"/>
+                            <constraint firstAttribute="trailing" secondItem="qCM-yK-S7L" secondAttribute="trailing" constant="30" id="5X1-7f-NkM"/>
+                            <constraint firstItem="ARu-0t-uIp" firstAttribute="trailing" secondItem="YcF-0C-9ik" secondAttribute="trailing" constant="40" id="CSL-s3-ZIR"/>
+                            <constraint firstItem="7kZ-8C-Wtz" firstAttribute="top" secondItem="XzJ-kH-dec" secondAttribute="bottom" constant="40" id="FNz-3I-nHB"/>
+                            <constraint firstItem="fYa-G7-boW" firstAttribute="trailing" secondItem="7P6-Zp-GGc" secondAttribute="trailing" id="FOw-51-fhr"/>
+                            <constraint firstItem="XzJ-kH-dec" firstAttribute="top" secondItem="ARu-0t-uIp" secondAttribute="top" constant="40" id="OMy-Rk-OWj"/>
+                            <constraint firstItem="bER-cp-tJV" firstAttribute="top" secondItem="qCM-yK-S7L" secondAttribute="bottom" constant="20" id="OuY-mh-6KI"/>
+                            <constraint firstItem="fYa-G7-boW" firstAttribute="centerY" secondItem="lKw-sM-whV" secondAttribute="centerY" id="RKA-oU-amM"/>
+                            <constraint firstItem="7kZ-8C-Wtz" firstAttribute="leading" secondItem="ARu-0t-uIp" secondAttribute="leading" constant="40" id="U6o-Ci-Mff"/>
+                            <constraint firstItem="rMG-VR-fqg" firstAttribute="centerY" secondItem="Vf3-Yt-X8w" secondAttribute="centerY" id="ZHs-ji-jnI"/>
+                            <constraint firstItem="ARu-0t-uIp" firstAttribute="bottom" secondItem="4mc-C4-qdT" secondAttribute="bottom" constant="25" id="cAS-OV-uWx"/>
+                            <constraint firstItem="be8-KN-IK2" firstAttribute="centerY" secondItem="Red-uU-RNL" secondAttribute="centerY" id="dQh-UX-crp"/>
+                            <constraint firstItem="YcF-0C-9ik" firstAttribute="leading" secondItem="ARu-0t-uIp" secondAttribute="leading" constant="40" id="gj1-k1-wFK"/>
+                            <constraint firstItem="ARu-0t-uIp" firstAttribute="trailing" secondItem="4mc-C4-qdT" secondAttribute="trailing" constant="40" id="kPg-yG-jB4"/>
+                            <constraint firstItem="7P6-Zp-GGc" firstAttribute="centerY" secondItem="jct-T4-6UO" secondAttribute="centerY" id="kz2-jM-Jjw"/>
+                            <constraint firstItem="qCM-yK-S7L" firstAttribute="top" secondItem="7kZ-8C-Wtz" secondAttribute="bottom" constant="15" id="lhY-bg-EEF"/>
+                            <constraint firstItem="rMG-VR-fqg" firstAttribute="trailing" secondItem="be8-KN-IK2" secondAttribute="trailing" id="nEN-FO-aKS"/>
+                            <constraint firstItem="YcF-0C-9ik" firstAttribute="bottom" secondItem="4mc-C4-qdT" secondAttribute="top" constant="-15" id="nHP-DV-eQ0"/>
+                            <constraint firstItem="bER-cp-tJV" firstAttribute="leading" secondItem="7kZ-8C-Wtz" secondAttribute="leading" id="oF4-4l-243"/>
+                            <constraint firstItem="4mc-C4-qdT" firstAttribute="leading" secondItem="ARu-0t-uIp" secondAttribute="leading" constant="40" id="sHw-zz-oYo"/>
+                            <constraint firstItem="be8-KN-IK2" firstAttribute="trailing" secondItem="fYa-G7-boW" secondAttribute="trailing" id="vi4-U2-gQV"/>
+                            <constraint firstItem="XzJ-kH-dec" firstAttribute="leading" secondItem="ARu-0t-uIp" secondAttribute="leading" constant="60" id="waZ-PJ-pOv"/>
+                            <constraint firstItem="ARu-0t-uIp" firstAttribute="trailing" secondItem="7P6-Zp-GGc" secondAttribute="trailing" constant="40" id="zTR-dL-O75"/>
+                            <constraint firstItem="qCM-yK-S7L" firstAttribute="leading" secondItem="ARu-0t-uIp" secondAttribute="leading" constant="30" id="zd9-gj-hKp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backBtn" destination="4mc-C4-qdT" id="Vxo-tu-ako"/>
+                        <outlet property="celebrateAnimation" destination="XzJ-kH-dec" id="vll-bZ-pzK"/>
+                        <outlet property="rankPercentage" destination="rMG-VR-fqg" id="4qf-nB-ldl"/>
+                        <outlet property="rateBtn" destination="YcF-0C-9ik" id="R7L-by-6u1"/>
+                        <outlet property="totalHintCount" destination="fYa-G7-boW" id="EHu-Vb-lKC"/>
+                        <outlet property="totalScore" destination="be8-KN-IK2" id="107-1U-hyy"/>
+                        <outlet property="totalTime" destination="7P6-Zp-GGc" id="uH8-7Z-hQw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ffw-Fm-cNp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1081.1594202898552" y="5046.4285714285716"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="orU-0z-eeq">
@@ -1209,21 +1333,16 @@
                         <viewLayoutGuide key="safeArea" id="aYO-5Q-MpC"/>
                         <color key="backgroundColor" name="CrackerWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="Chatroom" id="Ejp-Il-gi2" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
-                        <connections>
-                            <outlet property="animation" destination="cJs-8o-o36" id="yvN-5y-9a0"/>
-                        </connections>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="" image="ellipsis.bubble" catalog="system" selectedImage="ellipsis.bubble.fill" id="Ejp-Il-gi2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBm-Ah-2Mj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <customObject id="cJs-8o-o36" customClass="RAMFlipBottomTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
             </objects>
             <point key="canvasLocation" x="-132" y="4263"/>
         </scene>
-        <!--Board View Controller-->
+        <!--View Controller-->
         <scene sceneID="G14-Of-AEk">
             <objects>
-                <viewController storyboardIdentifier="BoardVc" id="imw-XS-KlQ" customClass="RPGBoardViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BoardVc" id="imw-XS-KlQ" customClass="RPGViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EGu-Qt-3jG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1709,16 +1828,17 @@
             </objects>
             <point key="canvasLocation" x="1942" y="3534"/>
         </scene>
-        <!--Animated Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="zV8-Pp-4KP">
             <objects>
-                <tabBarController storyboardIdentifier="LinearTabBar" automaticallyAdjustsScrollViewInsets="NO" id="NjD-WF-16M" customClass="RAMAnimatedTabBarController" customModule="RAMAnimatedTabBarController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="LinearTabBar" automaticallyAdjustsScrollViewInsets="NO" id="NjD-WF-16M" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TJZ-sM-j8G">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" name="CrackerOrange"/>
+                        <color key="selectedImageTintColor" name="CrackerWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="01Q-Fc-BIz" kind="relationship" relationship="viewControllers" id="1kT-VD-VFS"/>
@@ -1731,6 +1851,9 @@
             <point key="canvasLocation" x="-1081" y="3532"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="XzJ-kH-dec"/>
+    </designables>
     <resources>
         <image name="Bin" width="512" height="512"/>
         <image name="Board" width="21.333333969116211" height="21.333333969116211"/>
@@ -1745,6 +1868,12 @@
         <image name="Star" width="512" height="512"/>
         <image name="Trophy" width="512" height="512"/>
         <image name="Upload" width="512" height="512"/>
+        <image name="ellipsis.bubble" catalog="system" width="128" height="110"/>
+        <image name="ellipsis.bubble.fill" catalog="system" width="128" height="110"/>
+        <image name="flag" catalog="system" width="128" height="121"/>
+        <image name="flag.fill" catalog="system" width="128" height="121"/>
+        <image name="map" catalog="system" width="128" height="110"/>
+        <image name="map.fill" catalog="system" width="128" height="110"/>
         <namedColor name="CrackerBlue">
             <color red="0.68199998140335083" green="0.90200001001358032" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

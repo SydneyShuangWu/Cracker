@@ -11,10 +11,13 @@
 		C10A7EA8257ED90900AC0AE6 /* DesignCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A7EA7257ED90900AC0AE6 /* DesignCaseViewController.swift */; };
 		C120B9D62582990400E99E9D /* RPGMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120B9D52582990400E99E9D /* RPGMarker.swift */; };
 		C120B9DA2583183700E99E9D /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120B9D92583183700E99E9D /* UIImage+Extension.swift */; };
+		C124145425861C41006359AA /* StageRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C124145325861C41006359AA /* StageRecordViewController.swift */; };
+		C129F55525862A1900AF0135 /* Normal Celebration.json in Resources */ = {isa = PBXBuildFile; fileRef = C129F55425862A1900AF0135 /* Normal Celebration.json */; };
 		C138AE17258284A90012D633 /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138AE16258284A90012D633 /* MarkerView.swift */; };
 		C150A74D257A3E8F00C3402B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A74C257A3E8F00C3402B /* ProfileViewController.swift */; };
 		C150A756257CEEAE00C3402B /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A755257CEEAE00C3402B /* MockUser.swift */; };
 		C150A75B257D390000C3402B /* ProfileCaseTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A75A257D390000C3402B /* ProfileCaseTBCell.swift */; };
+		C153666025862A4B00C4DAAB /* Case Cracked.json in Resources */ = {isa = PBXBuildFile; fileRef = C153665F25862A4B00C4DAAB /* Case Cracked.json */; };
 		C161C8A325796E73000697C1 /* CaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161C8A225796E73000697C1 /* CaseDetailViewController.swift */; };
 		C161C8A82579E7BC000697C1 /* CaseImageTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161C8A72579E7BC000697C1 /* CaseImageTBCell.swift */; };
 		C161C8AB2579E852000697C1 /* CaseIntroTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161C8AA2579E852000697C1 /* CaseIntroTBCell.swift */; };
@@ -37,7 +40,7 @@
 		C1A7C0382574DB410022674B /* MockGeotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C0372574DB410022674B /* MockGeotification.swift */; };
 		C1A7C03C2574EF170022674B /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C03B2574EF170022674B /* UIViewController+Extensions.swift */; };
 		C1A7C0472575EDDB0022674B /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C0462575EDDB0022674B /* SidebarViewController.swift */; };
-		C1B5CBAC257DBA890096BFB9 /* RPGBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B5CBAB257DBA890096BFB9 /* RPGBoardViewController.swift */; };
+		C1B5CBAC257DBA890096BFB9 /* RPGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B5CBAB257DBA890096BFB9 /* RPGViewController.swift */; };
 		C1BD23D42580E39F00D7D090 /* StageMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BD23D32580E39F00D7D090 /* StageMapViewController.swift */; };
 		C1BD23D92580F40700D7D090 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1BD23D82580F40700D7D090 /* MapKit.framework */; };
 		C1C2D0B2257E3F45003256C9 /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D0B1257E3F45003256C9 /* SelectCategoryViewController.swift */; };
@@ -64,10 +67,13 @@
 		C10A7EA7257ED90900AC0AE6 /* DesignCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCaseViewController.swift; sourceTree = "<group>"; };
 		C120B9D52582990400E99E9D /* RPGMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGMarker.swift; sourceTree = "<group>"; };
 		C120B9D92583183700E99E9D /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		C124145325861C41006359AA /* StageRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageRecordViewController.swift; sourceTree = "<group>"; };
+		C129F55425862A1900AF0135 /* Normal Celebration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Normal Celebration.json"; sourceTree = "<group>"; };
 		C138AE16258284A90012D633 /* MarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
 		C150A74C257A3E8F00C3402B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C150A755257CEEAE00C3402B /* MockUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
 		C150A75A257D390000C3402B /* ProfileCaseTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCaseTBCell.swift; sourceTree = "<group>"; };
+		C153665F25862A4B00C4DAAB /* Case Cracked.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Case Cracked.json"; sourceTree = "<group>"; };
 		C161C8A225796E73000697C1 /* CaseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDetailViewController.swift; sourceTree = "<group>"; };
 		C161C8A72579E7BC000697C1 /* CaseImageTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseImageTBCell.swift; sourceTree = "<group>"; };
 		C161C8AA2579E852000697C1 /* CaseIntroTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseIntroTBCell.swift; sourceTree = "<group>"; };
@@ -90,7 +96,7 @@
 		C1A7C0372574DB410022674B /* MockGeotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGeotification.swift; sourceTree = "<group>"; };
 		C1A7C03B2574EF170022674B /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		C1A7C0462575EDDB0022674B /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
-		C1B5CBAB257DBA890096BFB9 /* RPGBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGBoardViewController.swift; sourceTree = "<group>"; };
+		C1B5CBAB257DBA890096BFB9 /* RPGViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGViewController.swift; sourceTree = "<group>"; };
 		C1BD23D32580E39F00D7D090 /* StageMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageMapViewController.swift; sourceTree = "<group>"; };
 		C1BD23D82580F40700D7D090 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C1C2D0B1257E3F45003256C9 /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewController.swift; sourceTree = "<group>"; };
@@ -163,10 +169,19 @@
 			path = Stage;
 			sourceTree = "<group>";
 		};
+		C1728017258628DE00C4CE05 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				C129F55425862A1900AF0135 /* Normal Celebration.json */,
+				C153665F25862A4B00C4DAAB /* Case Cracked.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		C1781692257DE38B0081556F /* RPG */ = {
 			isa = PBXGroup;
 			children = (
-				C1B5CBAB257DBA890096BFB9 /* RPGBoardViewController.swift */,
+				C1B5CBAB257DBA890096BFB9 /* RPGViewController.swift */,
 				C1A7C0262574869F0022674B /* RPGMapViewController.swift */,
 			);
 			path = RPG;
@@ -244,6 +259,7 @@
 				C1D421682570EE0A00FF0641 /* View */,
 				C1D421692570EE1D00FF0641 /* Controller */,
 				C1D421652570EDEB00FF0641 /* Extensions */,
+				C1728017258628DE00C4CE05 /* Lottie */,
 				C1D421382570A82A00FF0641 /* Main.storyboard */,
 				C1D4213D2570A82C00FF0641 /* LaunchScreen.storyboard */,
 				C1D4213B2570A82C00FF0641 /* Assets.xcassets */,
@@ -296,9 +312,10 @@
 				C1C2D0B8257E458A003256C9 /* Crack Case */,
 				C1C2D0B7257E4566003256C9 /* Create Case */,
 				C1D421362570A82A00FF0641 /* LobbyViewController.swift */,
-				C1A7C0462575EDDB0022674B /* SidebarViewController.swift */,
 				C161C8A225796E73000697C1 /* CaseDetailViewController.swift */,
+				C1A7C0462575EDDB0022674B /* SidebarViewController.swift */,
 				C150A74C257A3E8F00C3402B /* ProfileViewController.swift */,
+				C124145325861C41006359AA /* StageRecordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -363,7 +380,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C129F55525862A1900AF0135 /* Normal Celebration.json in Resources */,
 				C17D5FD9257F209700AE7EB9 /* SectionView.xib in Resources */,
+				C153666025862A4B00C4DAAB /* Case Cracked.json in Resources */,
 				C1D4213F2570A82C00FF0641 /* LaunchScreen.storyboard in Resources */,
 				C17D5FDE257F21FD00AE7EB9 /* StageViewCell.xib in Resources */,
 				C1D4213C2570A82C00FF0641 /* Assets.xcassets in Resources */,
@@ -445,7 +464,7 @@
 				C1DE4EE4257940A5005440F6 /* MockCase.swift in Sources */,
 				C161C8B12579E8B6000697C1 /* CaseDescriptionTBCell.swift in Sources */,
 				C1A7C03C2574EF170022674B /* UIViewController+Extensions.swift in Sources */,
-				C1B5CBAC257DBA890096BFB9 /* RPGBoardViewController.swift in Sources */,
+				C1B5CBAC257DBA890096BFB9 /* RPGViewController.swift in Sources */,
 				C138AE17258284A90012D633 /* MarkerView.swift in Sources */,
 				C179548C257DE49500670EC2 /* SelectModeViewController.swift in Sources */,
 				C1DE4EE125793A1A005440F6 /* SelectionModel.swift in Sources */,
@@ -472,6 +491,7 @@
 				C1D421332570A82A00FF0641 /* AppDelegate.swift in Sources */,
 				C1DE4EEA257956D8005440F6 /* SearchCaseTBCell.swift in Sources */,
 				C161C8AE2579E893000697C1 /* CaseScoreTBCell.swift in Sources */,
+				C124145425861C41006359AA /* StageRecordViewController.swift in Sources */,
 				C1D421352570A82A00FF0641 /* SceneDelegate.swift in Sources */,
 				C163E45D2580751200D1077D /* StageViewController.swift in Sources */,
 				C1A7C0472575EDDB0022674B /* SidebarViewController.swift in Sources */,
