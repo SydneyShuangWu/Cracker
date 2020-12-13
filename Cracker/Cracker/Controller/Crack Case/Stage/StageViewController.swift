@@ -156,7 +156,7 @@ class StageViewController: UIViewController {
         
         let alert = UIAlertController(title: "答對了🥳", message: nil, preferredStyle: .alert)
 
-        let nextStageAction = UIAlertAction(title: "讚", style: .cancel) { _ in
+        let nextStageAction = UIAlertAction(title: "查看下一關位置", style: .cancel) { _ in
 
             self.runStageFlow()
         }

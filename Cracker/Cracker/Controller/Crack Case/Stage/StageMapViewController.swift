@@ -20,6 +20,7 @@ class StageMapViewController: UIViewController {
     var currentLat: CLLocationDegrees?
     
     var stageLocations: [CLLocationCoordinate2D] = []
+    var routeLocations: [CLLocationCoordinate2D] = []
     
     var currentStageIndex: Int!
     
@@ -86,6 +87,13 @@ class StageMapViewController: UIViewController {
         for index in 0 ..< stageMarkers.count where index == currentStageIndex - 1 {
             
             stageMap.addAnnotation(stageMarkers[index])
+        }
+        
+        for _ in stageLocations where currentStageIndex > 1 {
+
+            routeLocations = [stageLocations[currentStageIndex - 2], stageLocations[currentStageIndex - 1]]
+            
+            showRoute(from: routeLocations[0], to: routeLocations[1])
         }
     }
     
@@ -190,6 +198,51 @@ extension StageMapViewController: MKMapViewDelegate {
     func plotFirstMarkers() {
         
         stageMap.addAnnotation(stageMarkers[0])
+    }
+    
+    func showRoute(from currentStage: CLLocationCoordinate2D, to nextStage: CLLocationCoordinate2D) {
+        
+        let currentPlace = MKPlacemark(coordinate: currentStage)
+        let currentMapItem = MKMapItem(placemark: currentPlace)
+        
+        let nextPlace = MKPlacemark(coordinate: nextStage)
+        let nextMapItem = MKMapItem(placemark: nextPlace)
+        
+        let directionRequest = MKDirections.Request()
+        directionRequest.source = currentMapItem
+        directionRequest.destination = nextMapItem
+        directionRequest.transportType = .walking
+        
+        // Calculate the direction
+        let directions = MKDirections(request: directionRequest)
+        
+        directions.calculate { (response, error) -> Void in
+            
+            guard let response = response else {
+                
+                if let error = error {
+                    
+                    print("Route Error: \(error)")
+                }
+                
+                return
+            }
+            
+            let route = response.routes[0]
+            
+            self.stageMap.addOverlay(route.polyline, level: MKOverlayLevel.aboveRoads)
+        }
+    }
+    
+    // Customize polyline
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        
+        renderer.strokeColor = UIColor.B
+        renderer.lineWidth = 5
+        
+        return renderer
     }
 }
 
