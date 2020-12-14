@@ -13,11 +13,16 @@ class DesignCaseViewController: UIViewController {
     var sectionDataList: [Int] = []
     var isExpandList: [Bool] = []
     
+    var imagePickerController: UIImagePickerController?
+    var selectedImages: [UIImage] = []
+    var selectUploadBtnIndex: Int?
+    
     // MARK: - Mock Data
     let linearSectionCount = testLinearCase.stageContent?.count
     let rpgSectionCount = testRpgCase.charContent?.count
     
     @IBOutlet weak var designCaseTableView: UITableView!
+    @IBOutlet weak var bottomBtn: UIButton!
     
     override func viewDidLoad() {
         
@@ -26,6 +31,8 @@ class DesignCaseViewController: UIViewController {
         setupNavigationBar(with: "Design Your Case")
         setupBackButton()
         setupCloseButton()
+        
+        configureButtons()
         
         setupTableView()
         registerNib()
@@ -40,6 +47,21 @@ class DesignCaseViewController: UIViewController {
             
             sectionDataList.append(index)
             isExpandList.append(false)
+            selectedImages.append(UIImage())
+        }
+    }
+    
+    func configureButtons() {
+        
+        bottomBtn.setupCornerRadius()
+        
+        if selectedCaseCategory == CaseCategory.linear {
+            
+            bottomBtn.setTitle("COMPLETE", for: .normal)
+            
+        } else {
+            
+            bottomBtn.setTitle("CONTINUE", for: .normal)
         }
     }
     
@@ -59,6 +81,18 @@ class DesignCaseViewController: UIViewController {
         
         let rpgViewNib: UINib = UINib(nibName: "RPGViewCell", bundle: nil)
         designCaseTableView.register(rpgViewNib, forCellReuseIdentifier: "RPGViewCell")
+    }
+    
+    @IBAction func navigate(_ sender: Any) {
+        
+        if selectedCaseCategory == CaseCategory.linear {
+            
+            navigateToLobby()
+            
+        } else {
+            
+            
+        }
     }
 }
 
@@ -83,6 +117,12 @@ extension DesignCaseViewController: UITableViewDataSource {
         let stageCell = tableView.dequeueReusableCell(withIdentifier: "StageViewCell") as? StageViewCell
         
         let rpgCell = tableView.dequeueReusableCell(withIdentifier: "RPGViewCell") as? RPGViewCell
+        
+        rpgCell?.delegate = self
+        
+        rpgCell?.uploadBtn.tag = indexPath.section
+    
+        rpgCell?.renderImage(with: selectedImages[indexPath.section])
         
         if selectedCaseCategory == CaseCategory.linear {
             return stageCell ?? UITableViewCell()
@@ -132,5 +172,72 @@ extension DesignCaseViewController: SectionViewDelegate {
         
         isExpandList[didPressTag] = !isExpand
         designCaseTableView.reloadSections(IndexSet(integer: didPressTag), with: .automatic)
+    }
+}
+
+extension DesignCaseViewController: RPGViewCellDelegate {
+    
+    func uploadBtnDidPress(_ didPress: Bool, index: Int) {
+        
+        selectUploadBtnIndex = index
+        
+        if didPress == true {
+            
+            imagePickerController = UIImagePickerController()
+            
+            imagePickerController?.delegate = self
+            
+            imagePickerController?.allowsEditing = true
+            
+            let imagePickerAlert = UIAlertController(title: "Select Photo", message: "", preferredStyle: .actionSheet)
+            
+            let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
+                
+                if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                    
+                    self.imagePickerController?.sourceType = .camera
+                    
+                    self.present(self.imagePickerController!, animated: true, completion: nil)
+                }
+            }
+            
+            let photosAction = UIAlertAction(title: "Photos", style: .default) { _ in
+                
+                if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                    
+                    self.imagePickerController?.sourceType = .photoLibrary
+                    
+                    self.present(self.imagePickerController!, animated: true, completion: nil)
+                }
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+                
+                self.imagePickerController?.dismiss(animated: true, completion: nil)
+            }
+            
+            imagePickerAlert.addAction(cameraAction)
+            imagePickerAlert.addAction(photosAction)
+            imagePickerAlert.addAction(cancelAction)
+            
+            present(imagePickerAlert, animated: true, completion: nil)
+        }
+    }
+}
+
+extension DesignCaseViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let selectedImage = info[.editedImage] as? UIImage {
+            
+            guard let index = selectUploadBtnIndex else { return }
+            
+            selectedImages[index] = selectedImage
+            
+            designCaseTableView.reloadData()
+        }
+        
+        dismiss(animated: true, completion: nil)
     }
 }

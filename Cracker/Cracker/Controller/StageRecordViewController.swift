@@ -47,17 +47,7 @@ class StageRecordViewController: UIViewController {
     
     @IBAction func backToHome(_ sender: Any) {
         
-        let vc = myStoryboard.instantiateViewController(withIdentifier: "LobbyVc")
-        
-        let nav = UINavigationController(rootViewController: vc)
-        
-        nav.modalPresentationStyle = .fullScreen
-        
-        nav.hero.isEnabled = true
-        
-        nav.hero.modalAnimationType = .zoomOut
-
-        present(nav, animated: true, completion: nil)
+        navigateToLobby()
     }
     
     func configureRecord() {

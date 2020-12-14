@@ -23,17 +23,20 @@ class CreateCaseViewController: UIViewController {
     @IBOutlet weak var maxHeadCountTF: UITextField!
     @IBOutlet weak var contentCountLabel: UILabel!
     @IBOutlet weak var contentCountTF: UITextField!
-    @IBOutlet weak var openingTV: UITextView!
-    @IBOutlet weak var continueBtn: UIButton!
-    @IBOutlet weak var uploadBtn: UIButton!
+    @IBOutlet weak var introTV: UITextView!
+    @IBOutlet weak var scriptLabel: UILabel!
+    @IBOutlet weak var scriptTV: UITextView!
     @IBOutlet weak var finalStageLabel: UILabel!
+    @IBOutlet weak var finalStageTF: UITextField!
+    @IBOutlet weak var finalStageCoordinate: UILabel!
     @IBOutlet weak var longitudeTF: UITextField!
     @IBOutlet weak var latitudeTF: UITextField!
+    @IBOutlet weak var continueBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNavigationBar(with: "Create A Case")
+        setupNavigationBar(with: "Create Your Case")
         setupCloseButton()
         setupBackButton()
         
@@ -45,13 +48,21 @@ class CreateCaseViewController: UIViewController {
         
         continueBtn.setupCornerRadius()
         
-        openingTV.setupCornerRadius()
-        openingTV.setupTextFieldBorder()
+        introTV.setupCornerRadius()
+        introTV.setupTextFieldBorder()
+        
+        scriptTV.setupCornerRadius()
+        scriptTV.setupTextFieldBorder()
         
         if selectedCaseCategory == CaseCategory.linear {
-            showFinalStagePosition()
+            
+            showLinear()
+            hideRPG()
+            
         } else {
-            hideFinalStagePosition()
+            
+            hideLinear()
+            showRPG()
         }
     }
     
@@ -64,18 +75,34 @@ class CreateCaseViewController: UIViewController {
         }
     }
     
-    func showFinalStagePosition() {
+    func showLinear() {
         
         finalStageLabel.isHidden = false
+        finalStageTF.isHidden = false
+        finalStageCoordinate.isHidden = false
         longitudeTF.isHidden = false
         latitudeTF.isHidden = false
     }
     
-    func hideFinalStagePosition() {
+    func hideLinear() {
         
         finalStageLabel.isHidden = true
+        finalStageTF.isHidden = true
+        finalStageCoordinate.isHidden = true
         longitudeTF.isHidden = true
         latitudeTF.isHidden = true
+    }
+    
+    func showRPG() {
+        
+        scriptLabel.isHidden = false
+        scriptTV.isHidden = false
+    }
+    
+    func hideRPG() {
+        
+        scriptLabel.isHidden = true
+        scriptTV.isHidden = true
     }
     
     @IBAction func uploadCaseImage(_ sender: Any) {

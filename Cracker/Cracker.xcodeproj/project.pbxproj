@@ -12,12 +12,12 @@
 		C120B9D62582990400E99E9D /* RPGMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120B9D52582990400E99E9D /* RPGMarker.swift */; };
 		C120B9DA2583183700E99E9D /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120B9D92583183700E99E9D /* UIImage+Extension.swift */; };
 		C124145425861C41006359AA /* StageRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C124145325861C41006359AA /* StageRecordViewController.swift */; };
-		C129F55525862A1900AF0135 /* Normal Celebration.json in Resources */ = {isa = PBXBuildFile; fileRef = C129F55425862A1900AF0135 /* Normal Celebration.json */; };
 		C138AE17258284A90012D633 /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138AE16258284A90012D633 /* MarkerView.swift */; };
 		C150A74D257A3E8F00C3402B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A74C257A3E8F00C3402B /* ProfileViewController.swift */; };
 		C150A756257CEEAE00C3402B /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A755257CEEAE00C3402B /* MockUser.swift */; };
 		C150A75B257D390000C3402B /* ProfileCaseTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A75A257D390000C3402B /* ProfileCaseTBCell.swift */; };
 		C153666025862A4B00C4DAAB /* Case Cracked.json in Resources */ = {isa = PBXBuildFile; fileRef = C153665F25862A4B00C4DAAB /* Case Cracked.json */; };
+		C153666525870F9300C4DAAB /* Launch Cracker.json in Resources */ = {isa = PBXBuildFile; fileRef = C153666425870F9300C4DAAB /* Launch Cracker.json */; };
 		C161C8A325796E73000697C1 /* CaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161C8A225796E73000697C1 /* CaseDetailViewController.swift */; };
 		C161C8A82579E7BC000697C1 /* CaseImageTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161C8A72579E7BC000697C1 /* CaseImageTBCell.swift */; };
 		C161C8AB2579E852000697C1 /* CaseIntroTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161C8AA2579E852000697C1 /* CaseIntroTBCell.swift */; };
@@ -68,12 +68,12 @@
 		C120B9D52582990400E99E9D /* RPGMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGMarker.swift; sourceTree = "<group>"; };
 		C120B9D92583183700E99E9D /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		C124145325861C41006359AA /* StageRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageRecordViewController.swift; sourceTree = "<group>"; };
-		C129F55425862A1900AF0135 /* Normal Celebration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Normal Celebration.json"; sourceTree = "<group>"; };
 		C138AE16258284A90012D633 /* MarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
 		C150A74C257A3E8F00C3402B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C150A755257CEEAE00C3402B /* MockUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
 		C150A75A257D390000C3402B /* ProfileCaseTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCaseTBCell.swift; sourceTree = "<group>"; };
 		C153665F25862A4B00C4DAAB /* Case Cracked.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Case Cracked.json"; sourceTree = "<group>"; };
+		C153666425870F9300C4DAAB /* Launch Cracker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Launch Cracker.json"; sourceTree = "<group>"; };
 		C161C8A225796E73000697C1 /* CaseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDetailViewController.swift; sourceTree = "<group>"; };
 		C161C8A72579E7BC000697C1 /* CaseImageTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseImageTBCell.swift; sourceTree = "<group>"; };
 		C161C8AA2579E852000697C1 /* CaseIntroTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseIntroTBCell.swift; sourceTree = "<group>"; };
@@ -172,8 +172,8 @@
 		C1728017258628DE00C4CE05 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				C129F55425862A1900AF0135 /* Normal Celebration.json */,
 				C153665F25862A4B00C4DAAB /* Case Cracked.json */,
+				C153666425870F9300C4DAAB /* Launch Cracker.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -380,8 +380,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C129F55525862A1900AF0135 /* Normal Celebration.json in Resources */,
 				C17D5FD9257F209700AE7EB9 /* SectionView.xib in Resources */,
+				C153666525870F9300C4DAAB /* Launch Cracker.json in Resources */,
 				C153666025862A4B00C4DAAB /* Case Cracked.json in Resources */,
 				C1D4213F2570A82C00FF0641 /* LaunchScreen.storyboard in Resources */,
 				C17D5FDE257F21FD00AE7EB9 /* StageViewCell.xib in Resources */,

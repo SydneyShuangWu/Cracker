@@ -82,6 +82,19 @@ extension UIViewController {
     @objc func closeButtonTap(sender: UIButton) {
         
         let vc = myStoryboard.instantiateViewController(withIdentifier: "LobbyVc")
+
+        let nav = UINavigationController(rootViewController: vc)
+
+        nav.modalPresentationStyle = .fullScreen
+
+        nav.hero.isEnabled = true
+
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func navigateToLobby() {
+        
+        let vc = myStoryboard.instantiateViewController(withIdentifier: "LobbyVc")
         
         let nav = UINavigationController(rootViewController: vc)
         
@@ -89,7 +102,9 @@ extension UIViewController {
         
         nav.hero.isEnabled = true
         
-        dismiss(animated: true, completion: nil)
+        nav.hero.modalAnimationType = .zoomOut
+
+        present(nav, animated: true, completion: nil)
     }
 }
 

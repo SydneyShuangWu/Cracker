@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import Hero
-
+import Lottie
 
 class LobbyViewController: UIViewController {
     

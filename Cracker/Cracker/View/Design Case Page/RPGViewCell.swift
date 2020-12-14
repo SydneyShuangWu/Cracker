@@ -7,6 +7,13 @@
 
 import UIKit
 
+protocol RPGViewCellDelegate: AnyObject {
+    
+    func uploadBtnDidPress(_ didPress: Bool, index: Int)
+    
+    
+}
+
 class RPGViewCell: UITableViewCell {
     
     @IBOutlet weak var nameTF: UITextField!
@@ -17,6 +24,10 @@ class RPGViewCell: UITableViewCell {
     @IBOutlet weak var triggerTF: UITextField!
     @IBOutlet weak var clueTF: UITextField!
     @IBOutlet weak var infoTV: UITextView!
+    @IBOutlet weak var characterImage: UIImageView!
+    @IBOutlet weak var uploadBtn: UIButton!
+    
+    weak var delegate: RPGViewCellDelegate?
     
     override func awakeFromNib() {
         
@@ -58,4 +69,13 @@ class RPGViewCell: UITableViewCell {
         infoTV.setupCornerRadius()
     }
     
+    @IBAction func uploadBtnDidPress(_ sender: UIButton) {
+        
+        delegate?.uploadBtnDidPress(true, index: sender.tag)
+    }
+    
+    func renderImage(with image: UIImage) {
+                
+        characterImage.image = image
+    }
 }
