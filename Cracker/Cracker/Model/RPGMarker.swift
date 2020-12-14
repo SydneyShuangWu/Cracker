@@ -10,22 +10,24 @@
  3) Right button callout: character info
  */
 
-
 import Foundation
 import MapKit
 
 class RPGMarker: NSObject, MKAnnotation {
     
     let characterName: String?
+    let characterImage: UIImage?
     let locationName: String?
     let coordinate: CLLocationCoordinate2D
     
     init(
         characterName: String?,
+        characterImage: UIImage?,
         locationName: String?,
         coordinate: CLLocationCoordinate2D
     ) {
         self.characterName = characterName
+        self.characterImage = characterImage
         self.locationName = locationName
         self.coordinate = coordinate
         
@@ -42,9 +44,9 @@ class RPGMarker: NSObject, MKAnnotation {
         return locationName
     }
     
-//    var image: UIImage {
-//        
-//        
-//    }
+    var image: UIImage? {
+        
+        return characterImage
+    }
 }
 

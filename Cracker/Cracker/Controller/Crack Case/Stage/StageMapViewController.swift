@@ -156,8 +156,6 @@ extension StageMapViewController: CLLocationManagerDelegate {
         }
     }
     
-    
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         self.currentLocations.append(locations[0])

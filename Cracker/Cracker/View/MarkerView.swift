@@ -35,14 +35,17 @@ class RPGMarkerView: MKAnnotationView {
             calloutOffset = CGPoint(x: -5, y: 5)
             rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             
-//            image = rpgMarker.image
-            
             // Multi-line subtitle
             let detailLabel = UILabel()
             detailLabel.numberOfLines = 0
             detailLabel.font = detailLabel.font.withSize(12)
             detailLabel.text = rpgMarker.subtitle
             detailCalloutAccessoryView = detailLabel
+            
+            // Resize image
+            let rpgImage = rpgMarker.image
+            let resizedImage = rpgImage!.resized(to: CGSize(width: 50, height: 50))
+            image = resizedImage
         }
     }
 }

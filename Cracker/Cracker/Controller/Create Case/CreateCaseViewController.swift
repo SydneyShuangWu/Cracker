@@ -32,6 +32,7 @@ class CreateCaseViewController: UIViewController {
     @IBOutlet weak var longitudeTF: UITextField!
     @IBOutlet weak var latitudeTF: UITextField!
     @IBOutlet weak var continueBtn: UIButton!
+    @IBOutlet weak var charCountLimit: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,9 +70,14 @@ class CreateCaseViewController: UIViewController {
     func setupLabel() {
         
         if selectedCaseCategory == CaseCategory.linear {
+            
             contentCountLabel.text = "關卡數量"
+            charCountLimit.isHidden = true
+            
         } else {
+            
             contentCountLabel.text = "NPC 數量"
+            charCountLimit.isHidden = false
         }
     }
     

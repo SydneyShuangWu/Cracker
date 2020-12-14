@@ -26,6 +26,7 @@
 		C161C8AE2579E893000697C1 /* CaseScoreTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161C8AD2579E893000697C1 /* CaseScoreTBCell.swift */; };
 		C161C8B12579E8B6000697C1 /* CaseDescriptionTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161C8B02579E8B6000697C1 /* CaseDescriptionTBCell.swift */; };
 		C163E45D2580751200D1077D /* StageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C163E45C2580751200D1077D /* StageViewController.swift */; };
+		C1654ACD2587D76E00A38383 /* CharacterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1654ACC2587D76E00A38383 /* CharacterInfoViewController.swift */; };
 		C175D97A257640B2009167E5 /* SearchCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C175D979257640B2009167E5 /* SearchCaseViewController.swift */; };
 		C179548C257DE49500670EC2 /* SelectModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179548B257DE49500670EC2 /* SelectModeViewController.swift */; };
 		C1795491257DEC1C00670EC2 /* ModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1795490257DEC1C00670EC2 /* ModeViewController.swift */; };
@@ -39,7 +40,7 @@
 		C19D3B9C257F8BB7002E2E7C /* RPGViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C19D3B9A257F8BB7002E2E7C /* RPGViewCell.xib */; };
 		C1A7C0272574869F0022674B /* RPGMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C0262574869F0022674B /* RPGMapViewController.swift */; };
 		C1A7C02A257497160022674B /* StageMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C029257497160022674B /* StageMarker.swift */; };
-		C1A7C0382574DB410022674B /* MockGeotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C0372574DB410022674B /* MockGeotification.swift */; };
+		C1A7C0382574DB410022674B /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C0372574DB410022674B /* Geotification.swift */; };
 		C1A7C03C2574EF170022674B /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C03B2574EF170022674B /* UIViewController+Extensions.swift */; };
 		C1A7C0472575EDDB0022674B /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C0462575EDDB0022674B /* SidebarViewController.swift */; };
 		C1B5CBAC257DBA890096BFB9 /* RPGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B5CBAB257DBA890096BFB9 /* RPGViewController.swift */; };
@@ -84,6 +85,7 @@
 		C161C8AD2579E893000697C1 /* CaseScoreTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseScoreTBCell.swift; sourceTree = "<group>"; };
 		C161C8B02579E8B6000697C1 /* CaseDescriptionTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDescriptionTBCell.swift; sourceTree = "<group>"; };
 		C163E45C2580751200D1077D /* StageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageViewController.swift; sourceTree = "<group>"; };
+		C1654ACC2587D76E00A38383 /* CharacterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoViewController.swift; sourceTree = "<group>"; };
 		C175D979257640B2009167E5 /* SearchCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCaseViewController.swift; sourceTree = "<group>"; };
 		C179548B257DE49500670EC2 /* SelectModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeViewController.swift; sourceTree = "<group>"; };
 		C1795490257DEC1C00670EC2 /* ModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +99,7 @@
 		C19D3B9A257F8BB7002E2E7C /* RPGViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPGViewCell.xib; sourceTree = "<group>"; };
 		C1A7C0262574869F0022674B /* RPGMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGMapViewController.swift; sourceTree = "<group>"; };
 		C1A7C029257497160022674B /* StageMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageMarker.swift; sourceTree = "<group>"; };
-		C1A7C0372574DB410022674B /* MockGeotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGeotification.swift; sourceTree = "<group>"; };
+		C1A7C0372574DB410022674B /* Geotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geotification.swift; sourceTree = "<group>"; };
 		C1A7C03B2574EF170022674B /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		C1A7C0462575EDDB0022674B /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
 		C1B5CBAB257DBA890096BFB9 /* RPGViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			children = (
 				C1B5CBAB257DBA890096BFB9 /* RPGViewController.swift */,
 				C1A7C0262574869F0022674B /* RPGMapViewController.swift */,
+				C1654ACC2587D76E00A38383 /* CharacterInfoViewController.swift */,
 			);
 			path = RPG;
 			sourceTree = "<group>";
@@ -208,7 +211,6 @@
 		C1A7C02C2574986F0022674B /* Mock Data */ = {
 			isa = PBXGroup;
 			children = (
-				C1A7C0372574DB410022674B /* MockGeotification.swift */,
 				C1DE4EE3257940A5005440F6 /* MockCase.swift */,
 				C150A755257CEEAE00C3402B /* MockUser.swift */,
 			);
@@ -294,6 +296,7 @@
 				C1DE4EE025793A1A005440F6 /* SelectionModel.swift */,
 				C1A7C029257497160022674B /* StageMarker.swift */,
 				C120B9D52582990400E99E9D /* RPGMarker.swift */,
+				C1A7C0372574DB410022674B /* Geotification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -484,7 +487,7 @@
 				C1C2D0B2257E3F45003256C9 /* SelectCategoryViewController.swift in Sources */,
 				C19D3B9B257F8BB7002E2E7C /* RPGViewCell.swift in Sources */,
 				C10A7EA8257ED90900AC0AE6 /* DesignCaseViewController.swift in Sources */,
-				C1A7C0382574DB410022674B /* MockGeotification.swift in Sources */,
+				C1A7C0382574DB410022674B /* Geotification.swift in Sources */,
 				C1A7C0272574869F0022674B /* RPGMapViewController.swift in Sources */,
 				C1BD23D42580E39F00D7D090 /* StageMapViewController.swift in Sources */,
 				C19148CD2577902E0098619B /* SelectionView.swift in Sources */,
@@ -504,6 +507,7 @@
 				C161C8A82579E7BC000697C1 /* CaseImageTBCell.swift in Sources */,
 				C1DE4EE725794705005440F6 /* CardView.swift in Sources */,
 				C1795491257DEC1C00670EC2 /* ModeViewController.swift in Sources */,
+				C1654ACD2587D76E00A38383 /* CharacterInfoViewController.swift in Sources */,
 				C10C022E25873A930013AACC /* DesignTestViewController.swift in Sources */,
 				C10C0231258741D40013AACC /* DesignTestTBCell.swift in Sources */,
 				C1A7C02A257497160022674B /* StageMarker.swift in Sources */,

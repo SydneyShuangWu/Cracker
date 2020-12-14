@@ -9,7 +9,7 @@ import Foundation
 import MapKit
 import CoreLocation
 
-class MockGeotification: NSObject {
+class Geotification: NSObject {
     
     var coordinate: CLLocationCoordinate2D
     var radius: CLLocationDistance
@@ -22,8 +22,3 @@ class MockGeotification: NSObject {
     }
 }
 
-// MARK: - Mock Data
-let geotification = MockGeotification(
-    coordinate: CLLocationCoordinate2D(latitude: 25.037876, longitude: 121.568167),
-    radius: 150,
-    identifier: "Hi my friend!")
