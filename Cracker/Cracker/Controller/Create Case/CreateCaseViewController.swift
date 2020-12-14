@@ -47,7 +47,7 @@ class CreateCaseViewController: UIViewController {
     func setupUI() {
         
         continueBtn.setupCornerRadius()
-        
+
         introTV.setupCornerRadius()
         introTV.setupTextFieldBorder()
         

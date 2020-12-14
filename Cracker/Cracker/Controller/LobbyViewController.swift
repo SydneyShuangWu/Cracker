@@ -12,6 +12,8 @@ import Lottie
 
 class LobbyViewController: UIViewController {
     
+    @IBOutlet weak var animationView: AnimationView!
+    
     @IBOutlet weak var crackCaseBtn: UIButton!
     
     @IBOutlet weak var createCaseBtn: UIButton!
@@ -20,7 +22,20 @@ class LobbyViewController: UIViewController {
         
         super.viewDidLoad()
         
+        playAnimation()
+        
         setupButton()
+    }
+    
+    func playAnimation() {
+        
+        animationView.contentMode = .scaleAspectFill
+
+        animationView.loopMode = .loop
+        
+        animationView.animationSpeed = 0.5
+    
+        animationView.play()
     }
     
     func setupButton() {
@@ -37,6 +52,8 @@ class LobbyViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        playAnimation()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

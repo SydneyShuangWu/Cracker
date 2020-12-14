@@ -31,7 +31,7 @@ class StageViewController: UIViewController {
     var answers: [String] = []
     var hints: [String] = []
     
-    let stageCount = testLinearCase.stageContent?.count
+    let stageCount = demoLinearCase.stageContent?.count
     var currentStageIndex: Int!
     
     weak var delegate: PassStageIndexDelegate?
@@ -64,7 +64,7 @@ class StageViewController: UIViewController {
     
     func getStageData() {
         
-        guard let stageContents = testLinearCase.stageContent else { return }
+        guard let stageContents = demoLinearCase.stageContent else { return }
         
         for stageContent in stageContents {
             

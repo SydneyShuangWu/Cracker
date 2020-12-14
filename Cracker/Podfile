@@ -12,5 +12,6 @@ target 'Cracker' do
   pod 'RAMAnimatedTabBarController'
   pod 'IQKeyboardManagerSwift'
   pod 'lottie-ios'
+  pod 'PKHUD', '~> 5.0'
 
 end

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class DesignCaseViewController: UIViewController {
     
@@ -18,8 +19,8 @@ class DesignCaseViewController: UIViewController {
     var selectUploadBtnIndex: Int?
     
     // MARK: - Mock Data
-    let linearSectionCount = testLinearCase.stageContent?.count
-    let rpgSectionCount = testRpgCase.charContent?.count
+    let linearSectionCount = demoLinearCase.stageContent?.count
+    let rpgSectionCount = demoRpgCase.charContent?.count
     
     @IBOutlet weak var designCaseTableView: UITableView!
     @IBOutlet weak var bottomBtn: UIButton!
@@ -87,11 +88,16 @@ class DesignCaseViewController: UIViewController {
         
         if selectedCaseCategory == CaseCategory.linear {
             
-            navigateToLobby()
+            HUD.flash(.labeledSuccess(title: nil, subtitle: "Case Created!"), delay: 0.3) { _ in
+                
+                self.navigateToLobby()
+            }
             
         } else {
             
-            
+            let vc = myStoryboard.instantiateViewController(withIdentifier: "DesignTestVc") as! DesignTestViewController
+
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

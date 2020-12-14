@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		82D4932F3B4B75BAB59B8915 /* Pods_Cracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0598674B7CC531CF8ACF95 /* Pods_Cracker.framework */; };
 		C10A7EA8257ED90900AC0AE6 /* DesignCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A7EA7257ED90900AC0AE6 /* DesignCaseViewController.swift */; };
+		C10C022E25873A930013AACC /* DesignTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C022D25873A930013AACC /* DesignTestViewController.swift */; };
+		C10C0231258741D40013AACC /* DesignTestTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C0230258741D40013AACC /* DesignTestTBCell.swift */; };
 		C120B9D62582990400E99E9D /* RPGMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120B9D52582990400E99E9D /* RPGMarker.swift */; };
 		C120B9DA2583183700E99E9D /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120B9D92583183700E99E9D /* UIImage+Extension.swift */; };
 		C124145425861C41006359AA /* StageRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C124145325861C41006359AA /* StageRecordViewController.swift */; };
@@ -65,6 +67,8 @@
 		A250CFA09B32F9C2BB433563 /* Pods-Cracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cracker.debug.xcconfig"; path = "Target Support Files/Pods-Cracker/Pods-Cracker.debug.xcconfig"; sourceTree = "<group>"; };
 		AFD6E98DB1E00DCB392FF7D7 /* Pods-Cracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cracker.release.xcconfig"; path = "Target Support Files/Pods-Cracker/Pods-Cracker.release.xcconfig"; sourceTree = "<group>"; };
 		C10A7EA7257ED90900AC0AE6 /* DesignCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCaseViewController.swift; sourceTree = "<group>"; };
+		C10C022D25873A930013AACC /* DesignTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTestViewController.swift; sourceTree = "<group>"; };
+		C10C0230258741D40013AACC /* DesignTestTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTestTBCell.swift; sourceTree = "<group>"; };
 		C120B9D52582990400E99E9D /* RPGMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGMarker.swift; sourceTree = "<group>"; };
 		C120B9D92583183700E99E9D /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		C124145325861C41006359AA /* StageRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageRecordViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 			children = (
 				C163E45C2580751200D1077D /* StageViewController.swift */,
 				C1BD23D32580E39F00D7D090 /* StageMapViewController.swift */,
+				C124145325861C41006359AA /* StageRecordViewController.swift */,
 			);
 			path = Stage;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 				C1C2D0B1257E3F45003256C9 /* SelectCategoryViewController.swift */,
 				C1C2D0B4257E454C003256C9 /* CreateCaseViewController.swift */,
 				C10A7EA7257ED90900AC0AE6 /* DesignCaseViewController.swift */,
+				C10C022D25873A930013AACC /* DesignTestViewController.swift */,
 			);
 			path = "Create Case";
 			sourceTree = "<group>";
@@ -302,6 +308,7 @@
 				C1DE4EE625794705005440F6 /* CardView.swift */,
 				C1DE4EE9257956D8005440F6 /* SearchCaseTBCell.swift */,
 				C150A75A257D390000C3402B /* ProfileCaseTBCell.swift */,
+				C10C0230258741D40013AACC /* DesignTestTBCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -315,7 +322,6 @@
 				C161C8A225796E73000697C1 /* CaseDetailViewController.swift */,
 				C1A7C0462575EDDB0022674B /* SidebarViewController.swift */,
 				C150A74C257A3E8F00C3402B /* ProfileViewController.swift */,
-				C124145325861C41006359AA /* StageRecordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -498,6 +504,8 @@
 				C161C8A82579E7BC000697C1 /* CaseImageTBCell.swift in Sources */,
 				C1DE4EE725794705005440F6 /* CardView.swift in Sources */,
 				C1795491257DEC1C00670EC2 /* ModeViewController.swift in Sources */,
+				C10C022E25873A930013AACC /* DesignTestViewController.swift in Sources */,
+				C10C0231258741D40013AACC /* DesignTestTBCell.swift in Sources */,
 				C1A7C02A257497160022674B /* StageMarker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

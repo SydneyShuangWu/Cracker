@@ -2,6 +2,7 @@ PODS:
   - Hero (1.5.0)
   - IQKeyboardManagerSwift (6.5.6)
   - lottie-ios (3.1.9)
+  - PKHUD (5.3.0)
   - RAMAnimatedTabBarController (5.2.0)
   - SideMenu (6.5.0)
   - SwiftLint (0.41.0)
@@ -10,6 +11,7 @@ DEPENDENCIES:
   - Hero
   - IQKeyboardManagerSwift
   - lottie-ios
+  - PKHUD (~> 5.0)
   - RAMAnimatedTabBarController
   - SideMenu (~> 6.0)
   - SwiftLint
@@ -19,6 +21,7 @@ SPEC REPOS:
     - Hero
     - IQKeyboardManagerSwift
     - lottie-ios
+    - PKHUD
     - RAMAnimatedTabBarController
     - SideMenu
     - SwiftLint
@@ -27,10 +30,11 @@ SPEC CHECKSUMS:
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: 8e6048ab28bc9be365fa310695db72f5c965f7b6
+PODFILE CHECKSUM: 2933aaa517bda6d745a8551012c438c649e6037f
 
 COCOAPODS: 1.9.3

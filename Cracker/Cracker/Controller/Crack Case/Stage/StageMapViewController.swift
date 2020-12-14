@@ -62,7 +62,7 @@ class StageMapViewController: UIViewController {
     
     func getStageCoordinates() {
         
-        guard let stageContents = testLinearCase.stageContent else { return }
+        guard let stageContents = demoLinearCase.stageContent else { return }
         
         for stageContent in stageContents {
 
@@ -72,7 +72,7 @@ class StageMapViewController: UIViewController {
     
     func getStageMarkers() {
         
-        guard let stageContents = testLinearCase.stageContent else { return }
+        guard let stageContents = demoLinearCase.stageContent else { return }
         
         for stageContent in stageContents {
             
