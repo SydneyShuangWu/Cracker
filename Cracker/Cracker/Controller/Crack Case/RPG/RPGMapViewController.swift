@@ -9,6 +9,11 @@ import UIKit
 import MapKit
 import CoreLocation
 
+protocol PassCharContentDelegate: AnyObject {
+    
+    func getCharContentOf(charName: String, charInfo: String)
+}
+
 class RPGMapViewController: UIViewController {
     
     @IBOutlet weak var rpgMap: MKMapView!
@@ -25,11 +30,17 @@ class RPGMapViewController: UIViewController {
     var characterMarkers: [RPGMarker] = []
     
     var geotifications: [Geotification] = []
+    
+    weak var delegate: PassCharContentDelegate?
 
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        characterInfoView.layer.cornerRadius = 20
+        
+        characterInfoView.layer.masksToBounds = true
         
         getCharacterCoordinates()
         
@@ -81,7 +92,7 @@ class RPGMapViewController: UIViewController {
         
         for charContent in charContents {
             
-            let rpgMarker = RPGMarker(characterName: charContent.name, characterImage: charContent.image, locationName: charContent.location, coordinate: charContent.position)
+            let rpgMarker = RPGMarker(characterName: charContent.name, characterImage: charContent.image, characterInfo: charContent.info, locationName: charContent.location, coordinate: charContent.position)
             
             characterMarkers.append(rpgMarker)
         }
@@ -112,7 +123,41 @@ class RPGMapViewController: UIViewController {
         locationManager.requestLocation()
     }
     
+    // MARK: - Segue to Character Info Page
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toCharacterInfoVc" {
+            
+            let nextVc = segue.destination as? CharacterInfoViewController
+            
+            nextVc?.delegate = self
+            
+            delegate = nextVc
+        }
+    }
 
+    func showCharInfoPage() {
+        
+        UIView.animate(withDuration: 0.5) {
+            
+            self.characterInfoView.frame = CGRect(x: (UIScreen.main.bounds.width  - self.characterInfoView.bounds.width) / 2, y: (UIScreen.main.bounds.height  - self.characterInfoView.bounds.height) / 2, width: self.characterInfoView.bounds.width, height: self.characterInfoView.bounds.height)
+        }
+    }
+    
+    func hideCharInfoPage() {
+        
+        UIView.animate(withDuration: 0.5) {
+            self.characterInfoView.frame = CGRect(x: self.characterInfoView.frame.minX, y: UIScreen.main.bounds.height, width: self.characterInfoView.bounds.width, height: self.characterInfoView.bounds.height)
+        }
+    }
+}
+
+extension RPGMapViewController: CloseButtonDelegate {
+    
+    func closeBtnDidPress(_ didPress: Bool) {
+        
+        hideCharInfoPage()
+    }
 }
 
 // MARK: - Core Location
@@ -182,6 +227,8 @@ extension RPGMapViewController: CLLocationManagerDelegate {
         if region is CLCircularRegion {
             
             print("Enter Geofence: \(region)")
+            
+            showAlert(withTitle: "Enter Geofence", withActionTitle: "OK", message: "\(region.identifier)")
         }
     }
     
@@ -190,6 +237,8 @@ extension RPGMapViewController: CLLocationManagerDelegate {
         if region is CLCircularRegion {
             
             print("Exit Geofence: \(region)")
+            
+            showAlert(withTitle: "Exit Geofence", withActionTitle: "OK", message: "\(region.identifier)")
         }
     }
     
@@ -201,6 +250,8 @@ extension RPGMapViewController: CLLocationManagerDelegate {
             if state == .inside {
                 
                 print("Already inside Geofence: \(region)")
+                
+                showAlert(withTitle: "Already inside Geofence", withActionTitle: "OK", message: "\(region.identifier)")
             }
         }
     }
@@ -293,7 +344,14 @@ extension RPGMapViewController: MKMapViewDelegate {
     // Handle the callout to show character info
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
-        
+        if let char = view.annotation as? RPGMarker {
+            
+            delegate?.getCharContentOf(charName: char.characterName!, charInfo: char.characterInfo!)
+
+//            print(char.characterName!)
+        }
+
+        showCharInfoPage()
     }
 }
     

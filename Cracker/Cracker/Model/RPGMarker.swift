@@ -17,17 +17,20 @@ class RPGMarker: NSObject, MKAnnotation {
     
     let characterName: String?
     let characterImage: UIImage?
+    let characterInfo: String?
     let locationName: String?
     let coordinate: CLLocationCoordinate2D
     
     init(
         characterName: String?,
         characterImage: UIImage?,
+        characterInfo: String?,
         locationName: String?,
         coordinate: CLLocationCoordinate2D
     ) {
         self.characterName = characterName
         self.characterImage = characterImage
+        self.characterInfo = characterInfo
         self.locationName = locationName
         self.coordinate = coordinate
         

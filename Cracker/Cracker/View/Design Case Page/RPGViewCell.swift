@@ -10,8 +10,6 @@ import UIKit
 protocol RPGViewCellDelegate: AnyObject {
     
     func uploadBtnDidPress(_ didPress: Bool, index: Int)
-    
-    
 }
 
 class RPGViewCell: UITableViewCell {
