@@ -79,7 +79,7 @@ struct CharContent {
     
     let image: UIImage
     
-    let triggers: [String]
+    let triggers: [[String]]
     
     let talks: [String]
     
@@ -114,9 +114,9 @@ let demoStage2 = StageContent(id: "2", story: "王子吃完東西已經恢復元
 let demoLinearCase = MockCase(name: "王子上學去", creator: "Princekili", image: UIImage(named: "Little Prince")!, score: 1, category: CaseCategory.linear, location: "捷運忠孝敦化站周邊", startTime: "10:30", endTime: "18:00", duration: "2小時", maxHeadCount: 10, minHeadCount: 1, description: "王子今天又遲到了，你們能幫他找到去School的路嗎？請先到王子寄宿的灝美旅舍叫醒他吧！", stageContent: [demoStage1, demoStage2], charContent: nil, testContent: nil, finalStageName: "AppWorks School", finalPosition: CLLocationCoordinate2D(latitude: 25.042404, longitude: 121.564885), open: nil)
 
 // MARK: - Mock Data For RPG Mode
-let demoChar1 = CharContent(id: "1", name: "竈門炭治郎", location: "雲取山", info: "竈門家長子，禰豆子的大哥，是有著一頭深紅髮與紅色眼睛的「赫灼之子」，遺傳母親那有如石頭般堅硬的額頭，左額上有著小時候為保護弟弟，而被滾燙的水壺燒傷的大片傷痕，耳上掛著日輪花紙耳飾。為平凡農家子弟的長兄，父親早逝，因此靠著賣炭維持家裡的生計。", image: UIImage(named: "Coal")!, triggers: ["要怎麼從夢裡醒來"], talks: ["全集中水之呼吸", "我要繼續出招才行"], clues: ["只要在夢裡xxx就行了"], position: CLLocationCoordinate2D(latitude: 25.040611, longitude: 121.561328))
+let demoChar1 = CharContent(id: "1", name: "竈門炭治郎", location: "雲取山", info: "竈門家長子，禰豆子的大哥，是有著一頭深紅髮與紅色眼睛的「赫灼之子」，遺傳母親那有如石頭般堅硬的額頭，左額上有著小時候為保護弟弟，而被滾燙的水壺燒傷的大片傷痕，耳上掛著日輪花紙耳飾。為平凡農家子弟的長兄，父親早逝，因此靠著賣炭維持家裡的生計。", image: UIImage(named: "Coal")!, triggers: [["魘夢", "下弦之壹"]], talks: ["全集中水之呼吸", "我要繼續出招才行"], clues: ["這我不太清楚，但據說大岳山腳下木屋裡面藏著答案，你知道答案以後就趕快去告訴伊之助吧！"], position: CLLocationCoordinate2D(latitude: 25.040611, longitude: 121.561328))
 
-let demoChar2 = CharContent(id: "2", name: "嘴平伊之助", location: "大岳山", info: "與炭治郎同期的鬼殺隊劍士，頭戴灰色的山豬頭面具，上半身赤裸且身材魁梧的少年，面具下卻是美少女般的臉蛋。不喜歡穿衣服，除療養外多半都是赤裸著上半身。初期性格粗暴殘忍，為達成目的可以不顧周遭人的感受，通常是有話直說直接開打型。", image: UIImage(named: "Inosuke")!, triggers: ["鬼的喉嚨在哪裡", "炎柱吃的便當叫什麼"], talks: ["豬突猛進"], clues: ["漆之型 空間視覺...在xxx！！", "牛鍋便當"], position: CLLocationCoordinate2D(latitude: 25.037683, longitude: 121.564603))
+let demoChar2 = CharContent(id: "2", name: "嘴平伊之助", location: "大岳山", info: "與炭治郎同期的鬼殺隊劍士，頭戴灰色的山豬頭面具，上半身赤裸且身材魁梧的少年，面具下卻是美少女般的臉蛋。不喜歡穿衣服，除療養外多半都是赤裸著上半身。初期性格粗暴殘忍，為達成目的可以不顧周遭人的感受，通常是有話直說直接開打型。", image: UIImage(named: "Inosuke")!, triggers: [["眼睛"], ["便當", "炎柱"]], talks: ["豬突猛進"], clues: ["漆之型，空間視覺！找到了！在火車頭！！", "牛鍋便當"], position: CLLocationCoordinate2D(latitude: 25.037683, longitude: 121.564603))
 
 let demoTest1 = TestContent(id: "1", question: "炎柱交代炭治郎的任務是什麼？", choices: ["幫他吃便當", "找主公", "練好全集中呼吸"], answers: ["找主公"])
 

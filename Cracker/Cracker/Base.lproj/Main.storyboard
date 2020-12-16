@@ -2035,21 +2035,104 @@
             </objects>
             <point key="canvasLocation" x="1942" y="4263"/>
         </scene>
-        <!--View Controller-->
+        <!--Chats View Controller-->
         <scene sceneID="9YO-F9-5yz">
             <objects>
-                <viewController storyboardIdentifier="ChatroomVc" id="5eI-FH-q57" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatroomVc" id="5eI-FH-q57" customClass="RPGChatsViewController" customModule="Cracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ySf-nT-y3U">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHATS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdz-7x-SXa">
+                                <rect key="frame" x="151" y="64" width="112.5" height="35"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="30"/>
+                                <color key="textColor" name="CrackerOrange"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jJY-DV-50m">
+                                <rect key="frame" x="0.0" y="124" width="414" height="689"/>
+                                <color key="backgroundColor" name="CrackerWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatsTBCell" rowHeight="97" id="XEA-on-emL" customClass="ChatsTBCell" customModule="Cracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="97"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XEA-on-emL" id="nXf-KD-JjB">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="97"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ptk-GY-Mp3">
+                                                    <rect key="frame" x="25" y="18.5" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="BpX-R2-Yug"/>
+                                                        <constraint firstAttribute="width" secondItem="Ptk-GY-Mp3" secondAttribute="height" multiplier="1:1" id="WbC-8z-kdP"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kj5-Bl-b8A">
+                                                    <rect key="frame" x="100" y="23.5" width="50" height="21"/>
+                                                    <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="18"/>
+                                                    <color key="textColor" systemColor="systemGrayColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQf-O8-1sd">
+                                                    <rect key="frame" x="100" y="49.5" width="249" height="20"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctJ-aa-PlN">
+                                                    <rect key="frame" x="364" y="36" width="25" height="25"/>
+                                                    <color key="backgroundColor" name="CrackerOrange"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="C6C-dq-3xV"/>
+                                                        <constraint firstAttribute="width" secondItem="ctJ-aa-PlN" secondAttribute="height" multiplier="1:1" id="jwi-1Y-J5G"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" name="CrackerWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ctJ-aa-PlN" firstAttribute="centerY" secondItem="nXf-KD-JjB" secondAttribute="centerY" id="BZN-U6-04C"/>
+                                                <constraint firstItem="Kj5-Bl-b8A" firstAttribute="top" secondItem="Ptk-GY-Mp3" secondAttribute="top" constant="5" id="LeM-g7-BWh"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ctJ-aa-PlN" secondAttribute="trailing" constant="5" id="Ovb-Ys-gNE"/>
+                                                <constraint firstItem="ctJ-aa-PlN" firstAttribute="leading" secondItem="VQf-O8-1sd" secondAttribute="trailing" constant="15" id="PFQ-Ki-l8a"/>
+                                                <constraint firstItem="VQf-O8-1sd" firstAttribute="leading" secondItem="Kj5-Bl-b8A" secondAttribute="leading" id="RbB-LJ-xXb"/>
+                                                <constraint firstItem="Kj5-Bl-b8A" firstAttribute="leading" secondItem="Ptk-GY-Mp3" secondAttribute="trailing" constant="15" id="bBD-2V-pUS"/>
+                                                <constraint firstItem="VQf-O8-1sd" firstAttribute="top" secondItem="Kj5-Bl-b8A" secondAttribute="bottom" constant="5" id="j1h-mf-9IE"/>
+                                                <constraint firstItem="Ptk-GY-Mp3" firstAttribute="leading" secondItem="nXf-KD-JjB" secondAttribute="leading" constant="25" id="z72-kN-wtK"/>
+                                                <constraint firstItem="Ptk-GY-Mp3" firstAttribute="centerY" secondItem="nXf-KD-JjB" secondAttribute="centerY" id="zI7-9J-eR3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CrackerWhite"/>
+                                        <connections>
+                                            <outlet property="recentMessage" destination="VQf-O8-1sd" id="hfe-bH-Foa"/>
+                                            <outlet property="senderImage" destination="Ptk-GY-Mp3" id="seS-bH-MmU"/>
+                                            <outlet property="senderName" destination="Kj5-Bl-b8A" id="O55-iR-u6a"/>
+                                            <outlet property="unreadMessageCount" destination="ctJ-aa-PlN" id="gFi-kY-zjw"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ooV-8X-AeS"/>
                         <color key="backgroundColor" name="CrackerWhite"/>
+                        <constraints>
+                            <constraint firstItem="jJY-DV-50m" firstAttribute="leading" secondItem="ooV-8X-AeS" secondAttribute="leading" id="0fa-Ps-CSV"/>
+                            <constraint firstItem="ooV-8X-AeS" firstAttribute="bottom" secondItem="jJY-DV-50m" secondAttribute="bottom" id="Oh4-w7-Zl5"/>
+                            <constraint firstItem="sdz-7x-SXa" firstAttribute="centerX" secondItem="ySf-nT-y3U" secondAttribute="centerX" id="QCY-Be-JpB"/>
+                            <constraint firstItem="jJY-DV-50m" firstAttribute="top" secondItem="sdz-7x-SXa" secondAttribute="bottom" constant="25" id="frH-kK-kaF"/>
+                            <constraint firstItem="ooV-8X-AeS" firstAttribute="trailing" secondItem="jJY-DV-50m" secondAttribute="trailing" id="nLz-xt-Cqs"/>
+                            <constraint firstItem="sdz-7x-SXa" firstAttribute="top" secondItem="ooV-8X-AeS" secondAttribute="top" constant="20" id="oNc-3O-bYG"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="ellipsis.bubble" catalog="system" selectedImage="ellipsis.bubble.fill" id="UGK-zg-oGi"/>
+                    <connections>
+                        <outlet property="chatsTableView" destination="jJY-DV-50m" id="pJr-1u-gjZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bm3-p9-pDs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2774" y="4263"/>
+            <point key="canvasLocation" x="2773.913043478261" y="4262.9464285714284"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hiN-db-X7l">
@@ -2112,6 +2195,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQh-IY-R09" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1081" y="3532"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="G5O-ZA-jJ7">
+            <objects>
+                <viewController id="fHb-WX-OFX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vrm-PZ-F6H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="vhu-vd-mhY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zAH-QO-eap" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1143" y="4980"/>
         </scene>
         <!--Character Info View Controller-->
         <scene sceneID="nif-fv-aVR">
@@ -2237,6 +2335,9 @@
         <namedColor name="CrackerYellow">
             <color red="1" green="0.85500001907348633" blue="0.46700000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

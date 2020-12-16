@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
+// Pass data to character info page
 protocol PassCharContentDelegate: AnyObject {
     
     func getCharContentOf(charName: String, charInfo: String)
@@ -29,9 +30,9 @@ class RPGMapViewController: UIViewController {
     
     var characterMarkers: [RPGMarker] = []
     
-    var geotifications: [Geotification] = []
+    weak var charContentDelegate: PassCharContentDelegate?
     
-    weak var delegate: PassCharContentDelegate?
+    let geofenceManager = GeofenceManager.shared
 
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -46,13 +47,11 @@ class RPGMapViewController: UIViewController {
         
         getCharacterMarkers()
         
-        getGeotifications()
-        
         setupCoreLocation()
         
         setupMapView()
-
-        renderGeotifications(for: geotifications)
+        
+        renderGeotifications(for: geofenceManager.geotifications)
         
         // Notify when user has opened Cracker from Settings
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -98,18 +97,6 @@ class RPGMapViewController: UIViewController {
         }
     }
     
-    func getGeotifications() {
-        
-        guard let charContents = demoRpgCase.charContent else { return }
-        
-        for charContent in charContents {
-            
-            let geotification = Geotification(coordinate: charContent.position, radius: 100, identifier: charContent.id)
-            
-            geotifications.append(geotification)
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         
         rpgMap.addAnnotations(characterMarkers)
@@ -132,7 +119,7 @@ class RPGMapViewController: UIViewController {
             
             nextVc?.delegate = self
             
-            delegate = nextVc
+            charContentDelegate = nextVc
         }
     }
 
@@ -221,77 +208,6 @@ extension RPGMapViewController: CLLocationManagerDelegate {
         
         print(error)
     }
-    
-    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        
-        if region is CLCircularRegion {
-            
-            print("Enter Geofence: \(region)")
-            
-            showAlert(withTitle: "Enter Geofence", withActionTitle: "OK", message: "\(region.identifier)")
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        
-        if region is CLCircularRegion {
-            
-            print("Exit Geofence: \(region)")
-            
-            showAlert(withTitle: "Exit Geofence", withActionTitle: "OK", message: "\(region.identifier)")
-        }
-    }
-    
-    // Handle situation when user is already inside geofence
-    func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
-        
-        if region is CLCircularRegion {
-            
-            if state == .inside {
-                
-                print("Already inside Geofence: \(region)")
-                
-                showAlert(withTitle: "Already inside Geofence", withActionTitle: "OK", message: "\(region.identifier)")
-            }
-        }
-    }
-    
-    //    func handleGeofenceEvent(for region: CLRegion!) {
-    //
-    //    }
-    
-    // MARK: - Geofence
-    // Turn Geotification into CLCircularRegion in order to implement Geofence
-    func region(with geotification: Geotification) -> CLCircularRegion {
-        
-        let region = CLCircularRegion(center: geotification.coordinate, radius: geotification.radius, identifier: geotification.identifier)
-        
-        region.notifyOnEntry = true
-        
-        return region
-    }
-    
-    func startMonitoring(geotification: Geotification) {
-        
-        // Check if the device has the required hardware to support geofence monitoring
-        if !CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
-            
-            showAlert(withTitle: "Error", withActionTitle: "OK", message: "Geofencing is not supported on this device")
-            
-            return
-        }
-        
-        // Create CLCircularRegion instances
-        let fenceRegion = region(with: geotification)
-        
-        locationManager.startMonitoring(for: fenceRegion)
-    }
-    
-    // Facilitate error handling for Geofence events
-    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
-        
-        print("Monitoring failed for region with identifier: \(region!.identifier)")
-    }
 }
     
 // MARK: - Map View
@@ -312,6 +228,17 @@ extension RPGMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
         
         rpgMap.setUserTrackingMode(.followWithHeading, animated: true)
+    }
+    
+    // Handle the callout to show character info
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        if let char = view.annotation as? RPGMarker {
+            
+            charContentDelegate?.getCharContentOf(charName: char.characterName!, charInfo: char.characterInfo!)
+        }
+
+        showCharInfoPage()
     }
     
     // MARK: - Geofence Overlay
@@ -335,23 +262,8 @@ extension RPGMapViewController: MKMapViewDelegate {
         
         for geotification in geotifications {
             
-            startMonitoring(geotification: geotification)
-            
             rpgMap.addOverlay(MKCircle(center: geotification.coordinate, radius: geotification.radius))
         }
-    }
-    
-    // Handle the callout to show character info
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        
-        if let char = view.annotation as? RPGMarker {
-            
-            delegate?.getCharContentOf(charName: char.characterName!, charInfo: char.characterInfo!)
-
-//            print(char.characterName!)
-        }
-
-        showCharInfoPage()
     }
 }
     

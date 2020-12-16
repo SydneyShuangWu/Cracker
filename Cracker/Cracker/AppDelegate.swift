@@ -8,18 +8,23 @@
 import UIKit
 import CoreLocation
 import IQKeyboardManagerSwift
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    let geofenceManager = GeofenceManager.shared
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         IQKeyboardManager.shared.enable = true
         
+        geofenceManager.startMonitoring()
+        
+        FirebaseApp.configure()
+        
         return true
     }
-    
-    // MARK: UISceneSession Lifecycle
     
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
 

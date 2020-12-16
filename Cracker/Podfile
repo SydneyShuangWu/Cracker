@@ -13,5 +13,8 @@ target 'Cracker' do
   pod 'IQKeyboardManagerSwift'
   pod 'lottie-ios'
   pod 'PKHUD', '~> 5.0'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
 
 end
