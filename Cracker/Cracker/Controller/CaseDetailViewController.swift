@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class CaseDetailViewController: UIViewController {
+    
+    let authManager = FirebaseAuthManager()
     
     @IBOutlet weak var caseDetailTableView: UITableView!
     
@@ -20,6 +23,8 @@ class CaseDetailViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(), name: .loginDidSuccess, object: nil)
         
         setupTableView()
         
@@ -36,15 +41,41 @@ class CaseDetailViewController: UIViewController {
         caseDetailTableView.dataSource = self
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "toSelectModeVc" {
-            
-            let nextVc = segue.destination as? SelectModeViewController
-            
-            nextVc?.selectedCase = selectedCase
-        }
+    @IBAction func crackThisCase(_ sender: Any) {
     }
+    
+    @objc func navigateToSelectModeVc() {
+        
+        let vc = myStoryboard.instantiateViewController(withIdentifier: "ProfileVc")
+        
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .fullScreen
+
+        nav.hero.isEnabled = true
+
+        nav.hero.modalAnimationType = .autoReverse(presenting: .zoomSlide(direction: .right))
+
+        present(nav, animated: true, completion: nil)
+    }
+    
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        if Auth.auth().currentUser?.uid != nil {
+//
+//            if segue.identifier == "toSelectModeVc" {
+//
+//                let nextVc = segue.destination as? SelectModeViewController
+//
+//                nextVc?.selectedCase = selectedCase
+//            }
+//
+//        } else {
+//
+//            authManager.performSignin(self)
+//        }
+//    }
 }
 
 extension CaseDetailViewController: UITableViewDelegate, UITableViewDataSource {

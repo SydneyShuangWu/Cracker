@@ -12,6 +12,7 @@
 		C10C022E25873A930013AACC /* DesignTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C022D25873A930013AACC /* DesignTestViewController.swift */; };
 		C10C0231258741D40013AACC /* DesignTestTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C0230258741D40013AACC /* DesignTestTBCell.swift */; };
 		C1202FAB258A0C7B0031AD81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1202FAA258A0C7B0031AD81 /* GoogleService-Info.plist */; };
+		C1202FB1258A12B90031AD81 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1202FB0258A12B90031AD81 /* FirebaseAuthManager.swift */; };
 		C120B9D62582990400E99E9D /* RPGMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120B9D52582990400E99E9D /* RPGMarker.swift */; };
 		C120B9DA2583183700E99E9D /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120B9D92583183700E99E9D /* UIImage+Extension.swift */; };
 		C124145425861C41006359AA /* StageRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C124145325861C41006359AA /* StageRecordViewController.swift */; };
@@ -44,6 +45,7 @@
 		C18BEEDE2588C8910073CE62 /* GeofenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18BEEDD2588C8910073CE62 /* GeofenceManager.swift */; };
 		C19148C9257784E40098619B /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19148C8257784E40098619B /* UISearchBar+Extension.swift */; };
 		C19148CD2577902E0098619B /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19148CC2577902E0098619B /* SelectionView.swift */; };
+		C1921CA2258A3529004E2A9A /* NotificationCenter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1921CA1258A3529004E2A9A /* NotificationCenter+Extension.swift */; };
 		C19D3B9B257F8BB7002E2E7C /* RPGViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D3B99257F8BB7002E2E7C /* RPGViewCell.swift */; };
 		C19D3B9C257F8BB7002E2E7C /* RPGViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C19D3B9A257F8BB7002E2E7C /* RPGViewCell.xib */; };
 		C1A7C0272574869F0022674B /* RPGMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C0262574869F0022674B /* RPGMapViewController.swift */; };
@@ -80,6 +82,7 @@
 		C10C0230258741D40013AACC /* DesignTestTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTestTBCell.swift; sourceTree = "<group>"; };
 		C1202FAA258A0C7B0031AD81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1202FAD258A0F920031AD81 /* Cracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cracker.entitlements; sourceTree = "<group>"; };
+		C1202FB0258A12B90031AD81 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		C120B9D52582990400E99E9D /* RPGMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGMarker.swift; sourceTree = "<group>"; };
 		C120B9D92583183700E99E9D /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		C124145325861C41006359AA /* StageRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageRecordViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 		C18BEEDD2588C8910073CE62 /* GeofenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceManager.swift; sourceTree = "<group>"; };
 		C19148C8257784E40098619B /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
 		C19148CC2577902E0098619B /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		C1921CA1258A3529004E2A9A /* NotificationCenter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Extension.swift"; sourceTree = "<group>"; };
 		C19D3B99257F8BB7002E2E7C /* RPGViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGViewCell.swift; sourceTree = "<group>"; };
 		C19D3B9A257F8BB7002E2E7C /* RPGViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPGViewCell.xib; sourceTree = "<group>"; };
 		C1A7C0262574869F0022674B /* RPGMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGMapViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				C18BEEDD2588C8910073CE62 /* GeofenceManager.swift */,
+				C1202FB0258A12B90031AD81 /* FirebaseAuthManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				C1202FAD258A0F920031AD81 /* Cracker.entitlements */,
 				C1D421322570A82A00FF0641 /* AppDelegate.swift */,
 				C1D421342570A82A00FF0641 /* SceneDelegate.swift */,
+				C14233FC2589CFF400C2C3FE /* Manager */,
 				C1D421662570EDF900FF0641 /* Model */,
 				C1D421682570EE0A00FF0641 /* View */,
 				C1D421692570EE1D00FF0641 /* Controller */,
@@ -317,6 +323,7 @@
 				C19148C8257784E40098619B /* UISearchBar+Extension.swift */,
 				C1EFA7B325822EC0004C7D03 /* CLLocationCoordinate2D+Extension.swift */,
 				C120B9D92583183700E99E9D /* UIImage+Extension.swift */,
+				C1921CA1258A3529004E2A9A /* NotificationCenter+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -324,7 +331,6 @@
 		C1D421662570EDF900FF0641 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C14233FC2589CFF400C2C3FE /* Manager */,
 				C1A7C02C2574986F0022674B /* Mock Data */,
 				C1DE4EE025793A1A005440F6 /* SelectionModel.swift */,
 				C1A7C029257497160022674B /* StageMarker.swift */,
@@ -512,6 +518,7 @@
 				C1A7C03C2574EF170022674B /* UIViewController+Extensions.swift in Sources */,
 				C1B5CBAC257DBA890096BFB9 /* RPGViewController.swift in Sources */,
 				C138AE17258284A90012D633 /* MarkerView.swift in Sources */,
+				C1202FB1258A12B90031AD81 /* FirebaseAuthManager.swift in Sources */,
 				C179548C257DE49500670EC2 /* SelectModeViewController.swift in Sources */,
 				C1DE4EE125793A1A005440F6 /* SelectionModel.swift in Sources */,
 				C18BEEDB2588A3A00073CE62 /* ChatsTBCell.swift in Sources */,
@@ -528,6 +535,7 @@
 				C19D3B9B257F8BB7002E2E7C /* RPGViewCell.swift in Sources */,
 				C10A7EA8257ED90900AC0AE6 /* DesignCaseViewController.swift in Sources */,
 				C1A7C0382574DB410022674B /* Geotification.swift in Sources */,
+				C1921CA2258A3529004E2A9A /* NotificationCenter+Extension.swift in Sources */,
 				C1A7C0272574869F0022674B /* RPGMapViewController.swift in Sources */,
 				C1BD23D42580E39F00D7D090 /* StageMapViewController.swift in Sources */,
 				C19148CD2577902E0098619B /* SelectionView.swift in Sources */,

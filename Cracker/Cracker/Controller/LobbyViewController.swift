@@ -9,8 +9,11 @@ import Foundation
 import UIKit
 import Hero
 import Lottie
+import FirebaseAuth
 
 class LobbyViewController: UIViewController {
+    
+    let authManager = FirebaseAuthManager()
     
     @IBOutlet weak var animationView: AnimationView!
     
@@ -22,9 +25,11 @@ class LobbyViewController: UIViewController {
         
         super.viewDidLoad()
         
-        playAnimation()
+        authManager.logOut()
         
         setupButton()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(navigateToSelectCategoryVc), name: .loginDidSuccess, object: nil)
     }
     
     func playAnimation() {
@@ -75,8 +80,20 @@ class LobbyViewController: UIViewController {
 
         present(nav, animated: true, completion: nil)
     }
+
+    @IBAction func createBtnDidTap(_ sender: Any) {
+        
+        if Auth.auth().currentUser?.uid != nil {
+            
+            navigateToSelectCategoryVc()
+            
+        } else {
+            
+            authManager.performSignin(self)
+        }
+    }
     
-    @IBAction func navigateToSelectCategoryVc(_ sender: Any) {
+    @objc func navigateToSelectCategoryVc() {
         
         let vc = myStoryboard.instantiateViewController(withIdentifier: "SelectCategoryVc")
         
@@ -90,6 +107,5 @@ class LobbyViewController: UIViewController {
 
         present(nav, animated: true, completion: nil)
     }
-    
 }
 

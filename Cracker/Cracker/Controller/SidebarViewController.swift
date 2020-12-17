@@ -6,15 +6,32 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SidebarViewController: UIViewController {
+    
+    let authManager = FirebaseAuthManager()
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(navigateToProfileVc), name: .loginDidSuccess, object: nil)
     }
     
-    @IBAction func navigateToProfilePage(_ sender: Any) {
+    @IBAction func profileBtnDidTap(_ sender: Any) {
+        
+        if Auth.auth().currentUser?.uid != nil {
+            
+            navigateToProfileVc()
+            
+        } else {
+            
+            authManager.performSignin(self)
+        }
+    }
+    
+    @objc func navigateToProfileVc() {
         
         let vc = myStoryboard.instantiateViewController(withIdentifier: "ProfileVc")
         
