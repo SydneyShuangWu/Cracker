@@ -60,7 +60,7 @@ Pods
 !Podfile
 !Podfile.lock
 GoogleService-Info.plist
-Cracker/GoogleService-Info.plist
+Cracker/Cracker/GoogleService-Info.plist
 #
 
 # Add this line if you want to avoid checking in source code from the Xcode workspace
