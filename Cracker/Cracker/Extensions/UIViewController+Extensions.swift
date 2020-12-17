@@ -70,7 +70,7 @@ extension UIViewController {
         
         closeBtn.setImage(UIImage(named: "Close"), for: .normal)
         
-        closeBtn.addTarget(self, action: #selector(closeButtonTap), for: .touchUpInside)
+        closeBtn.addTarget(self, action: #selector(navigateToLobby), for: .touchUpInside)
         
         let rightBarButtonItem = UIBarButtonItem(customView: closeBtn)
         
@@ -79,20 +79,7 @@ extension UIViewController {
         navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
-    @objc func closeButtonTap(sender: UIButton) {
-        
-        let vc = myStoryboard.instantiateViewController(withIdentifier: "LobbyVc")
-
-        let nav = UINavigationController(rootViewController: vc)
-
-        nav.modalPresentationStyle = .fullScreen
-
-        nav.hero.isEnabled = true
-
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func navigateToLobby() {
+    @objc func navigateToLobby() {
         
         let vc = myStoryboard.instantiateViewController(withIdentifier: "LobbyVc")
         

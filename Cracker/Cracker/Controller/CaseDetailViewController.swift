@@ -24,7 +24,7 @@ class CaseDetailViewController: UIViewController {
         
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(), name: .loginDidSuccess, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(navigateToSelectModeVc), name: .loginDidSuccess, object: nil)
         
         setupTableView()
         
@@ -42,11 +42,20 @@ class CaseDetailViewController: UIViewController {
     }
     
     @IBAction func crackThisCase(_ sender: Any) {
+        
+        if Auth.auth().currentUser?.uid != nil {
+            
+            navigateToSelectModeVc()
+            
+        } else {
+            
+            authManager.performSignin(self)
+        }
     }
     
     @objc func navigateToSelectModeVc() {
         
-        let vc = myStoryboard.instantiateViewController(withIdentifier: "ProfileVc")
+        let vc = myStoryboard.instantiateViewController(withIdentifier: "SelectModeVc")
         
         let nav = UINavigationController(rootViewController: vc)
         
@@ -54,28 +63,10 @@ class CaseDetailViewController: UIViewController {
 
         nav.hero.isEnabled = true
 
-        nav.hero.modalAnimationType = .autoReverse(presenting: .zoomSlide(direction: .right))
+        nav.hero.modalAnimationType = .push(direction: .left)
 
         present(nav, animated: true, completion: nil)
     }
-    
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        if Auth.auth().currentUser?.uid != nil {
-//
-//            if segue.identifier == "toSelectModeVc" {
-//
-//                let nextVc = segue.destination as? SelectModeViewController
-//
-//                nextVc?.selectedCase = selectedCase
-//            }
-//
-//        } else {
-//
-//            authManager.performSignin(self)
-//        }
-//    }
 }
 
 extension CaseDetailViewController: UITableViewDelegate, UITableViewDataSource {
