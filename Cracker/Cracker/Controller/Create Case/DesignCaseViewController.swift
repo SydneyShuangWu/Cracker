@@ -7,20 +7,28 @@
 
 import UIKit
 import PKHUD
+import FirebaseAuth
 
 class DesignCaseViewController: UIViewController {
     
+    // Value passed from create case vc
     var selectedCaseCategory: CaseCategory?
+    var caseImage: UIImage?
+    var crackerCase = CrackerCase()
+    
+    // Expandable sections
     var sectionDataList: [Int] = []
     var isExpandList: [Bool] = []
+    var sectionCount = 0
     
+    // Upload image
     var imagePickerController: UIImagePickerController?
     var selectedImages: [UIImage] = []
     var selectUploadBtnIndex: Int?
     
-    // MARK: - Mock Data
-    let linearSectionCount = demoLinearCase.stageContent?.count
-    let rpgSectionCount = demoRpgCase.charContent?.count
+    // Firebase
+    let firestoreManager = FirestoreManager.shared
+    let storageManager = StorageManager.shared
     
     @IBOutlet weak var designCaseTableView: UITableView!
     @IBOutlet weak var bottomBtn: UIButton!
@@ -34,17 +42,20 @@ class DesignCaseViewController: UIViewController {
         setupCloseButton()
         
         configureButtons()
-        
         setupTableView()
         registerNib()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
-        for index in 1...linearSectionCount! {
-            
-            sectionDataList.append(index)
-            isExpandList.append(false)
-        }
+        configureSections()
+    }
+    
+    func configureSections() {
         
-        for index in 1...rpgSectionCount! {
+        sectionCount = crackerCase.contentCount
+        
+        for index in 1...sectionCount {
             
             sectionDataList.append(index)
             isExpandList.append(false)
@@ -86,9 +97,18 @@ class DesignCaseViewController: UIViewController {
     
     @IBAction func navigate(_ sender: Any) {
         
+        guard crackerCase.stages?.count == sectionCount else {
+            
+            showAlert(withTitle: "請填寫所有資訊", withActionTitle: "OK", message: nil)
+            
+            return
+        }
+        
         if selectedCaseCategory == CaseCategory.linear {
             
             HUD.flash(.labeledSuccess(title: nil, subtitle: "Case Created!"), delay: 0.3) { _ in
+                
+                self.addLinearCase()
                 
                 self.navigateToLobby()
             }
@@ -100,17 +120,46 @@ class DesignCaseViewController: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    func getCaseImageUrl(id: String, handler: @escaping (String) -> Void) {
+        
+        storageManager.uploadImage(image: caseImage!, folder: .caseImage, id: id) { (result) in
+            
+            switch result {
+            
+            case .success(let url):
+                
+                handler(url)
+                
+            case .failure(let error):
+                
+                print("Failed to upload image: ", error.localizedDescription)
+            }
+        }
+    }
+    
+    func addLinearCase() {
+        
+        let document = firestoreManager.getCollection(name: .crackerCase).document()
+        
+        crackerCase.id = document.documentID
+        crackerCase.creator = CrackerUser(id: String(Auth.auth().currentUser!.uid))
+        crackerCase.category = selectedCaseCategory!.rawValue
+        
+        // Upload image to Storage
+        getCaseImageUrl(id: document.documentID) { (imageUrl) in
+            
+            self.crackerCase.image = imageUrl
+            self.firestoreManager.save(to: document, data: self.crackerCase)
+        }
+    }
 }
 
 extension DesignCaseViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        if selectedCaseCategory == CaseCategory.linear {
-            return linearSectionCount!
-        }
-        
-        return rpgSectionCount!
+        return sectionCount
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -121,6 +170,11 @@ extension DesignCaseViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let stageCell = tableView.dequeueReusableCell(withIdentifier: "StageViewCell") as? StageViewCell
+        
+        stageCell?.callback = { stage in
+            
+            self.crackerCase.stages?.append(stage)
+        }
         
         let rpgCell = tableView.dequeueReusableCell(withIdentifier: "RPGViewCell") as? RPGViewCell
         
@@ -158,9 +212,9 @@ extension DesignCaseViewController: UITableViewDelegate {
         
         // Configure section title
         if selectedCaseCategory == CaseCategory.linear {
-            sectionView.sectionTitle.text = "Stage" + "\(sectionDataList[section])"
+            sectionView.sectionTitle.text = "Stage " + "\(sectionDataList[section])"
         } else {
-            sectionView.sectionTitle.text = "Character" + "\(sectionDataList[section])"
+            sectionView.sectionTitle.text = "Character " + "\(sectionDataList[section])"
         }
         
         return sectionView

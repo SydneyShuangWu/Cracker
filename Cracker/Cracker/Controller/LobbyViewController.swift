@@ -13,7 +13,6 @@ import FirebaseAuth
 
 class LobbyViewController: UIViewController {
     
-    
     let authManager = FirebaseAuthManager()
     
     @IBOutlet weak var animationView: AnimationView!
@@ -26,7 +25,7 @@ class LobbyViewController: UIViewController {
         
         super.viewDidLoad()
         
-        authManager.logOut()
+//        authManager.logOut()
         
         setupButton()
         

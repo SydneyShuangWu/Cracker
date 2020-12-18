@@ -96,7 +96,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="若超過一句請用＆分隔" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="99m-ob-fxk">
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請用＆分隔句子，用＄分隔句內關鍵詞" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="99m-ob-fxk">
                         <rect key="frame" x="104" y="387.5" width="315" height="34"/>
                         <color key="backgroundColor" name="CrackerWhite"/>
                         <color key="textColor" systemColor="systemGrayColor"/>

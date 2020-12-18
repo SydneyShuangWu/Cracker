@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNavigationBar(with: sydney.name)
+        setupNavigationBar(with: "Profile")
         setupCloseButton()
         setupToolBoxButton()
         
@@ -34,7 +34,7 @@ class ProfileViewController: UIViewController {
         
         setupSelecionView()
         
-        setupUserProfile()
+//        setupUserProfile()
     }
     
     func setupToolBoxButton() {
@@ -96,12 +96,12 @@ class ProfileViewController: UIViewController {
         ])
     }
     
-    func setupUserProfile() {
-        
-        profileImage.image = sydney.image
-        profileId.text = sydney.id
-        profileRank.text = "\(sydney.rank)"
-    }
+//    func setupUserProfile() {
+//
+//        profileImage.image = sydney.image
+//        profileId.text = sydney.id
+//        profileRank.text = "\(sydney.rank)"
+//    }
     
     func setupTableView() {
         

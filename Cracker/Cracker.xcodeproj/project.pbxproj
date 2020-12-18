@@ -16,9 +16,10 @@
 		C120B9D62582990400E99E9D /* RPGMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120B9D52582990400E99E9D /* RPGMarker.swift */; };
 		C120B9DA2583183700E99E9D /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120B9D92583183700E99E9D /* UIImage+Extension.swift */; };
 		C124145425861C41006359AA /* StageRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C124145325861C41006359AA /* StageRecordViewController.swift */; };
+		C1266DEA258B6E5200DFD68B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1266DE9258B6E5200DFD68B /* StorageManager.swift */; };
 		C138AE17258284A90012D633 /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138AE16258284A90012D633 /* MarkerView.swift */; };
 		C150A74D257A3E8F00C3402B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A74C257A3E8F00C3402B /* ProfileViewController.swift */; };
-		C150A756257CEEAE00C3402B /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A755257CEEAE00C3402B /* MockUser.swift */; };
+		C150A756257CEEAE00C3402B /* CrackerUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A755257CEEAE00C3402B /* CrackerUser.swift */; };
 		C150A75B257D390000C3402B /* ProfileCaseTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A75A257D390000C3402B /* ProfileCaseTBCell.swift */; };
 		C153666025862A4B00C4DAAB /* Case Cracked.json in Resources */ = {isa = PBXBuildFile; fileRef = C153665F25862A4B00C4DAAB /* Case Cracked.json */; };
 		C153666525870F9300C4DAAB /* Launch Cracker.json in Resources */ = {isa = PBXBuildFile; fileRef = C153666425870F9300C4DAAB /* Launch Cracker.json */; };
@@ -70,6 +71,8 @@
 		C1DE4EE4257940A5005440F6 /* MockCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE4EE3257940A5005440F6 /* MockCase.swift */; };
 		C1DE4EE725794705005440F6 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE4EE625794705005440F6 /* CardView.swift */; };
 		C1DE4EEA257956D8005440F6 /* SearchCaseTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE4EE9257956D8005440F6 /* SearchCaseTBCell.swift */; };
+		C1E25448258B13CD00973B4F /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E25447258B13CD00973B4F /* FirestoreManager.swift */; };
+		C1E2544C258B24D500973B4F /* CrackerCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E2544B258B24D500973B4F /* CrackerCase.swift */; };
 		C1EFA7B425822EC0004C7D03 /* CLLocationCoordinate2D+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EFA7B325822EC0004C7D03 /* CLLocationCoordinate2D+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,9 +89,10 @@
 		C120B9D52582990400E99E9D /* RPGMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGMarker.swift; sourceTree = "<group>"; };
 		C120B9D92583183700E99E9D /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		C124145325861C41006359AA /* StageRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageRecordViewController.swift; sourceTree = "<group>"; };
+		C1266DE9258B6E5200DFD68B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		C138AE16258284A90012D633 /* MarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
 		C150A74C257A3E8F00C3402B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		C150A755257CEEAE00C3402B /* MockUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
+		C150A755257CEEAE00C3402B /* CrackerUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerUser.swift; sourceTree = "<group>"; };
 		C150A75A257D390000C3402B /* ProfileCaseTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCaseTBCell.swift; sourceTree = "<group>"; };
 		C153665F25862A4B00C4DAAB /* Case Cracked.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Case Cracked.json"; sourceTree = "<group>"; };
 		C153666425870F9300C4DAAB /* Launch Cracker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Launch Cracker.json"; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 		C1DE4EE3257940A5005440F6 /* MockCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCase.swift; sourceTree = "<group>"; };
 		C1DE4EE625794705005440F6 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C1DE4EE9257956D8005440F6 /* SearchCaseTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCaseTBCell.swift; sourceTree = "<group>"; };
+		C1E25447258B13CD00973B4F /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		C1E2544B258B24D500973B4F /* CrackerCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerCase.swift; sourceTree = "<group>"; };
 		C1EFA7B325822EC0004C7D03 /* CLLocationCoordinate2D+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +187,8 @@
 			children = (
 				C18BEEDD2588C8910073CE62 /* GeofenceManager.swift */,
 				C1202FB0258A12B90031AD81 /* FirebaseAuthManager.swift */,
+				C1E25447258B13CD00973B4F /* FirestoreManager.swift */,
+				C1266DE9258B6E5200DFD68B /* StorageManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -246,7 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				C1DE4EE3257940A5005440F6 /* MockCase.swift */,
-				C150A755257CEEAE00C3402B /* MockUser.swift */,
 				C18BEED125889ED70073CE62 /* MockMessage.swift */,
 			);
 			path = "Mock Data";
@@ -331,6 +338,7 @@
 		C1D421662570EDF900FF0641 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C1E25445258B12AB00973B4F /* Firebase Data */,
 				C1A7C02C2574986F0022674B /* Mock Data */,
 				C1DE4EE025793A1A005440F6 /* SelectionModel.swift */,
 				C1A7C029257497160022674B /* StageMarker.swift */,
@@ -369,6 +377,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		C1E25445258B12AB00973B4F /* Firebase Data */ = {
+			isa = PBXGroup;
+			children = (
+				C1E2544B258B24D500973B4F /* CrackerCase.swift */,
+				C150A755257CEEAE00C3402B /* CrackerUser.swift */,
+			);
+			path = "Firebase Data";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -381,7 +398,7 @@
 				C1D4212C2570A82A00FF0641 /* Frameworks */,
 				C1D4212D2570A82A00FF0641 /* Resources */,
 				C1D4214D2570AC8100FF0641 /* SwiftLint */,
-				8781D3ED4CC4C2499673C549 /* [CP] Embed Pods Frameworks */,
+				8A32B41163FA787450D06DAE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -466,7 +483,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8781D3ED4CC4C2499673C549 /* [CP] Embed Pods Frameworks */ = {
+		8A32B41163FA787450D06DAE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -508,7 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C150A756257CEEAE00C3402B /* MockUser.swift in Sources */,
+				C150A756257CEEAE00C3402B /* CrackerUser.swift in Sources */,
 				C1C2D0B5257E454C003256C9 /* CreateCaseViewController.swift in Sources */,
 				C17D5FD6257F208500AE7EB9 /* SectionView.swift in Sources */,
 				C1DE4EE4257940A5005440F6 /* MockCase.swift in Sources */,
@@ -548,9 +565,12 @@
 				C1D421332570A82A00FF0641 /* AppDelegate.swift in Sources */,
 				C1DE4EEA257956D8005440F6 /* SearchCaseTBCell.swift in Sources */,
 				C161C8AE2579E893000697C1 /* CaseScoreTBCell.swift in Sources */,
+				C1266DEA258B6E5200DFD68B /* StorageManager.swift in Sources */,
 				C124145425861C41006359AA /* StageRecordViewController.swift in Sources */,
+				C1E2544C258B24D500973B4F /* CrackerCase.swift in Sources */,
 				C1D421352570A82A00FF0641 /* SceneDelegate.swift in Sources */,
 				C163E45D2580751200D1077D /* StageViewController.swift in Sources */,
+				C1E25448258B13CD00973B4F /* FirestoreManager.swift in Sources */,
 				C1A7C0472575EDDB0022674B /* SidebarViewController.swift in Sources */,
 				C161C8A82579E7BC000697C1 /* CaseImageTBCell.swift in Sources */,
 				C1DE4EE725794705005440F6 /* CardView.swift in Sources */,

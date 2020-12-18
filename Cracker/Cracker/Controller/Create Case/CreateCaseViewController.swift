@@ -10,6 +10,7 @@ import UIKit
 class CreateCaseViewController: UIViewController {
     
     var selectedCaseCategory: CaseCategory?
+    var crackerCase = CrackerCase()
 
     var imagePickerController: UIImagePickerController?
     
@@ -45,6 +46,7 @@ class CreateCaseViewController: UIViewController {
         setupLabel()
     }
     
+    // MARK: - UI
     func setupUI() {
         
         continueBtn.setupCornerRadius()
@@ -111,6 +113,7 @@ class CreateCaseViewController: UIViewController {
         scriptTV.isHidden = true
     }
     
+    // MARK: - Upload Image
     @IBAction func uploadCaseImage(_ sender: Any) {
         
         imagePickerController = UIImagePickerController()
@@ -153,13 +156,80 @@ class CreateCaseViewController: UIViewController {
         present(imagePickerAlert, animated: true, completion: nil)
     }
     
+    // MARK: - Navigate To Next Page
     @IBAction func navigateToDesignCaseVc(_ sender: Any) {
         
         let vc = myStoryboard.instantiateViewController(withIdentifier: "DesignCaseVc") as! DesignCaseViewController
         
+        guard getCaseData() else {
+            
+            showAlert(withTitle: "請填寫所有資訊", withActionTitle: "OK", message: nil)
+            
+            return
+        }
+        
         vc.selectedCaseCategory = selectedCaseCategory
+        vc.caseImage = caseImage.image
+        vc.crackerCase = crackerCase
 
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func getCaseData() -> Bool {
+        
+        guard let name = caseNameTF.text,
+              let location = caseLocationTF.text,
+              let duration = caseDurationTF.text,
+              let startTime = startTimeTF.text,
+              let endTime = endTimeTF.text,
+              let minCount = minHeadCountTF.text,
+              let maxCount = maxHeadCountTF.text,
+              let contentCount = contentCountTF.text,
+              let introduction = introTV.text,
+              let finalStageName = finalStageTF.text,
+              let finalLongitude = longitudeTF.text,
+              let finalLatitude = latitudeTF.text,
+              let script = scriptTV.text
+        
+        else { return false }
+        
+        if !name.isEmpty, !location.isEmpty, !duration.isEmpty, !startTime.isEmpty, !endTime.isEmpty, !minCount.isEmpty, !maxCount.isEmpty, !contentCount.isEmpty, !introduction.isEmpty, caseImage.image != nil {
+            
+            crackerCase.name = name
+            crackerCase.location = location
+            crackerCase.duration = duration
+            crackerCase.startTime = startTime
+            crackerCase.endTime = endTime
+            crackerCase.minHeadCount = Int(minCount) ?? -1
+            crackerCase.maxHeadCount = Int(maxCount) ?? -1
+            crackerCase.contentCount = Int(contentCount) ?? -1
+            crackerCase.introduction = introduction
+            
+            if selectedCaseCategory == CaseCategory.linear {
+                
+                if !finalStageName.isEmpty, !finalLongitude.isEmpty, !finalLatitude.isEmpty {
+                    
+                    crackerCase.finalStageName = finalStageName
+                    crackerCase.finalStageLongitude = Double(finalLongitude)
+                    crackerCase.finalStageLatitude = Double(finalLatitude)
+                    
+                } else { return false }
+                
+            } else {
+                
+                if !script.isEmpty {
+                    
+                    crackerCase.script = script
+                    
+                } else { return false }
+            }
+            
+            return true
+            
+        } else {
+            
+            return false
+        }
     }
 }
 
