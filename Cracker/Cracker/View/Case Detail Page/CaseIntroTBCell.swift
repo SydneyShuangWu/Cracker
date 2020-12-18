@@ -13,25 +13,25 @@ class CaseIntroTBCell: UITableViewCell {
     @IBOutlet weak var caseIntroTitle: UILabel!
     @IBOutlet weak var caseIntroDetail: UILabel!
     
-    func setupCaseLocationWith(cases: MockCase) {
+    func setupCaseLocationWith(cases: CrackerCase) {
         
         caseIntroTitle.text = "案發地點"
         caseIntroDetail.text = cases.location
     }
     
-    func setupCaseTimeWith(cases: MockCase) {
+    func setupCaseTimeWith(cases: CrackerCase) {
         
         caseIntroTitle.text = "開放時間"
         caseIntroDetail.text = cases.startTime + "～" + cases.endTime
     }
     
-    func setupCaseDurationWith(cases: MockCase) {
+    func setupCaseDurationWith(cases: CrackerCase) {
         
         caseIntroTitle.text = "破案時間"
         caseIntroDetail.text = cases.duration
     }
     
-    func setupCaseHeadCountWith(cases: MockCase) {
+    func setupCaseHeadCountWith(cases: CrackerCase) {
         
         caseIntroTitle.text = "破案人數"
         caseIntroDetail.text = "\(cases.minHeadCount)" + "～" + "\(cases.maxHeadCount)" + "人"

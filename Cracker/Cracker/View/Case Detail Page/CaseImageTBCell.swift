@@ -13,10 +13,10 @@ class CaseImageTBCell: UITableViewCell {
     @IBOutlet weak var caseImage: UIImageView!
     @IBOutlet weak var caseCategory: UILabel!
     
-    func setupCaseImageWith(cases: MockCase) {
+    func setupCaseImageWith(cases: CrackerCase) {
         
-        caseImage.image = cases.image
-        caseCategory.text = "# " + cases.category.rawValue
+        caseImage.loadImage(cases.image)
+        caseCategory.text = "# " + cases.category
         caseCategory.setupCornerRadius()
     }
 }

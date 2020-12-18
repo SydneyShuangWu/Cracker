@@ -12,16 +12,11 @@ struct SelectionModel {
     
     let title: String
     
-    let data: [MockCase]
+    let data: [CrackerCase]
 }
 
-let searchSource = [
-    SelectionModel(title: "Popular Cases", data: popularCases),
-    SelectionModel(title: "Classic Cases", data: classicCases)
-]
-
-let profileSource = [
-    SelectionModel(title: "\(crackedCases.count)" + " Cracked", data: crackedCases),
-    SelectionModel(title: "\(createdCases.count)" + " Created", data: createdCases),
-    SelectionModel(title: "\(treasuredCases.count)" + " Treasured", data: treasuredCases)
-]
+// let profileSource = [
+//    SelectionModel(title: "\(crackedCases.count)" + " Cracked", data: crackedCases),
+//    SelectionModel(title: "\(createdCases.count)" + " Created", data: createdCases),
+//    SelectionModel(title: "\(treasuredCases.count)" + " Treasured", data: treasuredCases)
+// ]

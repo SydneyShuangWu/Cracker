@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class SearchCaseTBCell: UITableViewCell {
     
@@ -15,13 +16,17 @@ class SearchCaseTBCell: UITableViewCell {
     @IBOutlet weak var caseCreator: UILabel!
     @IBOutlet weak var caseScore: UILabel!
     
-    func setupCellWith(cases: MockCase) {
+    func setupCellWith(cases: CrackerCase) {
         
-        caseImage.image = cases.image
+        caseImage.loadImage(cases.image)
         caseImage.layer.cornerRadius = caseImage.frame.size.width / 2
         caseImage.clipsToBounds = true
         caseName.text = cases.name
-        caseCreator.text = cases.creator
-        caseScore.text = String(cases.score)
+        
+        // MARK: Modification Required
+        caseCreator.text = "Sydney"
+        
+        guard let score = cases.score else { return }
+        caseScore.text = String(score)
     }
 }

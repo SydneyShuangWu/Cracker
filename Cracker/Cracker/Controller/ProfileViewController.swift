@@ -114,12 +114,12 @@ extension ProfileViewController: SelectionViewDataSource {
     
     func numberOfButtons(in selectionView: SelectionView) -> Int {
         
-        return profileSource.count
+        return 1
     }
     
     func buttonTitle(in selectionView: SelectionView, titleForButtonAt index: Int) -> String {
         
-        return profileSource[index].title
+        return ""
     }
 }
 

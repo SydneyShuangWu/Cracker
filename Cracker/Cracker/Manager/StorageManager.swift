@@ -29,7 +29,7 @@ class StorageManager {
         
         guard let data = image.jpegData(compressionQuality: 0.7) else { return }
         
-        storageRef.putData(data, metadata: nil) { (data, error) in
+        storageRef.putData(data, metadata: nil) { (_, error) in
             
             if error != nil {
                 

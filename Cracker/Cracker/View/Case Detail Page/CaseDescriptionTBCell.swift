@@ -13,9 +13,9 @@ class CaseDescriptionTBCell: UITableViewCell {
     @IBOutlet weak var caseDescriptionTitle: UILabel!
     @IBOutlet weak var caseDescriptionDetail: UILabel!
     
-    func setupCaseDescriptionWith(cases: MockCase) {
+    func setupCaseDescriptionWith(cases: CrackerCase) {
         
         caseDescriptionTitle.text = "案件說明"
-        caseDescriptionDetail.text = cases.description
+        caseDescriptionDetail.text = cases.introduction
     }
 }

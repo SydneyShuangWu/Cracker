@@ -25,6 +25,8 @@ enum CollectionName: String {
     case crackerUser = "CrackerUser"
     
     case crackerCase = "CrackerCase"
+    
+    case crackerGame = "CrackerGame"
 }
 
 enum FirebaseError: String, Error {

@@ -12,11 +12,13 @@ class CaseScoreTBCell: UITableViewCell {
     
     @IBOutlet weak var caseScore: UILabel!
     
-    func setupCaseScoreWith(cases: MockCase) {
+    func setupCaseScoreWith(cases: CrackerCase) {
         
         caseScore.text = "案件評分"
         
-        for index in 0 ..< cases.score {
+        guard let score = cases.score else { return }
+        
+        for index in 0 ..< score {
             
             let starImageView = UIImageView(image: UIImage(named: "Star"))
             

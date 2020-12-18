@@ -39,8 +39,8 @@ struct CrackerUser: Codable {
     
 }
 
-//let sydney = User(id: "0120bvgiej49", name: "Sydney", rank: 5, image: UIImage(named: "Sydney")!, friendList: friendList, pendingList: nil, treasuredCases: treasuredCases, crackedCases: crackedCases, createdCases: createdCases)
+// let sydney = User(id: "0120bvgiej49", name: "Sydney", rank: 5, image: UIImage(named: "Sydney")!, friendList: friendList, pendingList: nil, treasuredCases: treasuredCases, crackedCases: crackedCases, createdCases: createdCases)
 //
-//let sugar = User(id: "1234fjkejgej", name: "Sugar", rank: 10, image: UIImage(named: "Sugar")!, friendList: nil, pendingList: nil, treasuredCases: nil, crackedCases: nil, createdCases: nil)
+// let sugar = User(id: "1234fjkejgej", name: "Sugar", rank: 10, image: UIImage(named: "Sugar")!, friendList: nil, pendingList: nil, treasuredCases: nil, crackedCases: nil, createdCases: nil)
 //
-//let friendList = [sugar]
+// let friendList = [sugar]

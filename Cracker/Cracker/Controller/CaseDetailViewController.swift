@@ -13,12 +13,11 @@ class CaseDetailViewController: UIViewController {
     let authManager = FirebaseAuthManager()
     
     @IBOutlet weak var caseDetailTableView: UITableView!
-    
     @IBOutlet weak var crackCaseBtn: UIButton!
     
     // Data holder for cases from SearchCaseVC
-    var selectedCase: MockCase?
-    var caseCategory: CaseCategory?
+    var selectedCase: CrackerCase?
+    var caseCategory: Category?
 
     override func viewDidLoad() {
         
@@ -55,17 +54,9 @@ class CaseDetailViewController: UIViewController {
     
     @objc func navigateToSelectModeVc() {
         
-        let vc = myStoryboard.instantiateViewController(withIdentifier: "SelectModeVc")
+        let vc = myStoryboard.instantiateViewController(withIdentifier: "SelectModeVc") as! SelectModeViewController
         
-        let nav = UINavigationController(rootViewController: vc)
-        
-        nav.modalPresentationStyle = .fullScreen
-
-        nav.hero.isEnabled = true
-
-        nav.hero.modalAnimationType = .push(direction: .left)
-
-        present(nav, animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -6,31 +6,46 @@
 //
 
 import UIKit
+import PKHUD
 
 class SearchCaseViewController: UIViewController {
     
+    // UI
     @IBOutlet weak var findCaseBtn: UIButton!
-    
     @IBOutlet weak var searchCaseTableView: UITableView!
-    
-    let selectionView = SelectionView()
-    
     @IBOutlet weak var orangeView: UIView!
     
-    private var cases = [MockCase]()
+    // Selection
+    let selectionView = SelectionView()
+    var searchSource: [SelectionModel] = []
     
-    var selectedCase: MockCase?
+    // Data
+    private var classicCases = [CrackerCase]()
+    private var filteredCases = [CrackerCase]()
+    var selectedCase =  CrackerCase()
+    let firestoreManager = FirestoreManager.shared
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        // Listen for realtime cases
+        firestoreManager.listen(collectionName: .crackerCase) {
+            
+            self.fetchAllCases()
+            self.searchCaseTableView.reloadData()
+        }
+        
+        searchSource = [
+            SelectionModel(title: "Popular Cases", data: []),
+            SelectionModel(title: "Classic Cases", data: classicCases)
+        ]
         
         setupNavigationBar(with: "CASES")
         setupCloseButton()
         findCaseBtn.setupCornerRadius()
         
         setupSelecionView()
-        
         setupTableView()
     }
     
@@ -72,11 +87,31 @@ class SearchCaseViewController: UIViewController {
             let nextVc = segue.destination as? CaseDetailViewController
             
             nextVc?.selectedCase = selectedCase
-            nextVc?.caseCategory = selectedCase?.category
+        }
+    }
+    
+    // MARK: - Firestore
+    func fetchAllCases() {
+        
+        firestoreManager.read(collectionName: .crackerCase, dataType: CrackerCase.self) { (result) in
+            
+            switch result {
+            
+            case .success(let crackerCases):
+                
+                self.classicCases = crackerCases
+                
+                HUD.flash(.label("Loading..."), delay: 1.0)
+      
+            case .failure(let error):
+                
+                print("Failed to read cases: ", error.localizedDescription)
+            }
         }
     }
 }
 
+// MARK: - Selection View
 extension SearchCaseViewController: SelectionViewDataSource {
     
     func numberOfButtons(in selectionView: SelectionView) -> Int {
@@ -97,11 +132,12 @@ extension SearchCaseViewController: SelectionViewDelegate {
         switch index {
         
         case 0:
-            cases = popularCases
+            filteredCases = []
             searchCaseTableView.reloadData()
             
         case 1:
-            cases = classicCases
+            // MARK: Modification Required
+            filteredCases = classicCases
             searchCaseTableView.reloadData()
             
         default:
@@ -110,18 +146,19 @@ extension SearchCaseViewController: SelectionViewDelegate {
     }
 }
 
+// MARK: - Filtered Table View
 extension SearchCaseViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return cases.count
+        return filteredCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCaseTBCell") as! SearchCaseTBCell
         
-        cell.setupCellWith(cases: cases[indexPath.row])
+        cell.setupCellWith(cases: filteredCases[indexPath.row])
         
         return cell
     }
@@ -133,7 +170,7 @@ extension SearchCaseViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        selectedCase = cases[indexPath.row]
+        selectedCase = filteredCases[indexPath.row]
         
         performSegue(withIdentifier: "toCaseDetailVc", sender: self)
 

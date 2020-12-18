@@ -59,6 +59,13 @@
 		C1BD23D92580F40700D7D090 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1BD23D82580F40700D7D090 /* MapKit.framework */; };
 		C1C2D0B2257E3F45003256C9 /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D0B1257E3F45003256C9 /* SelectCategoryViewController.swift */; };
 		C1C2D0B5257E454C003256C9 /* CreateCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D0B4257E454C003256C9 /* CreateCaseViewController.swift */; };
+		C1C406BC258C8F6300474178 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C406BB258C8F6300474178 /* UIImageView+Extension.swift */; };
+		C1C406BF258CA36800474178 /* CrackerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C406BE258CA36800474178 /* CrackerGame.swift */; };
+		C1C406C2258CA43900474178 /* CrackerTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C406C1258CA43900474178 /* CrackerTeam.swift */; };
+		C1C406C5258CA59600474178 /* CrackerChatroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C406C4258CA59600474178 /* CrackerChatroom.swift */; };
+		C1C406C8258CA5B500474178 /* CrackerMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C406C7258CA5B500474178 /* CrackerMessage.swift */; };
+		C1C406CC258CA81800474178 /* CrackerPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C406CB258CA81800474178 /* CrackerPlayer.swift */; };
+		C1C406CF258CAA4300474178 /* CrackerStageRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C406CE258CAA4300474178 /* CrackerStageRecords.swift */; };
 		C1D421332570A82A00FF0641 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D421322570A82A00FF0641 /* AppDelegate.swift */; };
 		C1D421352570A82A00FF0641 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D421342570A82A00FF0641 /* SceneDelegate.swift */; };
 		C1D421372570A82A00FF0641 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D421362570A82A00FF0641 /* LobbyViewController.swift */; };
@@ -132,6 +139,13 @@
 		C1BD23D82580F40700D7D090 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C1C2D0B1257E3F45003256C9 /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewController.swift; sourceTree = "<group>"; };
 		C1C2D0B4257E454C003256C9 /* CreateCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaseViewController.swift; sourceTree = "<group>"; };
+		C1C406BB258C8F6300474178 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		C1C406BE258CA36800474178 /* CrackerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerGame.swift; sourceTree = "<group>"; };
+		C1C406C1258CA43900474178 /* CrackerTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerTeam.swift; sourceTree = "<group>"; };
+		C1C406C4258CA59600474178 /* CrackerChatroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerChatroom.swift; sourceTree = "<group>"; };
+		C1C406C7258CA5B500474178 /* CrackerMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerMessage.swift; sourceTree = "<group>"; };
+		C1C406CB258CA81800474178 /* CrackerPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerPlayer.swift; sourceTree = "<group>"; };
+		C1C406CE258CAA4300474178 /* CrackerStageRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerStageRecords.swift; sourceTree = "<group>"; };
 		C1D4212F2570A82A00FF0641 /* Cracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D421322570A82A00FF0641 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1D421342570A82A00FF0641 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -331,6 +345,7 @@
 				C1EFA7B325822EC0004C7D03 /* CLLocationCoordinate2D+Extension.swift */,
 				C120B9D92583183700E99E9D /* UIImage+Extension.swift */,
 				C1921CA1258A3529004E2A9A /* NotificationCenter+Extension.swift */,
+				C1C406BB258C8F6300474178 /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -382,6 +397,12 @@
 			children = (
 				C1E2544B258B24D500973B4F /* CrackerCase.swift */,
 				C150A755257CEEAE00C3402B /* CrackerUser.swift */,
+				C1C406BE258CA36800474178 /* CrackerGame.swift */,
+				C1C406C4258CA59600474178 /* CrackerChatroom.swift */,
+				C1C406C7258CA5B500474178 /* CrackerMessage.swift */,
+				C1C406CB258CA81800474178 /* CrackerPlayer.swift */,
+				C1C406C1258CA43900474178 /* CrackerTeam.swift */,
+				C1C406CE258CAA4300474178 /* CrackerStageRecords.swift */,
 			);
 			path = "Firebase Data";
 			sourceTree = "<group>";
@@ -539,8 +560,10 @@
 				C179548C257DE49500670EC2 /* SelectModeViewController.swift in Sources */,
 				C1DE4EE125793A1A005440F6 /* SelectionModel.swift in Sources */,
 				C18BEEDB2588A3A00073CE62 /* ChatsTBCell.swift in Sources */,
+				C1C406CC258CA81800474178 /* CrackerPlayer.swift in Sources */,
 				C18BEEC6258890F20073CE62 /* RPGRecordViewController.swift in Sources */,
 				C1D4216D25710CBC00FF0641 /* UIView+Extension.swift in Sources */,
+				C1C406C5258CA59600474178 /* CrackerChatroom.swift in Sources */,
 				C175D97A257640B2009167E5 /* SearchCaseViewController.swift in Sources */,
 				C18BEED225889ED70073CE62 /* MockMessage.swift in Sources */,
 				C1EFA7B425822EC0004C7D03 /* CLLocationCoordinate2D+Extension.swift in Sources */,
@@ -552,6 +575,7 @@
 				C19D3B9B257F8BB7002E2E7C /* RPGViewCell.swift in Sources */,
 				C10A7EA8257ED90900AC0AE6 /* DesignCaseViewController.swift in Sources */,
 				C1A7C0382574DB410022674B /* Geotification.swift in Sources */,
+				C1C406C2258CA43900474178 /* CrackerTeam.swift in Sources */,
 				C1921CA2258A3529004E2A9A /* NotificationCenter+Extension.swift in Sources */,
 				C1A7C0272574869F0022674B /* RPGMapViewController.swift in Sources */,
 				C1BD23D42580E39F00D7D090 /* StageMapViewController.swift in Sources */,
@@ -567,6 +591,7 @@
 				C161C8AE2579E893000697C1 /* CaseScoreTBCell.swift in Sources */,
 				C1266DEA258B6E5200DFD68B /* StorageManager.swift in Sources */,
 				C124145425861C41006359AA /* StageRecordViewController.swift in Sources */,
+				C1C406C8258CA5B500474178 /* CrackerMessage.swift in Sources */,
 				C1E2544C258B24D500973B4F /* CrackerCase.swift in Sources */,
 				C1D421352570A82A00FF0641 /* SceneDelegate.swift in Sources */,
 				C163E45D2580751200D1077D /* StageViewController.swift in Sources */,
@@ -577,8 +602,11 @@
 				C1795491257DEC1C00670EC2 /* ModeViewController.swift in Sources */,
 				C18BEEC9258894060073CE62 /* RPGChatsViewController.swift in Sources */,
 				C1654ACD2587D76E00A38383 /* CharacterInfoViewController.swift in Sources */,
+				C1C406CF258CAA4300474178 /* CrackerStageRecords.swift in Sources */,
 				C10C022E25873A930013AACC /* DesignTestViewController.swift in Sources */,
+				C1C406BF258CA36800474178 /* CrackerGame.swift in Sources */,
 				C10C0231258741D40013AACC /* DesignTestTBCell.swift in Sources */,
+				C1C406BC258C8F6300474178 /* UIImageView+Extension.swift in Sources */,
 				C1A7C02A257497160022674B /* StageMarker.swift in Sources */,
 				C18BEECE258895270073CE62 /* RPGChatroomViewController.swift in Sources */,
 			);
