@@ -7,20 +7,15 @@
 
 import UIKit
 
-enum GameMode: String {
-    
-    case challenge
-    
-    case battle
-}
-
 class SelectModeViewController: UIViewController {
     
-    var selectedGameMode: GameMode?
+    var selectedGameMode: Mode?
     var challengePageIsShown = true
     var battlePageIsShown = false
     
-    var selectedCase: MockCase?
+    // Data holder for cases from CaseDetailVc
+    var selectedCase: CrackerCase?
+    var caseCategory: Category?
     
     @IBOutlet weak var challengeBtn: UIButton!
     @IBOutlet weak var battleBtn: UIButton!
@@ -37,7 +32,7 @@ class SelectModeViewController: UIViewController {
 
     @IBAction func selectChallenge(_ sender: Any) {
 
-        selectedGameMode = GameMode.challenge
+        selectedGameMode = Mode.challenge
         challengePageIsShown = true
         battlePageIsShown = false
         navigateToModeVc()
@@ -45,7 +40,7 @@ class SelectModeViewController: UIViewController {
     
     @IBAction func selectBattle(_ sender: Any) {
 
-        selectedGameMode = GameMode.battle
+        selectedGameMode = Mode.battle
         challengePageIsShown = false
         battlePageIsShown = true
         navigateToModeVc()
@@ -56,8 +51,8 @@ class SelectModeViewController: UIViewController {
         let vc = myStoryboard.instantiateViewController(withIdentifier: "ModeVc") as! ModeViewController
         
         vc.gameMode = selectedGameMode
-        
         vc.selectedCase = selectedCase
+        vc.caseCategory = caseCategory
         
         if challengePageIsShown == true {
             vc.challengePageIsShown = true

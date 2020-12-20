@@ -11,6 +11,7 @@
 		C10A7EA8257ED90900AC0AE6 /* DesignCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A7EA7257ED90900AC0AE6 /* DesignCaseViewController.swift */; };
 		C10C022E25873A930013AACC /* DesignTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C022D25873A930013AACC /* DesignTestViewController.swift */; };
 		C10C0231258741D40013AACC /* DesignTestTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C0230258741D40013AACC /* DesignTestTBCell.swift */; };
+		C11BBAB9258E0FB100C597C1 /* JoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11BBAB8258E0FB100C597C1 /* JoinTeamViewController.swift */; };
 		C1202FAB258A0C7B0031AD81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1202FAA258A0C7B0031AD81 /* GoogleService-Info.plist */; };
 		C1202FB1258A12B90031AD81 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1202FB0258A12B90031AD81 /* FirebaseAuthManager.swift */; };
 		C120B9D62582990400E99E9D /* RPGMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120B9D52582990400E99E9D /* RPGMarker.swift */; };
@@ -90,6 +91,7 @@
 		C10A7EA7257ED90900AC0AE6 /* DesignCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCaseViewController.swift; sourceTree = "<group>"; };
 		C10C022D25873A930013AACC /* DesignTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTestViewController.swift; sourceTree = "<group>"; };
 		C10C0230258741D40013AACC /* DesignTestTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTestTBCell.swift; sourceTree = "<group>"; };
+		C11BBAB8258E0FB100C597C1 /* JoinTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTeamViewController.swift; sourceTree = "<group>"; };
 		C1202FAA258A0C7B0031AD81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1202FAD258A0F920031AD81 /* Cracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cracker.entitlements; sourceTree = "<group>"; };
 		C1202FB0258A12B90031AD81 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				C175D979257640B2009167E5 /* SearchCaseViewController.swift */,
 				C179548B257DE49500670EC2 /* SelectModeViewController.swift */,
 				C1795490257DEC1C00670EC2 /* ModeViewController.swift */,
+				C11BBAB8258E0FB100C597C1 /* JoinTeamViewController.swift */,
 				C163E455258072DB00D1077D /* Stage */,
 				C1781692257DE38B0081556F /* RPG */,
 			);
@@ -559,6 +562,7 @@
 				C1202FB1258A12B90031AD81 /* FirebaseAuthManager.swift in Sources */,
 				C179548C257DE49500670EC2 /* SelectModeViewController.swift in Sources */,
 				C1DE4EE125793A1A005440F6 /* SelectionModel.swift in Sources */,
+				C11BBAB9258E0FB100C597C1 /* JoinTeamViewController.swift in Sources */,
 				C18BEEDB2588A3A00073CE62 /* ChatsTBCell.swift in Sources */,
 				C1C406CC258CA81800474178 /* CrackerPlayer.swift in Sources */,
 				C18BEEC6258890F20073CE62 /* RPGRecordViewController.swift in Sources */,

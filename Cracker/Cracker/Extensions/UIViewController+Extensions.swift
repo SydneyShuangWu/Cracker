@@ -54,7 +54,7 @@ extension UIViewController {
         
         let leftBarButtonItem = UIBarButtonItem(customView: backBtn)
         
-        NSLayoutConstraint.activate([leftBarButtonItem.customView!.widthAnchor.constraint(equalToConstant: 35), leftBarButtonItem.customView!.heightAnchor.constraint(equalToConstant: 35)])
+        NSLayoutConstraint.activate([leftBarButtonItem.customView!.widthAnchor.constraint(equalToConstant: 28), leftBarButtonItem.customView!.heightAnchor.constraint(equalToConstant: 28)])
         
         navigationItem.leftBarButtonItem = leftBarButtonItem
     }
@@ -74,7 +74,7 @@ extension UIViewController {
         
         let rightBarButtonItem = UIBarButtonItem(customView: closeBtn)
         
-        NSLayoutConstraint.activate([rightBarButtonItem.customView!.widthAnchor.constraint(equalToConstant: 35), rightBarButtonItem.customView!.heightAnchor.constraint(equalToConstant: 35)])
+        NSLayoutConstraint.activate([rightBarButtonItem.customView!.widthAnchor.constraint(equalToConstant: 28), rightBarButtonItem.customView!.heightAnchor.constraint(equalToConstant: 28)])
         
         navigationItem.rightBarButtonItem = rightBarButtonItem
     }

@@ -10,16 +10,17 @@ import UIKit
 class ModeViewController: UIViewController {
     
     @IBOutlet weak var challengeTitle: UILabel!
-    @IBOutlet weak var challengeQr: UIImageView!
+    @IBOutlet weak var challengeId: UILabel!
     @IBOutlet weak var battleTopTitle: UILabel!
+    @IBOutlet weak var battleTopId: UILabel!
     @IBOutlet weak var battleBottomTitle: UILabel!
-    @IBOutlet weak var battleTopQr: UIImageView!
-    @IBOutlet weak var battleBottomQr: UIImageView!
+    @IBOutlet weak var battleBottomId: UILabel!
     @IBOutlet weak var startBtn: UIButton!
 
-    var gameMode: GameMode?
-    
-    var selectedCase: MockCase?
+    // Data holder for cases from SelectModeVc
+    var gameMode: Mode?
+    var selectedCase: CrackerCase?
+    var caseCategory: Category?
     
     var challengePageIsShown = true
     var battlePageIsShown = false
@@ -43,7 +44,7 @@ class ModeViewController: UIViewController {
     
     func setupNavBar() {
         
-        if gameMode == GameMode.challenge {
+        if gameMode == Mode.challenge {
             setupNavigationBar(with: "CHALLENGE MODE")
         } else {
             setupNavigationBar(with: "BATTLE MODE")
@@ -56,36 +57,36 @@ class ModeViewController: UIViewController {
     func showChallengePage() {
         
         challengeTitle.isHidden = false
-        challengeQr.isHidden = false
+        challengeId.isHidden = false
     }
     
     func hideChallengePage() {
         
         challengeTitle.isHidden = true
-        challengeQr.isHidden = true
+        challengeId.isHidden = true
     }
     
     func showBattlePage() {
         
         battleTopTitle.isHidden = false
-        battleTopQr.isHidden = false
+        battleTopId.isHidden = false
         battleBottomTitle.isHidden = false
-        battleBottomQr.isHidden = false
+        battleBottomId.isHidden = false
     }
     
     func hideBattlePage() {
         
         battleTopTitle.isHidden = true
-        battleTopQr.isHidden = true
+        battleTopId.isHidden = true
         battleBottomTitle.isHidden = true
-        battleBottomQr.isHidden = true
+        battleBottomId.isHidden = true
     }
     
-    @IBAction func navigateToBoardVc() {
+    @IBAction func navigateToMainVc() {
         
         var vc: UIViewController
         
-        if selectedCase?.category == CaseCategory.linear {
+        if caseCategory == Category.linear {
             
             vc = myStoryboard.instantiateViewController(withIdentifier: "LinearTabBar")
             

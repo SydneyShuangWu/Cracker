@@ -139,7 +139,7 @@ class RPGMapViewController: UIViewController {
     }
 }
 
-extension RPGMapViewController: CloseButtonDelegate {
+extension RPGMapViewController: CloseCharacterInfoDelegate {
     
     func closeBtnDidPress(_ didPress: Bool) {
         

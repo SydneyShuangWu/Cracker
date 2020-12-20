@@ -56,6 +56,9 @@ class CaseDetailViewController: UIViewController {
         
         let vc = myStoryboard.instantiateViewController(withIdentifier: "SelectModeVc") as! SelectModeViewController
         
+        vc.selectedCase = selectedCase
+        vc.caseCategory = caseCategory
+        
         navigationController?.pushViewController(vc, animated: true)
     }
 }

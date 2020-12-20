@@ -14,6 +14,7 @@ class SearchCaseViewController: UIViewController {
     @IBOutlet weak var findCaseBtn: UIButton!
     @IBOutlet weak var searchCaseTableView: UITableView!
     @IBOutlet weak var orangeView: UIView!
+    @IBOutlet weak var joinTeamView: UIView!
     
     // Selection
     let selectionView = SelectionView()
@@ -41,12 +42,25 @@ class SearchCaseViewController: UIViewController {
             SelectionModel(title: "Classic Cases", data: classicCases)
         ]
         
+        setupUI()
+    }
+    
+    func setupUI() {
+        
         setupNavigationBar(with: "CASES")
         setupCloseButton()
+        setupJoinButton()
+        
         findCaseBtn.setupCornerRadius()
+        joinTeamView.setupCornerRadius()
         
         setupSelecionView()
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        HUD.flash(.label("Loading..."), delay: 1.5)
     }
     
     @IBAction func findCase(_ sender: Any) {
@@ -80,6 +94,36 @@ class SearchCaseViewController: UIViewController {
         searchCaseTableView.dataSource = self
     }
     
+    func setupJoinButton() {
+        
+        let joinBtn = UIButton(type: .custom)
+        
+        joinBtn.setImage(UIImage(named: "Join"), for: .normal)
+        
+        joinBtn.addTarget(self, action: #selector(showJoinTeamVc), for: .touchUpInside)
+        
+        let leftBarButtonItem = UIBarButtonItem(customView: joinBtn)
+        
+        NSLayoutConstraint.activate([leftBarButtonItem.customView!.widthAnchor.constraint(equalToConstant: 28), leftBarButtonItem.customView!.heightAnchor.constraint(equalToConstant: 28)])
+        
+        navigationItem.leftBarButtonItem = leftBarButtonItem
+    }
+    
+    @objc func showJoinTeamVc(sender: UIButton) {
+        
+        UIView.animate(withDuration: 0.5) {
+            
+            self.joinTeamView.frame = CGRect(x: (UIScreen.main.bounds.width  - self.joinTeamView.bounds.width) / 2, y: (UIScreen.main.bounds.height  - self.joinTeamView.bounds.height) / 2, width: self.joinTeamView.bounds.width, height: self.joinTeamView.bounds.height)
+        }
+    }
+    
+    func hideJoinTeamVc() {
+        
+        UIView.animate(withDuration: 0.5) {
+            self.joinTeamView.frame = CGRect(x: -UIScreen.main.bounds.width, y: self.joinTeamView.frame.minY, width: self.joinTeamView.bounds.width, height: self.joinTeamView.bounds.height)
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toCaseDetailVc" {
@@ -87,6 +131,16 @@ class SearchCaseViewController: UIViewController {
             let nextVc = segue.destination as? CaseDetailViewController
             
             nextVc?.selectedCase = selectedCase
+        }
+        
+        if segue.identifier == "toJoinTeamPage" {
+            
+            let nextVc = segue.destination as? JoinTeamViewController
+            
+            nextVc?.closeJoinTeam = { _ in
+                
+                self.hideJoinTeamVc()
+            }
         }
     }
     
@@ -100,8 +154,6 @@ class SearchCaseViewController: UIViewController {
             case .success(let crackerCases):
                 
                 self.classicCases = crackerCases
-                
-                HUD.flash(.label("Loading..."), delay: 1.0)
       
             case .failure(let error):
                 

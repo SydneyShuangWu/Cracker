@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CloseButtonDelegate: AnyObject {
+protocol CloseCharacterInfoDelegate: AnyObject {
     
     func closeBtnDidPress(_ didPress: Bool)
 }
@@ -17,7 +17,7 @@ class CharacterInfoViewController: UIViewController {
     @IBOutlet weak var characterName: UILabel!
     @IBOutlet weak var characterInfo: UILabel!
     
-    weak var delegate: CloseButtonDelegate?
+    weak var delegate: CloseCharacterInfoDelegate?
     
     override func viewDidLoad() {
         
