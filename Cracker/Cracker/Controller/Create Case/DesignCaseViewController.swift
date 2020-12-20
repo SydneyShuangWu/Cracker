@@ -14,7 +14,6 @@ class DesignCaseViewController: UIViewController {
     // Value passed from create case vc
     var selectedCaseCategory: CaseCategory?
     var caseImage: UIImage?
-    var crackerCase = CrackerCase()
     
     // Expandable sections
     var sectionDataList: [Int] = []
@@ -29,6 +28,7 @@ class DesignCaseViewController: UIViewController {
     // Firebase
     let firestoreManager = FirestoreManager.shared
     let storageManager = StorageManager.shared
+    var crackerCase = CrackerCase()
     
     @IBOutlet weak var designCaseTableView: UITableView!
     @IBOutlet weak var bottomBtn: UIButton!
@@ -146,7 +146,7 @@ class DesignCaseViewController: UIViewController {
         crackerCase.creator = CrackerUser(id: String(Auth.auth().currentUser!.uid))
         crackerCase.category = selectedCaseCategory!.rawValue
         
-        // Upload image to Storage
+        // Upload image to Firestore
         getCaseImageUrl(id: document.documentID) { (imageUrl) in
             
             self.crackerCase.image = imageUrl

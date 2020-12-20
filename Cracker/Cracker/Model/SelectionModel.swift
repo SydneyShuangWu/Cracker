@@ -14,9 +14,3 @@ struct SelectionModel {
     
     let data: [CrackerCase]
 }
-
-// let profileSource = [
-//    SelectionModel(title: "\(crackedCases.count)" + " Cracked", data: crackedCases),
-//    SelectionModel(title: "\(createdCases.count)" + " Created", data: createdCases),
-//    SelectionModel(title: "\(treasuredCases.count)" + " Treasured", data: treasuredCases)
-// ]

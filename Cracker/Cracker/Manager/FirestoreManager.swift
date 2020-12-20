@@ -31,7 +31,7 @@ enum CollectionName: String {
 
 enum FirebaseError: String, Error {
     
-    case decode = "Firebase decode error"
+    case decode = "Firebase failed to decode"
 }
 
 struct Filter {
@@ -67,6 +67,7 @@ class FirestoreManager {
         }
     }
     
+    // Read documents
     func read<T: Codable>(collectionName: CollectionName, dataType: T.Type, handler: @escaping (Result<[T]>) -> Void) {
         
         let collection = getCollection(name: collectionName)
@@ -93,7 +94,7 @@ class FirestoreManager {
         }
     }
     
-    // Read collection after filtering
+    // Read documents after filtering
     func read<T: Codable>(collectionName: CollectionName, dataType: T.Type, filter: Filter, handler: @escaping (Result<[T]>) -> Void) {
         
         let collection = getCollection(name: collectionName)
@@ -120,7 +121,7 @@ class FirestoreManager {
         }
     }
     
-    // Read document
+    // Read single document
     func readSingle<T: Codable>(_ doc: DocumentReference, dataType: T.Type, handler: @escaping (Result<T>) -> Void ) {
         
         doc.getDocument { (documentSnapshot, error) in
@@ -174,7 +175,7 @@ class FirestoreManager {
             
         } catch {
             
-            print("Firebase save data error: ", error.localizedDescription)
+            print("Firebase failed to save data: ", error.localizedDescription)
         }
     }
     

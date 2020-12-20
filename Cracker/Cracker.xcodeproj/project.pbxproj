@@ -12,6 +12,7 @@
 		C10C022E25873A930013AACC /* DesignTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C022D25873A930013AACC /* DesignTestViewController.swift */; };
 		C10C0231258741D40013AACC /* DesignTestTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C0230258741D40013AACC /* DesignTestTBCell.swift */; };
 		C11BBAB9258E0FB100C597C1 /* JoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11BBAB8258E0FB100C597C1 /* JoinTeamViewController.swift */; };
+		C11BBABD258F93AE00C597C1 /* EditNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11BBABC258F93AE00C597C1 /* EditNameViewController.swift */; };
 		C1202FAB258A0C7B0031AD81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1202FAA258A0C7B0031AD81 /* GoogleService-Info.plist */; };
 		C1202FB1258A12B90031AD81 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1202FB0258A12B90031AD81 /* FirebaseAuthManager.swift */; };
 		C120B9D62582990400E99E9D /* RPGMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120B9D52582990400E99E9D /* RPGMarker.swift */; };
@@ -92,6 +93,7 @@
 		C10C022D25873A930013AACC /* DesignTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTestViewController.swift; sourceTree = "<group>"; };
 		C10C0230258741D40013AACC /* DesignTestTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTestTBCell.swift; sourceTree = "<group>"; };
 		C11BBAB8258E0FB100C597C1 /* JoinTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTeamViewController.swift; sourceTree = "<group>"; };
+		C11BBABC258F93AE00C597C1 /* EditNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNameViewController.swift; sourceTree = "<group>"; };
 		C1202FAA258A0C7B0031AD81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1202FAD258A0F920031AD81 /* Cracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cracker.entitlements; sourceTree = "<group>"; };
 		C1202FB0258A12B90031AD81 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				C161C8A225796E73000697C1 /* CaseDetailViewController.swift */,
 				C1A7C0462575EDDB0022674B /* SidebarViewController.swift */,
 				C150A74C257A3E8F00C3402B /* ProfileViewController.swift */,
+				C11BBABC258F93AE00C597C1 /* EditNameViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 			files = (
 				C150A756257CEEAE00C3402B /* CrackerUser.swift in Sources */,
 				C1C2D0B5257E454C003256C9 /* CreateCaseViewController.swift in Sources */,
+				C11BBABD258F93AE00C597C1 /* EditNameViewController.swift in Sources */,
 				C17D5FD6257F208500AE7EB9 /* SectionView.swift in Sources */,
 				C1DE4EE4257940A5005440F6 /* MockCase.swift in Sources */,
 				C161C8B12579E8B6000697C1 /* CaseDescriptionTBCell.swift in Sources */,

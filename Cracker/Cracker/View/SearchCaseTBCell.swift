@@ -23,8 +23,7 @@ class SearchCaseTBCell: UITableViewCell {
         caseImage.clipsToBounds = true
         caseName.text = cases.name
         
-        // MARK: Modification Required
-        caseCreator.text = "Sydney"
+        caseCreator.text = cases.creator.name
         
         guard let score = cases.score else { return }
         caseScore.text = String(score)

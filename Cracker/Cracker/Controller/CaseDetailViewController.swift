@@ -10,14 +10,17 @@ import FirebaseAuth
 
 class CaseDetailViewController: UIViewController {
     
-    let authManager = FirebaseAuthManager()
-    
     @IBOutlet weak var caseDetailTableView: UITableView!
     @IBOutlet weak var crackCaseBtn: UIButton!
     
     // Data holder for cases from SearchCaseVC
     var selectedCase: CrackerCase?
     var caseCategory: Category?
+    
+    // Firebase
+    let firestoreManager = FirestoreManager.shared
+    let authManager = FirebaseAuthManager()
+    var crackerGame = CrackerGame()
 
     override func viewDidLoad() {
         
@@ -60,6 +63,18 @@ class CaseDetailViewController: UIViewController {
         vc.caseCategory = caseCategory
         
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // MARK: - Firestore
+    func createNewGame() {
+        
+        let document = firestoreManager.getCollection(name: .crackerGame).document()
+        
+        crackerGame.id = document.documentID
+        crackerGame.crackerCase = selectedCase!
+        
+        // Switch User to Player
+        
     }
 }
 

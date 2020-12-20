@@ -25,7 +25,7 @@ class LobbyViewController: UIViewController {
         
         super.viewDidLoad()
         
-//        authManager.logOut()
+        authManager.logOut()
         
         setupButton()
         

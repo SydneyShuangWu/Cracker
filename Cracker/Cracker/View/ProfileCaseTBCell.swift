@@ -16,14 +16,18 @@ class ProfileCaseTBCell: UITableViewCell {
     @IBOutlet weak var caseScore: UILabel!
     @IBOutlet weak var binBtn: UIButton!
     
-    func setupCellWith(cases: MockCase) {
+    func setupCellWith(cases: CrackerCase) {
         
-        caseImage.image = cases.image
+        caseImage.loadImage(cases.image)
         caseImage.layer.cornerRadius = caseImage.frame.size.width / 2
         caseImage.clipsToBounds = true
+        
         caseName.text = cases.name
-        caseCreator.text = cases.creator
-        caseScore.text = String(cases.score)
+        
+        caseCreator.text = cases.creator.name
+        
+        guard let score = cases.score else { return }
+        caseScore.text = String(score)
     }
     
     func enableBinBtn() {

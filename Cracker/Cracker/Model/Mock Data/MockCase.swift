@@ -143,8 +143,5 @@ let case3 = MockCase(name: "追殺比爾", creator: "Quentin Tarantino", image: 
 
 let case4 = MockCase(name: "Joker", creator: "Sydney", image: UIImage(named: "Joker")!, score: 5, category: CaseCategory.linear, location: "NYC", startTime: "22:00", endTime: "24:00", duration: "40分鐘", maxHeadCount: 4, minHeadCount: 1, description: "1981年，高譚市正值垃圾成災、充滿失業和犯罪的經濟蕭條時期，貧富差距巨大導致許多窮人流落街頭、失去基本權利。身為社會局外人的亞瑟·佛萊克立志成為一位單口喜劇演員，做起派對小丑來供養他的年邁母親潘妮。亞瑟本身患有一種罕見精神疾病，導致他在不合時宜的時候會放聲大笑，只能接受社福機構人員的治療以獲取藥物。", stageContent: nil, charContent: nil, testContent: nil, finalStageName: nil, finalPosition: nil, open: nil)
 
-let crackedCases = [case1, case2]
-let createdCases = [case1, case4]
-let treasuredCases = [case2, case3, case4]
 
 

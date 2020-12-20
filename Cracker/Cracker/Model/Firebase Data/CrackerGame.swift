@@ -16,29 +16,27 @@ enum Mode: String {
 
 struct CrackerGame: Codable {
     
-    var id: String
+    var id: String = ""
     
-    var crackerCase: CrackerCase
+    var crackerCase: CrackerCase = CrackerCase()
     
-    var gameMode: String
+    var gameMode: String = ""
     
-    var crackerChatrooms: [String]
+    var crackerChatrooms: [String] = []
     
-    var createdTime: FIRTimestamp
+    var startTime: FIRTimestamp = FIRTimestamp()
     
-    var startTime: FIRTimestamp
+    var endTime: FIRTimestamp = FIRTimestamp()
     
-    var endTime: FIRTimestamp
+    var players: [CrackerPlayer] = []
     
-    var players: [CrackerPlayer]
+    var teams: [CrackerTeam]? = []
     
-    var teams: [CrackerTeam]?
+    var stageRecords: [CrackerStageRecord] = []
     
-    var stageRecords: [CrackerStageRecord]
+    var finalScore: Int = 0
     
-    var finalScore: Int
-    
-    var finalRank: Int
+    var finalRank: Int = 0
 }
 
 // Transfer timestamp to date

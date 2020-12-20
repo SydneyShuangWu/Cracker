@@ -20,6 +20,7 @@ class SearchCaseViewController: UIViewController {
     let selectionView = SelectionView()
     var searchSource: [SelectionModel] = []
     
+    // MARK: - Modification Required
     // Data
     private var classicCases = [CrackerCase]()
     private var filteredCases = [CrackerCase]()
@@ -183,12 +184,13 @@ extension SearchCaseViewController: SelectionViewDelegate {
         
         switch index {
         
+        // MARK: Modification Required
+        
         case 0:
             filteredCases = []
             searchCaseTableView.reloadData()
             
         case 1:
-            // MARK: Modification Required
             filteredCases = classicCases
             searchCaseTableView.reloadData()
             

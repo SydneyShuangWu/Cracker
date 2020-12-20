@@ -12,6 +12,10 @@ import CryptoKit
 
 class FirebaseAuthManager: NSObject {
     
+    // Firebase
+    let firestoreManager = FirestoreManager.shared
+    var crackerUser = CrackerUser(id: "")
+    
     var currentNonce: String?
     
     var controller: UIViewController?
@@ -99,6 +103,11 @@ extension FirebaseAuthManager: ASAuthorizationControllerDelegate {
                     print("✅User signed in as \(user.uid)")
                     
                     NotificationCenter.default.post(name: .loginDidSuccess, object: nil)
+                    
+                    // Create New User in Firestore
+                    let document = self.firestoreManager.getCollection(name: .crackerUser).document("\(user.uid)")
+                    self.crackerUser.id = document.documentID
+                    self.firestoreManager.save(to: document, data: self.crackerUser)
                 }
             }
         }

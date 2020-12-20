@@ -2,7 +2,7 @@
 //  CrackerMessag.swift
 //  Cracker
 //
-//  Created by Jovan ho on 2020/12/18.
+//  Created by Sydney Wu on 2020/12/18.
 //
 
 import Foundation
