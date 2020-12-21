@@ -10,7 +10,7 @@ import UIKit
 
 struct SelectionModel {
     
-    let title: String
+    var title: String
     
-    let data: [CrackerCase]
+    var data: [CrackerCase]
 }

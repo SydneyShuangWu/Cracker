@@ -38,7 +38,24 @@ class ProfileViewController: UIViewController {
     // Firebase
     let authManager = FirebaseAuthManager()
     let firestoreManager = FirestoreManager.shared
-    var currentUser = CrackerUser(id: "")
+    
+    var currentUser = CrackerUser(id: "") {
+        
+        didSet {
+            
+            if currentUser.image.isEmpty {
+                
+                profileImage.image = UIImage(named: "Ginger Bread Man")
+                
+            } else {
+                
+                profileImage.loadImage(currentUser.image)
+            }
+            
+            profileName.text = currentUser.name
+        }
+    }
+    
     var currentUid = Auth.auth().currentUser?.uid
 
     override func viewDidLoad() {
@@ -46,27 +63,19 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         profileSource = [
-            SelectionModel(title: "\(createdCases.count)" + " Created", data: createdCases),
-            SelectionModel(title: "\(crackedCases.count)" + " Cracked", data: []),
-            SelectionModel(title: "\(treasuredCases.count)" + " Treasured", data: [])
+            SelectionModel(title: "Created", data: createdCases),
+            SelectionModel(title: "Cracked", data: crackedCases),
+            SelectionModel(title: "Treasured", data: treasuredCases)
         ]
         
         setupUI()
         
         setupSelecionView()
         
-        setupProfile()
+        fetchUserData()
     }
     
     // MARK: - Fetch Profile Data
-    func setupProfile() {
-        
-        fetchUserData()
-        
-        profileImage.loadImage(currentUser.image)
-        profileName.text = currentUser.name
-    }
-    
     func fetchUserData() {
         
         let document = firestoreManager.getCollection(name: .crackerUser).document(String(currentUid!))
@@ -78,7 +87,8 @@ class ProfileViewController: UIViewController {
             case .success(let crackerUser):
                 
                 self.currentUser = crackerUser
-      
+                self.fetchCreatedCases()
+                
             case .failure(let error):
                 
                 print("Failed to read current user: ", error.localizedDescription)
@@ -126,22 +136,24 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        // Post edited image to Firestore
-        getProfileImageUrl(id: currentUid!) { (imageUrl) in
-            
-            self.currentUser.image = imageUrl
-            self.firestoreManager.update(collectionName: .crackerUser, documentId: self.currentUid!, fields: ["image" : imageUrl])
-        }
-    }
-    
     // MARK: - Fetch Created Cases
     func fetchCreatedCases() {
         
-        firestoreManager.read(collectionName: .crackerCase, dataType: CrackerCase.self, filter: .init(key: "creator", value: String(currentUser.name))) { (result) in
+        // Fetch cases via user id
+        firestoreManager.read(collectionName: .crackerCase, dataType: CrackerCase.self, filter: .init(key: "creator", value: String(currentUid!))) { (result) in
             
+            switch result {
             
+            case .success(let crackerCases):
+                
+                self.filteredcases = crackerCases
+                self.searchCaseTableView.reloadData()
+                self.profileSource[0].data = crackerCases
+                
+            case .failure(let error):
+                
+                print("Failed to read created cases: ", error.localizedDescription)
+            }
         }
     }
     
@@ -156,7 +168,7 @@ class ProfileViewController: UIViewController {
         
         let leftBarButtonItem = UIBarButtonItem(customView: toolBoxBtn)
         
-        NSLayoutConstraint.activate([leftBarButtonItem.customView!.widthAnchor.constraint(equalToConstant: 35), leftBarButtonItem.customView!.heightAnchor.constraint(equalToConstant: 35)])
+        NSLayoutConstraint.activate([leftBarButtonItem.customView!.widthAnchor.constraint(equalToConstant: 28), leftBarButtonItem.customView!.heightAnchor.constraint(equalToConstant: 28)])
         
         navigationItem.leftBarButtonItem = leftBarButtonItem
     }
@@ -274,17 +286,17 @@ extension ProfileViewController: SelectionViewDelegate {
         switch index {
         
         case 0:
-            filteredcases = createdCases
+            filteredcases = profileSource[index].data
             searchCaseTableView.reloadData()
             isBinBtnEnabled = false
             
         case 1:
-            filteredcases = crackedCases
+            filteredcases = profileSource[index].data
             searchCaseTableView.reloadData()
             isBinBtnEnabled = false
             
         case 2:
-            filteredcases = treasuredCases
+            filteredcases = profileSource[index].data
             searchCaseTableView.reloadData()
             isBinBtnEnabled = true
             
@@ -332,6 +344,12 @@ extension ProfileViewController: UIImagePickerControllerDelegate & UINavigationC
             
             profileImage.image = selectedImage
             editedImage = selectedImage
+        }
+        
+        getProfileImageUrl(id: currentUid!) { url in
+            
+            self.currentUser.image = url
+            self.firestoreManager.update(collectionName: .crackerUser, documentId: self.currentUid!, fields: ["image" : url])
         }
         
         dismiss(animated: true, completion: nil)

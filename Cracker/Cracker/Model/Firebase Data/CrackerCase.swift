@@ -18,7 +18,7 @@ struct CrackerCase: Codable {
     
     var id: String = ""
     
-    var creator: CrackerUser = CrackerUser(id: "")
+    var creator: String = ""
     
     var name: String = ""
     

@@ -13,7 +13,6 @@ class SearchCaseTBCell: UITableViewCell {
     
     @IBOutlet weak var caseImage: UIImageView!
     @IBOutlet weak var caseName: UILabel!
-    @IBOutlet weak var caseCreator: UILabel!
     @IBOutlet weak var caseScore: UILabel!
     
     func setupCellWith(cases: CrackerCase) {
@@ -22,8 +21,6 @@ class SearchCaseTBCell: UITableViewCell {
         caseImage.layer.cornerRadius = caseImage.frame.size.width / 2
         caseImage.clipsToBounds = true
         caseName.text = cases.name
-        
-        caseCreator.text = cases.creator.name
         
         guard let score = cases.score else { return }
         caseScore.text = String(score)

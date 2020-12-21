@@ -12,7 +12,6 @@ class ProfileCaseTBCell: UITableViewCell {
     
     @IBOutlet weak var caseImage: UIImageView!
     @IBOutlet weak var caseName: UILabel!
-    @IBOutlet weak var caseCreator: UILabel!
     @IBOutlet weak var caseScore: UILabel!
     @IBOutlet weak var binBtn: UIButton!
     
@@ -23,8 +22,6 @@ class ProfileCaseTBCell: UITableViewCell {
         caseImage.clipsToBounds = true
         
         caseName.text = cases.name
-        
-        caseCreator.text = cases.creator.name
         
         guard let score = cases.score else { return }
         caseScore.text = String(score)

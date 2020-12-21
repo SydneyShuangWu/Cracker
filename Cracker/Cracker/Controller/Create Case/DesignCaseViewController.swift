@@ -143,7 +143,7 @@ class DesignCaseViewController: UIViewController {
         let document = firestoreManager.getCollection(name: .crackerCase).document()
         
         crackerCase.id = document.documentID
-        crackerCase.creator = CrackerUser(id: String(Auth.auth().currentUser!.uid))
+        crackerCase.creator = String(Auth.auth().currentUser!.uid)
         crackerCase.category = selectedCaseCategory!.rawValue
         
         // Upload image to Firestore
