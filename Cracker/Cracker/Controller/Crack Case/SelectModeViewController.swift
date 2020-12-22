@@ -9,6 +9,7 @@ import UIKit
 
 class SelectModeViewController: UIViewController {
     
+    // Mode VC UI
     var selectedGameMode: Mode?
     var challengePageIsShown = true
     var battlePageIsShown = false
@@ -16,7 +17,13 @@ class SelectModeViewController: UIViewController {
     // Data holder for cases from CaseDetailVc
     var selectedCase: CrackerCase?
     var caseCategory: Category?
+    var gameId = ""
+    var teams: [String] = []
     
+    // Firebase
+    let firestoreManager = FirestoreManager.shared
+    
+    // UI
     @IBOutlet weak var challengeBtn: UIButton!
     @IBOutlet weak var battleBtn: UIButton!
 
@@ -35,6 +42,10 @@ class SelectModeViewController: UIViewController {
         selectedGameMode = Mode.challenge
         challengePageIsShown = true
         battlePageIsShown = false
+        
+        // Post game mode to Firestore
+        self.firestoreManager.update(collectionName: .crackerGame, documentId: self.gameId, fields: ["gameMode" : selectedGameMode!.rawValue])
+        
         navigateToModeVc()
     }
     
@@ -43,6 +54,16 @@ class SelectModeViewController: UIViewController {
         selectedGameMode = Mode.battle
         challengePageIsShown = false
         battlePageIsShown = true
+        
+        // Post game mode to Firestore
+        self.firestoreManager.update(collectionName: .crackerGame, documentId: self.gameId, fields: ["gameMode" : selectedGameMode!.rawValue])
+        
+        // Post team ids to Firestore
+        let teams = ["\(gameId)" + "A", "\(gameId)" + "B"]
+        self.teams = teams
+        
+        self.firestoreManager.update(collectionName: .crackerGame, documentId: self.gameId, fields: ["teams" : teams])
+        
         navigateToModeVc()
     }
     
@@ -55,9 +76,14 @@ class SelectModeViewController: UIViewController {
         vc.caseCategory = caseCategory
         
         if challengePageIsShown == true {
+            
+            vc.gameId = gameId
             vc.challengePageIsShown = true
             vc.battlePageIsShown = false
+            
         } else {
+            
+            vc.teams = teams
             vc.challengePageIsShown = false
             vc.battlePageIsShown = true
         }

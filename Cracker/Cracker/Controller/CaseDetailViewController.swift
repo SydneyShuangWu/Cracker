@@ -21,6 +21,8 @@ class CaseDetailViewController: UIViewController {
     let firestoreManager = FirestoreManager.shared
     let authManager = FirebaseAuthManager()
     var crackerGame = CrackerGame()
+    var firstPlayer = CrackerPlayer()
+    var gameId = ""
 
     override func viewDidLoad() {
         
@@ -47,6 +49,7 @@ class CaseDetailViewController: UIViewController {
         
         if Auth.auth().currentUser?.uid != nil {
             
+            createNewGame()
             navigateToSelectModeVc()
             
         } else {
@@ -61,6 +64,7 @@ class CaseDetailViewController: UIViewController {
         
         vc.selectedCase = selectedCase
         vc.caseCategory = caseCategory
+        vc.gameId = gameId
         
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -71,10 +75,19 @@ class CaseDetailViewController: UIViewController {
         let document = firestoreManager.getCollection(name: .crackerGame).document()
         
         crackerGame.id = document.documentID
-        crackerGame.crackerCase = selectedCase!
+        gameId = document.documentID
         
-        // Switch User to Player
+        // Create Case Collection
+        let crackerCase = document.collection("CrackerCase").document(String(selectedCase!.id))
+        firestoreManager.save(to: crackerCase, data: selectedCase)
         
+        // Create Players collection
+        firstPlayer.id = Auth.auth().currentUser!.uid
+        let players = document.collection("Players").document(String(firstPlayer.id))
+        firestoreManager.save(to: players, data: self.firstPlayer)
+        
+        // Save
+        self.firestoreManager.save(to: document, data: self.crackerGame)
     }
 }
 

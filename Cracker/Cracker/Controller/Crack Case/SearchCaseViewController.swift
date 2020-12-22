@@ -26,6 +26,8 @@ class SearchCaseViewController: UIViewController {
     private var filteredCases = [CrackerCase]()
     var selectedCase =  CrackerCase()
     let firestoreManager = FirestoreManager.shared
+    var gameId = ""
+    var caseCategory = ""
     
     override func viewDidLoad() {
         
@@ -62,6 +64,67 @@ class SearchCaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         HUD.flash(.label("Loading..."), delay: 1.5)
+    }
+    
+    func automaticallyNavigate() {
+        
+        // Fetch case category
+        let document = firestoreManager.getCollection(name: .crackerGame).document("\(gameId)").collection("CrackerCase")
+        
+        firestoreManager.read(collection: document, dataType: CrackerCase.self) { (result) in
+            
+            switch result {
+            
+            case .success(let crackerCase):
+                
+                self.caseCategory = crackerCase[0].category
+                
+            case .failure(let error):
+                
+                print("Failed to read cases: ", error.localizedDescription)
+            }
+        }
+        
+        // Navigate
+        var vc: UIViewController
+        
+        if caseCategory == Category.linear.rawValue {
+            
+            vc = myStoryboard.instantiateViewController(withIdentifier: "LinearTabBar")
+            
+            // Set up delegate to pass stage index from stageVc to stageMapVc
+            if let stageVC = (vc as? UITabBarController)?.viewControllers?.first as?
+                StageViewController,
+               let stageMapVC = (vc as? UITabBarController)?.viewControllers?[1] as? StageMapViewController {
+                
+                stageVC.delegate = stageMapVC
+            }
+            
+        } else {
+            
+//            vc = myStoryboard.instantiateViewController(withIdentifier: "RPGTabBar")
+            
+            // MARK: - Modification Required
+            vc = myStoryboard.instantiateViewController(withIdentifier: "LinearTabBar")
+            
+            // Set up delegate to pass stage index from stageVc to stageMapVc
+            if let stageVC = (vc as? UITabBarController)?.viewControllers?.first as?
+                StageViewController,
+               let stageMapVC = (vc as? UITabBarController)?.viewControllers?[1] as? StageMapViewController {
+                
+                stageVC.delegate = stageMapVC
+            }
+        }
+        
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .fullScreen
+        
+        nav.hero.isEnabled = true
+        
+        nav.hero.modalAnimationType = .autoReverse(presenting: .cover(direction: .up))
+
+        present(nav, animated: true, completion: nil)
     }
     
     @IBAction func findCase(_ sender: Any) {
@@ -142,6 +205,8 @@ class SearchCaseViewController: UIViewController {
                 
                 self.hideJoinTeamVc()
             }
+            
+            nextVc?.delegate = self
         }
     }
     
@@ -161,6 +226,16 @@ class SearchCaseViewController: UIViewController {
                 print("Failed to read cases: ", error.localizedDescription)
             }
         }
+    }
+}
+
+extension SearchCaseViewController: NavigateToGameDelegate {
+    
+    func canNavigate(gameId: String) {
+        
+        self.gameId = gameId
+        
+        self.automaticallyNavigate()
     }
 }
 

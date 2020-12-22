@@ -151,6 +151,9 @@ class DesignCaseViewController: UIViewController {
             
             self.crackerCase.image = imageUrl
             self.firestoreManager.save(to: document, data: self.crackerCase)
+            
+//            let doc = document.collection("stages").document()
+//            firestoreManager.save(to: doc, data: Decodable & Encodable)
         }
     }
 }

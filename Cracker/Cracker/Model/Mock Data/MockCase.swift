@@ -107,9 +107,9 @@ enum CaseCategory: String {
 }
 
 // MARK: - Mock Data For Linear Mode
-let demoStage1 = StageContent(id: "1", story: "王子說他還沒睡飽，沒力氣學習，而且吃完香蕉以後肚子還是好餓...", instruction: "建議從吃的方面想答案", question: "要怎麼讓王子恢復力氣呢？", answer: "給力盒子", hint: "這題太簡單了不用提示", locationName: "灝美旅舍", position: CLLocationCoordinate2D(latitude: 25.041732, longitude: 121.548295))
+let demoStage1 = StageContent(id: "1", story: "王子說他還沒睡飽，沒力氣學習，而且吃完香蕉以後肚子還是好餓...", instruction: "建議從吃的方面想答案", question: "要怎麼讓王子恢復力氣呢？", answer: "給力盒子", hint: "檢查", locationName: "灝美旅舍", position: CLLocationCoordinate2D(latitude: 25.041732, longitude: 121.548295))
 
-let demoStage2 = StageContent(id: "2", story: "王子吃完東西已經恢復元氣了，現在他只要跟著他開發的App走就可以找到School了！", instruction: "請先解出王子開發的App名稱，再前往App Store下載該App", question: "王子開發的App叫什麼呢？", answer: "Yogogo", hint: "是六個字母的英文字詞", locationName: "給力盒子", position: CLLocationCoordinate2D(latitude: 25.041990, longitude: 121.563394))
+let demoStage2 = StageContent(id: "2", story: "王子吃完東西已經恢復元氣了，現在他只要跟著他開發的App走就可以找到School了！", instruction: "請先解出王子開發的App名稱，再前往App Store下載該App", question: "王子開發的App叫什麼呢？", answer: "Insdogram", hint: "Instagram", locationName: "給力盒子", position: CLLocationCoordinate2D(latitude: 25.041990, longitude: 121.563394))
 
 let demoLinearCase = MockCase(name: "王子上學去", creator: "Princekili", image: UIImage(named: "Little Prince")!, score: 1, category: CaseCategory.linear, location: "捷運忠孝敦化站周邊", startTime: "10:30", endTime: "18:00", duration: "2小時", maxHeadCount: 10, minHeadCount: 1, description: "王子今天又遲到了，你們能幫他找到去School的路嗎？請先到王子寄宿的灝美旅舍叫醒他吧！", stageContent: [demoStage1, demoStage2], charContent: nil, testContent: nil, finalStageName: "AppWorks School", finalPosition: CLLocationCoordinate2D(latitude: 25.042404, longitude: 121.564885), open: nil)
 

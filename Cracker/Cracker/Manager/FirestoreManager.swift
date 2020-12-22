@@ -144,6 +144,22 @@ class FirestoreManager {
         }
     }
     
+    // Read subCollections
+    func read<T: Codable>(collection: CollectionReference, dataType: T.Type, handler: @escaping (Result<[T]>) -> Void) {
+        collection.getDocuments { (querySnapshot, error) in
+            guard let querySnapshot = querySnapshot else {
+                handler(.failure(error!))
+                return
+            }
+            self.decode(dataType, documents: querySnapshot.documents) { (result) in
+                switch result {
+                case .success(let data): handler(.success(data))
+                case .failure(let error): handler(.failure(error))
+                }
+            }
+        }
+    }
+    
     func decode<T: Codable>(_ dataType: T.Type, documents: [QueryDocumentSnapshot], handler: @escaping (Result<[T]>) -> Void) {
         
         var datas: [T] = []

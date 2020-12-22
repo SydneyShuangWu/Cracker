@@ -9,6 +9,7 @@ import UIKit
 
 class ModeViewController: UIViewController {
     
+    // UI
     @IBOutlet weak var challengeTitle: UILabel!
     @IBOutlet weak var challengeId: UILabel!
     @IBOutlet weak var battleTopTitle: UILabel!
@@ -16,14 +17,18 @@ class ModeViewController: UIViewController {
     @IBOutlet weak var battleBottomTitle: UILabel!
     @IBOutlet weak var battleBottomId: UILabel!
     @IBOutlet weak var startBtn: UIButton!
-
+    var challengePageIsShown = true
+    var battlePageIsShown = false
+    
     // Data holder for cases from SelectModeVc
     var gameMode: Mode?
     var selectedCase: CrackerCase?
     var caseCategory: Category?
+    var gameId = ""
+    var teams: [String] = []
     
-    var challengePageIsShown = true
-    var battlePageIsShown = false
+    // Firebase
+    let firestoreManager = FirestoreManager.shared
 
     override func viewDidLoad() {
         
@@ -58,6 +63,7 @@ class ModeViewController: UIViewController {
         
         challengeTitle.isHidden = false
         challengeId.isHidden = false
+        challengeId.text = gameId
     }
     
     func hideChallengePage() {
@@ -70,8 +76,11 @@ class ModeViewController: UIViewController {
         
         battleTopTitle.isHidden = false
         battleTopId.isHidden = false
+        battleTopId.text = teams[0]
+        
         battleBottomTitle.isHidden = false
         battleBottomId.isHidden = false
+        battleBottomId.text = teams[1]
     }
     
     func hideBattlePage() {
@@ -82,7 +91,18 @@ class ModeViewController: UIViewController {
         battleBottomId.isHidden = true
     }
     
-    @IBAction func navigateToMainVc() {
+    @IBAction func startCracking() {
+        
+        // Change gameDidStart to true
+        self.firestoreManager.update(collectionName: .crackerGame, documentId: self.gameId, fields: ["gameDidStart" : true])
+        
+        // Post start time
+        self.firestoreManager.update(collectionName: .crackerGame, documentId: self.gameId, fields: ["startTime" : FIRTimestamp()])
+        
+        navigateToGamePage()
+    }
+    
+    func navigateToGamePage() {
         
         var vc: UIViewController
         
@@ -100,7 +120,18 @@ class ModeViewController: UIViewController {
             
         } else {
             
-            vc = myStoryboard.instantiateViewController(withIdentifier: "RPGTabBar")
+//            vc = myStoryboard.instantiateViewController(withIdentifier: "RPGTabBar")
+            
+            // MARK: - Modification Required
+            vc = myStoryboard.instantiateViewController(withIdentifier: "LinearTabBar")
+            
+            // Set up delegate to pass stage index from stageVc to stageMapVc
+            if let stageVC = (vc as? UITabBarController)?.viewControllers?.first as?
+                StageViewController,
+               let stageMapVC = (vc as? UITabBarController)?.viewControllers?[1] as? StageMapViewController {
+                
+                stageVC.delegate = stageMapVC
+            }
         }
         
         let nav = UINavigationController(rootViewController: vc)

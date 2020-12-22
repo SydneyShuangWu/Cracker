@@ -63,7 +63,6 @@
 		C1C2D0B5257E454C003256C9 /* CreateCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D0B4257E454C003256C9 /* CreateCaseViewController.swift */; };
 		C1C406BC258C8F6300474178 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C406BB258C8F6300474178 /* UIImageView+Extension.swift */; };
 		C1C406BF258CA36800474178 /* CrackerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C406BE258CA36800474178 /* CrackerGame.swift */; };
-		C1C406C2258CA43900474178 /* CrackerTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C406C1258CA43900474178 /* CrackerTeam.swift */; };
 		C1C406C5258CA59600474178 /* CrackerChatroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C406C4258CA59600474178 /* CrackerChatroom.swift */; };
 		C1C406C8258CA5B500474178 /* CrackerMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C406C7258CA5B500474178 /* CrackerMessage.swift */; };
 		C1C406CC258CA81800474178 /* CrackerPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C406CB258CA81800474178 /* CrackerPlayer.swift */; };
@@ -145,7 +144,6 @@
 		C1C2D0B4257E454C003256C9 /* CreateCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaseViewController.swift; sourceTree = "<group>"; };
 		C1C406BB258C8F6300474178 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		C1C406BE258CA36800474178 /* CrackerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerGame.swift; sourceTree = "<group>"; };
-		C1C406C1258CA43900474178 /* CrackerTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerTeam.swift; sourceTree = "<group>"; };
 		C1C406C4258CA59600474178 /* CrackerChatroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerChatroom.swift; sourceTree = "<group>"; };
 		C1C406C7258CA5B500474178 /* CrackerMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerMessage.swift; sourceTree = "<group>"; };
 		C1C406CB258CA81800474178 /* CrackerPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerPlayer.swift; sourceTree = "<group>"; };
@@ -407,7 +405,6 @@
 				C1C406C4258CA59600474178 /* CrackerChatroom.swift */,
 				C1C406C7258CA5B500474178 /* CrackerMessage.swift */,
 				C1C406CB258CA81800474178 /* CrackerPlayer.swift */,
-				C1C406C1258CA43900474178 /* CrackerTeam.swift */,
 				C1C406CE258CAA4300474178 /* CrackerStageRecords.swift */,
 			);
 			path = "Firebase Data";
@@ -583,7 +580,6 @@
 				C19D3B9B257F8BB7002E2E7C /* RPGViewCell.swift in Sources */,
 				C10A7EA8257ED90900AC0AE6 /* DesignCaseViewController.swift in Sources */,
 				C1A7C0382574DB410022674B /* Geotification.swift in Sources */,
-				C1C406C2258CA43900474178 /* CrackerTeam.swift in Sources */,
 				C1921CA2258A3529004E2A9A /* NotificationCenter+Extension.swift in Sources */,
 				C1A7C0272574869F0022674B /* RPGMapViewController.swift in Sources */,
 				C1BD23D42580E39F00D7D090 /* StageMapViewController.swift in Sources */,

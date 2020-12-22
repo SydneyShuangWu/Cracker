@@ -53,6 +53,7 @@ class ProfileViewController: UIViewController {
             }
             
             profileName.text = currentUser.name
+            profileRank.text = String(currentUser.rank)
         }
     }
     

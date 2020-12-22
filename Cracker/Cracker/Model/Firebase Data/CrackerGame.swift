@@ -18,25 +18,23 @@ struct CrackerGame: Codable {
     
     var id: String = ""
     
-    var crackerCase: CrackerCase = CrackerCase()
-    
     var gameMode: String = ""
     
-    var crackerChatrooms: [String] = []
+    var teams: [String] = []
+    
+    var chatrooms: [String] = []
     
     var startTime: FIRTimestamp = FIRTimestamp()
     
     var endTime: FIRTimestamp = FIRTimestamp()
-    
-    var players: [CrackerPlayer] = []
-    
-    var teams: [CrackerTeam]? = []
     
     var stageRecords: [CrackerStageRecord] = []
     
     var finalScore: Int = 0
     
     var finalRank: Int = 0
+    
+    var gameDidStart: Bool = false
 }
 
 // Transfer timestamp to date
