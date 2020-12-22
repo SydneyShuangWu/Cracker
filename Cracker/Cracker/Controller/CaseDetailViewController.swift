@@ -15,7 +15,6 @@ class CaseDetailViewController: UIViewController {
     
     // Data holder for cases from SearchCaseVC
     var selectedCase: CrackerCase?
-    var caseCategory: Category?
     
     // Firebase
     let firestoreManager = FirestoreManager.shared
@@ -63,7 +62,6 @@ class CaseDetailViewController: UIViewController {
         let vc = myStoryboard.instantiateViewController(withIdentifier: "SelectModeVc") as! SelectModeViewController
         
         vc.selectedCase = selectedCase
-        vc.caseCategory = caseCategory
         vc.gameId = gameId
         
         navigationController?.pushViewController(vc, animated: true)

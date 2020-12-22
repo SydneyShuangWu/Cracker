@@ -61,7 +61,7 @@ class JoinTeamViewController: UIViewController {
             
             if status == true {
                 
-                print("😎Game status fetched")
+                print("😎 Game status fetched")
                 
                 self.delegate?.canNavigate(gameId: String(joinGameId))
             }

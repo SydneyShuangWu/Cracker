@@ -23,7 +23,6 @@ class ModeViewController: UIViewController {
     // Data holder for cases from SelectModeVc
     var gameMode: Mode?
     var selectedCase: CrackerCase?
-    var caseCategory: Category?
     var gameId = ""
     var teams: [String] = []
     
@@ -106,7 +105,7 @@ class ModeViewController: UIViewController {
         
         var vc: UIViewController
         
-        if caseCategory == Category.linear {
+        if selectedCase?.category == Category.linear.rawValue {
             
             vc = myStoryboard.instantiateViewController(withIdentifier: "LinearTabBar")
             
@@ -115,23 +114,14 @@ class ModeViewController: UIViewController {
                 StageViewController,
                let stageMapVC = (vc as? UITabBarController)?.viewControllers?[1] as? StageMapViewController {
                 
+                stageVC.gameId = gameId
+                stageMapVC.gameId = gameId
                 stageVC.delegate = stageMapVC
             }
             
         } else {
             
-//            vc = myStoryboard.instantiateViewController(withIdentifier: "RPGTabBar")
-            
-            // MARK: - Modification Required
-            vc = myStoryboard.instantiateViewController(withIdentifier: "LinearTabBar")
-            
-            // Set up delegate to pass stage index from stageVc to stageMapVc
-            if let stageVC = (vc as? UITabBarController)?.viewControllers?.first as?
-                StageViewController,
-               let stageMapVC = (vc as? UITabBarController)?.viewControllers?[1] as? StageMapViewController {
-                
-                stageVC.delegate = stageMapVC
-            }
+            vc = myStoryboard.instantiateViewController(withIdentifier: "RPGTabBar")
         }
         
         let nav = UINavigationController(rootViewController: vc)

@@ -59,6 +59,8 @@ struct CrackerCase: Codable {
     var score: Int? = 0
     
     var comments: [String]? = []
+    
+//    var createdTime: FIRTimestamp = FIRTimestamp()
 }
 
 struct CrackerStage: Codable {

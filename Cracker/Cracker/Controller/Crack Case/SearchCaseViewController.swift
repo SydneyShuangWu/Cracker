@@ -229,6 +229,7 @@ class SearchCaseViewController: UIViewController {
     }
 }
 
+// MARK: - Navigate to game page
 extension SearchCaseViewController: NavigateToGameDelegate {
     
     func canNavigate(gameId: String) {

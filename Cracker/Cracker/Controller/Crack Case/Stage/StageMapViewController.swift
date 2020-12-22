@@ -13,30 +13,35 @@ class StageMapViewController: UIViewController {
     
     @IBOutlet weak var stageMap: MKMapView!
     
-    let locationManager = CLLocationManager()
+    // Data holder from ModeVc
+    var gameId = ""
     
+    // Core Location
+    let locationManager = CLLocationManager()
     var currentLocations: [CLLocation] = []
     var currentLng: CLLocationDegrees?
     var currentLat: CLLocationDegrees?
     
+    // Stage Progress
+    var stageLongitude: Double = 0
+    var stageLatitude: Double = 0
     var stageLocations: [CLLocationCoordinate2D] = []
     var routeLocations: [CLLocationCoordinate2D] = []
-    
     var currentStageIndex: Int!
-    
     var stageMarkers: [StageMarker] = []
+    
+    // Firestore
+    let firestoreManager = FirestoreManager.shared
+    var crackerCase = CrackerCase()
+    var stages = [CrackerStage]()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        getStageCoordinates()
-        
-        getStageMarkers()
+        getStageData()
         
         setupCoreLocation()
-        
-        setupMapView()
         
         // Notify when user has opened Cracker from Settings
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -60,23 +65,49 @@ class StageMapViewController: UIViewController {
         }
     }
     
+    func getStageData() {
+        
+        let document = firestoreManager.getCollection(name: .crackerGame).document("\(gameId)").collection("CrackerCase")
+        
+        firestoreManager.read(collection: document, dataType: CrackerCase.self) { (result) in
+            
+            switch result {
+            
+            case .success(let crackerCase):
+                
+                self.crackerCase = crackerCase[0]
+                self.stages = crackerCase[0].stages!
+                
+                self.getStageCoordinates()
+                self.getStageMarkers()
+                self.setupMapView()
+                
+            case .failure(let error):
+                
+                print("Failed to read cases: ", error.localizedDescription)
+            }
+        }
+    }
+    
     func getStageCoordinates() {
         
-        guard let stageContents = demoLinearCase.stageContent else { return }
-        
-        for stageContent in stageContents {
-
-            stageLocations.append(stageContent.position)
+        for stage in stages {
+            
+            stageLatitude = stage.latitude
+            stageLongitude = stage.longitude
+            
+            stageLocations.append(CLLocationCoordinate2D(latitude: stageLatitude, longitude: stageLongitude))
         }
     }
     
     func getStageMarkers() {
         
-        guard let stageContents = demoLinearCase.stageContent else { return }
-        
-        for stageContent in stageContents {
+        for stage in stages {
             
-            let stageMarker = StageMarker(locationName: stageContent.locationName, coordinate: stageContent.position)
+            stageLatitude = stage.latitude
+            stageLongitude = stage.longitude
+            
+            let stageMarker = StageMarker(locationName: stage.locationName, coordinate: CLLocationCoordinate2D(latitude: stageLatitude, longitude: stageLongitude))
             
             stageMarkers.append(stageMarker)
         }
@@ -185,7 +216,7 @@ extension StageMapViewController: MKMapViewDelegate {
             forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         
         // Plot markers on the map
-        plotFirstMarkers()
+        plotFirstMarker()
     }
     
     func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
@@ -193,7 +224,7 @@ extension StageMapViewController: MKMapViewDelegate {
         stageMap.setUserTrackingMode(.followWithHeading, animated: true)
     }
     
-    func plotFirstMarkers() {
+    func plotFirstMarker() {
         
         stageMap.addAnnotation(stageMarkers[0])
     }

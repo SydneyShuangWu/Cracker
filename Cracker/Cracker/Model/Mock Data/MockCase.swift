@@ -107,11 +107,11 @@ enum CaseCategory: String {
 }
 
 // MARK: - Mock Data For Linear Mode
-let demoStage1 = StageContent(id: "1", story: "王子說他還沒睡飽，沒力氣學習，而且吃完香蕉以後肚子還是好餓...", instruction: "建議從吃的方面想答案", question: "要怎麼讓王子恢復力氣呢？", answer: "給力盒子", hint: "檢查", locationName: "灝美旅舍", position: CLLocationCoordinate2D(latitude: 25.041732, longitude: 121.548295))
-
-let demoStage2 = StageContent(id: "2", story: "王子吃完東西已經恢復元氣了，現在他只要跟著他開發的App走就可以找到School了！", instruction: "請先解出王子開發的App名稱，再前往App Store下載該App", question: "王子開發的App叫什麼呢？", answer: "Insdogram", hint: "Instagram", locationName: "給力盒子", position: CLLocationCoordinate2D(latitude: 25.041990, longitude: 121.563394))
-
-let demoLinearCase = MockCase(name: "王子上學去", creator: "Princekili", image: UIImage(named: "Little Prince")!, score: 1, category: CaseCategory.linear, location: "捷運忠孝敦化站周邊", startTime: "10:30", endTime: "18:00", duration: "2小時", maxHeadCount: 10, minHeadCount: 1, description: "王子今天又遲到了，你們能幫他找到去School的路嗎？請先到王子寄宿的灝美旅舍叫醒他吧！", stageContent: [demoStage1, demoStage2], charContent: nil, testContent: nil, finalStageName: "AppWorks School", finalPosition: CLLocationCoordinate2D(latitude: 25.042404, longitude: 121.564885), open: nil)
+// let demoStage1 = StageContent(id: "1", story: "王子說他還沒睡飽，沒力氣學習，而且吃完香蕉以後肚子還是好餓...", instruction: "建議從吃的方面想答案", question: "要怎麼讓王子恢復力氣呢？", answer: "給力盒子", hint: "檢查", locationName: "灝美旅舍", position: CLLocationCoordinate2D(latitude: 25.041732, longitude: 121.548295))
+//
+// let demoStage2 = StageContent(id: "2", story: "王子吃完東西已經恢復元氣了，現在他只要跟著他開發的App走就可以找到School了！", instruction: "請先解出王子開發的App名稱，再前往App Store下載該App", question: "王子開發的App叫什麼呢？", answer: "Insdogram", hint: "Instagram", locationName: "給力盒子", position: CLLocationCoordinate2D(latitude: 25.041990, longitude: 121.563394))
+//
+// let demoLinearCase = MockCase(name: "王子上學去", creator: "Princekili", image: UIImage(named: "Little Prince")!, score: 1, category: CaseCategory.linear, location: "捷運忠孝敦化站周邊", startTime: "10:30", endTime: "18:00", duration: "2小時", maxHeadCount: 10, minHeadCount: 1, description: "王子今天又遲到了，你們能幫他找到去School的路嗎？請先到王子寄宿的灝美旅舍叫醒他吧！", stageContent: [demoStage1, demoStage2], charContent: nil, testContent: nil, finalStageName: "AppWorks School", finalPosition: CLLocationCoordinate2D(latitude: 25.042404, longitude: 121.564885), open: nil)
 
 // MARK: - Mock Data For RPG Mode
 let demoChar1 = CharContent(id: "1", name: "竈門炭治郎", location: "雲取山", info: "竈門家長子，禰豆子的大哥，是有著一頭深紅髮與紅色眼睛的「赫灼之子」，遺傳母親那有如石頭般堅硬的額頭，左額上有著小時候為保護弟弟，而被滾燙的水壺燒傷的大片傷痕，耳上掛著日輪花紙耳飾。為平凡農家子弟的長兄，父親早逝，因此靠著賣炭維持家裡的生計。", image: UIImage(named: "Coal")!, triggers: [["魘夢", "下弦之壹"]], talks: ["全集中水之呼吸", "我要繼續出招才行"], clues: ["這我不太清楚，但據說大岳山腳下木屋裡面藏著答案，你知道答案以後就趕快去告訴伊之助吧！"], position: CLLocationCoordinate2D(latitude: 25.040611, longitude: 121.561328))

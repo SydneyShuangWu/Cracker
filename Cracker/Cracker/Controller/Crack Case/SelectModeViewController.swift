@@ -16,7 +16,6 @@ class SelectModeViewController: UIViewController {
     
     // Data holder for cases from CaseDetailVc
     var selectedCase: CrackerCase?
-    var caseCategory: Category?
     var gameId = ""
     var teams: [String] = []
     
@@ -73,7 +72,6 @@ class SelectModeViewController: UIViewController {
         
         vc.gameMode = selectedGameMode
         vc.selectedCase = selectedCase
-        vc.caseCategory = caseCategory
         
         if challengePageIsShown == true {
             

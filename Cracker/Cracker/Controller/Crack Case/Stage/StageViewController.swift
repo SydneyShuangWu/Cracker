@@ -14,6 +14,7 @@ protocol PassStageIndexDelegate: AnyObject {
 
 class StageViewController: UIViewController {
     
+    // UI
     @IBOutlet weak var stageTitle: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var storyLabel: UILabel!
@@ -24,19 +25,23 @@ class StageViewController: UIViewController {
     @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var hintBtn: UIButton!
     
-    var ids: [String] = []
+    // Data holder from ModeVc
+    var gameId = ""
+    
+    // Stage Progress
+    var currentStageIndex: Int!
+    weak var delegate: PassStageIndexDelegate?
+    var hintCount = 0
     var storys: [String] = []
     var instructions: [String] = []
     var questions: [String] = []
     var answers: [String] = []
     var hints: [String] = []
     
-    let stageCount = demoLinearCase.stageContent?.count
-    var currentStageIndex: Int!
-    
-    weak var delegate: PassStageIndexDelegate?
-    
-    var hintCount = 0
+    // Firestore
+    let firestoreManager = FirestoreManager.shared
+    var crackerCase = CrackerCase()
+    var stages = [CrackerStage]()
 
     override func viewDidLoad() {
         
@@ -45,8 +50,6 @@ class StageViewController: UIViewController {
         setupUI()
         
         getStageData()
-        
-        displayFirstStage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,18 +65,35 @@ class StageViewController: UIViewController {
         answerTF.setupCornerRadius()
     }
     
+    // MARK: - Fetch stage data
     func getStageData() {
         
-        guard let stageContents = demoLinearCase.stageContent else { return }
+        let document = firestoreManager.getCollection(name: .crackerGame).document("\(gameId)").collection("CrackerCase")
         
-        for stageContent in stageContents {
+        firestoreManager.read(collection: document, dataType: CrackerCase.self) { (result) in
             
-            ids.append(stageContent.id)
-            storys.append(stageContent.story)
-            instructions.append(stageContent.instruction)
-            questions.append(stageContent.question)
-            answers.append(stageContent.answer)
-            hints.append(stageContent.hint)
+            switch result {
+            
+            case .success(let crackerCase):
+                
+                self.crackerCase = crackerCase[0]
+                self.stages = crackerCase[0].stages!
+                
+                for stage in self.stages {
+                    
+                    self.storys.append(stage.story)
+                    self.instructions.append(stage.instruction)
+                    self.questions.append(stage.question)
+                    self.answers.append(stage.answer)
+                    self.hints.append(stage.hint)
+                }
+                
+                self.displayFirstStage()
+                
+            case .failure(let error):
+                
+                print("Failed to read cases: ", error.localizedDescription)
+            }
         }
     }
     
@@ -105,26 +125,23 @@ class StageViewController: UIViewController {
 
         guard let text = answerTF.text else { return }
         
-        for id in ids {
-
-            if id == String(currentStageIndex) {
+        for id in 1 ... stages.count where id == currentStageIndex {
                 
-                if text == answers[currentStageIndex - 1] && text != answers.last {
-                    
-                    popupCorrectAnsAlert()
-                    answerTF.text = ""
-                    hintBtn.isEnabled = true
-                 
-                } else if text == answers.last {
-                    
-                    popupFinishAlert()
-                    
-                } else {
-                    
-                    popupWrongAnsAlert()
-                    answerTF.text = ""
-                    hintBtn.isEnabled = true
-                }
+            if text == answers[currentStageIndex - 1] && text != answers.last {
+                
+                popupCorrectAnsAlert()
+                answerTF.text = ""
+                hintBtn.isEnabled = true
+                
+            } else if text == answers.last {
+                
+                popupFinishAlert()
+                
+            } else {
+                
+                popupWrongAnsAlert()
+                answerTF.text = ""
+                hintBtn.isEnabled = true
             }
         }
     }
@@ -137,7 +154,7 @@ class StageViewController: UIViewController {
         
         delegate?.getStageIndex(with: currentStageIndex)
         
-        if currentStageIndex <= stageCount! {
+        if currentStageIndex <= stages.count {
     
             stageTitle.text = "Stage " + String(currentStageIndex)
             questionLabel.text = questions[currentStageIndex - 1]
