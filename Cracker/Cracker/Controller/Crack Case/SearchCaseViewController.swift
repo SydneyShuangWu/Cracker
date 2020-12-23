@@ -7,6 +7,7 @@
 
 import UIKit
 import PKHUD
+import FirebaseAuth
 
 class SearchCaseViewController: UIViewController {
     
@@ -20,13 +21,16 @@ class SearchCaseViewController: UIViewController {
     let selectionView = SelectionView()
     var searchSource: [SelectionModel] = []
     
+    // Data from JoinTeamVc
+    var gameId = ""
+    
     // MARK: - Modification Required
-    // Data
+    // Firestore
+    let firestoreManager = FirestoreManager.shared
+    let authManager = FirebaseAuthManager()
     private var classicCases = [CrackerCase]()
     private var filteredCases = [CrackerCase]()
     var selectedCase =  CrackerCase()
-    let firestoreManager = FirestoreManager.shared
-    var gameId = ""
     var caseCategory = ""
     
     override func viewDidLoad() {
@@ -46,8 +50,11 @@ class SearchCaseViewController: UIViewController {
         ]
         
         setupUI()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showJoinTeamVc), name: .loginDidSuccess, object: nil)
     }
     
+    // MARK: - UI
     func setupUI() {
         
         setupNavigationBar(with: "CASES")
@@ -64,67 +71,6 @@ class SearchCaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         HUD.flash(.label("Loading..."), delay: 1.5)
-    }
-    
-    func automaticallyNavigate() {
-        
-        // Fetch case category
-        let document = firestoreManager.getCollection(name: .crackerGame).document("\(gameId)").collection("CrackerCase")
-        
-        firestoreManager.read(collection: document, dataType: CrackerCase.self) { (result) in
-            
-            switch result {
-            
-            case .success(let crackerCase):
-                
-                self.caseCategory = crackerCase[0].category
-                
-            case .failure(let error):
-                
-                print("Failed to read cases: ", error.localizedDescription)
-            }
-        }
-        
-        // Navigate
-        var vc: UIViewController
-        
-        if caseCategory == Category.linear.rawValue {
-            
-            vc = myStoryboard.instantiateViewController(withIdentifier: "LinearTabBar")
-            
-            // Set up delegate to pass stage index from stageVc to stageMapVc
-            if let stageVC = (vc as? UITabBarController)?.viewControllers?.first as?
-                StageViewController,
-               let stageMapVC = (vc as? UITabBarController)?.viewControllers?[1] as? StageMapViewController {
-                
-                stageVC.delegate = stageMapVC
-            }
-            
-        } else {
-            
-//            vc = myStoryboard.instantiateViewController(withIdentifier: "RPGTabBar")
-            
-            // MARK: - Modification Required
-            vc = myStoryboard.instantiateViewController(withIdentifier: "LinearTabBar")
-            
-            // Set up delegate to pass stage index from stageVc to stageMapVc
-            if let stageVC = (vc as? UITabBarController)?.viewControllers?.first as?
-                StageViewController,
-               let stageMapVC = (vc as? UITabBarController)?.viewControllers?[1] as? StageMapViewController {
-                
-                stageVC.delegate = stageMapVC
-            }
-        }
-        
-        let nav = UINavigationController(rootViewController: vc)
-        
-        nav.modalPresentationStyle = .fullScreen
-        
-        nav.hero.isEnabled = true
-        
-        nav.hero.modalAnimationType = .autoReverse(presenting: .cover(direction: .up))
-
-        present(nav, animated: true, completion: nil)
     }
     
     @IBAction func findCase(_ sender: Any) {
@@ -164,7 +110,7 @@ class SearchCaseViewController: UIViewController {
         
         joinBtn.setImage(UIImage(named: "Join"), for: .normal)
         
-        joinBtn.addTarget(self, action: #selector(showJoinTeamVc), for: .touchUpInside)
+        joinBtn.addTarget(self, action: #selector(joinTeamDidTap), for: .touchUpInside)
         
         let leftBarButtonItem = UIBarButtonItem(customView: joinBtn)
         
@@ -173,7 +119,19 @@ class SearchCaseViewController: UIViewController {
         navigationItem.leftBarButtonItem = leftBarButtonItem
     }
     
-    @objc func showJoinTeamVc(sender: UIButton) {
+    @objc func joinTeamDidTap(sender: UIButton) {
+        
+        if Auth.auth().currentUser?.uid != nil {
+            
+            showJoinTeamVc()
+
+        } else {
+            
+            authManager.performSignin(self)
+        }
+    }
+    
+    @objc func showJoinTeamVc() {
         
         UIView.animate(withDuration: 0.5) {
             
@@ -188,6 +146,7 @@ class SearchCaseViewController: UIViewController {
         }
     }
     
+    // MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toCaseDetailVc" {
@@ -210,7 +169,7 @@ class SearchCaseViewController: UIViewController {
         }
     }
     
-    // MARK: - Firestore
+    // MARK: - Fetch all cases
     func fetchAllCases() {
         
         firestoreManager.read(collectionName: .crackerCase, dataType: CrackerCase.self) { (result) in
@@ -232,11 +191,65 @@ class SearchCaseViewController: UIViewController {
 // MARK: - Navigate to game page
 extension SearchCaseViewController: NavigateToGameDelegate {
     
+    func fetchCaseCategory() {
+        
+        let document = firestoreManager.getCollection(name: .crackerGame).document("\(gameId)").collection("CrackerCase")
+        
+        firestoreManager.read(collection: document, dataType: CrackerCase.self) { (result) in
+            
+            switch result {
+            
+            case .success(let crackerCase):
+                
+                self.caseCategory = crackerCase[0].category
+                self.syncToGamePage()
+                
+            case .failure(let error):
+                
+                print("Failed to read cases: ", error.localizedDescription)
+            }
+        }
+    }
+    
+    func syncToGamePage() {
+        
+        var vc: UIViewController
+        
+        if caseCategory == Category.linear.rawValue {
+            
+            vc = myStoryboard.instantiateViewController(withIdentifier: "LinearTabBar")
+
+            // Set up delegate to pass stage index from stageVc to stageMapVc
+            if let stageVC = (vc as? UITabBarController)?.viewControllers?.first as?
+                StageViewController,
+               let stageMapVC = (vc as? UITabBarController)?.viewControllers?[1] as? StageMapViewController {
+                
+                stageVC.gameId = gameId
+                stageMapVC.gameId = gameId
+                stageVC.delegate = stageMapVC
+            }
+            
+        } else {
+            
+            vc = myStoryboard.instantiateViewController(withIdentifier: "RPGTabBar")
+        }
+        
+        let nav = UINavigationController(rootViewController: vc)
+
+        nav.modalPresentationStyle = .fullScreen
+
+        nav.hero.isEnabled = true
+
+        nav.hero.modalAnimationType = .autoReverse(presenting: .cover(direction: .up))
+
+        present(nav, animated: true, completion: nil)
+    }
+    
     func canNavigate(gameId: String) {
         
         self.gameId = gameId
         
-        self.automaticallyNavigate()
+        self.fetchCaseCategory()
     }
 }
 
@@ -276,7 +289,7 @@ extension SearchCaseViewController: SelectionViewDelegate {
     }
 }
 
-// MARK: - Filtered Table View
+// MARK: - Table View
 extension SearchCaseViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -60,7 +60,7 @@ struct CrackerCase: Codable {
     
     var comments: [String]? = []
     
-//    var createdTime: FIRTimestamp = FIRTimestamp()
+    var createdTime: FIRTimestamp = FIRTimestamp()
 }
 
 struct CrackerStage: Codable {

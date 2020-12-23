@@ -9,7 +9,11 @@ import Foundation
 
 struct CrackerStageRecord: Codable {
     
-    var player: String
+    var stageIndex: Int = 0
     
-    var triggerTime: FIRTimestamp
+    var teamId: String = ""
+    
+    var playerId: String = ""
+    
+    var triggerTime: FIRTimestamp = FIRTimestamp()
 }

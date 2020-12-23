@@ -28,7 +28,7 @@ class StageViewController: UIViewController {
     // Data holder from ModeVc
     var gameId = ""
     
-    // Stage Progress
+    // Track Stage Progress
     var currentStageIndex: Int!
     weak var delegate: PassStageIndexDelegate?
     var hintCount = 0
@@ -125,13 +125,15 @@ class StageViewController: UIViewController {
 
         guard let text = answerTF.text else { return }
         
-        for id in 1 ... stages.count where id == currentStageIndex {
+        for stageIndex in 1 ... stages.count where stageIndex == currentStageIndex {
                 
             if text == answers[currentStageIndex - 1] && text != answers.last {
                 
                 popupCorrectAnsAlert()
                 answerTF.text = ""
                 hintBtn.isEnabled = true
+                
+                // Track stage record
                 
             } else if text == answers.last {
                 

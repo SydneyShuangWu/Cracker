@@ -22,13 +22,9 @@ struct CrackerGame: Codable {
     
     var teams: [String] = []
     
-    var chatrooms: [String] = []
-    
     var startTime: FIRTimestamp = FIRTimestamp()
     
     var endTime: FIRTimestamp = FIRTimestamp()
-    
-    var stageRecords: [CrackerStageRecord] = []
     
     var finalScore: Int = 0
     

@@ -43,13 +43,16 @@ class JoinTeamViewController: UIViewController {
         guard let joinGameId = teamIdTF.text else { return }
         
         let document = firestoreManager.getCollection(name: .crackerGame).document("\(joinGameId)")
+        
+        // Save teammates as players
         let newplayer = document.collection("Players").document(String(Auth.auth().currentUser!.uid))
         player.id = newplayer.documentID
+        player.teamId = joinGameId
         firestoreManager.save(to: newplayer, data: self.player)
         
         closeJoinTeam?(true)
         
-        // Listen to game status. If game did start, navigate to game page        
+        // Listen to game status
         firestoreManager.getCollection(name: .crackerGame).document(joinGameId).addSnapshotListener { (documentSnapshot, error) in
             
             if let err = error {
