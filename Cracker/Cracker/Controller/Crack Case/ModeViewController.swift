@@ -49,9 +49,9 @@ class ModeViewController: UIViewController {
     func setupNavBar() {
         
         if gameMode == Mode.challenge {
-            setupNavigationBar(with: "CHALLENGE MODE")
+            setupNavigationBar(with: "Challenge Mode")
         } else {
-            setupNavigationBar(with: "BATTLE MODE")
+            setupNavigationBar(with: "Battle Mode")
         }
 
         setupCloseButton()
@@ -62,7 +62,7 @@ class ModeViewController: UIViewController {
         
         challengeTitle.isHidden = false
         challengeId.isHidden = false
-        challengeId.text = gameId
+        challengeId.text = gameId + "A"
     }
     
     func hideChallengePage() {
@@ -93,10 +93,10 @@ class ModeViewController: UIViewController {
     @IBAction func startCracking() {
         
         // Change gameDidStart to true
-        self.firestoreManager.update(collectionName: .crackerGame, documentId: self.gameId, fields: ["gameDidStart" : true])
+        self.firestoreManager.update(collectionName: .crackerGame, documentId: "\(self.gameId.prefix(20))", fields: ["gameDidStart" : true])
         
         // Post start time
-        self.firestoreManager.update(collectionName: .crackerGame, documentId: self.gameId, fields: ["startTime" : FIRTimestamp()])
+        self.firestoreManager.update(collectionName: .crackerGame, documentId: "\(self.gameId.prefix(20))", fields: ["startTime" : FIRTimestamp()])
         
         navigateToGamePage()
     }

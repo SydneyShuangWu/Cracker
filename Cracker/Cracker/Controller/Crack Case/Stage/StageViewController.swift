@@ -68,7 +68,7 @@ class StageViewController: UIViewController {
     // MARK: - Fetch stage data
     func getStageData() {
         
-        let document = firestoreManager.getCollection(name: .crackerGame).document("\(gameId)").collection("CrackerCase")
+        let document = firestoreManager.getCollection(name: .crackerGame).document("\(gameId.prefix(20))").collection("CrackerCase")
         
         firestoreManager.read(collection: document, dataType: CrackerCase.self) { (result) in
             

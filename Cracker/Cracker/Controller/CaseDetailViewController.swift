@@ -22,6 +22,8 @@ class CaseDetailViewController: UIViewController {
     var crackerGame = CrackerGame()
     var firstPlayer = CrackerPlayer()
     var gameId = ""
+    var currentUid = Auth.auth().currentUser?.uid
+    var currentUser = CrackerUser(id: "")
 
     override func viewDidLoad() {
         
@@ -36,6 +38,8 @@ class CaseDetailViewController: UIViewController {
         setupNavigationBar(with: selectedCase!.name)
         setupCloseButton()
         setupBackButton()
+        
+        fetchUserData()
     }
     
     func setupTableView() {
@@ -68,23 +72,44 @@ class CaseDetailViewController: UIViewController {
     }
     
     // MARK: - Firestore
+    func fetchUserData() {
+        
+        let document = firestoreManager.getCollection(name: .crackerUser).document(currentUid!)
+        
+        firestoreManager.readSingle(document, dataType: CrackerUser.self) { (result) in
+            
+            switch result {
+            
+            case .success(let crackerUser):
+                
+                self.currentUser = crackerUser
+                
+            case .failure(let error):
+                
+                print("Failed to read current user: ", error.localizedDescription)
+            }
+        }
+    }
+    
     func createNewGame() {
         
         let document = firestoreManager.getCollection(name: .crackerGame).document()
-        
         crackerGame.id = document.documentID
         gameId = document.documentID
         
-        // Create Case Collection
+        // Save cracking case
         let crackerCase = document.collection("CrackerCase").document(String(selectedCase!.id))
         firestoreManager.save(to: crackerCase, data: selectedCase)
         
-        // Create Players collection
-        firstPlayer.id = Auth.auth().currentUser!.uid
+        // Save first player
+        firstPlayer.id = currentUid!
+        firstPlayer.image = currentUser.image
+        firstPlayer.name = currentUser.name
+        firstPlayer.teamId = gameId + "A"
         let players = document.collection("Players").document(String(firstPlayer.id))
         firestoreManager.save(to: players, data: self.firstPlayer)
         
-        // Save
+        // Save new game
         self.firestoreManager.save(to: document, data: self.crackerGame)
     }
 }

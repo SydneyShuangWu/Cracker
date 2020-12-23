@@ -38,7 +38,6 @@ class ProfileViewController: UIViewController {
     // Firebase
     let authManager = FirebaseAuthManager()
     let firestoreManager = FirestoreManager.shared
-    
     var currentUser = CrackerUser(id: "") {
         
         didSet {

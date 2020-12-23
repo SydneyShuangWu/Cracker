@@ -43,7 +43,7 @@ class SelectModeViewController: UIViewController {
         battlePageIsShown = false
         
         // Post game mode to Firestore
-        self.firestoreManager.update(collectionName: .crackerGame, documentId: self.gameId, fields: ["gameMode" : selectedGameMode!.rawValue])
+        self.firestoreManager.update(collectionName: .crackerGame, documentId: "\(self.gameId.prefix(20))", fields: ["gameMode" : selectedGameMode!.rawValue])
         
         navigateToModeVc()
     }
@@ -55,13 +55,12 @@ class SelectModeViewController: UIViewController {
         battlePageIsShown = true
         
         // Post game mode to Firestore
-        self.firestoreManager.update(collectionName: .crackerGame, documentId: self.gameId, fields: ["gameMode" : selectedGameMode!.rawValue])
+        self.firestoreManager.update(collectionName: .crackerGame, documentId: "\(self.gameId.prefix(20))", fields: ["gameMode" : selectedGameMode!.rawValue])
         
         // Post team ids to Firestore
-        let teams = ["\(gameId)" + "A", "\(gameId)" + "B"]
+        let teams = ["\(gameId.prefix(20))" + "A", "\(gameId.prefix(20))" + "B"]
         self.teams = teams
-        
-        self.firestoreManager.update(collectionName: .crackerGame, documentId: self.gameId, fields: ["teams" : teams])
+        self.firestoreManager.update(collectionName: .crackerGame, documentId: "\(self.gameId.prefix(20))", fields: ["teams" : teams])
         
         navigateToModeVc()
     }
@@ -81,6 +80,7 @@ class SelectModeViewController: UIViewController {
             
         } else {
             
+            vc.gameId = gameId
             vc.teams = teams
             vc.challengePageIsShown = false
             vc.battlePageIsShown = true
