@@ -30,9 +30,11 @@ class DesignCaseViewController: UIViewController {
     let storageManager = StorageManager.shared
     var crackerCase = CrackerCase()
     
+    // UI
     @IBOutlet weak var designCaseTableView: UITableView!
     @IBOutlet weak var bottomBtn: UIButton!
     
+    // MARK: - UI
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -60,6 +62,7 @@ class DesignCaseViewController: UIViewController {
             sectionDataList.append(index)
             isExpandList.append(false)
             selectedImages.append(UIImage())
+            crackerCase.stages?.append(CrackerStage())
         }
     }
     
@@ -95,6 +98,7 @@ class DesignCaseViewController: UIViewController {
         designCaseTableView.register(rpgViewNib, forCellReuseIdentifier: "RPGViewCell")
     }
     
+    // MARK: - Navigation
     @IBAction func navigate(_ sender: Any) {
         
         guard crackerCase.stages?.count == sectionCount else {
@@ -121,6 +125,7 @@ class DesignCaseViewController: UIViewController {
         }
     }
     
+    // MARK: - Firebase
     func getCaseImageUrl(id: String, handler: @escaping (String) -> Void) {
         
         storageManager.uploadImage(image: caseImage!, folder: .caseImage, id: id) { (result) in
@@ -151,18 +156,18 @@ class DesignCaseViewController: UIViewController {
             
             self.crackerCase.image = imageUrl
             self.firestoreManager.save(to: document, data: self.crackerCase)
-            
-//            let doc = document.collection("stages").document()
-//            firestoreManager.save(to: doc, data: Decodable & Encodable)
         }
     }
 }
 
+// MARK: - Config cell
 extension DesignCaseViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return sectionCount
+        guard let stages = crackerCase.stages else { return 0 }
+        
+        return stages.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -174,9 +179,16 @@ extension DesignCaseViewController: UITableViewDataSource {
         
         let stageCell = tableView.dequeueReusableCell(withIdentifier: "StageViewCell") as? StageViewCell
         
-        stageCell?.callback = { stage in
+        guard let stages = crackerCase.stages else {
+            return UITableViewCell()
+        }
+        
+        // To avoid reusing table view
+        stageCell?.setup(stage: stages[indexPath.section], index: indexPath.section)
+        
+        stageCell?.callback = { stage, index in
             
-            self.crackerCase.stages?.append(stage)
+            self.crackerCase.stages?[index] = stage
         }
         
         let rpgCell = tableView.dequeueReusableCell(withIdentifier: "RPGViewCell") as? RPGViewCell
@@ -188,6 +200,7 @@ extension DesignCaseViewController: UITableViewDataSource {
         rpgCell?.renderImage(with: selectedImages[indexPath.section])
         
         if selectedCaseCategory == CaseCategory.linear {
+            
             return stageCell ?? UITableViewCell()
         }
         
@@ -195,6 +208,7 @@ extension DesignCaseViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - Config section view
 extension DesignCaseViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -238,6 +252,7 @@ extension DesignCaseViewController: SectionViewDelegate {
     }
 }
 
+// MARK: - Upload image for RPG
 extension DesignCaseViewController: RPGViewCellDelegate {
     
     func uploadBtnDidPress(_ didPress: Bool, index: Int) {
@@ -288,6 +303,7 @@ extension DesignCaseViewController: RPGViewCellDelegate {
     }
 }
 
+// MARK: - Image Picker VC
 extension DesignCaseViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

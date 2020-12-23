@@ -114,9 +114,9 @@ class ModeViewController: UIViewController {
                 StageViewController,
                let stageMapVC = (vc as? UITabBarController)?.viewControllers?[1] as? StageMapViewController {
                 
+                stageVC.delegate = stageMapVC
                 stageVC.gameId = gameId
                 stageMapVC.gameId = gameId
-                stageVC.delegate = stageMapVC
             }
             
         } else {

@@ -11,7 +11,7 @@ class StageViewCell: UITableViewCell {
     
     var stage = CrackerStage()
     
-    var callback: ((CrackerStage) -> Void)?
+    var callback: ((CrackerStage, Int) -> Void)?
     
     @IBOutlet weak var storyTV: UITextView!
     @IBOutlet weak var instructionTV: UITextView!
@@ -23,7 +23,7 @@ class StageViewCell: UITableViewCell {
     @IBOutlet weak var locationNameTF: UITextField!
     
     override func awakeFromNib() {
-        
+
         super.awakeFromNib()
         
         setupStageTextField()
@@ -32,6 +32,20 @@ class StageViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         
         super.setSelected(selected, animated: animated)
+    }
+    
+    func setup(stage: CrackerStage, index: Int) {
+        
+        storyTV.text = stage.story
+        instructionTV.text = stage.instruction
+        questionTF.text = stage.question
+        answerTF.text = stage.answer
+        hintTF.text = stage.hint
+        longitudeTF.text = String(stage.longitude)
+        latitudeTF.text = String(stage.latitude)
+        locationNameTF.text = stage.locationName
+        
+        storyTV.tag = index
     }
     
     func setupStageTextField() {
@@ -93,7 +107,7 @@ class StageViewCell: UITableViewCell {
         
         if !story.isEmpty, !instruction.isEmpty, !question.isEmpty, !answer.isEmpty, !hint.isEmpty, !longitude.isEmpty, !latitude.isEmpty, !locationName.isEmpty {
             
-            callback?(stage)
+            callback?(stage, storyTV.tag)
         }
     }
 }

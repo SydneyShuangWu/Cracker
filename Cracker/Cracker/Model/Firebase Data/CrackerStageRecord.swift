@@ -9,7 +9,7 @@ import Foundation
 
 struct CrackerStageRecord: Codable {
     
-    var stageIndex: Int = 0
+    var stagePassed: Int = 0
     
     var teamId: String = ""
     

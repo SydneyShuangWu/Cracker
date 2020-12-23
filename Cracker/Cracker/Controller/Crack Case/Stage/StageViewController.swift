@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol PassStageIndexDelegate: AnyObject {
     
@@ -37,6 +38,11 @@ class StageViewController: UIViewController {
     var questions: [String] = []
     var answers: [String] = []
     var hints: [String] = []
+    
+    // Track Stage Records
+    var stageRecord = CrackerStageRecord()
+    var currentUid = Auth.auth().currentUser?.uid
+    var currentPlayer = CrackerPlayer()
     
     // Firestore
     let firestoreManager = FirestoreManager.shared
@@ -97,6 +103,7 @@ class StageViewController: UIViewController {
         }
     }
     
+    // MARK: - Crack case flow
     func displayFirstStage() {
         
         currentStageIndex = 1
@@ -133,8 +140,6 @@ class StageViewController: UIViewController {
                 answerTF.text = ""
                 hintBtn.isEnabled = true
                 
-                // Track stage record
-                
             } else if text == answers.last {
                 
                 popupFinishAlert()
@@ -157,7 +162,7 @@ class StageViewController: UIViewController {
         delegate?.getStageIndex(with: currentStageIndex)
         
         if currentStageIndex <= stages.count {
-    
+
             stageTitle.text = "Stage " + String(currentStageIndex)
             questionLabel.text = questions[currentStageIndex - 1]
             instructionLabel.text = instructions[currentStageIndex - 1]
@@ -171,6 +176,9 @@ class StageViewController: UIViewController {
     }
     
     func popupCorrectAnsAlert() {
+        
+        // 👀 Track stage record
+        fetchPlayerData()
         
         let alert = UIAlertController(title: "答對了🥳", message: nil, preferredStyle: .alert)
 
@@ -192,6 +200,9 @@ class StageViewController: UIViewController {
     }
     
     func popupFinishAlert() {
+        
+        // 👀 Track stage record
+        fetchPlayerData()
         
         let alert = UIAlertController(title: "成功破案😎", message: nil, preferredStyle: .alert)
 
@@ -227,6 +238,42 @@ class StageViewController: UIViewController {
         
         hintBtn.isEnabled = false
     }
+    
+    // MARK: - Track stage record
+    func fetchPlayerData() {
+        
+        let document = firestoreManager.getCollection(name: .crackerGame).document("\(gameId.prefix(20))").collection("Players").document("\(currentUid!)")
+        
+        firestoreManager.readSingle(document, dataType: CrackerPlayer.self) { (result) in
+            
+            switch result {
+            
+            case .success(let crackerPlayer):
+                
+                self.currentPlayer = crackerPlayer
+                self.saveToStageRecord()
+            
+            case .failure(let error):
+                
+                print("Failed to read current user: ", error.localizedDescription)
+            }
+        }
+    }
+    
+    func saveToStageRecord() {
+        
+        let stageRecords = firestoreManager.getCollection(name: .crackerGame).document("\(gameId.prefix(20))").collection("StageRecords").document()
+        
+        stageRecord.stagePassed = currentStageIndex
+        stageRecord.teamId = currentPlayer.teamId
+        stageRecord.playerId = currentUid!
+        stageRecord.triggerTime = FIRTimestamp()
+        
+        firestoreManager.save(to: stageRecords, data: self.stageRecord)
+    }
+    
+    // MARK: - Listen to stage status
+    // Query teamId
 
 }
 

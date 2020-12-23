@@ -80,7 +80,6 @@ class StageMapViewController: UIViewController {
                 
                 self.getStageCoordinates()
                 self.getStageMarkers()
-                self.setupMapView()
                 
             case .failure(let error):
                 
@@ -111,11 +110,20 @@ class StageMapViewController: UIViewController {
             
             stageMarkers.append(stageMarker)
         }
+        
+        setupMapView()
+        
+        addFlagsAndRoutes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        for index in 0 ..< stageMarkers.count where index == currentStageIndex - 1 {
+        addFlagsAndRoutes()
+    }
+    
+    func addFlagsAndRoutes() {
+        
+        for index in 0 ..< stageMarkers.count where index <= currentStageIndex - 1 {
             
             stageMap.addAnnotation(stageMarkers[index])
         }
@@ -214,19 +222,11 @@ extension StageMapViewController: MKMapViewDelegate {
         stageMap.register(
             StageMarkerView.self,
             forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-        
-        // Plot markers on the map
-        plotFirstMarker()
     }
     
     func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
         
         stageMap.setUserTrackingMode(.followWithHeading, animated: true)
-    }
-    
-    func plotFirstMarker() {
-        
-        stageMap.addAnnotation(stageMarkers[0])
     }
     
     func showRoute(from currentStage: CLLocationCoordinate2D, to nextStage: CLLocationCoordinate2D) {
