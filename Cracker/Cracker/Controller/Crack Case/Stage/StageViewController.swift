@@ -43,6 +43,7 @@ class StageViewController: UIViewController {
     var stageRecord = CrackerStageRecord()
     var currentUid = Auth.auth().currentUser?.uid
     var currentPlayer = CrackerPlayer()
+    var currentStageRecords = [CrackerStageRecord]()
     
     // Firestore
     let firestoreManager = FirestoreManager.shared
@@ -56,6 +57,10 @@ class StageViewController: UIViewController {
         setupUI()
         
         getStageData()
+        
+        fetchPlayerData()
+        
+        listenStageRecords()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,7 +108,6 @@ class StageViewController: UIViewController {
         }
     }
     
-    // MARK: - Crack case flow
     func displayFirstStage() {
         
         currentStageIndex = 1
@@ -128,6 +132,7 @@ class StageViewController: UIViewController {
         hintLabel.isHidden = false
     }
     
+    // MARK: - Crack case flow
     @IBAction func sendAnswer(_ sender: Any) {
 
         guard let text = answerTF.text else { return }
@@ -136,11 +141,17 @@ class StageViewController: UIViewController {
                 
             if text == answers[currentStageIndex - 1] && text != answers.last {
                 
+                // 👀 Track stage record
+                self.saveToStageRecords()
+ 
                 popupCorrectAnsAlert()
                 answerTF.text = ""
                 hintBtn.isEnabled = true
                 
             } else if text == answers.last {
+                
+                // 👀 Track stage record
+                self.saveToStageRecords()
                 
                 popupFinishAlert()
                 
@@ -153,32 +164,7 @@ class StageViewController: UIViewController {
         }
     }
     
-    func updateCurrentStageIndex() {
-        
-        hideHint()
-        
-        currentStageIndex += 1
-        
-        delegate?.getStageIndex(with: currentStageIndex)
-        
-        if currentStageIndex <= stages.count {
-
-            stageTitle.text = "Stage " + String(currentStageIndex)
-            questionLabel.text = questions[currentStageIndex - 1]
-            instructionLabel.text = instructions[currentStageIndex - 1]
-            storyLabel.text = storys[currentStageIndex - 1]
-            
-        } else {
-            
-            sendBtn.isHidden = true
-            answerTF.isHidden = true
-        }
-    }
-    
     func popupCorrectAnsAlert() {
-        
-        // 👀 Track stage record
-        fetchPlayerData()
         
         let alert = UIAlertController(title: "答對了🥳", message: nil, preferredStyle: .alert)
 
@@ -200,9 +186,6 @@ class StageViewController: UIViewController {
     }
     
     func popupFinishAlert() {
-        
-        // 👀 Track stage record
-        fetchPlayerData()
         
         let alert = UIAlertController(title: "成功破案😎", message: nil, preferredStyle: .alert)
 
@@ -228,6 +211,28 @@ class StageViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    func updateCurrentStageIndex() {
+        
+        hideHint()
+        
+        currentStageIndex += 1
+        
+        delegate?.getStageIndex(with: currentStageIndex)
+        
+        if currentStageIndex <= stages.count {
+
+            stageTitle.text = "Stage " + String(currentStageIndex)
+            questionLabel.text = questions[currentStageIndex - 1]
+            instructionLabel.text = instructions[currentStageIndex - 1]
+            storyLabel.text = storys[currentStageIndex - 1]
+            
+        } else {
+            
+            sendBtn.isHidden = true
+            answerTF.isHidden = true
+        }
+    }
+    
     @IBAction func lookHint(_ sender: Any) {
         
         hintCount += 1
@@ -251,7 +256,7 @@ class StageViewController: UIViewController {
             case .success(let crackerPlayer):
                 
                 self.currentPlayer = crackerPlayer
-                self.saveToStageRecord()
+                
             
             case .failure(let error):
                 
@@ -260,7 +265,7 @@ class StageViewController: UIViewController {
         }
     }
     
-    func saveToStageRecord() {
+    func saveToStageRecords() {
         
         let stageRecords = firestoreManager.getCollection(name: .crackerGame).document("\(gameId.prefix(20))").collection("StageRecords").document()
         
@@ -272,8 +277,49 @@ class StageViewController: UIViewController {
         firestoreManager.save(to: stageRecords, data: self.stageRecord)
     }
     
-    // MARK: - Listen to stage status
-    // Query teamId
-
+    // MARK: - Listen realtime stage status
+    func listenStageRecords() {
+        
+        let stageRecords = firestoreManager.getCollection(name: .crackerGame).document(String(gameId.prefix(20))).collection("StageRecords")
+        
+        firestoreManager.listen(ref: stageRecords) { docs in
+            
+            self.firestoreManager.decode(CrackerStageRecord.self, documents: docs) { (result) in
+                
+                switch result {
+                
+                case .success(let stageRecords):
+                    
+                    self.currentStageRecords = stageRecords
+                    self.filterStageRecords()
+          
+                case .failure(let error):
+                    
+                    print("Failed to read cases: ", error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    func filterStageRecords() {
+        
+        for stageRecord in currentStageRecords {
+            
+            if stageRecord.teamId == currentPlayer.teamId
+                && (stageRecord.stagePassed + 1) > currentStageIndex {
+                
+                if (stageRecord.stagePassed) != stages.count {
+                    
+                    popupCorrectAnsAlert()
+                    answerTF.text = ""
+                    hintBtn.isEnabled = true
+                    
+                } else {
+                    
+                    popupFinishAlert()
+                }
+            }
+        }
+    }
 }
 

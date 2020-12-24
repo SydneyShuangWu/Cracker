@@ -67,6 +67,17 @@ class FirestoreManager {
         }
     }
     
+    // Listen subCollections
+    func listen(ref: CollectionReference, handler: @escaping ([QueryDocumentSnapshot]) -> Void) {
+        
+        ref.addSnapshotListener { data, _ in
+            
+            guard let docs = data?.documents else { return }
+            
+            handler(docs)
+        }
+    }
+    
     // Read documents
     func read<T: Codable>(collectionName: CollectionName, dataType: T.Type, handler: @escaping (Result<[T]>) -> Void) {
         
