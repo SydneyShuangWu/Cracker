@@ -22,16 +22,5 @@ struct CrackerGame: Codable {
     
     var teams: [String] = []
     
-    var startTime: FIRTimestamp = FIRTimestamp()
-    
-    var endTime: FIRTimestamp = FIRTimestamp()
-    
-    var finalScore: Int = 0
-    
-    var finalRank: Int = 0
-    
     var gameDidStart: Bool = false
 }
-
-// Transfer timestamp to date
-// var date = FIRTimestamp().dateValue()

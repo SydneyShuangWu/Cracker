@@ -28,27 +28,35 @@ class StageViewController: UIViewController {
     
     // Data holder from ModeVc
     var gameId = ""
+    var gameMode: Mode?
     
-    // Track Stage Progress
+    // Firestore
+    let firestoreManager = FirestoreManager.shared
+    var crackerCase = CrackerCase()
+    var stages = [CrackerStage]()
+    
+    // Track stage progress
     var currentStageIndex: Int!
     weak var delegate: PassStageIndexDelegate?
-    var hintCount = 0
+//    var hintCount = 0
     var storys: [String] = []
     var instructions: [String] = []
     var questions: [String] = []
     var answers: [String] = []
     var hints: [String] = []
     
-    // Track Stage Records
+    // Track stage records
     var stageRecord = CrackerStageRecord()
     var currentUid = Auth.auth().currentUser?.uid
     var currentPlayer = CrackerPlayer()
     var currentStageRecords = [CrackerStageRecord]()
     
-    // Firestore
-    let firestoreManager = FirestoreManager.shared
-    var crackerCase = CrackerCase()
-    var stages = [CrackerStage]()
+    // Track final record
+    var startTime: FIRTimestamp?
+    var endTime: FIRTimestamp?
+    var elapsedTimeString = ""
+    var stageRecords = [CrackerStageRecord]()
+    var winnerTeamId: String?
 
     override func viewDidLoad() {
         
@@ -153,6 +161,8 @@ class StageViewController: UIViewController {
                 // 👀 Track stage record
                 self.saveToStageRecords()
                 
+                endTime = FIRTimestamp()
+                
                 popupFinishAlert()
                 
             } else {
@@ -193,7 +203,10 @@ class StageViewController: UIViewController {
             
             let vc = myStoryboard.instantiateViewController(withIdentifier: "StageRecordVc") as! StageRecordViewController
             
-            vc.hintCount = self.hintCount
+            // Pass value
+            vc.gameMode = self.gameMode
+            self.calculateElapsedTime()
+            vc.elapsedTimeString = self.elapsedTimeString
             
             let nav = UINavigationController(rootViewController: vc)
             
@@ -202,7 +215,9 @@ class StageViewController: UIViewController {
             nav.hero.isEnabled = true
             
             nav.hero.modalAnimationType = .cover(direction: .up)
-
+            
+            self.saveFinalRecord()
+            
             self.present(nav, animated: true, completion: nil)
         }
 
@@ -235,7 +250,7 @@ class StageViewController: UIViewController {
     
     @IBAction func lookHint(_ sender: Any) {
         
-        hintCount += 1
+//        hintCount += 1
         
         showHint()
         
@@ -292,6 +307,8 @@ class StageViewController: UIViewController {
                     
                     self.currentStageRecords = stageRecords
                     self.filterStageRecords()
+                    
+                    self.queryWinnerTeam()
           
                 case .failure(let error):
                     
@@ -320,6 +337,91 @@ class StageViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func calculateElapsedTime() {
+        
+        // Convert time
+        let startTimeTS = startTime?.dateValue().timeIntervalSince1970
+        let endTimeTS = endTime?.dateValue().timeIntervalSince1970
+        let elapsedTimeInterval = (endTimeTS ?? 0) - (startTimeTS ?? 0)
+        
+        elapsedTimeString = String(format: "%02d:%02d:%02d", Int( elapsedTimeInterval / 3600), Int((elapsedTimeInterval / 60).truncatingRemainder(dividingBy: 60)), Int(elapsedTimeInterval.truncatingRemainder(dividingBy: 60)))
+    }
+    
+    // MARK: - Query winner
+    func checkBestStage(teamId: String) -> Int {
+        
+        for record in stageRecords where record.teamId == teamId {
+                
+            return record.stagePassed
+        }
+        
+        return -1
+    }
+    
+    func queryWinnerTeam() {
+
+        let document = firestoreManager.getCollection(name: .crackerGame).document("\(gameId.prefix(20))").collection("StageRecords")
+        
+        firestoreManager.read(collection: document, dataType: CrackerStageRecord.self) { (result) in
+            
+            switch result {
+            
+            case .success(let stageRecords):
+                
+                self.stageRecords = stageRecords.sorted(by: { (first, second) -> Bool in
+                    
+                    return first.triggerTime.dateValue() < second.triggerTime.dateValue()
+                })
+                
+//                let teamABestStage = self.checkBestStage(teamId: self.gameId + "A")
+//                let teamBBestStage = self.checkBestStage(teamId: self.gameId + "B")
+                
+                let last = self.stages.count
+                
+                for record in self.stageRecords where record.stagePassed == last {
+                    
+                    if self.winnerTeamId == nil {
+                        
+                        print("only one")
+                        
+                        self.winnerTeamId = record.teamId
+    
+                    }
+                }
+                
+                print("winner is ", self.winnerTeamId)
+                
+//                for record in self.stageRecords {
+//
+//                    if teamABestStage > teamBBestStage {
+//
+//                    } else if teamABestStage < teamBBestStage {
+//
+//                    } else {
+//
+//                    }
+//                }
+                
+            case .failure(let error):
+                
+                print("Failed to read cases: ", error.localizedDescription)
+            }
+        }
+    }
+    
+    func saveFinalRecord() {
+        
+        let document = firestoreManager.getCollection(name: .crackerGame).document("\(gameId.prefix(20))").collection("Players").document(currentUid!)
+        
+        currentPlayer.startTime = startTime ?? FIRTimestamp()
+        
+        currentPlayer.endTime = endTime ?? FIRTimestamp()
+        
+        currentPlayer.isWinner = winnerTeamId == currentPlayer.teamId ? true : false
+        
+        firestoreManager.save(to: document, data: currentPlayer)
     }
 }
 

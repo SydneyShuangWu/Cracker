@@ -28,6 +28,7 @@ class ModeViewController: UIViewController {
     
     // Firebase
     let firestoreManager = FirestoreManager.shared
+    var startTime: FIRTimestamp?
 
     override func viewDidLoad() {
         
@@ -95,8 +96,8 @@ class ModeViewController: UIViewController {
         // Change gameDidStart to true
         self.firestoreManager.update(collectionName: .crackerGame, documentId: "\(self.gameId.prefix(20))", fields: ["gameDidStart" : true])
         
-        // Post start time
-        self.firestoreManager.update(collectionName: .crackerGame, documentId: "\(self.gameId.prefix(20))", fields: ["startTime" : FIRTimestamp()])
+        // Track start time
+        startTime = FIRTimestamp()
         
         navigateToGamePage()
     }
@@ -116,6 +117,9 @@ class ModeViewController: UIViewController {
                 
                 stageVC.delegate = stageMapVC
                 stageVC.gameId = gameId
+                stageVC.startTime = startTime
+                stageVC.gameMode = gameMode
+                
                 stageMapVC.gameId = gameId
             }
             

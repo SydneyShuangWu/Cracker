@@ -20,4 +20,10 @@ struct CrackerPlayer: Codable {
     var longitude: Double? = 0
     
     var latitude: Double? = 0
+    
+    var startTime: FIRTimestamp = FIRTimestamp()
+    
+    var endTime: FIRTimestamp = FIRTimestamp()
+    
+    var isWinner: Bool = false
 }

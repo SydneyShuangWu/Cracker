@@ -1412,52 +1412,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XzJ-kH-dec" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="60" y="74" width="294" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="vYA-WV-tpV"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="Case Cracked"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提示次數" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKw-sM-whV">
-                                <rect key="frame" x="40" y="439.5" width="68" height="20.5"/>
-                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="排名百分比" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vf3-Yt-X8w">
-                                <rect key="frame" x="40" y="523.5" width="85" height="20.5"/>
-                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="破關時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jct-T4-6UO">
-                                <rect key="frame" x="40" y="404" width="68" height="20.5"/>
-                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="綜合成績" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Red-uU-RNL">
-                                <rect key="frame" x="40" y="488" width="68" height="20.5"/>
-                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYa-G7-boW">
-                                <rect key="frame" x="335.5" y="439.5" width="38.5" height="21"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                                <color key="textColor" systemColor="systemGrayColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qCM-yK-S7L">
-                                <rect key="frame" x="30" y="470" width="354" height="3"/>
-                                <color key="backgroundColor" name="CrackerOrange"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="3" id="dSO-jb-0QE"/>
-                                </constraints>
-                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="ccg-xW-guA">
                                 <rect key="frame" x="40" y="711" width="334" height="126"/>
                                 <subviews>
@@ -1488,21 +1442,39 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="be8-KN-IK2">
-                                <rect key="frame" x="325" y="488" width="49" height="21"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                                <color key="textColor" systemColor="systemGrayColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XzJ-kH-dec" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="60" y="371" width="294" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="vYA-WV-tpV"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="Case Cracked"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWo-Qr-6t5" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="60" y="371" width="294" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="g4S-JX-HSe"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="Lost Game"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MD8-4N-LQX">
+                                <rect key="frame" x="20" y="165" width="374" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMG-VR-fqg">
-                                <rect key="frame" x="343.5" y="523.5" width="30.5" height="21"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                                <color key="textColor" systemColor="systemGrayColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CASE CRACKED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJ5-ZS-6gl">
+                                <rect key="frame" x="20" y="94" width="374" height="41"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="35"/>
+                                <color key="textColor" name="CrackerOrange"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05: 53' 20''" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7P6-Zp-GGc">
-                                <rect key="frame" x="297.5" y="404" width="76.5" height="21"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nir-XH-hLi">
+                                <rect key="frame" x="185" y="223" width="44.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1510,46 +1482,37 @@
                         <viewLayoutGuide key="safeArea" id="ARu-0t-uIp"/>
                         <color key="backgroundColor" name="CrackerWhite"/>
                         <constraints>
-                            <constraint firstItem="Vf3-Yt-X8w" firstAttribute="top" secondItem="Red-uU-RNL" secondAttribute="bottom" constant="15" id="10w-LI-GoL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qCM-yK-S7L" secondAttribute="trailing" constant="10" id="23Z-rk-Kiz"/>
-                            <constraint firstItem="7P6-Zp-GGc" firstAttribute="centerY" secondItem="jct-T4-6UO" secondAttribute="centerY" id="2J4-c0-JRS"/>
                             <constraint firstItem="ARu-0t-uIp" firstAttribute="trailing" secondItem="XzJ-kH-dec" secondAttribute="trailing" constant="60" id="4jq-q4-HIO"/>
-                            <constraint firstItem="jct-T4-6UO" firstAttribute="leading" secondItem="ARu-0t-uIp" secondAttribute="leading" constant="40" id="9gx-dj-ktN"/>
-                            <constraint firstItem="jct-T4-6UO" firstAttribute="top" secondItem="XzJ-kH-dec" secondAttribute="bottom" constant="30" id="DRk-wX-Tvk"/>
-                            <constraint firstItem="Red-uU-RNL" firstAttribute="top" secondItem="qCM-yK-S7L" secondAttribute="bottom" constant="15" id="Dsd-JT-EUu"/>
-                            <constraint firstItem="Red-uU-RNL" firstAttribute="leading" secondItem="lKw-sM-whV" secondAttribute="leading" id="Ebb-Pm-3Id"/>
-                            <constraint firstItem="Vf3-Yt-X8w" firstAttribute="leading" secondItem="Red-uU-RNL" secondAttribute="leading" id="H1n-pn-X8V"/>
-                            <constraint firstItem="lKw-sM-whV" firstAttribute="leading" secondItem="jct-T4-6UO" secondAttribute="leading" id="JJD-xM-gfl"/>
-                            <constraint firstItem="be8-KN-IK2" firstAttribute="centerY" secondItem="Red-uU-RNL" secondAttribute="centerY" id="JMc-aV-jz0"/>
-                            <constraint firstItem="qCM-yK-S7L" firstAttribute="top" secondItem="lKw-sM-whV" secondAttribute="bottom" constant="10" id="Nwr-1C-h4H"/>
-                            <constraint firstItem="XzJ-kH-dec" firstAttribute="top" secondItem="ARu-0t-uIp" secondAttribute="top" constant="30" id="OMy-Rk-OWj"/>
+                            <constraint firstItem="ARu-0t-uIp" firstAttribute="trailing" secondItem="MD8-4N-LQX" secondAttribute="trailing" constant="20" id="9t0-BC-Grp"/>
+                            <constraint firstItem="aJ5-ZS-6gl" firstAttribute="top" secondItem="ARu-0t-uIp" secondAttribute="top" constant="50" id="A8U-id-3mQ"/>
+                            <constraint firstItem="Nir-XH-hLi" firstAttribute="centerX" secondItem="Wpo-EJ-duh" secondAttribute="centerX" id="BV4-gD-ekc"/>
+                            <constraint firstItem="MD8-4N-LQX" firstAttribute="top" secondItem="aJ5-ZS-6gl" secondAttribute="bottom" constant="30" id="FgG-cI-MOc"/>
+                            <constraint firstItem="WWo-Qr-6t5" firstAttribute="trailing" secondItem="XzJ-kH-dec" secondAttribute="trailing" id="KDw-Jp-qdL"/>
+                            <constraint firstItem="MD8-4N-LQX" firstAttribute="leading" secondItem="ARu-0t-uIp" secondAttribute="leading" constant="20" id="Nzq-Sd-Vgi"/>
                             <constraint firstItem="ARu-0t-uIp" firstAttribute="trailing" secondItem="ccg-xW-guA" secondAttribute="trailing" constant="40" id="ONN-ZK-egz"/>
-                            <constraint firstItem="fYa-G7-boW" firstAttribute="centerY" secondItem="lKw-sM-whV" secondAttribute="centerY" id="Qhh-8G-aDJ"/>
-                            <constraint firstItem="be8-KN-IK2" firstAttribute="trailing" secondItem="fYa-G7-boW" secondAttribute="trailing" id="TTv-9f-8qh"/>
+                            <constraint firstItem="ARu-0t-uIp" firstAttribute="trailing" secondItem="aJ5-ZS-6gl" secondAttribute="trailing" constant="20" id="Pzt-fk-AWa"/>
+                            <constraint firstItem="aJ5-ZS-6gl" firstAttribute="leading" secondItem="ARu-0t-uIp" secondAttribute="leading" constant="20" id="UyW-6b-yTl"/>
+                            <constraint firstItem="WWo-Qr-6t5" firstAttribute="leading" secondItem="XzJ-kH-dec" secondAttribute="leading" id="WJt-fW-B6I"/>
                             <constraint firstItem="ARu-0t-uIp" firstAttribute="bottom" secondItem="ccg-xW-guA" secondAttribute="bottom" constant="25" id="Xo1-Au-AQa"/>
-                            <constraint firstItem="rMG-VR-fqg" firstAttribute="centerY" secondItem="Vf3-Yt-X8w" secondAttribute="centerY" id="Zx0-8w-POd"/>
-                            <constraint firstItem="qCM-yK-S7L" firstAttribute="leading" secondItem="Wpo-EJ-duh" secondAttribute="leadingMargin" constant="10" id="f9z-PY-968"/>
-                            <constraint firstItem="fYa-G7-boW" firstAttribute="trailing" secondItem="7P6-Zp-GGc" secondAttribute="trailing" id="frB-oh-Uts"/>
-                            <constraint firstItem="ARu-0t-uIp" firstAttribute="trailing" secondItem="7P6-Zp-GGc" secondAttribute="trailing" constant="40" id="n6W-AR-cd5"/>
-                            <constraint firstItem="rMG-VR-fqg" firstAttribute="trailing" secondItem="be8-KN-IK2" secondAttribute="trailing" id="o46-qZ-hM7"/>
-                            <constraint firstItem="lKw-sM-whV" firstAttribute="top" secondItem="jct-T4-6UO" secondAttribute="bottom" constant="15" id="oo9-9C-ghx"/>
+                            <constraint firstItem="Nir-XH-hLi" firstAttribute="top" secondItem="MD8-4N-LQX" secondAttribute="bottom" constant="10" id="dN4-Md-cS8"/>
+                            <constraint firstItem="WWo-Qr-6t5" firstAttribute="bottom" secondItem="YcF-0C-9ik" secondAttribute="top" constant="-40" id="lkM-f6-tB1"/>
                             <constraint firstItem="ccg-xW-guA" firstAttribute="leading" secondItem="ARu-0t-uIp" secondAttribute="leading" constant="40" id="w6W-V3-5Ju"/>
                             <constraint firstItem="XzJ-kH-dec" firstAttribute="leading" secondItem="ARu-0t-uIp" secondAttribute="leading" constant="60" id="waZ-PJ-pOv"/>
+                            <constraint firstItem="XzJ-kH-dec" firstAttribute="bottom" secondItem="WWo-Qr-6t5" secondAttribute="bottom" id="ycc-5i-pbM"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backBtn" destination="4mc-C4-qdT" id="Vxo-tu-ako"/>
                         <outlet property="celebrateAnimation" destination="XzJ-kH-dec" id="vll-bZ-pzK"/>
-                        <outlet property="rankPercentage" destination="rMG-VR-fqg" id="4qf-nB-ldl"/>
+                        <outlet property="comparisonLabel" destination="Nir-XH-hLi" id="pfs-dY-CRb"/>
+                        <outlet property="lostAnimation" destination="WWo-Qr-6t5" id="WS0-Mu-owc"/>
                         <outlet property="rateBtn" destination="YcF-0C-9ik" id="R7L-by-6u1"/>
-                        <outlet property="totalHintCount" destination="fYa-G7-boW" id="EHu-Vb-lKC"/>
-                        <outlet property="totalScore" destination="be8-KN-IK2" id="107-1U-hyy"/>
-                        <outlet property="totalTime" destination="7P6-Zp-GGc" id="uH8-7Z-hQw"/>
+                        <outlet property="totalTime" destination="MD8-4N-LQX" id="Mai-VM-PSg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffw-Fm-cNp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1081.1594202898552" y="5046.4285714285716"/>
+            <point key="canvasLocation" x="-1081" y="5026"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="orU-0z-eeq">
@@ -2420,10 +2383,6 @@
             <point key="canvasLocation" x="5277" y="-44"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="XzJ-kH-dec"/>
-        <designable name="cFT-Th-y3f"/>
-    </designables>
     <resources>
         <image name="Bin" width="512" height="512"/>
         <image name="Close" width="512" height="512"/>
