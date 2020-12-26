@@ -105,12 +105,39 @@ class FirestoreManager {
         }
     }
     
-    // Read documents after filtering
+    // Read documents after filtering (==)
     func read<T: Codable>(collectionName: CollectionName, dataType: T.Type, filter: Filter, handler: @escaping (Result<[T]>) -> Void) {
         
         let collection = getCollection(name: collectionName)
         
         collection.whereField(filter.key, isEqualTo: filter.value).getDocuments { (querySnapshot, error) in
+            
+            guard let querySnapshot = querySnapshot else {
+                
+                handler(.failure(error!))
+                
+                return
+            }
+            
+            self.decode(dataType, documents: querySnapshot.documents) { (result) in
+                
+                switch result {
+                
+                case .success(let data): handler(.success(data))
+                    
+                case .failure(let error): handler(.failure(error))
+                
+                }
+            }
+        }
+    }
+    
+    // // Read documents after filtering (>=)
+    func read<T: Codable>(collectionName: CollectionName, dataType: T.Type, filterGreaterThan: Filter, handler: @escaping (Result<[T]>) -> Void) {
+        
+        let collection = getCollection(name: collectionName)
+        
+        collection.whereField(filterGreaterThan.key, isGreaterThanOrEqualTo: filterGreaterThan.value).getDocuments { (querySnapshot, error) in
             
             guard let querySnapshot = querySnapshot else {
                 

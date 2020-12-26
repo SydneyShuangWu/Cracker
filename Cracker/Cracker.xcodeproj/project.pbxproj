@@ -20,6 +20,11 @@
 		C124145425861C41006359AA /* StageRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C124145325861C41006359AA /* StageRecordViewController.swift */; };
 		C1266DEA258B6E5200DFD68B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1266DE9258B6E5200DFD68B /* StorageManager.swift */; };
 		C138AE17258284A90012D633 /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138AE16258284A90012D633 /* MarkerView.swift */; };
+		C1492A732597A0CF0017E29E /* StageBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1492A722597A0CF0017E29E /* StageBoardViewController.swift */; };
+		C1492A782597A6D90017E29E /* ChatsTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1492A772597A6D90017E29E /* ChatsTBCell.swift */; };
+		C1492A7F2597A7AC0017E29E /* TeammatesTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1492A7E2597A7AC0017E29E /* TeammatesTBCell.swift */; };
+		C1492A822597A7B90017E29E /* OpponentsTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1492A812597A7B90017E29E /* OpponentsTBCell.swift */; };
+		C1492A862597BE000017E29E /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1492A852597BE000017E29E /* PaddingLabel.swift */; };
 		C150A74D257A3E8F00C3402B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A74C257A3E8F00C3402B /* ProfileViewController.swift */; };
 		C150A756257CEEAE00C3402B /* CrackerUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A755257CEEAE00C3402B /* CrackerUser.swift */; };
 		C150A75B257D390000C3402B /* ProfileCaseTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150A75A257D390000C3402B /* ProfileCaseTBCell.swift */; };
@@ -44,7 +49,6 @@
 		C18BEEC6258890F20073CE62 /* RPGRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18BEEC5258890F20073CE62 /* RPGRecordViewController.swift */; };
 		C18BEEC9258894060073CE62 /* RPGChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18BEEC8258894060073CE62 /* RPGChatsViewController.swift */; };
 		C18BEECE258895270073CE62 /* RPGChatroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18BEECD258895270073CE62 /* RPGChatroomViewController.swift */; };
-		C18BEEDB2588A3A00073CE62 /* ChatsTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18BEEDA2588A3A00073CE62 /* ChatsTBCell.swift */; };
 		C18BEEDE2588C8910073CE62 /* GeofenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18BEEDD2588C8910073CE62 /* GeofenceManager.swift */; };
 		C19148C9257784E40098619B /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19148C8257784E40098619B /* UISearchBar+Extension.swift */; };
 		C19148CD2577902E0098619B /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19148CC2577902E0098619B /* SelectionView.swift */; };
@@ -101,6 +105,11 @@
 		C124145325861C41006359AA /* StageRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageRecordViewController.swift; sourceTree = "<group>"; };
 		C1266DE9258B6E5200DFD68B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		C138AE16258284A90012D633 /* MarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
+		C1492A722597A0CF0017E29E /* StageBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageBoardViewController.swift; sourceTree = "<group>"; };
+		C1492A772597A6D90017E29E /* ChatsTBCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsTBCell.swift; sourceTree = "<group>"; };
+		C1492A7E2597A7AC0017E29E /* TeammatesTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeammatesTBCell.swift; sourceTree = "<group>"; };
+		C1492A812597A7B90017E29E /* OpponentsTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentsTBCell.swift; sourceTree = "<group>"; };
+		C1492A852597BE000017E29E /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		C150A74C257A3E8F00C3402B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C150A755257CEEAE00C3402B /* CrackerUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerUser.swift; sourceTree = "<group>"; };
 		C150A75A257D390000C3402B /* ProfileCaseTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCaseTBCell.swift; sourceTree = "<group>"; };
@@ -125,7 +134,6 @@
 		C18BEEC5258890F20073CE62 /* RPGRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGRecordViewController.swift; sourceTree = "<group>"; };
 		C18BEEC8258894060073CE62 /* RPGChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGChatsViewController.swift; sourceTree = "<group>"; };
 		C18BEECD258895270073CE62 /* RPGChatroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGChatroomViewController.swift; sourceTree = "<group>"; };
-		C18BEEDA2588A3A00073CE62 /* ChatsTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTBCell.swift; sourceTree = "<group>"; };
 		C18BEEDD2588C8910073CE62 /* GeofenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceManager.swift; sourceTree = "<group>"; };
 		C19148C8257784E40098619B /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
 		C19148CC2577902E0098619B /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
@@ -209,6 +217,29 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		C1492A7A2597A7100017E29E /* Custom View */ = {
+			isa = PBXGroup;
+			children = (
+				C138AE16258284A90012D633 /* MarkerView.swift */,
+				C19148CC2577902E0098619B /* SelectionView.swift */,
+				C1DE4EE625794705005440F6 /* CardView.swift */,
+				C1492A852597BE000017E29E /* PaddingLabel.swift */,
+			);
+			path = "Custom View";
+			sourceTree = "<group>";
+		};
+		C1492A7B2597A7260017E29E /* TBCell */ = {
+			isa = PBXGroup;
+			children = (
+				C1DE4EE9257956D8005440F6 /* SearchCaseTBCell.swift */,
+				C150A75A257D390000C3402B /* ProfileCaseTBCell.swift */,
+				C1492A772597A6D90017E29E /* ChatsTBCell.swift */,
+				C1492A7E2597A7AC0017E29E /* TeammatesTBCell.swift */,
+				C1492A812597A7B90017E29E /* OpponentsTBCell.swift */,
+			);
+			path = TBCell;
+			sourceTree = "<group>";
+		};
 		C161C8A52579E688000697C1 /* Case Detail Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +256,7 @@
 			children = (
 				C163E45C2580751200D1077D /* StageViewController.swift */,
 				C1BD23D32580E39F00D7D090 /* StageMapViewController.swift */,
+				C1492A722597A0CF0017E29E /* StageBoardViewController.swift */,
 				C124145325861C41006359AA /* StageRecordViewController.swift */,
 			);
 			path = Stage;
@@ -263,6 +295,7 @@
 				C17D5FDC257F21FD00AE7EB9 /* StageViewCell.xib */,
 				C19D3B99257F8BB7002E2E7C /* RPGViewCell.swift */,
 				C19D3B9A257F8BB7002E2E7C /* RPGViewCell.xib */,
+				C10C0230258741D40013AACC /* DesignTestTBCell.swift */,
 			);
 			path = "Design Case Page";
 			sourceTree = "<group>";
@@ -357,11 +390,11 @@
 			isa = PBXGroup;
 			children = (
 				C1E25445258B12AB00973B4F /* Firebase Data */,
-				C1A7C02C2574986F0022674B /* Mock Data */,
 				C1DE4EE025793A1A005440F6 /* SelectionModel.swift */,
 				C1A7C029257497160022674B /* StageMarker.swift */,
 				C120B9D52582990400E99E9D /* RPGMarker.swift */,
 				C1A7C0372574DB410022674B /* Geotification.swift */,
+				C1A7C02C2574986F0022674B /* Mock Data */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -369,15 +402,10 @@
 		C1D421682570EE0A00FF0641 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C1492A7B2597A7260017E29E /* TBCell */,
+				C1492A7A2597A7100017E29E /* Custom View */,
 				C19D3BA0257FE176002E2E7C /* Design Case Page */,
 				C161C8A52579E688000697C1 /* Case Detail Page */,
-				C138AE16258284A90012D633 /* MarkerView.swift */,
-				C19148CC2577902E0098619B /* SelectionView.swift */,
-				C1DE4EE625794705005440F6 /* CardView.swift */,
-				C1DE4EE9257956D8005440F6 /* SearchCaseTBCell.swift */,
-				C150A75A257D390000C3402B /* ProfileCaseTBCell.swift */,
-				C10C0230258741D40013AACC /* DesignTestTBCell.swift */,
-				C18BEEDA2588A3A00073CE62 /* ChatsTBCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -565,14 +593,15 @@
 				C179548C257DE49500670EC2 /* SelectModeViewController.swift in Sources */,
 				C1DE4EE125793A1A005440F6 /* SelectionModel.swift in Sources */,
 				C11BBAB9258E0FB100C597C1 /* JoinTeamViewController.swift in Sources */,
-				C18BEEDB2588A3A00073CE62 /* ChatsTBCell.swift in Sources */,
 				C1C406CC258CA81800474178 /* CrackerPlayer.swift in Sources */,
 				C18BEEC6258890F20073CE62 /* RPGRecordViewController.swift in Sources */,
 				C1D4216D25710CBC00FF0641 /* UIView+Extension.swift in Sources */,
 				C1C406C5258CA59600474178 /* CrackerChatroom.swift in Sources */,
+				C1492A732597A0CF0017E29E /* StageBoardViewController.swift in Sources */,
 				C175D97A257640B2009167E5 /* SearchCaseViewController.swift in Sources */,
 				C1EFA7B425822EC0004C7D03 /* CLLocationCoordinate2D+Extension.swift in Sources */,
 				C150A75B257D390000C3402B /* ProfileCaseTBCell.swift in Sources */,
+				C1492A7F2597A7AC0017E29E /* TeammatesTBCell.swift in Sources */,
 				C150A74D257A3E8F00C3402B /* ProfileViewController.swift in Sources */,
 				C17D5FDD257F21FD00AE7EB9 /* StageViewCell.swift in Sources */,
 				C161C8A325796E73000697C1 /* CaseDetailViewController.swift in Sources */,
@@ -585,6 +614,7 @@
 				C1BD23D42580E39F00D7D090 /* StageMapViewController.swift in Sources */,
 				C19148CD2577902E0098619B /* SelectionView.swift in Sources */,
 				C1D421372570A82A00FF0641 /* LobbyViewController.swift in Sources */,
+				C1492A822597A7B90017E29E /* OpponentsTBCell.swift in Sources */,
 				C1D421622570D9C000FF0641 /* UIColor+Extension.swift in Sources */,
 				C19148C9257784E40098619B /* UISearchBar+Extension.swift in Sources */,
 				C120B9DA2583183700E99E9D /* UIImage+Extension.swift in Sources */,
@@ -603,6 +633,7 @@
 				C1A7C0472575EDDB0022674B /* SidebarViewController.swift in Sources */,
 				C161C8A82579E7BC000697C1 /* CaseImageTBCell.swift in Sources */,
 				C1DE4EE725794705005440F6 /* CardView.swift in Sources */,
+				C1492A782597A6D90017E29E /* ChatsTBCell.swift in Sources */,
 				C1795491257DEC1C00670EC2 /* ModeViewController.swift in Sources */,
 				C18BEEC9258894060073CE62 /* RPGChatsViewController.swift in Sources */,
 				C1654ACD2587D76E00A38383 /* CharacterInfoViewController.swift in Sources */,
@@ -612,6 +643,7 @@
 				C10C0231258741D40013AACC /* DesignTestTBCell.swift in Sources */,
 				C1C406BC258C8F6300474178 /* UIImageView+Extension.swift in Sources */,
 				C1A7C02A257497160022674B /* StageMarker.swift in Sources */,
+				C1492A862597BE000017E29E /* PaddingLabel.swift in Sources */,
 				C18BEECE258895270073CE62 /* RPGChatroomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

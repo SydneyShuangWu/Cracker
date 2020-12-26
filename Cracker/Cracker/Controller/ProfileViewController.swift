@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
     
     // MARK: - Modification Required
     // Data
-    private var filteredcases = [CrackerCase]()
+    private var filteredCases = [CrackerCase]()
     private var createdCases = [CrackerCase]()
     private var crackedCases = [CrackerCase]()
     private var treasuredCases = [CrackerCase]()
@@ -149,13 +149,13 @@ class ProfileViewController: UIViewController {
     // MARK: - Fetch Created Cases
     func fetchCreatedCases() {
         
-        firestoreManager.read(collectionName: .crackerCase, dataType: CrackerCase.self, filter: .init(key: "creator", value: String(currentUid!))) { (result) in
+        firestoreManager.read(collectionName: .crackerCase, dataType: CrackerCase.self, filter: .init(key: "creator", value: currentUid!)) { (result) in
             
             switch result {
             
             case .success(let crackerCases):
                 
-                self.filteredcases = crackerCases
+                self.filteredCases = crackerCases
                 self.searchCaseTableView.reloadData()
                 self.profileSource[0].data = crackerCases
                 
@@ -366,17 +366,17 @@ extension ProfileViewController: SelectionViewDelegate {
         switch index {
         
         case 0:
-            filteredcases = profileSource[index].data
+            filteredCases = profileSource[index].data
             searchCaseTableView.reloadData()
             isBinBtnEnabled = false
             
         case 1:
-            filteredcases = profileSource[index].data
+            filteredCases = profileSource[index].data
             searchCaseTableView.reloadData()
             isBinBtnEnabled = false
             
         case 2:
-            filteredcases = profileSource[index].data
+            filteredCases = profileSource[index].data
             searchCaseTableView.reloadData()
             isBinBtnEnabled = true
             
@@ -391,14 +391,14 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return filteredcases.count
+        return filteredCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCaseTBCell") as! ProfileCaseTBCell
         
-        cell.setupCellWith(cases: filteredcases[indexPath.row])
+        cell.setupCellWith(cases: filteredCases[indexPath.row])
         
         if isBinBtnEnabled == true {
             cell.enableBinBtn()

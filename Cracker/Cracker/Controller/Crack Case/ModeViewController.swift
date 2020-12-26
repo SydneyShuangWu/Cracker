@@ -132,13 +132,16 @@ class ModeViewController: UIViewController {
             // Set up delegate to pass stage index from stageVc to stageMapVc
             if let stageVC = (vc as? UITabBarController)?.viewControllers?.first as?
                 StageViewController,
-               let stageMapVC = (vc as? UITabBarController)?.viewControllers?[1] as? StageMapViewController {
+               let stageMapVC = (vc as? UITabBarController)?.viewControllers?[1] as? StageMapViewController,
+               let stageBoardVC = (vc as? UITabBarController)?.viewControllers?[2] as? StageBoardViewController {
                 
                 stageVC.delegate = stageMapVC
                 stageVC.gameId = gameId
                 stageVC.gameMode = gameMode
                 
                 stageMapVC.gameId = gameId
+                
+                stageBoardVC.gameId = gameId
             }
             
         } else {

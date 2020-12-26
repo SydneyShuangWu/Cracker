@@ -29,6 +29,7 @@ class SearchCaseViewController: UIViewController {
     let firestoreManager = FirestoreManager.shared
     let authManager = FirebaseAuthManager()
     private var classicCases = [CrackerCase]()
+    private var popularCases = [CrackerCase]()
     private var filteredCases = [CrackerCase]()
     var selectedCase =  CrackerCase()
     var caseCategory = ""
@@ -40,12 +41,13 @@ class SearchCaseViewController: UIViewController {
         // Listen for realtime cases
         firestoreManager.listen(collectionName: .crackerCase) {
             
+            self.fetchPopularCases()
             self.fetchAllCases()
             self.searchCaseTableView.reloadData()
         }
         
         searchSource = [
-            SelectionModel(title: "Popular Cases", data: []),
+            SelectionModel(title: "Popular Cases", data: popularCases),
             SelectionModel(title: "Classic Cases", data: classicCases)
         ]
 
@@ -169,7 +171,27 @@ class SearchCaseViewController: UIViewController {
             
             case .success(let crackerCases):
                 
-                self.classicCases = crackerCases
+                self.searchSource[1].data = crackerCases
+      
+            case .failure(let error):
+                
+                print("Failed to read cases: ", error.localizedDescription)
+            }
+        }
+    }
+    
+    // MARK: - Fetch popular cases
+    func fetchPopularCases() {
+                
+        firestoreManager.read(collectionName: .crackerCase, dataType: CrackerCase.self, filterGreaterThan: .init(key: "score", value: 4)) { (result) in
+            
+            switch result {
+            
+            case .success(let crackerCases):
+                
+                self.filteredCases = crackerCases
+                self.searchCaseTableView.reloadData()
+                self.searchSource[0].data = crackerCases
       
             case .failure(let error):
                 
@@ -213,11 +235,15 @@ extension SearchCaseViewController: NavigateToGameDelegate {
             // Set up delegate to pass stage index from stageVc to stageMapVc
             if let stageVC = (vc as? UITabBarController)?.viewControllers?.first as?
                 StageViewController,
-               let stageMapVC = (vc as? UITabBarController)?.viewControllers?[1] as? StageMapViewController {
+               let stageMapVC = (vc as? UITabBarController)?.viewControllers?[1] as? StageMapViewController,
+               let stageBoardVC = (vc as? UITabBarController)?.viewControllers?[2] as? StageBoardViewController {
                 
                 stageVC.gameId = gameId
                 stageMapVC.gameId = gameId
+                
                 stageVC.delegate = stageMapVC
+                
+                stageBoardVC.gameId = gameId
             }
             
         } else {
@@ -264,14 +290,12 @@ extension SearchCaseViewController: SelectionViewDelegate {
         
         switch index {
         
-        // MARK: Modification Required
-        
         case 0:
-            filteredCases = []
+            filteredCases = searchSource[0].data
             searchCaseTableView.reloadData()
             
         case 1:
-            filteredCases = classicCases
+            filteredCases = searchSource[1].data
             searchCaseTableView.reloadData()
             
         default:
