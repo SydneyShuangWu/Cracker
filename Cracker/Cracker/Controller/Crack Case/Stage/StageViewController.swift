@@ -54,7 +54,6 @@ class StageViewController: UIViewController {
     // Track final record
     var startTime: FIRTimestamp?
     var endTime: FIRTimestamp?
-    var elapsedTimeString = ""
     var stageRecords = [CrackerStageRecord]()
     var winnerTeamId: String?
 
@@ -64,6 +63,8 @@ class StageViewController: UIViewController {
         
         setupUI()
         
+        fetchStartTime()
+        
         getStageData()
         
         fetchPlayerData()
@@ -71,6 +72,7 @@ class StageViewController: UIViewController {
         listenStageRecords()
     }
     
+    // MARK: - UI
     override func viewWillAppear(_ animated: Bool) {
 
         super.viewWillAppear(animated)
@@ -82,6 +84,30 @@ class StageViewController: UIViewController {
         
         sendBtn.setupCornerRadius()
         answerTF.setupCornerRadius()
+    }
+    
+    func displayFirstStage() {
+        
+        currentStageIndex = 1
+        
+        delegate?.getStageIndex(with: currentStageIndex)
+        
+        stageTitle.text = "Stage" + String(currentStageIndex)
+        questionLabel.text = questions[currentStageIndex - 1]
+        instructionLabel.text = instructions[currentStageIndex - 1]
+        storyLabel.text = storys[currentStageIndex - 1]
+    }
+    
+    func hideHint() {
+        
+        stageHint.isHidden = true
+        hintLabel.isHidden = true
+    }
+    
+    func showHint() {
+        
+        stageHint.isHidden = false
+        hintLabel.isHidden = false
     }
     
     // MARK: - Fetch stage data
@@ -116,30 +142,6 @@ class StageViewController: UIViewController {
         }
     }
     
-    func displayFirstStage() {
-        
-        currentStageIndex = 1
-        
-        delegate?.getStageIndex(with: currentStageIndex)
-        
-        stageTitle.text = "Stage" + String(currentStageIndex)
-        questionLabel.text = questions[currentStageIndex - 1]
-        instructionLabel.text = instructions[currentStageIndex - 1]
-        storyLabel.text = storys[currentStageIndex - 1]
-    }
-    
-    func hideHint() {
-        
-        stageHint.isHidden = true
-        hintLabel.isHidden = true
-    }
-    
-    func showHint() {
-        
-        stageHint.isHidden = false
-        hintLabel.isHidden = false
-    }
-    
     // MARK: - Crack case flow
     @IBAction func sendAnswer(_ sender: Any) {
 
@@ -158,10 +160,10 @@ class StageViewController: UIViewController {
                 
             } else if text == answers.last {
                 
+                endTime = FIRTimestamp()
+                
                 // 👀 Track stage record
                 self.saveToStageRecords()
-                
-                endTime = FIRTimestamp()
                 
                 popupFinishAlert()
                 
@@ -205,9 +207,9 @@ class StageViewController: UIViewController {
             
             // Pass value
             vc.gameMode = self.gameMode
-            self.calculateElapsedTime()
-            vc.elapsedTimeString = self.elapsedTimeString
+            vc.gameId = self.gameId
             
+            // Navigate to final record page
             let nav = UINavigationController(rootViewController: vc)
             
             nav.modalPresentationStyle = .fullScreen
@@ -215,7 +217,7 @@ class StageViewController: UIViewController {
             nav.hero.isEnabled = true
             
             nav.hero.modalAnimationType = .cover(direction: .up)
-            
+
             self.saveFinalRecord()
             
             self.present(nav, animated: true, completion: nil)
@@ -259,7 +261,7 @@ class StageViewController: UIViewController {
         hintBtn.isEnabled = false
     }
     
-    // MARK: - Track stage record
+    // MARK: - Fetch player data
     func fetchPlayerData() {
         
         let document = firestoreManager.getCollection(name: .crackerGame).document("\(gameId.prefix(20))").collection("Players").document("\(currentUid!)")
@@ -271,7 +273,6 @@ class StageViewController: UIViewController {
             case .success(let crackerPlayer):
                 
                 self.currentPlayer = crackerPlayer
-                
             
             case .failure(let error):
                 
@@ -280,6 +281,7 @@ class StageViewController: UIViewController {
         }
     }
     
+    // MARK: - Save stage records
     func saveToStageRecords() {
         
         let stageRecords = firestoreManager.getCollection(name: .crackerGame).document("\(gameId.prefix(20))").collection("StageRecords").document()
@@ -292,7 +294,7 @@ class StageViewController: UIViewController {
         firestoreManager.save(to: stageRecords, data: self.stageRecord)
     }
     
-    // MARK: - Listen realtime stage status
+    // MARK: - Listen realtime stage record
     func listenStageRecords() {
         
         let stageRecords = firestoreManager.getCollection(name: .crackerGame).document(String(gameId.prefix(20))).collection("StageRecords")
@@ -333,33 +335,53 @@ class StageViewController: UIViewController {
                     
                 } else {
                     
+                    if endTime == nil {
+                        endTime = FIRTimestamp()
+                    }
+                    
                     popupFinishAlert()
                 }
             }
         }
     }
     
-    func calculateElapsedTime() {
+    // MARK: - Fetch start time
+    func fetchStartTime() {
+        
+        let document = firestoreManager.getCollection(name: .crackerGame).document("\(gameId.prefix(20))")
+        
+        firestoreManager.readSingle(document, dataType: CrackerGame.self) { (result) in
+            
+            switch result {
+            
+            case .success(let crackerGame):
+                
+                self.startTime = crackerGame.startTime
+                
+            case .failure(let error):
+                
+                print("Failed to read current user: ", error.localizedDescription)
+            }
+        }
+    }
+    
+    func calculatedElapsedTime() -> String {
+        
+        var elapsedTimeString = ""
         
         // Convert time
         let startTimeTS = startTime?.dateValue().timeIntervalSince1970
         let endTimeTS = endTime?.dateValue().timeIntervalSince1970
+        
+        // Calculate
         let elapsedTimeInterval = (endTimeTS ?? 0) - (startTimeTS ?? 0)
         
-        elapsedTimeString = String(format: "%02d:%02d:%02d", Int( elapsedTimeInterval / 3600), Int((elapsedTimeInterval / 60).truncatingRemainder(dividingBy: 60)), Int(elapsedTimeInterval.truncatingRemainder(dividingBy: 60)))
+        elapsedTimeString = String(format: "%02d:%02d:%02d", Int(elapsedTimeInterval / 3600), Int((elapsedTimeInterval / 60).truncatingRemainder(dividingBy: 60)), Int(elapsedTimeInterval.truncatingRemainder(dividingBy: 60)))
+        
+        return elapsedTimeString
     }
     
-    // MARK: - Query winner
-    func checkBestStage(teamId: String) -> Int {
-        
-        for record in stageRecords where record.teamId == teamId {
-                
-            return record.stagePassed
-        }
-        
-        return -1
-    }
-    
+    // MARK: - Query winner team
     func queryWinnerTeam() {
 
         let document = firestoreManager.getCollection(name: .crackerGame).document("\(gameId.prefix(20))").collection("StageRecords")
@@ -375,35 +397,14 @@ class StageViewController: UIViewController {
                     return first.triggerTime.dateValue() < second.triggerTime.dateValue()
                 })
                 
-//                let teamABestStage = self.checkBestStage(teamId: self.gameId + "A")
-//                let teamBBestStage = self.checkBestStage(teamId: self.gameId + "B")
-                
                 let last = self.stages.count
                 
-                for record in self.stageRecords where record.stagePassed == last {
+                for record in self.stageRecords where record.stagePassed == last
+                    && self.winnerTeamId == nil {
                     
-                    if self.winnerTeamId == nil {
-                        
-                        print("only one")
-                        
-                        self.winnerTeamId = record.teamId
-    
-                    }
+                    self.winnerTeamId = record.teamId
                 }
-                
-                print("winner is ", self.winnerTeamId)
-                
-//                for record in self.stageRecords {
-//
-//                    if teamABestStage > teamBBestStage {
-//
-//                    } else if teamABestStage < teamBBestStage {
-//
-//                    } else {
-//
-//                    }
-//                }
-                
+            
             case .failure(let error):
                 
                 print("Failed to read cases: ", error.localizedDescription)
@@ -411,11 +412,12 @@ class StageViewController: UIViewController {
         }
     }
     
+    // MARK: - Save final record
     func saveFinalRecord() {
         
         let document = firestoreManager.getCollection(name: .crackerGame).document("\(gameId.prefix(20))").collection("Players").document(currentUid!)
         
-        currentPlayer.startTime = startTime ?? FIRTimestamp()
+        currentPlayer.elapsedTimeString = calculatedElapsedTime()
         
         currentPlayer.endTime = endTime ?? FIRTimestamp()
         
@@ -424,4 +426,3 @@ class StageViewController: UIViewController {
         firestoreManager.save(to: document, data: currentPlayer)
     }
 }
-

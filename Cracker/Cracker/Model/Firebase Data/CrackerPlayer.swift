@@ -21,9 +21,9 @@ struct CrackerPlayer: Codable {
     
     var latitude: Double? = 0
     
-    var startTime: FIRTimestamp = FIRTimestamp()
-    
     var endTime: FIRTimestamp = FIRTimestamp()
+    
+    var elapsedTimeString: String = ""
     
     var isWinner: Bool = false
 }

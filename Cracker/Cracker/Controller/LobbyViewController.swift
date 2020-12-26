@@ -28,8 +28,6 @@ class LobbyViewController: UIViewController {
 //        authManager.logOut()
         
         setupButton()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(navigateToSelectCategoryVc), name: .loginDidSuccess, object: nil)
     }
     
     func playAnimation() {
@@ -66,7 +64,21 @@ class LobbyViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    @IBAction func navigateToSearchCaseVc(_ sender: Any) {
+    @IBAction func crackBtnDidTap(_ sender: Any) {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(navigateToSearchCaseVc), name: .loginDidSuccess, object: nil)
+        
+        if Auth.auth().currentUser?.uid != nil {
+            
+            navigateToSearchCaseVc()
+            
+        } else {
+            
+            authManager.performSignin(self)
+        }
+    }
+    
+    @objc func navigateToSearchCaseVc() {
         
         let vc = myStoryboard.instantiateViewController(withIdentifier: "SearchCaseVc")
         
@@ -82,6 +94,8 @@ class LobbyViewController: UIViewController {
     }
 
     @IBAction func createBtnDidTap(_ sender: Any) {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(navigateToSelectCategoryVc), name: .loginDidSuccess, object: nil)
         
         if Auth.auth().currentUser?.uid != nil {
             

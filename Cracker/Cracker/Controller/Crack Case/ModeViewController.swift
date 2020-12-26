@@ -11,11 +11,11 @@ class ModeViewController: UIViewController {
     
     // UI
     @IBOutlet weak var challengeTitle: UILabel!
-    @IBOutlet weak var challengeId: UILabel!
+    @IBOutlet weak var challengeQrCode: UIImageView!
     @IBOutlet weak var battleTopTitle: UILabel!
-    @IBOutlet weak var battleTopId: UILabel!
+    @IBOutlet weak var battleTopQrCode: UIImageView!
     @IBOutlet weak var battleBottomTitle: UILabel!
-    @IBOutlet weak var battleBottomId: UILabel!
+    @IBOutlet weak var battleBottomQrCode: UIImageView!
     @IBOutlet weak var startBtn: UIButton!
     var challengePageIsShown = true
     var battlePageIsShown = false
@@ -59,36 +59,55 @@ class ModeViewController: UIViewController {
         setupBackButton()
     }
     
+    func generateQRCode(from string: String) -> UIImage? {
+        
+        let data = string.data(using: String.Encoding.ascii)
+
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            
+            filter.setValue(data, forKey: "inputMessage")
+            
+            let transform = CGAffineTransform(scaleX: 10, y: 10)
+
+            if let output = filter.outputImage?.transformed(by: transform) {
+                return UIImage(ciImage: output)
+            }
+        }
+
+        return nil
+    }
+    
     func showChallengePage() {
         
         challengeTitle.isHidden = false
-        challengeId.isHidden = false
-        challengeId.text = gameId + "A"
+        challengeQrCode.isHidden = false
+        
+        challengeQrCode.image = generateQRCode(from: gameId + "A")
     }
     
     func hideChallengePage() {
         
         challengeTitle.isHidden = true
-        challengeId.isHidden = true
+        challengeQrCode.isHidden = true
     }
     
     func showBattlePage() {
         
         battleTopTitle.isHidden = false
-        battleTopId.isHidden = false
-        battleTopId.text = teams[0]
+        battleTopQrCode.isHidden = false
+        battleTopQrCode.image = generateQRCode(from: teams[0])
         
         battleBottomTitle.isHidden = false
-        battleBottomId.isHidden = false
-        battleBottomId.text = teams[1]
+        battleBottomQrCode.isHidden = false
+        battleBottomQrCode.image = generateQRCode(from: teams[1])
     }
     
     func hideBattlePage() {
         
         battleTopTitle.isHidden = true
-        battleTopId.isHidden = true
+        battleTopQrCode.isHidden = true
         battleBottomTitle.isHidden = true
-        battleBottomId.isHidden = true
+        battleBottomQrCode.isHidden = true
     }
     
     @IBAction func startCracking() {
@@ -96,8 +115,8 @@ class ModeViewController: UIViewController {
         // Change gameDidStart to true
         self.firestoreManager.update(collectionName: .crackerGame, documentId: "\(self.gameId.prefix(20))", fields: ["gameDidStart" : true])
         
-        // Track start time
-        startTime = FIRTimestamp()
+        // Post start time
+        self.firestoreManager.update(collectionName: .crackerGame, documentId: "\(self.gameId.prefix(20))", fields: ["startTime" : FIRTimestamp()])
         
         navigateToGamePage()
     }
@@ -117,7 +136,6 @@ class ModeViewController: UIViewController {
                 
                 stageVC.delegate = stageMapVC
                 stageVC.gameId = gameId
-                stageVC.startTime = startTime
                 stageVC.gameMode = gameMode
                 
                 stageMapVC.gameId = gameId

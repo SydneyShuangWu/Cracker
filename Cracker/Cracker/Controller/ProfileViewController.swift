@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 
 class ProfileViewController: UIViewController {
     
@@ -35,11 +36,11 @@ class ProfileViewController: UIViewController {
     private var treasuredCases = [CrackerCase]()
     var isBinBtnEnabled = false
     
-    // Firebase
+    // Firestore
     let authManager = FirebaseAuthManager()
     let firestoreManager = FirestoreManager.shared
+    var currentUid = Auth.auth().currentUser?.uid
     var currentUser = CrackerUser(id: "") {
-        
         didSet {
             
             if currentUser.image.isEmpty {
@@ -56,7 +57,13 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    var currentUid = Auth.auth().currentUser?.uid
+    // Fetch cracked game record
+    var crackedGames: [CrackerGame] = [] {
+        didSet {
+            
+            fetchCrackedCases()
+        }
+    }
 
     override func viewDidLoad() {
         
@@ -87,7 +94,10 @@ class ProfileViewController: UIViewController {
             case .success(let crackerUser):
                 
                 self.currentUser = crackerUser
+                
                 self.fetchCreatedCases()
+                
+                self.fetchCrackedGames()
                 
             case .failure(let error):
                 
@@ -139,7 +149,6 @@ class ProfileViewController: UIViewController {
     // MARK: - Fetch Created Cases
     func fetchCreatedCases() {
         
-        // Fetch cases via user id
         firestoreManager.read(collectionName: .crackerCase, dataType: CrackerCase.self, filter: .init(key: "creator", value: String(currentUid!))) { (result) in
             
             switch result {
@@ -154,6 +163,77 @@ class ProfileViewController: UIViewController {
                 
                 print("Failed to read created cases: ", error.localizedDescription)
             }
+        }
+    }
+    
+    // MARK: - Fetch Cracked Games
+    func filterPlayer(crackerGames: [CrackerGame]) {
+        
+        var crackedGames: [CrackerGame] = []
+        
+        for crackerGame in crackerGames {
+            
+            let collection = firestoreManager.getCollection(name: .crackerGame).document(crackerGame.id).collection("Players")
+            
+            collection.getDocuments { (querySnapshot, error) in
+                
+                guard let docs = querySnapshot?.documents else { return }
+                
+                for doc in docs where doc.documentID == self.currentUid {
+                    
+                    crackedGames.append(crackerGame)
+                }
+                
+                if let err = error {
+                    
+                    print(err)
+                }
+            }
+        }
+        
+        self.crackedGames = crackedGames
+    }
+    
+    func fetchCrackedGames() {
+        
+        firestoreManager.read(collectionName: .crackerGame, dataType: CrackerGame.self) { (result) in
+            
+            switch result {
+            
+            case .success(let crackerGames):
+                
+                self.filterPlayer(crackerGames: crackerGames)
+
+            case .failure(let error):
+                
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    // MARK: - Fetch Cracked Cases
+    func fetchCrackedCases() {
+        
+        for game in crackedGames {
+            
+            let caseCollection = firestoreManager.getCollection(name: .crackerGame).document(game.id).collection("CrackerCase")
+            
+            firestoreManager.read(collection: caseCollection, dataType: CrackerCase.self) { (result) in
+                
+                switch result {
+                
+                case .success(let crackerCases):
+                    
+                    self.profileSource[1].data = crackerCases
+                    
+                case .failure(let error):
+                    
+                    print("Failed to read cases: ", error.localizedDescription)
+                }
+            }
+//            let playerCo = firestoreManager.getCollection(name: .crackerGame).document(game.id).collection("Players").document(currentUid!)
+//
+//            firestoreManager.readSingle(playerCo, dataType: <#T##(Decodable & Encodable).Protocol#>, handler: <#T##(Result<Decodable & Encodable>) -> Void#>)
         }
     }
     

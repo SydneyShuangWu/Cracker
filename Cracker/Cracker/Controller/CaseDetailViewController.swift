@@ -29,8 +29,6 @@ class CaseDetailViewController: UIViewController {
         
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(navigateToSelectModeVc), name: .loginDidSuccess, object: nil)
-        
         setupTableView()
         
         crackCaseBtn.setupCornerRadius()
@@ -49,16 +47,9 @@ class CaseDetailViewController: UIViewController {
     }
     
     @IBAction func crackThisCase(_ sender: Any) {
-        
-        if Auth.auth().currentUser?.uid != nil {
-            
-            createNewGame()
-            navigateToSelectModeVc()
-            
-        } else {
-            
-            authManager.performSignin(self)
-        }
+    
+        createNewGame()
+        navigateToSelectModeVc()
     }
     
     @objc func navigateToSelectModeVc() {

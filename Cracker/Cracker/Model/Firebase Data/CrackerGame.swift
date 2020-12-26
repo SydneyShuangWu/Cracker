@@ -23,4 +23,6 @@ struct CrackerGame: Codable {
     var teams: [String] = []
     
     var gameDidStart: Bool = false
+    
+    var startTime: FIRTimestamp = FIRTimestamp()
 }

@@ -48,10 +48,8 @@ class SearchCaseViewController: UIViewController {
             SelectionModel(title: "Popular Cases", data: []),
             SelectionModel(title: "Classic Cases", data: classicCases)
         ]
-        
+
         setupUI()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(showJoinTeamVc), name: .loginDidSuccess, object: nil)
     }
     
     // MARK: - UI
@@ -120,22 +118,15 @@ class SearchCaseViewController: UIViewController {
     }
     
     @objc func joinTeamDidTap(sender: UIButton) {
-        
-        if Auth.auth().currentUser?.uid != nil {
             
-            showJoinTeamVc()
-
-        } else {
-            
-            authManager.performSignin(self)
-        }
+        showJoinTeamVc()
     }
     
     @objc func showJoinTeamVc() {
         
         UIView.animate(withDuration: 0.5) {
             
-            self.joinTeamView.frame = CGRect(x: (UIScreen.main.bounds.width  - self.joinTeamView.bounds.width) / 2, y: (UIScreen.main.bounds.height  - self.joinTeamView.bounds.height) / 2, width: self.joinTeamView.bounds.width, height: self.joinTeamView.bounds.height)
+            self.joinTeamView.frame = CGRect(x: (UIScreen.main.bounds.width  - self.joinTeamView.bounds.width) / 2, y: self.joinTeamView.frame.minY, width: self.joinTeamView.bounds.width, height: self.joinTeamView.bounds.height)
         }
     }
     
