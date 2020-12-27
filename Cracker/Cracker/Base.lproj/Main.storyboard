@@ -50,16 +50,13 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="cFT-Th-y3f" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="0.0" y="-20" width="414" height="520"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="520" id="SiW-Fd-PdR"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="-20" width="414" height="603"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="Launch Cracker"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ii2-Us-qjG">
-                                <rect key="frame" x="20" y="60" width="50" height="50"/>
+                                <rect key="frame" x="20" y="40" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="hPL-G5-cai"/>
                                     <constraint firstAttribute="width" secondItem="ii2-Us-qjG" secondAttribute="height" multiplier="1:1" id="zb5-nP-uBh"/>
@@ -70,7 +67,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CRACKER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccN-i7-VAq">
-                                <rect key="frame" x="62.5" y="150" width="289" height="64"/>
+                                <rect key="frame" x="62.5" y="115" width="289" height="64"/>
                                 <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="55"/>
                                 <color key="textColor" name="CrackerOrange"/>
                                 <nil key="highlightedColor"/>
@@ -81,14 +78,15 @@
                         <constraints>
                             <constraint firstItem="Ba3-ao-7yb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="55" id="161-yN-ScB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cFT-Th-y3f" secondAttribute="trailing" id="3U8-uN-zwD"/>
-                            <constraint firstItem="ii2-Us-qjG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="60" id="523-7M-hZ5"/>
+                            <constraint firstItem="ii2-Us-qjG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="40" id="523-7M-hZ5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ba3-ao-7yb" secondAttribute="bottom" constant="50" id="Adi-VG-elN"/>
                             <constraint firstAttribute="leading" secondItem="ii2-Us-qjG" secondAttribute="leading" constant="-20" id="F7x-hZ-hTY"/>
-                            <constraint firstItem="ccN-i7-VAq" firstAttribute="top" secondItem="ii2-Us-qjG" secondAttribute="bottom" constant="40" id="I6g-Rr-lly"/>
+                            <constraint firstItem="ccN-i7-VAq" firstAttribute="top" secondItem="ii2-Us-qjG" secondAttribute="bottom" constant="25" id="I6g-Rr-lly"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ba3-ao-7yb" secondAttribute="trailing" constant="55" id="Mu5-TK-uk0"/>
                             <constraint firstItem="cFT-Th-y3f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VPT-1e-51m"/>
                             <constraint firstItem="cFT-Th-y3f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-20" id="Zk3-8a-zzb"/>
                             <constraint firstItem="ccN-i7-VAq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hly-5Z-0FL"/>
+                            <constraint firstItem="cFT-Th-y3f" firstAttribute="bottom" secondItem="Ba3-ao-7yb" secondAttribute="top" constant="-40" id="qCx-eJ-KWZ"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -1461,8 +1459,8 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MD8-4N-LQX">
-                                <rect key="frame" x="20" y="160" width="374" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <rect key="frame" x="20" y="155" width="374" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1480,7 +1478,7 @@
                             <constraint firstItem="ARu-0t-uIp" firstAttribute="trailing" secondItem="MD8-4N-LQX" secondAttribute="trailing" constant="20" id="9t0-BC-Grp"/>
                             <constraint firstItem="aJ5-ZS-6gl" firstAttribute="top" secondItem="ARu-0t-uIp" secondAttribute="top" constant="50" id="A8U-id-3mQ"/>
                             <constraint firstItem="ARu-0t-uIp" firstAttribute="trailing" secondItem="XzJ-kH-dec" secondAttribute="trailing" constant="40" id="Bji-Ti-FQS"/>
-                            <constraint firstItem="MD8-4N-LQX" firstAttribute="top" secondItem="aJ5-ZS-6gl" secondAttribute="bottom" constant="25" id="FgG-cI-MOc"/>
+                            <constraint firstItem="MD8-4N-LQX" firstAttribute="top" secondItem="aJ5-ZS-6gl" secondAttribute="bottom" constant="20" id="FgG-cI-MOc"/>
                             <constraint firstItem="MD8-4N-LQX" firstAttribute="leading" secondItem="ARu-0t-uIp" secondAttribute="leading" constant="20" id="Nzq-Sd-Vgi"/>
                             <constraint firstItem="ARu-0t-uIp" firstAttribute="trailing" secondItem="ccg-xW-guA" secondAttribute="trailing" constant="40" id="ONN-ZK-egz"/>
                             <constraint firstItem="ARu-0t-uIp" firstAttribute="trailing" secondItem="aJ5-ZS-6gl" secondAttribute="trailing" constant="20" id="Pzt-fk-AWa"/>
@@ -1514,28 +1512,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O1y-wb-FCn">
-                                <rect key="frame" x="0.0" y="84" width="414" height="729"/>
+                                <rect key="frame" x="0.0" y="69" width="414" height="744"/>
                                 <color key="backgroundColor" name="CrackerWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OpponentsTBCell" rowHeight="28.5" id="Dqc-Er-aAt" customClass="OpponentsTBCell" customModule="Cracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="28.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OpponentsTBCell" id="Dqc-Er-aAt" customClass="OpponentsTBCell" customModule="Cracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dqc-Er-aAt" id="UxG-GK-7gD">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="28.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66r-Xr-fXN" customClass="PaddingLabel" customModule="Cracker" customModuleProvider="target">
-                                                    <rect key="frame" x="30" y="0.0" width="81" height="28.5"/>
+                                                    <rect key="frame" x="95" y="35" width="55.5" height="30"/>
                                                     <color key="backgroundColor" name="CrackerYellow"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="GvE-u6-WEX"/>
                                                     </constraints>
                                                     <attributedString key="attributedText">
-                                                        <fragment content="Message">
+                                                        <fragment content="Progress">
                                                             <attributes>
-                                                                <color key="NSColor" name="CrackerWhite"/>
-                                                                <font key="NSFont" size="18" name="GillSans"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2" tighteningFactorForTruncation="0.0"/>
+                                                                <color key="NSColor" red="0.98399999999999999" green="0.96499999999999997" blue="0.94099999999999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <font key="NSFont" size="16" name=".SFNS-Regular"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -1556,7 +1554,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VmH-xp-UWQ">
-                                                    <rect key="frame" x="121" y="13.5" width="32" height="15"/>
+                                                    <rect key="frame" x="155.5" y="50" width="32" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="uAN-yz-aBh"/>
                                                     </constraints>
@@ -1564,31 +1562,41 @@
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cPq-HP-OhV">
+                                                    <rect key="frame" x="20" y="10" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="cPq-HP-OhV" secondAttribute="height" multiplier="1:1" id="ILC-vF-BFS"/>
+                                                        <constraint firstAttribute="width" constant="60" id="yIq-HM-8Tl"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" name="CrackerWhite"/>
                                             <constraints>
-                                                <constraint firstItem="66r-Xr-fXN" firstAttribute="top" secondItem="UxG-GK-7gD" secondAttribute="top" id="DCE-k2-Hda"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="66r-Xr-fXN" secondAttribute="trailing" constant="120" id="H7v-7S-0EI"/>
-                                                <constraint firstItem="VmH-xp-UWQ" firstAttribute="leading" secondItem="66r-Xr-fXN" secondAttribute="trailing" constant="10" id="Ifx-Zc-hex"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="66r-Xr-fXN" secondAttribute="bottom" id="KYt-co-Oa8"/>
+                                                <constraint firstItem="66r-Xr-fXN" firstAttribute="top" secondItem="cPq-HP-OhV" secondAttribute="top" constant="25" id="DCE-k2-Hda"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="66r-Xr-fXN" secondAttribute="trailing" constant="100" id="H7v-7S-0EI"/>
+                                                <constraint firstItem="VmH-xp-UWQ" firstAttribute="leading" secondItem="66r-Xr-fXN" secondAttribute="trailing" constant="5" id="Ifx-Zc-hex"/>
+                                                <constraint firstAttribute="bottom" secondItem="66r-Xr-fXN" secondAttribute="bottom" id="KYt-co-Oa8"/>
                                                 <constraint firstItem="VmH-xp-UWQ" firstAttribute="bottom" secondItem="66r-Xr-fXN" secondAttribute="bottom" id="QrI-ui-vVz"/>
-                                                <constraint firstItem="66r-Xr-fXN" firstAttribute="leading" secondItem="UxG-GK-7gD" secondAttribute="leading" constant="30" id="YJo-jd-gwm"/>
+                                                <constraint firstItem="cPq-HP-OhV" firstAttribute="top" secondItem="UxG-GK-7gD" secondAttribute="top" constant="10" id="Tin-ZZ-N6J"/>
+                                                <constraint firstItem="66r-Xr-fXN" firstAttribute="leading" secondItem="cPq-HP-OhV" secondAttribute="trailing" constant="15" id="YJo-jd-gwm"/>
+                                                <constraint firstItem="cPq-HP-OhV" firstAttribute="leading" secondItem="UxG-GK-7gD" secondAttribute="leading" constant="20" id="ofP-IV-dzq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="opponentsImageView" destination="cPq-HP-OhV" id="jtG-Sr-Bnj"/>
                                             <outlet property="progressLabel" destination="66r-Xr-fXN" id="h0i-3D-taz"/>
                                             <outlet property="timeLabel" destination="VmH-xp-UWQ" id="saa-id-jH2"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeammatesTBCell" rowHeight="28.5" id="5NM-6w-paI" customClass="TeammatesTBCell" customModule="Cracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="56.5" width="414" height="28.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeammatesTBCell" id="5NM-6w-paI" customClass="TeammatesTBCell" customModule="Cracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="93" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5NM-6w-paI" id="wT4-W3-ybk">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="28.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4d-Gj-N8B" customClass="PaddingLabel" customModule="Cracker" customModuleProvider="target">
-                                                    <rect key="frame" x="301" y="0.0" width="83" height="28.5"/>
+                                                    <rect key="frame" x="263.5" y="35" width="55.5" height="30"/>
                                                     <color key="backgroundColor" name="CrackerOrange"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="AAs-af-cW8"/>
@@ -1597,8 +1605,8 @@
                                                         <fragment content="Progress">
                                                             <attributes>
                                                                 <color key="NSColor" name="CrackerWhite"/>
-                                                                <font key="NSFont" size="18" name="GillSans"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2" tighteningFactorForTruncation="0.0"/>
+                                                                <font key="NSFont" size="16" name=".SFNS-Regular"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -1619,7 +1627,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K15-VL-vol">
-                                                    <rect key="frame" x="259" y="13.5" width="32" height="15"/>
+                                                    <rect key="frame" x="226.5" y="50" width="32" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="A9c-nQ-lBv"/>
                                                     </constraints>
@@ -1627,19 +1635,29 @@
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vjO-qC-zti">
+                                                    <rect key="frame" x="334" y="10" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="Pcv-7S-XhS"/>
+                                                        <constraint firstAttribute="width" secondItem="vjO-qC-zti" secondAttribute="height" multiplier="1:1" id="xXb-bw-Jz5"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" name="CrackerWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="O4d-Gj-N8B" secondAttribute="trailing" constant="30" id="22I-Pl-GZY"/>
-                                                <constraint firstItem="K15-VL-vol" firstAttribute="trailing" secondItem="O4d-Gj-N8B" secondAttribute="leading" constant="-10" id="9HG-bQ-M4K"/>
-                                                <constraint firstItem="O4d-Gj-N8B" firstAttribute="top" secondItem="wT4-W3-ybk" secondAttribute="top" id="Znf-g3-kMb"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="O4d-Gj-N8B" secondAttribute="bottom" id="dYq-ef-0fg"/>
-                                                <constraint firstItem="O4d-Gj-N8B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wT4-W3-ybk" secondAttribute="leading" constant="120" id="ion-6W-tTq"/>
+                                                <constraint firstItem="vjO-qC-zti" firstAttribute="leading" secondItem="O4d-Gj-N8B" secondAttribute="trailing" constant="15" id="22I-Pl-GZY"/>
+                                                <constraint firstItem="K15-VL-vol" firstAttribute="trailing" secondItem="O4d-Gj-N8B" secondAttribute="leading" constant="-5" id="9HG-bQ-M4K"/>
+                                                <constraint firstAttribute="trailing" secondItem="vjO-qC-zti" secondAttribute="trailing" constant="20" id="PVy-up-vpQ"/>
+                                                <constraint firstItem="O4d-Gj-N8B" firstAttribute="top" secondItem="vjO-qC-zti" secondAttribute="top" constant="25" id="Znf-g3-kMb"/>
+                                                <constraint firstAttribute="bottom" secondItem="O4d-Gj-N8B" secondAttribute="bottom" id="dYq-ef-0fg"/>
+                                                <constraint firstItem="O4d-Gj-N8B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wT4-W3-ybk" secondAttribute="leading" constant="100" id="ion-6W-tTq"/>
                                                 <constraint firstItem="K15-VL-vol" firstAttribute="bottom" secondItem="O4d-Gj-N8B" secondAttribute="bottom" id="oYN-c5-VA7"/>
+                                                <constraint firstItem="vjO-qC-zti" firstAttribute="top" secondItem="wT4-W3-ybk" secondAttribute="top" constant="10" id="tkF-SX-aq1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="progressLabel" destination="O4d-Gj-N8B" id="4EE-eY-fnm"/>
+                                            <outlet property="teammatesImageView" destination="vjO-qC-zti" id="9ft-Qx-VyU"/>
                                             <outlet property="timeLabel" destination="K15-VL-vol" id="LHN-3E-qiQ"/>
                                         </connections>
                                     </tableViewCell>
@@ -1650,7 +1668,7 @@
                         <color key="backgroundColor" name="CrackerWhite"/>
                         <constraints>
                             <constraint firstItem="O1y-wb-FCn" firstAttribute="leading" secondItem="aYO-5Q-MpC" secondAttribute="leading" id="Kgz-6G-sCr"/>
-                            <constraint firstItem="O1y-wb-FCn" firstAttribute="top" secondItem="aYO-5Q-MpC" secondAttribute="top" constant="40" id="W4T-Bu-ctx"/>
+                            <constraint firstItem="O1y-wb-FCn" firstAttribute="top" secondItem="aYO-5Q-MpC" secondAttribute="top" constant="25" id="W4T-Bu-ctx"/>
                             <constraint firstItem="aYO-5Q-MpC" firstAttribute="bottom" secondItem="O1y-wb-FCn" secondAttribute="bottom" id="wds-nW-XBR"/>
                             <constraint firstItem="aYO-5Q-MpC" firstAttribute="trailing" secondItem="O1y-wb-FCn" secondAttribute="trailing" id="ziw-M6-n2T"/>
                         </constraints>
@@ -2503,10 +2521,10 @@
     </scenes>
     <designables>
         <designable name="66r-Xr-fXN">
-            <size key="intrinsicContentSize" width="81" height="37"/>
+            <size key="intrinsicContentSize" width="55.5" height="18"/>
         </designable>
         <designable name="O4d-Gj-N8B">
-            <size key="intrinsicContentSize" width="83" height="37"/>
+            <size key="intrinsicContentSize" width="55.5" height="18"/>
         </designable>
     </designables>
     <resources>
@@ -2537,9 +2555,6 @@
         </namedColor>
         <namedColor name="CrackerOrange">
             <color red="1" green="0.64300000667572021" blue="0.35699999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="CrackerWhite">
-            <color red="0.98400002717971802" green="0.9649999737739563" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="CrackerWhite">
             <color red="0.98400002717971802" green="0.9649999737739563" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

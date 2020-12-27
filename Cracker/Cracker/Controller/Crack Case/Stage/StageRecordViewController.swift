@@ -93,7 +93,7 @@ class StageRecordViewController: UIViewController {
     
     func fetchGameResult() {
         
-        totalTime.text = playerAfterGame.elapsedTimeString
+        totalTime.text = "You spent " + playerAfterGame.elapsedTimeString + " cracking this case"
         
         if playerAfterGame.isWinner == true {
             

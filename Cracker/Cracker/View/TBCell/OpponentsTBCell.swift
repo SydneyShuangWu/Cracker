@@ -12,4 +12,5 @@ class OpponentsTBCell: UITableViewCell {
     
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var opponentsImageView: UIImageView!
 }

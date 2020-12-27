@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import Kingfisher
 
 class StageBoardViewController: UIViewController {
     
@@ -20,6 +21,7 @@ class StageBoardViewController: UIViewController {
     var currentUid = Auth.auth().currentUser?.uid
     var stageRecords = [CrackerStageRecord]()
     var currentPlayer = CrackerPlayer()
+    var allPlayers = [CrackerPlayer]()
     var stages = [CrackerStage]()
     
     override func viewDidLoad() {
@@ -27,6 +29,8 @@ class StageBoardViewController: UIViewController {
         super.viewDidLoad()
         
         setupTableView()
+        
+        fetchAllPlayers()
         
         fetchStageData()
         
@@ -81,6 +85,26 @@ class StageBoardViewController: UIViewController {
         }
     }
     
+    // MARK: - Fetch all players
+    func fetchAllPlayers() {
+        
+        let collection = firestoreManager.getCollection(name: .crackerGame).document("\(gameId.prefix(20))").collection("Players")
+        
+        firestoreManager.read(collection: collection, dataType: CrackerPlayer.self) { (result) in
+            
+            switch result {
+            
+            case .success(let allPlayers):
+                
+                self.allPlayers = allPlayers
+      
+            case .failure(let error):
+                
+                print("Failed to read cases: ", error.localizedDescription)
+            }
+        }
+    }
+    
     // MARK: - Listen realtime stage record
     func listenStageRecords() {
         
@@ -95,6 +119,12 @@ class StageBoardViewController: UIViewController {
                 case .success(let stageRecords):
                     
                     self.stageRecords = stageRecords
+                    
+                    self.stageRecords = stageRecords.sorted(by: { (first, second) -> Bool in
+                        
+                        return first.triggerTime.dateValue() < second.triggerTime.dateValue()
+                    })
+                    
                     self.progressTableView.reloadData()
           
                 case .failure(let error):
@@ -115,6 +145,9 @@ extension StageBoardViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        var playerName = ""
+        var playerImage = ""
+        
         let records = stageRecords[indexPath.row]
         
         // Convert time
@@ -122,13 +155,22 @@ extension StageBoardViewController: UITableViewDelegate, UITableViewDataSource {
         dateFormatter.dateFormat = "HH:mm"
         let triggerTime = dateFormatter.string(from: records.triggerTime.dateValue())
         
+        // Filter name and image
+        for player in allPlayers where records.playerId == player.id {
+        
+            playerName = player.name
+            playerImage = player.image
+        }
+        
         if records.teamId == currentPlayer.teamId {
             
             let teammatesCell = tableView.dequeueReusableCell(withIdentifier: "TeammatesTBCell") as! TeammatesTBCell
             
             teammatesCell.progressLabel.setupCornerRadius()
+            teammatesCell.teammatesImageView.loadImage(playerImage)
+            teammatesCell.teammatesImageView.layer.cornerRadius = teammatesCell.teammatesImageView.frame.size.width / 2
             
-            teammatesCell.progressLabel.text = "我隊已解出第 " + "\(records.stagePassed)" + " 關"
+            teammatesCell.progressLabel.text = "我隊" + playerName + "已解出第" + "\(records.stagePassed)" + "關"
             
             teammatesCell.timeLabel.text = triggerTime
             
@@ -139,14 +181,16 @@ extension StageBoardViewController: UITableViewDelegate, UITableViewDataSource {
             let opponentsCell = tableView.dequeueReusableCell(withIdentifier: "OpponentsTBCell") as! OpponentsTBCell
             
             opponentsCell.progressLabel.setupCornerRadius()
+            opponentsCell.opponentsImageView.loadImage(playerImage)
+            opponentsCell.opponentsImageView.layer.cornerRadius = opponentsCell.opponentsImageView.frame.size.width / 2
             
             if records.stagePassed == stages.count {
                 
-                opponentsCell.progressLabel.text = "敵對已獲勝"
+                opponentsCell.progressLabel.text = "敵隊" + playerName + "已解出最後一關，敵隊獲勝"
                 
             } else {
                 
-                opponentsCell.progressLabel.text = "敵隊已解出第 " + "\(records.stagePassed)" + " 關"
+                opponentsCell.progressLabel.text = "敵隊" + playerName + "已解出第" + "\(records.stagePassed)" + "關"
             }
             
             opponentsCell.timeLabel.text = triggerTime
@@ -157,10 +201,5 @@ extension StageBoardViewController: UITableViewDelegate, UITableViewDataSource {
             
             return UITableViewCell()
         }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 60
     }
 }
