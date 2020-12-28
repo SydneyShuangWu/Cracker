@@ -2559,6 +2559,9 @@
         <namedColor name="CrackerWhite">
             <color red="0.98400002717971802" green="0.9649999737739563" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="CrackerWhite">
+            <color red="0.98400002717971802" green="0.9649999737739563" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="CrackerYellow">
             <color red="1" green="0.85500001907348633" blue="0.46700000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

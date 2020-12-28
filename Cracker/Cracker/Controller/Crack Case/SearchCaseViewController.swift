@@ -171,7 +171,10 @@ class SearchCaseViewController: UIViewController {
             
             case .success(let crackerCases):
                 
-                self.searchSource[1].data = crackerCases
+                self.searchSource[1].data = crackerCases.sorted(by: { (first, second) -> Bool in
+                    
+                    return first.createdTime.dateValue() > second.createdTime.dateValue()
+                })
       
             case .failure(let error):
                 
@@ -189,9 +192,16 @@ class SearchCaseViewController: UIViewController {
             
             case .success(let crackerCases):
                 
-                self.filteredCases = crackerCases
+                self.filteredCases = crackerCases.sorted(by: { (first, second) -> Bool in
+                    
+                    return first.score! > second.score!
+                })
                 self.searchCaseTableView.reloadData()
-                self.searchSource[0].data = crackerCases
+                
+                self.searchSource[0].data = crackerCases.sorted(by: { (first, second) -> Bool in
+                    
+                    return first.score! > second.score!
+                })
       
             case .failure(let error):
                 
