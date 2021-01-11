@@ -11,6 +11,7 @@
 		C10A7EA8257ED90900AC0AE6 /* DesignCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A7EA7257ED90900AC0AE6 /* DesignCaseViewController.swift */; };
 		C10C022E25873A930013AACC /* DesignTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C022D25873A930013AACC /* DesignTestViewController.swift */; };
 		C10C0231258741D40013AACC /* DesignTestTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C0230258741D40013AACC /* DesignTestTBCell.swift */; };
+		C10C9405259B0E2200AFFEB9 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C9404259B0E2200AFFEB9 /* PrivacyViewController.swift */; };
 		C11BBAB9258E0FB100C597C1 /* JoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11BBAB8258E0FB100C597C1 /* JoinTeamViewController.swift */; };
 		C11BBABD258F93AE00C597C1 /* EditNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11BBABC258F93AE00C597C1 /* EditNameViewController.swift */; };
 		C1202FAB258A0C7B0031AD81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1202FAA258A0C7B0031AD81 /* GoogleService-Info.plist */; };
@@ -71,6 +72,7 @@
 		C1C406C8258CA5B500474178 /* CrackerMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C406C7258CA5B500474178 /* CrackerMessage.swift */; };
 		C1C406CC258CA81800474178 /* CrackerPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C406CB258CA81800474178 /* CrackerPlayer.swift */; };
 		C1C406CF258CAA4300474178 /* CrackerStageRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C406CE258CAA4300474178 /* CrackerStageRecord.swift */; };
+		C1C91FF3259DA797006F386C /* CrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C91FF2259DA797006F386C /* CrackerTests.swift */; };
 		C1D421332570A82A00FF0641 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D421322570A82A00FF0641 /* AppDelegate.swift */; };
 		C1D421352570A82A00FF0641 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D421342570A82A00FF0641 /* SceneDelegate.swift */; };
 		C1D421372570A82A00FF0641 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D421362570A82A00FF0641 /* LobbyViewController.swift */; };
@@ -88,6 +90,16 @@
 		C1EFA7B425822EC0004C7D03 /* CLLocationCoordinate2D+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EFA7B325822EC0004C7D03 /* CLLocationCoordinate2D+Extension.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C1C91FF5259DA797006F386C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1D421272570A82A00FF0641 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1D4212E2570A82A00FF0641;
+			remoteInfo = Cracker;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		393C5F77F20E3EA5921949A6 /* Pods_Cracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A62F66E597473114849F432 /* Pods-Cracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cracker.debug.xcconfig"; path = "Target Support Files/Pods-Cracker/Pods-Cracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +107,7 @@
 		C10A7EA7257ED90900AC0AE6 /* DesignCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCaseViewController.swift; sourceTree = "<group>"; };
 		C10C022D25873A930013AACC /* DesignTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTestViewController.swift; sourceTree = "<group>"; };
 		C10C0230258741D40013AACC /* DesignTestTBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTestTBCell.swift; sourceTree = "<group>"; };
+		C10C9404259B0E2200AFFEB9 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		C11BBAB8258E0FB100C597C1 /* JoinTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTeamViewController.swift; sourceTree = "<group>"; };
 		C11BBABC258F93AE00C597C1 /* EditNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNameViewController.swift; sourceTree = "<group>"; };
 		C1202FAA258A0C7B0031AD81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -156,6 +169,9 @@
 		C1C406C7258CA5B500474178 /* CrackerMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerMessage.swift; sourceTree = "<group>"; };
 		C1C406CB258CA81800474178 /* CrackerPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerPlayer.swift; sourceTree = "<group>"; };
 		C1C406CE258CAA4300474178 /* CrackerStageRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerStageRecord.swift; sourceTree = "<group>"; };
+		C1C91FF0259DA797006F386C /* CrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1C91FF2259DA797006F386C /* CrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackerTests.swift; sourceTree = "<group>"; };
+		C1C91FF4259DA797006F386C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1D4212F2570A82A00FF0641 /* Cracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D421322570A82A00FF0641 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1D421342570A82A00FF0641 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +192,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C1C91FED259DA797006F386C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C1D4212C2570A82A00FF0641 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -332,10 +355,20 @@
 			path = "Crack Case";
 			sourceTree = "<group>";
 		};
+		C1C91FF1259DA797006F386C /* CrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				C1C91FF2259DA797006F386C /* CrackerTests.swift */,
+				C1C91FF4259DA797006F386C /* Info.plist */,
+			);
+			path = CrackerTests;
+			sourceTree = "<group>";
+		};
 		C1D421262570A82A00FF0641 = {
 			isa = PBXGroup;
 			children = (
 				C1D421312570A82A00FF0641 /* Cracker */,
+				C1C91FF1259DA797006F386C /* CrackerTests */,
 				C1D421302570A82A00FF0641 /* Products */,
 				962C2B4932A419A0292451CC /* Pods */,
 				2E70CADB3D5C22A260F76F91 /* Frameworks */,
@@ -346,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				C1D4212F2570A82A00FF0641 /* Cracker.app */,
+				C1C91FF0259DA797006F386C /* CrackerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -420,6 +454,7 @@
 				C1A7C0462575EDDB0022674B /* SidebarViewController.swift */,
 				C150A74C257A3E8F00C3402B /* ProfileViewController.swift */,
 				C11BBABC258F93AE00C597C1 /* EditNameViewController.swift */,
+				C10C9404259B0E2200AFFEB9 /* PrivacyViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -441,6 +476,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C1C91FEF259DA797006F386C /* CrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1C91FF9259DA797006F386C /* Build configuration list for PBXNativeTarget "CrackerTests" */;
+			buildPhases = (
+				C1C91FEC259DA797006F386C /* Sources */,
+				C1C91FED259DA797006F386C /* Frameworks */,
+				C1C91FEE259DA797006F386C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1C91FF6259DA797006F386C /* PBXTargetDependency */,
+			);
+			name = CrackerTests;
+			productName = CrackerTests;
+			productReference = C1C91FF0259DA797006F386C /* CrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C1D4212E2570A82A00FF0641 /* Cracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1D421432570A82C00FF0641 /* Build configuration list for PBXNativeTarget "Cracker" */;
@@ -451,6 +504,7 @@
 				C1D4212D2570A82A00FF0641 /* Resources */,
 				C1D4214D2570AC8100FF0641 /* SwiftLint */,
 				8A32B41163FA787450D06DAE /* [CP] Embed Pods Frameworks */,
+				C10C9427259B151800AFFEB9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -467,9 +521,13 @@
 		C1D421272570A82A00FF0641 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
+					C1C91FEF259DA797006F386C = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = C1D4212E2570A82A00FF0641;
+					};
 					C1D4212E2570A82A00FF0641 = {
 						CreatedOnToolsVersion = 12.0.1;
 					};
@@ -489,11 +547,19 @@
 			projectRoot = "";
 			targets = (
 				C1D4212E2570A82A00FF0641 /* Cracker */,
+				C1C91FEF259DA797006F386C /* CrackerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C1C91FEE259DA797006F386C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C1D4212D2570A82A00FF0641 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -553,6 +619,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cracker/Pods-Cracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C10C9427259B151800AFFEB9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		C1D4214D2570AC8100FF0641 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -574,6 +658,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C1C91FEC259DA797006F386C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1C91FF3259DA797006F386C /* CrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C1D4212B2570A82A00FF0641 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -609,6 +701,7 @@
 				C19D3B9B257F8BB7002E2E7C /* RPGViewCell.swift in Sources */,
 				C10A7EA8257ED90900AC0AE6 /* DesignCaseViewController.swift in Sources */,
 				C1A7C0382574DB410022674B /* Geotification.swift in Sources */,
+				C10C9405259B0E2200AFFEB9 /* PrivacyViewController.swift in Sources */,
 				C1921CA2258A3529004E2A9A /* NotificationCenter+Extension.swift in Sources */,
 				C1A7C0272574869F0022674B /* RPGMapViewController.swift in Sources */,
 				C1BD23D42580E39F00D7D090 /* StageMapViewController.swift in Sources */,
@@ -650,6 +743,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C1C91FF6259DA797006F386C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1D4212E2570A82A00FF0641 /* Cracker */;
+			targetProxy = C1C91FF5259DA797006F386C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		C1D421382570A82A00FF0641 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -670,6 +771,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C1C91FF7259DA797006F386C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z2Y6VK2D6T;
+				HEADER_SEARCH_PATHS = "";
+				"HEADER_SEARCH_PATHS[arch=*]" = "\"${SRCROOT}/Pods/Firebase/CoreOnly/Sources\"";
+				INFOPLIST_FILE = CrackerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SydneyWu.CrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cracker.app/Cracker";
+			};
+			name = Debug;
+		};
+		C1C91FF8259DA797006F386C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z2Y6VK2D6T;
+				"HEADER_SEARCH_PATHS[arch=*]" = "\"${SRCROOT}/Pods/Firebase/CoreOnly/Sources\"";
+				INFOPLIST_FILE = CrackerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SydneyWu.CrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cracker.app/Cracker";
+			};
+			name = Release;
+		};
 		C1D421412570A82C00FF0641 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -795,6 +941,8 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = Cracker/Cracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = Z2Y6VK2D6T;
 				INFOPLIST_FILE = Cracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -804,7 +952,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.SydneyWu.Cracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -817,6 +965,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = Cracker/Cracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Z2Y6VK2D6T;
 				INFOPLIST_FILE = Cracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -826,13 +975,22 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.SydneyWu.Cracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C1C91FF9259DA797006F386C /* Build configuration list for PBXNativeTarget "CrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1C91FF7259DA797006F386C /* Debug */,
+				C1C91FF8259DA797006F386C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C1D4212A2570A82A00FF0641 /* Build configuration list for PBXProject "Cracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -392,23 +392,28 @@ class StageViewController: UIViewController {
             
             case .success(let stageRecords):
                 
-                self.stageRecords = stageRecords.sorted(by: { (first, second) -> Bool in
-                    
-                    return first.triggerTime.dateValue() < second.triggerTime.dateValue()
-                })
-                
-                let last = self.stages.count
-                
-                for record in self.stageRecords where record.stagePassed == last
-                    && self.winnerTeamId == nil {
-                    
-                    self.winnerTeamId = record.teamId
-                }
+                self.sortStageRecords(stageRecords: stageRecords, stageCount: self.stages.count)
             
             case .failure(let error):
                 
                 print("Failed to read cases: ", error.localizedDescription)
             }
+        }
+    }
+    
+    func sortStageRecords(stageRecords: [CrackerStageRecord], stageCount: Int) {
+        
+        self.stageRecords = stageRecords.sorted(by: { (first, second) -> Bool in
+            
+            return first.triggerTime.dateValue() < second.triggerTime.dateValue()
+        })
+        
+        let last = stageCount
+        
+        for record in self.stageRecords where record.stagePassed == last
+            && self.winnerTeamId == nil {
+            
+            self.winnerTeamId = record.teamId
         }
     }
     

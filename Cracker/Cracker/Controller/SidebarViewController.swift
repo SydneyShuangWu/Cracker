@@ -45,4 +45,26 @@ class SidebarViewController: UIViewController {
 
         present(nav, animated: true, completion: nil)
     }
+    
+    @IBAction func privacyBtnDidTap(_ sender: Any) {
+        
+        navigateToPrivacyVc()
+//        fatalError()
+    }
+    
+    @objc func navigateToPrivacyVc() {
+        
+        let vc = myStoryboard.instantiateViewController(withIdentifier: "PrivacyVc")
+        
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .fullScreen
+
+        nav.hero.isEnabled = true
+
+        nav.hero.modalAnimationType = .autoReverse(presenting: .zoomSlide(direction: .right))
+
+        present(nav, animated: true, completion: nil)
+    }
+    
 }
