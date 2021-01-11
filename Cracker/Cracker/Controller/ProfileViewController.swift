@@ -260,7 +260,7 @@ class ProfileViewController: UIViewController {
         
         setupNavigationBar(with: "Profile")
         setupCloseButton()
-        setupToolBoxButton()
+//        setupToolBoxButton()
 
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.clipsToBounds = true
@@ -269,6 +269,8 @@ class ProfileViewController: UIViewController {
         profileRank.clipsToBounds = true
 
         searchBtn.setupCornerRadius()
+        
+        editNamePage.setupCornerRadius()
         
         setupTableView()
     }

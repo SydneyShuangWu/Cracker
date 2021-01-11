@@ -32,8 +32,10 @@ class SelectCategoryViewController: UIViewController {
     
     @IBAction func selectRpg(_ sender: Any) {
         
-        selectedCategory = CaseCategory.rpg
-        navigateToCreateCaseVc()
+        showAlert(withTitle: "Coming soon!", withActionTitle: "OK", message: nil)
+        
+//        selectedCategory = CaseCategory.rpg
+//        navigateToCreateCaseVc()
     }
     
     func navigateToCreateCaseVc() {

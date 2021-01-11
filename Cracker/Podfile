@@ -18,5 +18,6 @@ target 'Cracker' do
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Storage'
+  pod 'Firebase/Crashlytics'
 
 end
